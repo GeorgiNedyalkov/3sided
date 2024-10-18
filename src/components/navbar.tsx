@@ -33,10 +33,15 @@ export default function Navbar() {
         isVisible ? "fixed" : "hidden"
       }`}
     >
-      <ul className="flex items-center justify-center h-20">
+      <ul className="flex items-center justify-between h-20 px-20">
         <Link href="/">
-          <li className="text-3xl font-extrabold uppercase">3Sided</li>
+          <li className="text-3xl font-extrabold uppercase w-[50vw] text-right">
+            3Sided
+          </li>
         </Link>
+        {/* <Link href="/cart">
+          <li>cart</li>
+        </Link> */}
       </ul>
     </nav>
   );
