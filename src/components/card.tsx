@@ -1,3 +1,5 @@
+"use client";
+import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -14,10 +16,48 @@ export default function CharmCard({
   description,
   price,
 }: CharmProps) {
+  const [playVideo, setPlayVideo] = useState(false);
+
+  const videoRef = useRef(null);
+
+  function handleMouseEnter() {
+    setPlayVideo(true);
+    console.log("Entering");
+    videoRef.current?.play();
+  }
+
+  function handleMouseLeave() {
+    setPlayVideo(false);
+    videoRef.current?.pause();
+    console.log("Leaving");
+  }
+
   return (
     <Link href={`charms/${label}`}>
-      <div className="w-80 h-80 hover:border hover:border-green-900">
-        <Image src={imageSrc} alt={label} width={400} height={400} />
+      <div className="w-80 border border-transparent hover:border-green-900">
+        <div></div>
+        <div
+          className="relative w-full h-96"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          <Image
+            src={imageSrc}
+            alt={label}
+            sizes=""
+            fill
+            className={`${playVideo ? "hidden" : "object-cover"}`}
+          />
+
+          <video
+            ref={videoRef}
+            src="/video.mp4"
+            autoPlay
+            className="h-full object-cover"
+          >
+            Video
+          </video>
+        </div>
         <div className="text-left p-4">
           <div className="mb-2">{description}</div>
           <div className="text-3xl">

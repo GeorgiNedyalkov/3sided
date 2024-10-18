@@ -2,5 +2,5 @@
 
 - [x] Navbar
 - [x] Catalog
-  - [] Video playback
+  - [x] Video playback
 - [x] Jewel page
