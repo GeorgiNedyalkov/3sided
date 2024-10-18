@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 export default function Navbar() {
-  const [isVisible, setIsVisible] = useState(false);
+  const [isVisible, setIsVisible] = useState(true);
   const [lastYPosition, setLastYPosition] = useState<number>(0);
 
   function handleScroll() {
@@ -35,7 +35,7 @@ export default function Navbar() {
     >
       <ul className="flex items-center justify-center h-20">
         <Link href="/">
-          <li className="text-3xl font-extrabold">3Sided</li>
+          <li className="text-3xl font-extrabold uppercase">3Sided</li>
         </Link>
       </ul>
     </nav>

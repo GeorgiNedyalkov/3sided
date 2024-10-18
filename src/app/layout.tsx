@@ -15,7 +15,7 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "3Sided",
+  title: "3SIDED",
   description: "Buy charms and bracelets from 3Sided",
 };
 
