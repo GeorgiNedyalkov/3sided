@@ -1,6 +1,6 @@
 # 3 Sided Ecommerce site
 
-- [] Navbar
-- [] Catalog
+- [x] Navbar
+- [x] Catalog
   - [] Video playback
-- [] Jewel page
+- [x] Jewel page
