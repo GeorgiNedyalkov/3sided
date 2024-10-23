@@ -4,17 +4,21 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import { charms } from "@/lib/placeholder-data";
 import AddToCartButton from "@/components/add-to-cart";
+import { ChevronUp, ChevronDown } from "@/icons/chevrons";
 
 function getCharmByLabel(label: string | string[]) {
   return charms.find((charm) => `${charm.label}` == label);
 }
 
 export default function CharmPage() {
-  const [quantity, setQuantity] = useState(1);
   const params = useParams();
-
   const charmLabel = params?.id;
   const charm = getCharmByLabel(charmLabel);
+
+  const [quantity, setQuantity] = useState(1);
+  const [selectedImage, setSelectedImage] = useState<string | null>(
+    charm?.imageSrc || ""
+  );
 
   function increaseQuantity() {
     setQuantity((prevQuantity) => prevQuantity + 1);
@@ -24,13 +28,16 @@ export default function CharmPage() {
     setQuantity((prevQuantity) => prevQuantity - 1);
   }
 
+  function chooseImage(imageSrc: string) {
+    setSelectedImage(imageSrc);
+  }
+
   return (
     <div className="w-full pt-20 grid grid-cols-2">
-      {/* col 1 */}
       <div>
         <div className="h-[500px] w-full relative">
           <Image
-            src={charm?.imageSrc || ""}
+            src={selectedImage || ""}
             alt={charm?.label || ""}
             fill
             className="object-contain"
@@ -40,7 +47,12 @@ export default function CharmPage() {
         {/* images of this product */}
         <ul className="flex items-center justify-center gap-5">
           {charms.map((charm) => (
-            <li key={charm.id} className="border rounded-lg">
+            <li
+              key={charm.id}
+              className="border rounded-lg"
+              onClick={() => chooseImage(charm.imageSrc)}
+              value={charm.imageSrc}
+            >
               <Image
                 src={charm.imageSrc}
                 width={150}
@@ -71,9 +83,11 @@ export default function CharmPage() {
                 <div>{quantity}</div>
 
                 <div className="flex flex-col items-center justify-center">
-                  <button onClick={increaseQuantity}>+</button>
+                  <button onClick={increaseQuantity}>
+                    <ChevronUp />
+                  </button>
                   <button onClick={decreaseQuantity} disabled={quantity <= 1}>
-                    -
+                    <ChevronDown />
                   </button>
                 </div>
               </div>
