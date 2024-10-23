@@ -22,14 +22,12 @@ export default function CharmCard({
 
   function handleMouseEnter() {
     setPlayVideo(true);
-    console.log("Entering");
     videoRef.current?.play();
   }
 
   function handleMouseLeave() {
     setPlayVideo(false);
     videoRef.current?.pause();
-    console.log("Leaving");
   }
 
   return (
