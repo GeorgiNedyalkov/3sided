@@ -46,7 +46,6 @@ export default function CharmPage() {
           />
         </div>
 
-        {/* images of this product */}
         <ul className="flex items-center justify-center gap-5">
           {charms.map((charm) => (
             <li
@@ -67,7 +66,6 @@ export default function CharmPage() {
         </ul>
       </div>
 
-      {/* col 2 */}
       <div className="w-3/4 pt-20">
         <h1 className="text-5xl font-semibold mb-4">Precious Charm</h1>
         <div className="text-gray-600">{charm?.number}</div>
@@ -77,7 +75,6 @@ export default function CharmPage() {
           <span className="font-semibold text-3xl">{charm?.price}</span>
           <span className="text-lg"> лв.</span>
           <div className="border border-gray-100 my-5" />
-          {/* Quantity Buy button */}
           <div className="flex gap-4 items-end">
             <div>
               <div className="mb-4">Количество:</div>
