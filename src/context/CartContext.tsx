@@ -1,25 +1,17 @@
 "use client";
+import { Charm } from "@/lib/definitions";
 import { useEffect, useState, useContext, createContext } from "react";
 
-// 1. Create cart context
 const CartContext = createContext(null);
 
-// 2. Create a useCart function to use the Cart Context
 export const useCart = () => useContext(CartContext);
 
-// 3. Create the CartContextProvider component
-//  - Store the state of the cart
-//  - Initialize the cart from the local storage
-//  - create a side effect with the cart as a dependency and save it to local storage
-//  - addItem function
-//  - removeItem function
-//  - clearCart function
 export default function CartProvider({
   children,
 }: {
   children: React.ReactNode;
 }) {
-  const [cart, setCart] = useState(() => {
+  const [cart, setCart] = useState<Charm[] | undefined>(() => {
     const storedCart =
       typeof window !== undefined ? window.localStorage.getItem("cart") : null;
     return storedCart ? JSON.parse(storedCart) : [];
@@ -31,11 +23,13 @@ export default function CartProvider({
     }
   }, [cart]);
 
-  function addToCart(product, quantity = 1) {
+  function addToCart(product: Charm, quantity: number) {
     setCart((prevCart) => {
       // if the item is in the cart update the quantity
+      if (!prevCart) return;
+
       const itemIndex = prevCart.findIndex(
-        (cartItem) => cartItem.id == product.id
+        (cartItem) => cartItem.id === product.id
       );
 
       if (itemIndex > -1) {
@@ -48,8 +42,11 @@ export default function CartProvider({
     });
   }
 
-  function removeFromCart(product) {
-    setCart((prevCart) => prevCart.filter((item) => item.id !== product.id));
+  function removeFromCart(product: Charm) {
+    setCart((prevCart) => {
+      if (!prevCart) return;
+      return prevCart.filter((item) => item.id !== product.id);
+    });
   }
 
   function clearCart() {

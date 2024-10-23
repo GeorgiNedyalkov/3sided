@@ -1,6 +1,5 @@
 # 3 Sided Ecommerce site
 
-- [x] Navbar
-- [x] Catalog
-  - [x] Video playback
-- [x] Jewel page
+TODO:
+
+- [] Add type safety to context and its functions

@@ -1,29 +1,34 @@
-const charms = [
+import { Charm } from "./definitions";
+
+const charms: Charm[] = [
   {
-    id: 1,
-    number: 782524599,
+    id: "1",
+    number: "782524599",
     category: "charm",
     label: "Charm_1",
     imageSrc: "/jewel_1.jpg",
     description: "This charm is defininately him.",
+    quantity: 1,
     price: 50,
   },
   {
-    id: 2,
-    number: 782534349,
+    id: "2",
+    number: "782534349",
     label: "Charm_2",
     category: "charm",
     imageSrc: "/jewel_2.jpg",
     description: "This charm gives 1000 aura.",
+    quantity: 1,
     price: 69,
   },
   {
-    id: 3,
-    number: 926534349,
+    id: "3",
+    number: "926534349",
     label: "Bracelet_1",
     category: "bracelet",
     imageSrc: "/jewel_2.jpg",
     description: "Wearing this bracelet makes you a princess",
+    quantity: 1,
     price: 45,
   },
 ];
