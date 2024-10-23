@@ -6,6 +6,7 @@ import { charms } from "@/lib/placeholder-data";
 import AddToCartButton from "@/components/add-to-cart";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import OtherProducts from "@/components/other-options";
+import { useCart } from "@/context/CartContext";
 
 function getCharmByLabel(label: string | string[]) {
   return charms.find((charm) => `${charm.label}` == label);
@@ -15,6 +16,8 @@ export default function CharmPage() {
   const params = useParams();
   const charmLabel = params?.id;
   const charm = getCharmByLabel(charmLabel);
+
+  const { addToCart } = useCart();
 
   const [quantity, setQuantity] = useState(1);
   const [selectedImage, setSelectedImage] = useState<string | null>(
@@ -31,6 +34,10 @@ export default function CharmPage() {
 
   function chooseImage(imageSrc: string) {
     setSelectedImage(imageSrc);
+  }
+
+  function handleAddToCart() {
+    addToCart(charm, quantity);
   }
 
   return (
@@ -93,7 +100,7 @@ export default function CharmPage() {
                 </div>
               </div>
 
-              <AddToCartButton />
+              <AddToCartButton onAddToCart={handleAddToCart} />
             </div>
           </div>
         </div>
