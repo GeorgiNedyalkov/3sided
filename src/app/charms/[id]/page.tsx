@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import { charms } from "@/lib/placeholder-data";
 import AddToCartButton from "@/components/add-to-cart";
-import { ChevronUp, ChevronDown } from "@/icons/chevrons";
+import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 
 function getCharmByLabel(label: string | string[]) {
   return charms.find((charm) => `${charm.label}` == label);
@@ -41,6 +41,8 @@ export default function CharmPage() {
             alt={charm?.label || ""}
             fill
             className="object-contain"
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            priority
           />
         </div>
 
@@ -79,15 +81,15 @@ export default function CharmPage() {
           <div className="flex gap-4 items-end">
             <div>
               <div className="mb-4">Количество:</div>
-              <div className="bg-white flex items-center justify-between h-12 px-4 py-2 rounded-xl">
-                <div>{quantity}</div>
+              <div className="bg-white flex items-center justify-between px-4 py-2 rounded-xl">
+                <div className="text-xl">{quantity}</div>
 
                 <div className="flex flex-col items-center justify-center">
                   <button onClick={increaseQuantity}>
-                    <ChevronUp />
+                    <ChevronUpIcon className="h-5" />
                   </button>
                   <button onClick={decreaseQuantity} disabled={quantity <= 1}>
-                    <ChevronDown />
+                    <ChevronDownIcon className="h-5" />
                   </button>
                 </div>
               </div>
