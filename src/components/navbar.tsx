@@ -29,7 +29,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`bg-gray-100 text-black fixed w-full ${
+      className={`bg-gray-100 text-black fixed w-full z-10 ${
         isVisible ? "fixed" : "hidden"
       }`}
     >

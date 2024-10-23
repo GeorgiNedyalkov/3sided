@@ -18,7 +18,7 @@ export default function CharmCard({
 }: CharmProps) {
   const [playVideo, setPlayVideo] = useState(false);
 
-  const videoRef = useRef(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   function handleMouseEnter() {
     setPlayVideo(true);
@@ -52,8 +52,10 @@ export default function CharmCard({
           <video
             ref={videoRef}
             src="/video.mp4"
-            autoPlay
             className="h-full object-cover"
+            autoPlay
+            muted
+            loop
           >
             Video
           </video>
