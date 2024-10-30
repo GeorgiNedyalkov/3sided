@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import AddToCartButton from "@/components/add-to-cart";
+import AddToCartButton from "@/components/cart/add-to-cart";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Product } from "@/lib/shopify/types";
 
