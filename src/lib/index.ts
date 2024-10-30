@@ -66,9 +66,6 @@ export async function getProducts(): Promise<ShopifyProduct[]> {
   });
 
   return removeEdgesAndNode(result.body.data.products);
-
-  // console.log(result?.body.data.products.edges[0].node);
-  // return result?.body.data.products.edges[0].node;
 }
 
 export async function getProduct(
