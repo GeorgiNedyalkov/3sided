@@ -1,5 +1,5 @@
 "use client";
-import { Charm } from "@/lib/definitions";
+import { Charm } from "@/lib/shopify/types";
 import { useEffect, useState, useContext, createContext } from "react";
 
 const CartContext = createContext(null);
@@ -13,12 +13,14 @@ export default function CartProvider({
 }) {
   const [cart, setCart] = useState<Charm[] | undefined>(() => {
     const storedCart =
-      typeof window !== undefined ? window.localStorage.getItem("cart") : null;
+      typeof window !== "undefined"
+        ? window.localStorage.getItem("cart")
+        : null;
     return storedCart ? JSON.parse(storedCart) : [];
   });
 
   useEffect(() => {
-    if (typeof window !== undefined) {
+    if (typeof window !== "undefined") {
       window.localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);

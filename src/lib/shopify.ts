@@ -1,16 +1,41 @@
-export async function shopifyFetch({ query, variables }) {
-  const endpoint = process.env.SHOPIFY_STORE_DOMAIN;
-  const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
+export const SHOPIFY_GRAPHQL_API_ENDPOINT = "/api/2023-01/graphql.json"; // check this
 
+const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN;
+const domain = process.env.SHOPIFY_STORE_DOMAIN;
+const endpoint = `${domain}${SHOPIFY_GRAPHQL_API_ENDPOINT}`;
+
+type ExtractVariables<T> = T extends { variables: object }
+  ? T["variables"]
+  : never;
+
+export async function shopifyFetch({
+  query,
+  headers,
+  variables,
+}: {
+  query: string;
+  headers?: HeadersInit;
+  variables?: ExtractVariables<T>;
+}) {
   try {
     const result = await fetch(endpoint, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         "X-Shopify-Storefront-Access-Token": key,
+        ...headers,
       },
-      body: { query, variables } && JSON.stringify({ query, variables }),
+      body: JSON.stringify({
+        ...(query && { query }),
+        ...(variables && { variables }),
+      }),
     });
+
+    const body = await result.json();
+
+    if (body.errors) {
+      throw ;
+    }
 
     return {
       status: result.status,
