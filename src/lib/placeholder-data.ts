@@ -1,4 +1,4 @@
-import { Charm } from "./definitions";
+import { Charm } from "./shopify/types";
 
 const charms: Charm[] = [
   {

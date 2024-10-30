@@ -2,13 +2,13 @@
 import Link from "next/link";
 import { ShoppingCartIcon } from "@heroicons/react/20/solid";
 import { useState, useEffect } from "react";
-import { useCart } from "@/context/CartContext";
+// import { useCart } from "@/context/CartContext";
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true);
   const [lastYPosition, setLastYPosition] = useState<number>(0);
 
-  const { cart } = useCart();
+  // const { cart } = useCart();
 
   function handleScroll() {
     const windowScrollY = window.scrollY;
@@ -31,8 +31,6 @@ export default function Navbar() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [lastYPosition]);
 
-  console.log(cart);
-
   return (
     <nav
       className={`bg-gray-100 text-black fixed w-full z-10 ${
@@ -48,7 +46,7 @@ export default function Navbar() {
         <Link href="/cart">
           <li className="font-5xl flex items-start justify-center gap-2">
             <ShoppingCartIcon className="h-5 w-5" />
-            <div>{cart?.length}</div>
+            {/* <div>{cart?.length}</div> */}
           </li>
         </Link>
       </ul>
