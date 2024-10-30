@@ -4,6 +4,7 @@ import {
 } from "./shopify/queries/productQueries";
 import {
   Connection,
+  Product,
   ShopifyProduct,
   ShopifyProductOperation,
   ShopifyProductsOperation,
@@ -57,20 +58,31 @@ export async function shopifyFetch<T>({
     };
   }
 }
-function removeEdgesAndNode<T>(array: Connection<T>): T[] {
+
+function removeEdgesAndNodes<T>(array: Connection<T>): T[] {
   return array.edges.map((edge) => edge?.node);
 }
+
+function reshapeProduct(product: ShopifyProduct) {
+  if (!product) return undefined;
+
+  const { images } = product;
+
+  return {
+    ...product,
+    images: removeEdgesAndNodes(images),
+  };
+}
+
 export async function getProducts(): Promise<ShopifyProduct[]> {
   const result = await shopifyFetch<ShopifyProductsOperation>({
     query: getProductsQuery,
   });
 
-  return removeEdgesAndNode(result.body.data.products);
+  return removeEdgesAndNodes(result.body.data.products);
 }
 
-export async function getProduct(
-  handle: string
-): Promise<ShopifyProduct | undefined> {
+export async function getProduct(handle: string): Promise<Product | undefined> {
   const res = await shopifyFetch<ShopifyProductOperation>({
     query: getProductQuery,
     variables: {
@@ -78,9 +90,5 @@ export async function getProduct(
     },
   });
 
-  return res.body.data.product;
-}
-
-export function reshapeProduct(product: ShopifyProduct) {
-  if (!product) return undefined;
+  return reshapeProduct(res.body.data.product);
 }

@@ -5,6 +5,13 @@ export type Connection<T> = {
   edges: Array<Edge<T>>;
 };
 
+export type Image = {
+  id: string;
+  url: string;
+  altText: string;
+  width: number;
+};
+
 export type ShopifyProductOperation = {
   data: { product: ShopifyProduct };
   variables: {
@@ -16,6 +23,15 @@ export type ShopifyProductsOperation = {
   data: {
     products: Connection<ShopifyProduct>;
   };
+};
+
+// export type Product = Omit<ShopifyProduct, "variants" | "images"> & {
+//   variants: ProductVariant[];
+//   images: Image[];
+// };
+
+export type Product = Omit<ShopifyProduct, "images"> & {
+  images: Image[];
 };
 
 export type ShopifyProduct = {
@@ -39,6 +55,7 @@ export type ShopifyProduct = {
       currencyCode: string;
     };
   };
+  images: Connection<Image>;
 };
 
 export type Charm = {

@@ -9,17 +9,23 @@ function getCharmByLabel(label: string | string[]) {
   return charms.find((charm) => `${charm.label}` == label);
 }
 
-export default function Gallery() {
+export default function Gallery({
+  images,
+}: {
+  images: { src: string; alt: string }[];
+}) {
   const params = useParams();
   const charmLabel = params?.id;
   const charm = getCharmByLabel(charmLabel);
+
   const [selectedImage, setSelectedImage] = useState<string | null>(
-    charm?.imageSrc || ""
+    images[0].src || ""
   );
 
   function chooseImage(imageSrc: string) {
     setSelectedImage(imageSrc);
   }
+
   return (
     <div>
       <div className="h-[500px] w-full relative">

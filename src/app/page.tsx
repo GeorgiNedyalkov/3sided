@@ -3,7 +3,6 @@ import { getProducts } from "@/lib";
 
 export default async function Home() {
   const products = await getProducts();
-  console.log(products);
 
   return (
     <div className="pt-20 bg-white w-full flex">

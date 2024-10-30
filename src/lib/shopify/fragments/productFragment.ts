@@ -1,3 +1,12 @@
+export const imageFragment = `
+    fragment image on Image {
+        id
+        altText
+        url
+        width
+    }
+`;
+
 export const productFragment = /* GraphQL */ `
   fragment product on Product {
     id
@@ -20,5 +29,13 @@ export const productFragment = /* GraphQL */ `
         currencyCode
       }
     }
+    images(first: 10) {
+      edges {
+        node {
+          ...image
+        }
+      }
+    }
   }
+  ${imageFragment}
 `;

@@ -3,13 +3,9 @@
 import { useState } from "react";
 import AddToCartButton from "@/components/add-to-cart";
 import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
-import { ShopifyProduct } from "@/lib/shopify/types";
+import { Product } from "@/lib/shopify/types";
 
-export default function ProductDescription({
-  charm,
-}: {
-  charm: ShopifyProduct;
-}) {
+export default function ProductDescription({ charm }: { charm: Product }) {
   const [quantity, setQuantity] = useState(1);
 
   console.log(charm);
