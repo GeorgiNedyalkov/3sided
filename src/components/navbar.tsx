@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { ShoppingCartIcon } from "@heroicons/react/20/solid";
+// import { ShoppingCartIcon } from "@heroicons/react/20/solid";
 import { useState, useEffect } from "react";
 // import { useCart } from "@/context/CartContext";
 
@@ -37,18 +37,18 @@ export default function Navbar() {
         isVisible ? "fixed" : "hidden"
       }`}
     >
-      <ul className="flex items-center justify-between h-20 px-20">
+      <ul className="flex items-center justify-center h-20 px-20">
         <Link href="/">
-          <li className="text-3xl font-extrabold uppercase w-[50vw] text-right">
+          <li className="text-3xl font-extrabold uppercase w-full text-center">
             3Sided
           </li>
         </Link>
-        <Link href="/cart">
+        {/* <Link href="/cart">
           <li className="font-5xl flex items-start justify-center gap-2">
             <ShoppingCartIcon className="h-5 w-5" />
-            {/* <div>{cart?.length}</div> */}
+            <div>{cart?.length}</div>
           </li>
-        </Link>
+        </Link> */}
       </ul>
     </nav>
   );
