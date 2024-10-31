@@ -25,10 +25,6 @@ export default function CharmBar() {
     setSelectedPosition(position - 1); // Adjust index to match array position
   }
 
-  function handlePositionSelect(event: React.ChangeEvent<HTMLSelectElement>) {
-    setSelectedPosition(parseInt(event.target.value, 10) - 1); // Convert to index
-  }
-
   useEffect(() => {
     if (selectedCharm && selectedPosition >= 0) {
       setCharmPositions((prevPositions) => {
