@@ -1,11 +1,24 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState } from "react";
+import Image from "next/image";
+
+const charmImages = [
+  "/charm_1.png",
+  "/charm_2.png",
+  "/charm_3.png",
+  "/charm_4.webp",
+  "/charm_5.webp",
+];
+
+const backgroundImg = "/necklace.webp";
 
 export default function CharmBar() {
   const [selectedCharm, setSelectedCharm] = useState<string | null>(null);
   const [selectedPosition, setSelectedPosition] = useState<number>(0);
-  const charmImages = ["/jewel_1.jpg", "/jewel_2.jpg", "/jewel_3.jpg"];
+  const [charmPositions, setCharmPositions] = useState(
+    Array(charmImages.length).fill(null)
+  );
 
   function handleCharmSelect(imageSrc: string) {
     setSelectedCharm(imageSrc);
@@ -15,97 +28,106 @@ export default function CharmBar() {
     setSelectedPosition(parseInt(event.target.value, 10) - 1); // Convert to index
   }
 
+  function updateCharmPosition() {
+    if (selectedCharm && selectedPosition >= 0) {
+      setCharmPositions((prevPositions) => {
+        const newPositions = [...prevPositions];
+        newPositions[selectedPosition] = selectedCharm;
+        return newPositions;
+      });
+    }
+  }
+
   return (
-    <div>
-      <div className="text-center w-[500px] text-3xl font-semibold">
+    <div className="w-[600px] mx-auto grid gap-4">
+      <div className="text-center w-[500px] text-3xl font-semibold mb-4 mt-4">
         Choose a charm to add
       </div>
-      <div className="flex w-[500px] justify-evenly">
+      <div className="flex w-[500px] justify-evenly mb-4">
         {charmImages.map((src, index) => (
-          // eslint-disable-next-line @next/next/no-img-element
-          <img
+          <Image
             key={index}
             src={src}
             onClick={() => handleCharmSelect(src)}
-            className="cursor-pointer w-20 h-20 object-cover"
-            alt=""
+            width={100}
+            height={100}
+            className="cursor-pointer object-cover border-2"
+            alt={`Charm ${index + 1}`}
           />
         ))}
       </div>
-      <div>
-        <label htmlFor="charmNumber">Select which charm to edit</label>
+      <div className="mb-4">
+        <label htmlFor="charmNumber" className="mr-2">
+          Select which position to add it to
+        </label>
         <select
           name="charmNumber"
           id="charmNumber"
           onChange={handlePositionSelect}
-          className="bg-slate-200 w-12 h-12 m-2 rounded-xl"
+          className="bg-slate-200 w-12 h-12 m-2 p-2 rounded-xl"
         >
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
+          {[...Array(5)].map((_, i) => (
+            <option key={i} value={i + 1}>
+              {i + 1}
+            </option>
+          ))}
         </select>
+        <button
+          onClick={updateCharmPosition}
+          className="ml-2 bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Place Charm
+        </button>
       </div>
-      <Canvas
-        charmImages={charmImages}
-        selectedCharm={selectedCharm}
-        selectedPosition={selectedPosition}
+      <CharmCanvas
+        charmPositions={charmPositions}
+        backgroundImg={backgroundImg}
       />
     </div>
   );
 }
 
-export function Canvas({
-  charmImages,
-  selectedCharm,
-  selectedPosition,
+function CharmCanvas({
+  charmPositions,
+  backgroundImg,
 }: {
-  charmImages: string[];
-  selectedCharm: string | null;
-  selectedPosition: number;
+  charmPositions: (string | null)[];
+  backgroundImg: string;
 }) {
-  const [canvasCharmImages, setCanvasCharmImages] = useState(charmImages);
-  const canvasRef = useRef<HTMLCanvasElement>(null);
+  // Define positions and rotations for charms
+  const charmSettings = [
+    { top: "92%", left: "42%", rotation: "0deg" },
+    { top: "75%", right: "16%", rotation: "-45deg" },
+    { top: "75%", left: "19%", rotation: "45deg" },
+    { top: "50%", right: "6%", rotation: "-45deg" },
+    { top: "50%", left: "7%", rotation: "45deg" },
+  ];
 
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const ctx = canvas.getContext("2d");
-    if (!ctx) return;
-
-    // Clear the canvas
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    // Draw background
-    ctx.fillStyle = "rgb(0, 0, 0)";
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    // Draw charm images
-    const positions = [
-      { x: 100, y: 100 },
-      { x: 200, y: 100 },
-      { x: 300, y: 100 },
-    ];
-
-    canvasCharmImages.forEach((src, index) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        ctx.drawImage(img, positions[index].x, positions[index].y, 50, 50);
-      };
-    });
-  }, [canvasCharmImages]);
-
-  // Update charm image based on dropdown selection
-  useEffect(() => {
-    if (selectedCharm && selectedPosition >= 0) {
-      setCanvasCharmImages((prevImages) => {
-        const newImages = [...prevImages];
-        newImages[selectedPosition] = selectedCharm;
-        return newImages;
-      });
-    }
-  }, [selectedCharm, selectedPosition]);
-
-  return <canvas ref={canvasRef} width={500} height={500} />;
+  return (
+    <div className="relative w-[500px] h-[500px] mx-auto">
+      <Image
+        src={backgroundImg}
+        alt="Necklace background"
+        className="absolute w-full h-full object-contain"
+        fill
+      />
+      {charmPositions.map((src, index) =>
+        src ? (
+          <Image
+            key={index}
+            src={src}
+            alt={`Charm ${index + 1}`}
+            style={{
+              position: "absolute",
+              ...charmSettings[index],
+              transform: `rotate(${charmSettings[index].rotation})`,
+            }}
+            className="w-20 h-20 object-cover"
+            width={150}
+            height={150}
+          />
+        ) : null
+      )}
+    </div>
+  );
 }
