@@ -1,13 +1,26 @@
-import CharmCard from "@/components/card";
-import { getProducts } from "@/lib";
+import Link from "next/link";
+
+// import CharmCard from "@/components/card";
+// import { getProducts } from "@/lib";
 
 export default async function Home() {
-  const products = await getProducts();
+  // const products = await getProducts();
 
   return (
-    <div className="pt-20 bg-white w-full flex">
+    <div className="w-full h-screen flex items-center justify-center">
+      <div className="flex flex-col gap-4">
+        <p>
+          We are currently under construction. Please check out our charm bar.
+        </p>
+        <Link href="/charm-bar">
+          <button className="bg-green-900 hover:bg-green-700 w-52 text-white font-semibold text-sm uppercase p-4 rounded-full">
+            Go to the charm bar
+          </button>
+        </Link>
+      </div>
+
       {/* <Sidebar /> */}
-      <div className="w-full flex flex-wrap gap-32 m-20">
+      {/* <div className="w-full flex flex-wrap gap-32 m-20">
         {products.map((charm, index) => (
           <div key={index}>
             <CharmCard
@@ -18,7 +31,7 @@ export default async function Home() {
             />
           </div>
         ))}
-      </div>
+      </div> */}
     </div>
   );
 }

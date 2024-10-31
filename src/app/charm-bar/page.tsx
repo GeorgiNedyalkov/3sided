@@ -36,7 +36,7 @@ export default function CharmBar() {
   }, [selectedCharm, selectedPosition]);
 
   return (
-    <div className="mt-20 grid h-screen w-full grid-cols-2 grid-rows-5 gap-4">
+    <div className="grid mt-4 h-screen w-full grid-cols-2 grid-rows-7">
       <div className="col-start-2 row-start-1">
         <h1 className="text-3xl font-semibold mb-4">
           Create your own personalized bracelet
@@ -79,7 +79,7 @@ function CharmImages({
           onClick={() => onCharmSelect(src, position)}
           width={100}
           height={100}
-          className="cursor-pointer border-2 object-cover"
+          className="cursor-pointer object-cover"
           alt={`Charm ${index + 1}`}
         />
       ))}
