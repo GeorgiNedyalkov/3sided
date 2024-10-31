@@ -56,7 +56,7 @@ export default function CharmBar() {
           />
         </div>
         <div className="lg:col-start-2">
-          <div className="font-medium bg-slate-100 p-2 mb-4 rounded-md lg:w-52">
+          <div className="font-medium bg-slate-100 p-2 mb-4 rounded-md">
             Choose a bracelet
           </div>
           <div className="flex w-full gap-4 overflow-y-auto p-4">
