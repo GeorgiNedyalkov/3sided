@@ -27,7 +27,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky z-10 w-full bg-gray-100 text-black duration-300 ${isVisible ? "top-0" : "-top-52"} `}
+      className={`sticky z-10 w-full transform bg-gray-100 text-black transition-all duration-500 ease-in-out ${isVisible ? "top-0" : "-top-20"} `}
     >
       <ul className="flex h-20 items-center px-20">
         <div className="flex basis-1/3 justify-center gap-4">
