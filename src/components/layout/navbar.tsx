@@ -1,14 +1,36 @@
-"use client";
-import Link from "next/link";
+"use client"
+import Link from "next/link"
+import { useEffect, useState } from "react"
 
 export default function Navbar() {
+  const [isVisible, setIsVisible] = useState(true)
+  const [lastScrollPosition, setLastScrollPosition] = useState(0)
+
+  function handleScrollbar() {
+    if (window.scrollY > lastScrollPosition) {
+      setIsVisible(false)
+    } else {
+      setIsVisible(true)
+    }
+
+    setLastScrollPosition(window.scrollY)
+  }
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScrollbar)
+
+    return () => {
+      window.removeEventListener("scroll", handleScrollbar)
+    }
+  }, [lastScrollPosition])
+
   return (
     <nav
-      className={`bg-gray-100 text-black z-10 fixed top-0 w-full transition-all duration-300`}
+      className={`sticky z-10 w-full bg-gray-100 text-black duration-300 ${isVisible ? "top-0" : "-top-52"} `}
     >
-      <ul className="flex items-center justify-center h-20 px-20">
+      <ul className="flex h-20 items-center justify-center px-20">
         <Link href="/">
-          <li className="text-3xl font-extrabold uppercase w-full text-center">
+          <li className="w-full text-center text-3xl font-extrabold uppercase">
             3Sided
           </li>
         </Link>
@@ -20,5 +42,5 @@ export default function Navbar() {
         </Link> */}
       </ul>
     </nav>
-  );
+  )
 }
