@@ -20,12 +20,23 @@ export default function CharmBar() {
     Array(charmImages.length).fill(null)
   );
 
-  function handleCharmSelect(imageSrc: string) {
+  function handleCharmSelect(imageSrc: string, position: number) {
     setSelectedCharm(imageSrc);
+    updateSpecificCharmPosition(position);
   }
 
   function handlePositionSelect(event: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedPosition(parseInt(event.target.value, 10) - 1); // Convert to index
+  }
+
+  function updateSpecificCharmPosition(position: number) {
+    if (selectedCharm && position >= 0) {
+      setCharmPositions((prevPositions) => {
+        const newPositions = [...prevPositions];
+        newPositions[position - 1] = selectedCharm;
+        return newPositions;
+      });
+    }
   }
 
   function updateCharmPosition() {
@@ -39,50 +50,85 @@ export default function CharmBar() {
   }
 
   return (
-    <div className="w-[600px] mx-auto grid gap-4">
-      <div className="text-center w-[500px] text-3xl font-semibold mb-4 mt-4">
-        Choose a charm to add
+    <div className="mt-20 grid h-screen w-full grid-cols-2 grid-rows-5 gap-4">
+      <div className="col-start-2 row-start-1">
+        <div className="m-5 mb-4 flex w-[500px] text-center text-3xl font-semibold">
+          Choose a charm to add
+        </div>
+        <div>
+          <label htmlFor="charmNumber" className="mr-2">
+            Select which position to add it to
+          </label>
+          <select
+            name="charmNumber"
+            id="charmNumber"
+            onChange={handlePositionSelect}
+            className="m-2 h-12 w-12 rounded-xl bg-slate-200 p-2"
+          >
+            {[...Array(5)].map((_, i) => (
+              <option key={i} value={i + 1}>
+                {i + 1}
+              </option>
+            ))}
+          </select>
+          <button
+            onClick={updateCharmPosition}
+            className="ml-2 rounded bg-blue-500 px-4 py-2 text-white"
+          >
+            Place Charm
+          </button>
+        </div>
       </div>
-      <div className="flex w-[500px] justify-evenly mb-4">
-        {charmImages.map((src, index) => (
-          <Image
-            key={index}
-            src={src}
-            onClick={() => handleCharmSelect(src)}
-            width={100}
-            height={100}
-            className="cursor-pointer object-cover border-2"
-            alt={`Charm ${index + 1}`}
-          />
-        ))}
+      <div className="col-start-2 row-start-2">
+        <div>Choose First Charm</div>
+        <CharmImages onCharmSelect={handleCharmSelect} position={1} />
       </div>
-      <div className="mb-4">
-        <label htmlFor="charmNumber" className="mr-2">
-          Select which position to add it to
-        </label>
-        <select
-          name="charmNumber"
-          id="charmNumber"
-          onChange={handlePositionSelect}
-          className="bg-slate-200 w-12 h-12 m-2 p-2 rounded-xl"
-        >
-          {[...Array(5)].map((_, i) => (
-            <option key={i} value={i + 1}>
-              {i + 1}
-            </option>
-          ))}
-        </select>
-        <button
-          onClick={updateCharmPosition}
-          className="ml-2 bg-blue-500 text-white px-4 py-2 rounded"
-        >
-          Place Charm
-        </button>
+      <div className="col-start-2 row-start-3">
+        <div>Choose First Charm</div>
+        <CharmImages onCharmSelect={handleCharmSelect} position={2} />
       </div>
-      <CharmCanvas
-        charmPositions={charmPositions}
-        backgroundImg={backgroundImg}
-      />
+      <div className="col-start-2 row-start-4">
+        <div>Choose First Charm</div>
+        <CharmImages onCharmSelect={handleCharmSelect} position={3} />
+      </div>
+      <div className="col-start-2 row-start-5">
+        <div>Choose First Charm</div>
+        <CharmImages onCharmSelect={handleCharmSelect} position={4} />
+      </div>
+      <div className="col-start-2 row-start-6">
+        <div>Choose First Charm</div>
+        <CharmImages onCharmSelect={handleCharmSelect} position={5} />
+      </div>
+      <div className="col-start-1 row-span-3 row-start-2">
+        <CharmCanvas
+          charmPositions={charmPositions}
+          backgroundImg={backgroundImg}
+        />
+      </div>
+    </div>
+  );
+}
+
+function CharmImages({
+  onCharmSelect,
+  position,
+}: {
+  onCharmSelect: (src: string, position: number) => void;
+  position: number;
+}) {
+  return (
+    <div className="flex w-[500px] justify-evenly gap-4">
+      {charmImages.map((src, index) => (
+        <Image
+          key={index}
+          src={src}
+          onClick={() => onCharmSelect(src, position)}
+          width={100}
+          height={100}
+          className="cursor-pointer border-2 object-cover"
+          alt={`Charm ${index + 1}`}
+        />
+      ))}
     </div>
   );
 }
@@ -104,11 +150,11 @@ function CharmCanvas({
   ];
 
   return (
-    <div className="relative w-[500px] h-[500px] mx-auto">
+    <div className="relative mx-auto h-[500px] w-[500px]">
       <Image
         src={backgroundImg}
         alt="Necklace background"
-        className="absolute w-full h-full object-contain"
+        className="absolute h-full w-full object-contain"
         fill
       />
       {charmPositions.map((src, index) =>
@@ -122,7 +168,7 @@ function CharmCanvas({
               ...charmSettings[index],
               transform: `rotate(${charmSettings[index].rotation})`,
             }}
-            className="w-20 h-20 object-cover"
+            className="h-20 w-20 object-cover"
             width={150}
             height={150}
           />
