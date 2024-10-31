@@ -5,7 +5,7 @@ import Image from "next/image";
 import CharmImages from "@/components/charms/charm-images";
 import CharmCanvas from "@/components/charms/charm-canvas";
 import { necklaces, charmImages } from "@/lib/placeholder-data";
-import { Necklace } from "@/lib/definitions";
+import { Necklace } from "@/lib/shopify/types";
 
 export default function CharmBar() {
   const [selectedNecklace, setSelectedNecklace] = useState<Necklace>(
