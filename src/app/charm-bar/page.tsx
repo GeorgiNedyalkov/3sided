@@ -76,7 +76,7 @@ export default function CharmBar() {
         {[...Array(5)].map((_, i) => (
           <div key={i} className={`lg:col-start-2 lg:row-start-${i + 3}`}>
             <div className="font-medium bg-slate-100 p-2 rounded-md">
-              Choose Charm {i + 1}
+              {i == 0 ? "Choose Central Charm" : `Choose Charm ${i + 1}`}
             </div>
             <CharmImages
               charmImages={charmImages}
