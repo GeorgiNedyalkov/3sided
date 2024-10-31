@@ -33,4 +33,39 @@ const charms: Charm[] = [
   },
 ];
 
-export { charms };
+// These should come from our backend
+const charmImages = [
+  "/charm_1.png",
+  "/charm_2.png",
+  "/charm_3.png",
+  "/charm_4.webp",
+  "/charm_5.webp",
+];
+
+// These should come from our backend
+const necklaces = [
+  {
+    id: "1",
+    src: "/necklace.webp",
+    settings: [
+      { top: "78%", left: "42%", rotation: "0deg" },
+      { top: "62%", right: "18%", rotation: "-45deg" },
+      { top: "62%", left: "18%", rotation: "45deg" },
+      { top: "40%", right: "8%", rotation: "-45deg" },
+      { top: "40%", left: "10%", rotation: "45deg" },
+    ],
+  },
+  {
+    id: "2",
+    src: "/necklace2.png",
+    settings: [
+      { top: "80%", left: "42%", rotation: "0deg" },
+      { top: "65%", right: "23%", rotation: "-45deg" },
+      { top: "65%", left: "23%", rotation: "45deg" },
+      { top: "45%", right: "15%", rotation: "-45deg" },
+      { top: "45%", left: "15%", rotation: "45deg" },
+    ],
+  },
+];
+
+export { charms, necklaces, charmImages };
