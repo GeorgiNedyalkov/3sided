@@ -37,48 +37,54 @@ export default function CharmBar() {
   }, [selectedCharm, selectedPosition]);
 
   return (
-    <div className="grid mt-4 h-screen w-full lg:grid-cols-2 lg:grid-rows-7">
-      <div className="lg:col-start-2">
-        <h1 className="text-3xl font-semibold mb-4">
+    <div className="m-4 md:m-20 lg:grid-cols-2 overflow-hidden">
+      <div className="mb-4">
+        <h1 className="text-2xl md:text-3xl font-semibold mb-4">
           Create your own personalized bracelet
         </h1>
-        <p className="w-[500px]">
+        <p className="max-w-[500px] text-sm md:text-base">
           Select up to five charms to create your unique bracelet.
           <br />
           Click on the charms for each position to see how it looks like.
         </p>
       </div>
-      <div className="lg:col-start-2">
-        <div>Choose a bracelet</div>
-        <div className="flex gap-4">
-          {necklaces.map((necklace, index) => (
-            <Image
-              key={necklace.id}
-              src={necklace.src}
-              onClick={() => handleNeckalceSelect(necklace)}
-              width={100}
-              height={100}
-              className="cursor-pointer object-cover"
-              alt={`Charm ${index + 1}`}
-            />
-          ))}
-        </div>
-      </div>
-      {[...Array(5)].map((_, i) => (
-        <div key={i} className={`lg:col-start-2 lg:row-start-${i + 3}`}>
-          <div>Choose Charm {i + 1}</div>
-          <CharmImages
-            charmImages={charmImages}
-            onCharmSelect={handleCharmSelect}
-            position={i + 1}
+      <div className="grid w-full lg:grid-cols-2 gap-4">
+        <div className="row-start-1 lg:col-start-1 lg:row-span-3 lg:row-start-2">
+          <CharmCanvas
+            charmPositions={charmPositions}
+            necklace={selectedNecklace}
           />
         </div>
-      ))}
-      <div className="lg:col-start-1 lg:row-span-3 lg:row-start-2">
-        <CharmCanvas
-          charmPositions={charmPositions}
-          necklace={selectedNecklace}
-        />
+        <div className="lg:col-start-2">
+          <div className="font-medium bg-slate-100 p-2 mb-4 rounded-md lg:w-52">
+            Choose a bracelet
+          </div>
+          <div className="flex w-full gap-4 overflow-y-auto p-4">
+            {necklaces.map((necklace, index) => (
+              <Image
+                key={necklace.id}
+                src={necklace.src}
+                onClick={() => handleNeckalceSelect(necklace)}
+                width={100}
+                height={100}
+                className="cursor-pointer object-cover"
+                alt={`Charm ${index + 1}`}
+              />
+            ))}
+          </div>
+        </div>
+        {[...Array(5)].map((_, i) => (
+          <div key={i} className={`lg:col-start-2 lg:row-start-${i + 3}`}>
+            <div className="font-medium bg-slate-100 p-2 rounded-md">
+              Choose Charm {i + 1}
+            </div>
+            <CharmImages
+              charmImages={charmImages}
+              onCharmSelect={handleCharmSelect}
+              position={i + 1}
+            />
+          </div>
+        ))}
       </div>
     </div>
   );

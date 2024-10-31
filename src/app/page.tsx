@@ -7,14 +7,14 @@ export default async function Home() {
   // const products = await getProducts();
 
   return (
-    <div className="w-full h-screen flex items-center justify-center">
+    <div className="h-screen m-4 flex items-center justify-center">
       <div className="flex flex-col gap-4">
         <p>
           We are currently under construction. Please check out our charm bar.
         </p>
         <Link href="/charm-bar">
-          <button className="bg-green-900 hover:bg-green-700 w-52 text-white font-semibold text-sm uppercase p-4 rounded-full">
-            Go to the charm bar
+          <button className="bg-green-950 hover:bg-green-700 text-yellow-100 font-semibold text-sm uppercase p-4 rounded-full">
+            Visit charm bar
           </button>
         </Link>
       </div>

@@ -9,7 +9,7 @@ export default function CharmCanvas({
   necklace: Necklace;
 }) {
   return (
-    <div className="relative mx-auto h-[500px] w-[500px]">
+    <div className="relative mx-auto h-[250px] w-[250px] lg:h-[500px] lg:w-[500px]">
       <Image
         src={necklace.src}
         alt="Necklace background"
@@ -27,7 +27,7 @@ export default function CharmCanvas({
               ...necklace.settings[index],
               transform: `rotate(${necklace.settings[index].rotation})`,
             }}
-            className="h-20 w-20 object-cover"
+            className="h-12 w-12 lg:h-20 lg:w-20 object-cover"
             width={150}
             height={150}
           />
