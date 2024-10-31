@@ -2,7 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import CharmImages from "@/components/charms/charm-images";
 
+// These should come from our backend
 const charmImages = [
   "/charm_1.png",
   "/charm_2.png",
@@ -10,6 +12,10 @@ const charmImages = [
   "/charm_4.webp",
   "/charm_5.webp",
 ];
+
+// These too
+
+const braceletImages = ["/necklace.webp"];
 
 export default function CharmBar() {
   const backgroundImg = "/necklace.webp";
@@ -49,7 +55,11 @@ export default function CharmBar() {
       {[...Array(5)].map((_, i) => (
         <div key={i} className={`col-start-2 row-start-${i + 2}`}>
           <div>Choose Charm {i + 1}</div>
-          <CharmImages onCharmSelect={handleCharmSelect} position={i + 1} />
+          <CharmImages
+            charmImages={charmImages}
+            onCharmSelect={handleCharmSelect}
+            position={i + 1}
+          />
         </div>
       ))}
       <div className="col-start-1 row-span-3 row-start-2">
@@ -58,30 +68,6 @@ export default function CharmBar() {
           backgroundImg={backgroundImg}
         />
       </div>
-    </div>
-  );
-}
-
-function CharmImages({
-  onCharmSelect,
-  position,
-}: {
-  onCharmSelect: (src: string, position: number) => void;
-  position: number;
-}) {
-  return (
-    <div className="flex w-[500px] justify-evenly gap-4">
-      {charmImages.map((src, index) => (
-        <Image
-          key={index}
-          src={src}
-          onClick={() => onCharmSelect(src, position)}
-          width={100}
-          height={100}
-          className="cursor-pointer object-cover"
-          alt={`Charm ${index + 1}`}
-        />
-      ))}
     </div>
   );
 }
