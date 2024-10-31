@@ -11,7 +11,7 @@ const charmImages = [
   "/charm_5.webp",
 ];
 
-const backgroundImg = "/necklace.webp";
+const backgroundImg = "/necklace.png";
 
 export default function CharmBar() {
   const [selectedCharm, setSelectedCharm] = useState<string | null>(null);
