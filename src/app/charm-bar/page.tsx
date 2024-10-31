@@ -12,7 +12,7 @@ const charmImages = [
 ];
 
 export default function CharmBar() {
-  const backgroundImg = "/necklace.png";
+  const backgroundImg = "/necklace.webp";
   const [selectedCharm, setSelectedCharm] = useState<string | null>(null);
   const [selectedPosition, setSelectedPosition] = useState<number>(0);
   const [charmPositions, setCharmPositions] = useState(
