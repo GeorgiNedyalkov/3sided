@@ -16,7 +16,9 @@
 
 /* Scrollbar */
 ::-webkit-scrollbar {
-  border-radius: 20px;
+  border-radius: 5px;
+  height: 5px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {

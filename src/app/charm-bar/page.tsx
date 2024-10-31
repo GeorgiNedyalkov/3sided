@@ -37,7 +37,7 @@ export default function CharmBar() {
   }, [selectedCharm, selectedPosition]);
 
   return (
-    <div className="m-4 md:m-20 lg:grid-cols-2 overflow-hidden">
+    <div className="m-4 md:m-20 lg:grid-cols-2 overflow-y-hidden">
       <div className="mb-4">
         <h1 className="text-2xl md:text-3xl font-semibold mb-4">
           Create your own personalized bracelet
