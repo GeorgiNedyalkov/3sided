@@ -10,7 +10,7 @@ export default function CharmImages({
   charmImages: string[];
 }) {
   return (
-    <div className="flex w-full gap-4 p-4 overflow-y-auto">
+    <div className="flex w-full gap-4 p-4 overflow-x-scroll">
       {charmImages.map((src, index) => (
         <Image
           key={index}
