@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Image from "next/image";
 
 const charmImages = [
@@ -22,24 +22,14 @@ export default function CharmBar() {
 
   function handleCharmSelect(imageSrc: string, position: number) {
     setSelectedCharm(imageSrc);
-    updateSpecificCharmPosition(position);
+    setSelectedPosition(position - 1); // Adjust index to match array position
   }
 
   function handlePositionSelect(event: React.ChangeEvent<HTMLSelectElement>) {
     setSelectedPosition(parseInt(event.target.value, 10) - 1); // Convert to index
   }
 
-  function updateSpecificCharmPosition(position: number) {
-    if (selectedCharm && position >= 0) {
-      setCharmPositions((prevPositions) => {
-        const newPositions = [...prevPositions];
-        newPositions[position - 1] = selectedCharm;
-        return newPositions;
-      });
-    }
-  }
-
-  function updateCharmPosition() {
+  useEffect(() => {
     if (selectedCharm && selectedPosition >= 0) {
       setCharmPositions((prevPositions) => {
         const newPositions = [...prevPositions];
@@ -47,58 +37,26 @@ export default function CharmBar() {
         return newPositions;
       });
     }
-  }
+  }, [selectedCharm, selectedPosition]);
 
   return (
     <div className="mt-20 grid h-screen w-full grid-cols-2 grid-rows-5 gap-4">
       <div className="col-start-2 row-start-1">
-        <div className="m-5 mb-4 flex w-[500px] text-center text-3xl font-semibold">
-          Choose a charm to add
+        <h1 className="text-3xl font-semibold mb-4">
+          Create your own personalized bracelet
+        </h1>
+        <p className="w-[500px]">
+          Select up to five charms to create your unique bracelet.
+          <br />
+          Click on the charms for each position to see how it looks like.
+        </p>
+      </div>
+      {[...Array(5)].map((_, i) => (
+        <div key={i} className={`col-start-2 row-start-${i + 2}`}>
+          <div>Choose Charm {i + 1}</div>
+          <CharmImages onCharmSelect={handleCharmSelect} position={i + 1} />
         </div>
-        <div>
-          <label htmlFor="charmNumber" className="mr-2">
-            Select which position to add it to
-          </label>
-          <select
-            name="charmNumber"
-            id="charmNumber"
-            onChange={handlePositionSelect}
-            className="m-2 h-12 w-12 rounded-xl bg-slate-200 p-2"
-          >
-            {[...Array(5)].map((_, i) => (
-              <option key={i} value={i + 1}>
-                {i + 1}
-              </option>
-            ))}
-          </select>
-          <button
-            onClick={updateCharmPosition}
-            className="ml-2 rounded bg-blue-500 px-4 py-2 text-white"
-          >
-            Place Charm
-          </button>
-        </div>
-      </div>
-      <div className="col-start-2 row-start-2">
-        <div>Choose First Charm</div>
-        <CharmImages onCharmSelect={handleCharmSelect} position={1} />
-      </div>
-      <div className="col-start-2 row-start-3">
-        <div>Choose First Charm</div>
-        <CharmImages onCharmSelect={handleCharmSelect} position={2} />
-      </div>
-      <div className="col-start-2 row-start-4">
-        <div>Choose First Charm</div>
-        <CharmImages onCharmSelect={handleCharmSelect} position={3} />
-      </div>
-      <div className="col-start-2 row-start-5">
-        <div>Choose First Charm</div>
-        <CharmImages onCharmSelect={handleCharmSelect} position={4} />
-      </div>
-      <div className="col-start-2 row-start-6">
-        <div>Choose First Charm</div>
-        <CharmImages onCharmSelect={handleCharmSelect} position={5} />
-      </div>
+      ))}
       <div className="col-start-1 row-span-3 row-start-2">
         <CharmCanvas
           charmPositions={charmPositions}
