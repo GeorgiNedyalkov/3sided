@@ -2,6 +2,22 @@
 import { ShoppingCartIcon } from "@heroicons/react/16/solid"
 import Link from "next/link"
 import { useEffect, useState } from "react"
+import MobileMenu from "./mobile-menu"
+
+const navItems = [
+  {
+    title: "Charm bar",
+    url: "/charm-bar",
+  },
+  {
+    title: "Collections",
+    url: "/collections",
+  },
+  {
+    title: "Shop",
+    url: "/shop",
+  },
+]
 
 export default function Navbar() {
   const [isVisible, setIsVisible] = useState(true)
@@ -27,33 +43,30 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky z-10 w-full transform bg-gray-100 text-black transition-all duration-500 ease-in-out ${isVisible ? "top-0" : "-top-20"} `}
+      className={`sticky z-10 flex h-20 w-full transform items-center justify-between bg-gray-100 p-8 transition-all duration-500 ease-in-out ${isVisible ? "top-0" : "-top-20"}`}
     >
-      <ul className="flex h-20 items-center px-20">
-        <div className="flex basis-1/3 justify-center gap-4">
-          <Link href="/charm-bar">
-            <li>Charm Bar</li>
-          </Link>
-          <Link href="/cart">
-            <li>Collections</li>
-          </Link>
-          <Link href="/shop">
-            <li>Shop</li>
-          </Link>
-        </div>
-        <div className="flex basis-1/3 place-content-center">
-          <Link href="/">
-            <li className="w-full text-3xl font-extrabold uppercase">3Sided</li>
-          </Link>
-        </div>
-        <div className="flex basis-1/3 justify-end">
-          <Link href="/cart">
-            <li className="font-5xl flex items-start justify-center gap-2">
-              <ShoppingCartIcon className="h-5 w-5" />
-            </li>
-          </Link>
-        </div>
+      <div className="block basis-1/3 md:hidden">
+        <MobileMenu />
+      </div>
+      <ul className="hidden basis-1/3 items-center gap-4 md:flex">
+        {navItems.map((item) => (
+          <li key={item.title}>
+            <Link href={item.url}>{item.title}</Link>
+          </li>
+        ))}
       </ul>
+      <div className="flex basis-1/3 place-content-center">
+        <Link href="/">
+          <div className="w-full text-3xl font-extrabold uppercase">3Sided</div>
+        </Link>
+      </div>
+      <div className="flex basis-1/3 justify-end">
+        <Link href="/cart">
+          <div className="font-5xl flex items-start justify-center gap-2">
+            <ShoppingCartIcon className="h-5 w-5" />
+          </div>
+        </Link>
+      </div>
     </nav>
   )
 }
