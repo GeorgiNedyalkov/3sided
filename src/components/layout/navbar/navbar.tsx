@@ -1,9 +1,9 @@
 "use client";
-import { ShoppingCartIcon } from "@heroicons/react/16/solid";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileMenu from "./mobile-menu";
 import NavLink from "./nav-link";
+import CartModal from "@/components/cart/cart-modal";
 
 const navItems = [
   {
@@ -62,11 +62,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="flex basis-1/3 justify-end">
-        <Link href="/cart">
-          <div className="font-5xl flex items-start justify-center gap-2">
-            <ShoppingCartIcon className="h-5 w-5" />
-          </div>
-        </Link>
+        <CartModal />
       </div>
     </nav>
   );
