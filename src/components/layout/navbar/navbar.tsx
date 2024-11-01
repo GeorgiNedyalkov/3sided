@@ -1,8 +1,9 @@
-"use client"
-import { ShoppingCartIcon } from "@heroicons/react/16/solid"
-import Link from "next/link"
-import { useEffect, useState } from "react"
-import MobileMenu from "./mobile-menu"
+"use client";
+import { ShoppingCartIcon } from "@heroicons/react/16/solid";
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import MobileMenu from "./mobile-menu";
+import NavLink from "./nav-link";
 
 const navItems = [
   {
@@ -17,29 +18,29 @@ const navItems = [
     title: "Shop",
     url: "/shop",
   },
-]
+];
 
 export default function Navbar() {
-  const [isVisible, setIsVisible] = useState(true)
-  const [lastScrollPosition, setLastScrollPosition] = useState(0)
+  const [isVisible, setIsVisible] = useState(true);
+  const [lastScrollPosition, setLastScrollPosition] = useState(0);
 
   useEffect(() => {
     function handleScrollbar() {
       if (window.scrollY > lastScrollPosition) {
-        setIsVisible(false)
+        setIsVisible(false);
       } else {
-        setIsVisible(true)
+        setIsVisible(true);
       }
 
-      setLastScrollPosition(window.scrollY)
+      setLastScrollPosition(window.scrollY);
     }
 
-    window.addEventListener("scroll", handleScrollbar)
+    window.addEventListener("scroll", handleScrollbar);
 
     return () => {
-      window.removeEventListener("scroll", handleScrollbar)
-    }
-  }, [lastScrollPosition])
+      window.removeEventListener("scroll", handleScrollbar);
+    };
+  }, [lastScrollPosition]);
 
   return (
     <nav
@@ -51,7 +52,7 @@ export default function Navbar() {
       <ul className="hidden basis-1/3 items-center gap-4 md:flex">
         {navItems.map((item) => (
           <li key={item.title}>
-            <Link href={item.url}>{item.title}</Link>
+            <NavLink href={item.url}>{item.title}</NavLink>
           </li>
         ))}
       </ul>
@@ -68,5 +69,5 @@ export default function Navbar() {
         </Link>
       </div>
     </nav>
-  )
+  );
 }
