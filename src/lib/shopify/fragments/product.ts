@@ -1,11 +1,4 @@
-export const imageFragment = `
-    fragment image on Image {
-        id
-        altText
-        url
-        width
-    }
-`;
+import { imageFragment } from "@/lib/shopify/fragments/images";
 
 export const productFragment = /* GraphQL */ `
   fragment product on Product {

@@ -1,14 +1,18 @@
-export default function AddToCartButton({
-  onAddToCart,
-}: {
-  onAddToCart: () => void;
-}) {
-  // Adds item to user cart based on quantity selected
+"use client";
+import { Product } from "@/lib/shopify/types";
+import { useContext } from "react";
+import { CartContext } from "@/context/cart-context";
+
+export default function AddToCartButton({ charm }: { charm: Product }) {
+  const cartContext = useContext(CartContext);
+  console.log(cartContext);
+
+  function handleClick() {
+    console.log("added to cart ", charm);
+  }
+
   return (
-    <button
-      onClick={onAddToCart}
-      className="bg-gray-900 py-2 px-4 h-12 rounded-xl text-gray-100"
-    >
+    <button onClick={handleClick} className="h-12 rounded-xl bg-gray-900 px-4 py-2 text-gray-100">
       Add to cart
     </button>
   );

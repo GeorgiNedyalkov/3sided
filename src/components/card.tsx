@@ -1,33 +1,28 @@
-"use client"
-import { useState, useRef } from "react"
-import Link from "next/link"
-import Image from "next/image"
+"use client";
+import { useState, useRef } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface CharmProps {
-  label: string
-  imageSrc: string
-  description: string
-  price: number
+  label: string;
+  imageSrc: string;
+  description: string;
+  price: number;
 }
 
-export default function CharmCard({
-  label,
-  imageSrc,
-  description,
-  price,
-}: CharmProps) {
-  const [playVideo, setPlayVideo] = useState(false)
+export default function CharmCard({ label, imageSrc, description, price }: CharmProps) {
+  const [playVideo, setPlayVideo] = useState(false);
 
-  const videoRef = useRef<HTMLVideoElement>(null)
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   function handleMouseEnter() {
-    setPlayVideo(true)
-    videoRef.current?.play()
+    setPlayVideo(true);
+    videoRef.current?.play();
   }
 
   function handleMouseLeave() {
-    setPlayVideo(false)
-    videoRef.current?.pause()
+    setPlayVideo(false);
+    videoRef.current?.pause();
   }
 
   return (
@@ -67,5 +62,5 @@ export default function CharmCard({
         </div>
       </div>
     </Link>
-  )
+  );
 }

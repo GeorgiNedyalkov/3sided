@@ -2,7 +2,10 @@
 
 ## TODO:
 
-- [] Write a specification
+- [] Add item to cart
+- [] Create cart context
+- [] Design a hero page
+- [x] Write a specification
 
 ## Inspirations
 
@@ -46,4 +49,8 @@ Pages:
 
 Create your own
 
+Get the available chains and charms from shopify.
+
 1. Choose your **chain**
+2. Choose one of 5 charms
+3. Add to cart

@@ -8,8 +8,6 @@ import { Product } from "@/lib/shopify/types";
 export default function ProductDescription({ charm }: { charm: Product }) {
   const [quantity, setQuantity] = useState(1);
 
-  console.log(charm);
-
   function increaseQuantity() {
     setQuantity((prevQuantity) => prevQuantity + 1);
   }
@@ -18,27 +16,20 @@ export default function ProductDescription({ charm }: { charm: Product }) {
     setQuantity((prevQuantity) => prevQuantity - 1);
   }
 
-  function handleAddToCart() {
-    // addToCart(charm, quantity);
-    console.log("added to cart");
-  }
-
   return (
     <div className="w-3/4 pt-20">
-      <h1 className="text-5xl font-semibold mb-4">Precious Charm</h1>
+      <h1 className="mb-4 text-5xl font-semibold">Precious Charm</h1>
       <div className="text-gray-600">Handle: {charm.handle}</div>
       <div className="mb-2 text-gray-600">{charm?.description}</div>
       <div className="bg-gray-200 p-4">
         <div className="text-base">Цена</div>
-        <span className="font-semibold text-3xl">
-          {charm?.priceRange?.maxVariantPrice?.amount}
-        </span>
+        <span className="text-3xl font-semibold">{charm?.priceRange?.maxVariantPrice?.amount}</span>
         <span className="text-lg"> лв.</span>
-        <div className="border border-gray-100 my-5" />
-        <div className="flex gap-4 items-end">
+        <div className="my-5 border border-gray-100" />
+        <div className="flex items-end gap-4">
           <div>
             <div className="mb-4">Количество:</div>
-            <div className="bg-white flex items-center justify-between px-4 py-2 rounded-xl">
+            <div className="flex items-center justify-between rounded-xl bg-white px-4 py-2">
               <div className="text-xl">{quantity}</div>
 
               <div className="flex flex-col items-center justify-center">
@@ -52,7 +43,7 @@ export default function ProductDescription({ charm }: { charm: Product }) {
             </div>
           </div>
 
-          <AddToCartButton onAddToCart={handleAddToCart} />
+          <AddToCartButton charm={charm} />
         </div>
       </div>
     </div>
