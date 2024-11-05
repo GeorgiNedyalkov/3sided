@@ -1,12 +1,7 @@
 "use client";
 import { Product } from "@/lib/shopify/types";
-import { useContext } from "react";
-import { CartContext } from "@/context/cart-context";
 
 export default function AddToCartButton({ charm }: { charm: Product }) {
-  const cartContext = useContext(CartContext);
-  console.log(cartContext);
-
   function handleClick() {
     console.log("added to cart ", charm);
   }

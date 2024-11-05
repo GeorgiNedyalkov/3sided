@@ -23,6 +23,15 @@ export type ShopifyCart = {
   totalQuantity: number;
 };
 
+export type ShopifyCartOperation = {
+  data: {
+    cart: ShopifyCart;
+  };
+  variables: {
+    cartId: string;
+  };
+};
+
 export type Cart = Omit<ShopifyCart, "lines"> & {
   lines: CartItem[];
 };
@@ -71,37 +80,29 @@ export type ShopifyProductsOperation = {
   };
 };
 
-// export type Product = Omit<ShopifyProduct, "variants" | "images"> & {
-//   variants: ProductVariant[];
-//   images: Image[];
-// };
-
-export type Product = Omit<ShopifyProduct, "images"> & {
+export type Product = Omit<ShopifyProduct, "variants" | "images"> & {
+  variants: ProductVariant[];
   images: Image[];
 };
 
 export type ShopifyProduct = {
   id: string;
   handle: string;
-  title: string;
   availableForSale: boolean;
+  title: string;
   description: string;
   descriptionHtml: string;
-  options: {
-    id: string;
-    name: string;
-  };
+  // options: ProductOption[];
   priceRange: {
-    maxVariantPrice: {
-      amount: number;
-      currencyCode: string;
-    };
-    minVariantPrice: {
-      amount: number;
-      currencyCode: string;
-    };
+    maxVariantPrice: Money;
+    minVariantPrice: Money;
   };
+  variants: Connection<ProductVariant>;
+  featuredImage: Image;
   images: Connection<Image>;
+  // seo: SEO;
+  tags: string[];
+  updatedAt: string;
 };
 
 export type ProductVariant = {

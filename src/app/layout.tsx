@@ -2,7 +2,10 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import Navbar from "@/components/layout/navbar/navbar";
 import "./globals.css";
-import { CartContext } from "@/context/cart-context";
+import { CartProvider } from "@/components/cart/cart-context";
+import { cookies } from "next/headers";
+import { getCart } from "@/lib";
+// import { CartContext } from "@/context/cart-context";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,16 +23,21 @@ export const metadata: Metadata = {
   description: "Buy charms and bracelets from 3Sided",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const cartId = (await cookies()).get("cartId")?.value;
+  const cart = getCart(cartId);
+
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-        <Navbar />
-        {children}
+        <CartProvider cartPromise={cart}>
+          <Navbar />
+          {children}
+        </CartProvider>
       </body>
     </html>
   );

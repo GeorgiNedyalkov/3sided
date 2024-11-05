@@ -1,11 +1,16 @@
 import { getProductQuery, getProductsQuery } from "@/lib/shopify/queries/product";
 import {
+  Cart,
+  Image,
   Connection,
   Product,
+  ShopifyCart,
+  ShopifyCartOperation,
   ShopifyProduct,
   ShopifyProductOperation,
   ShopifyProductsOperation,
 } from "./shopify/types";
+import { getCartQuery } from "./shopify/queries/cart";
 
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 const domain = process.env.SHOPIFY_STORE_DOMAIN;
@@ -58,14 +63,41 @@ function removeEdgesAndNodes<T>(array: Connection<T>): T[] {
   return array.edges.map((edge) => edge?.node);
 }
 
+const reshapeImages = (images: Connection<Image>, productTitle: string) => {
+  const flattened = removeEdgesAndNodes(images);
+
+  return flattened.map((image) => {
+    const filename = image.url.match(/.*\/(.*)\..*/)?.[1];
+    return {
+      ...image,
+      altText: image.altText || `${productTitle} - ${filename}`,
+    };
+  });
+};
+
 function reshapeProduct(product: ShopifyProduct) {
   if (!product) return undefined;
 
-  const { images } = product;
+  const { images, variants, ...rest } = product;
 
   return {
-    ...product,
-    images: removeEdgesAndNodes(images),
+    ...rest,
+    images: reshapeImages(images, product.title),
+    // variants: removeEdgesAndNodes(variants),
+  };
+}
+
+function reshapeCart(cart: ShopifyCart) {
+  if (!cart.cost?.totalTaxAmount) {
+    cart.cost.totalTaxAmount = {
+      amount: "0.0",
+      currencyCode: cart.cost.totalAmount.currencyCode,
+    };
+  }
+
+  return {
+    ...cart,
+    lines: removeEdgesAndNodes(cart.lines),
   };
 }
 
@@ -85,5 +117,22 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
     },
   });
 
+  console.log(res);
+
   return reshapeProduct(res.body.data.product);
+}
+
+export async function getCart(cartId: string | undefined): Promise<Cart | undefined> {
+  if (!cartId) {
+    return undefined;
+  }
+
+  const res = await shopifyFetch<ShopifyCartOperation>({
+    query: getCartQuery,
+    variables: {
+      cartId,
+    },
+  });
+
+  return reshapeCart(res.body.data.cart);
 }
