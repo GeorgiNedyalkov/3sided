@@ -10,7 +10,7 @@ export default async function Caroucel() {
   const caroucelProducts = [...products, ...products, ...products];
 
   return (
-    <div className="max-w-screen-2xl overflow-x-auto">
+    <div className="mx-auto max-w-screen-2xl overflow-x-auto">
       <ul className="animate-carousel flex items-center">
         {caroucelProducts.map((product, i) => (
           <Link
