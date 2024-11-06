@@ -1,3 +1,4 @@
+import ThreeItemGrid from "@/components/grid/three-items";
 import Link from "next/link";
 
 // import CharmCard from "@/components/card";
@@ -7,13 +8,12 @@ export default async function Home() {
   // const products = await getProducts();
 
   return (
-    <div className="h-screen m-4 flex items-center justify-center">
+    <div className="m-4 flex h-screen flex-col items-center justify-center">
+      <ThreeItemGrid />
       <div className="flex flex-col gap-4">
-        <p>
-          We are currently under construction. Please check out our charm bar.
-        </p>
+        <p>We are currently under construction. Please check out our charm bar.</p>
         <Link href="/charm-bar">
-          <button className="bg-green-950 hover:bg-green-700 text-yellow-100 font-semibold text-sm uppercase p-4 rounded-full">
+          <button className="rounded-full bg-green-950 p-4 text-sm font-semibold uppercase text-yellow-100 hover:bg-green-700">
             Visit charm bar
           </button>
         </Link>

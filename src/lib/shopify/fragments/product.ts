@@ -1,16 +1,18 @@
-import { imageFragment } from "@/lib/shopify/fragments/images";
+import { imageFragment } from "./images";
+import seoFragment from "./seo";
 
-export const productFragment = /* GraphQL */ `
+const productFragment = /* GraphQL */ `
   fragment product on Product {
     id
     handle
-    title
     availableForSale
+    title
     description
     descriptionHtml
     options {
       id
       name
+      values
     }
     priceRange {
       maxVariantPrice {
@@ -22,13 +24,41 @@ export const productFragment = /* GraphQL */ `
         currencyCode
       }
     }
-    images(first: 10) {
+    variants(first: 250) {
+      edges {
+        node {
+          id
+          title
+          availableForSale
+          selectedOptions {
+            name
+            value
+          }
+          price {
+            amount
+            currencyCode
+          }
+        }
+      }
+    }
+    featuredImage {
+      ...image
+    }
+    images(first: 20) {
       edges {
         node {
           ...image
         }
       }
     }
+    seo {
+      ...seo
+    }
+    tags
+    updatedAt
   }
   ${imageFragment}
+  ${seoFragment}
 `;
+
+export default productFragment;

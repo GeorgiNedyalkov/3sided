@@ -9,8 +9,10 @@ import {
   ShopifyProduct,
   ShopifyProductOperation,
   ShopifyProductsOperation,
+  ShopifyCollectionProductsOperation,
 } from "./shopify/types";
 import { getCartQuery } from "./shopify/queries/cart";
+import { getCollectionProductsQuery } from "./shopify/queries/collections";
 
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 const domain = process.env.SHOPIFY_STORE_DOMAIN;
@@ -82,10 +84,27 @@ function reshapeProduct(product: ShopifyProduct) {
 
   return {
     ...rest,
+    variants: removeEdgesAndNodes(variants),
     images: reshapeImages(images, product.title),
     // variants: removeEdgesAndNodes(variants),
   };
 }
+
+const reshapeProducts = (products: ShopifyProduct[]) => {
+  const reshapedProducts = [];
+
+  for (const product of products) {
+    if (product) {
+      const reshapedProduct = reshapeProduct(product);
+
+      if (reshapedProduct) {
+        reshapedProducts.push(reshapedProduct);
+      }
+    }
+  }
+
+  return reshapedProducts;
+};
 
 function reshapeCart(cart: ShopifyCart) {
   if (!cart.cost?.totalTaxAmount) {
@@ -135,4 +154,30 @@ export async function getCart(cartId: string | undefined): Promise<Cart | undefi
   });
 
   return reshapeCart(res.body.data.cart);
+}
+
+export async function getCollectionsProducts({
+  collection,
+  reverse,
+  sortKey,
+}: {
+  collection: string;
+  reverse?: boolean;
+  sortKey?: string;
+}): Promise<Product[]> {
+  const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
+    query: getCollectionProductsQuery,
+    variables: {
+      handle: collection,
+      reverse,
+      sortKey: sortKey === "CREATED_AT" ? "CREATED" : sortKey,
+    },
+  });
+
+  if (!res.body.data.collection) {
+    console.log(`No collection found for \`${collection}\``);
+    return [];
+  }
+
+  return reshapeProducts(removeEdgesAndNodes(res.body.data.collection.products));
 }
