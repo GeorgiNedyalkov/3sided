@@ -3,14 +3,17 @@ import { useState, useRef } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-interface CharmProps {
+export default function CharmCard({
+  label,
+  imageSrc,
+  description,
+  price,
+}: {
   label: string;
   imageSrc: string;
   description: string;
   price: number;
-}
-
-export default function CharmCard({ label, imageSrc, description, price }: CharmProps) {
+}) {
   const [playVideo, setPlayVideo] = useState(false);
 
   const videoRef = useRef<HTMLVideoElement>(null);
