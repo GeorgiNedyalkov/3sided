@@ -1,14 +1,10 @@
-import Sidebar from "@/components/layout/sidebar"
+import Sidebar from "@/components/layout/sidebar";
 
-export default function DashboardLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function DashboardLayout({ children }: { children: React.ReactNode }) {
   return (
     <section className="flex">
       <Sidebar />
       {children}
     </section>
-  )
+  );
 }
