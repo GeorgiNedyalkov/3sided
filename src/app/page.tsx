@@ -1,12 +1,7 @@
 import Caroucel from "@/components/grid/caroucel";
 import Link from "next/link";
 
-// import CharmCard from "@/components/card";
-// import { getProducts } from "@/lib";
-
-export default async function Home() {
-  // const products = await getProducts();
-
+export default function Home() {
   return (
     <div className="m-4 flex h-screen flex-col items-center justify-center">
       <div className="flex flex-col gap-4">
@@ -18,20 +13,6 @@ export default async function Home() {
         </Link>
         <Caroucel />
       </div>
-
-      {/* <Sidebar /> */}
-      {/* <div className="w-full flex flex-wrap gap-32 m-20">
-        {products.map((charm, index) => (
-          <div key={index}>
-            <CharmCard
-              label={charm.handle}
-              description={charm.description}
-              imageSrc="/jewel_1.jpg"
-              price={charm.priceRange.maxVariantPrice.amount}
-            />
-          </div>
-        ))}
-      </div> */}
     </div>
   );
 }
