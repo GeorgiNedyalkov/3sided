@@ -1,30 +1,23 @@
-import CharmCard from "@/components/card"
-import { getProducts } from "@/lib"
+import CharmCard from "@/components/charms/charm-card";
+import { getProducts } from "@/lib";
 
 export default async function ShopPage() {
-  const products = await getProducts()
+  const products = await getProducts();
 
   return (
     <div>
       <div className="flex flex-wrap gap-10 p-10">
-        {[
-          ...products,
-          ...products,
-          ...products,
-          ...products,
-          ...products,
-          ...products,
-        ].map((product, index) => (
+        {[...products, ...products].map((product, index) => (
           <div key={product.id + "-" + index}>
             <CharmCard
               description={product.description}
               imageSrc={product.images.edges[0].node.url}
-              price={product.priceRange.maxVariantPrice.amount}
+              price={Number(product.priceRange.maxVariantPrice.amount)}
               label={product.handle}
             />
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }

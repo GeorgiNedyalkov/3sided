@@ -27,8 +27,7 @@ export default function CharmCard({ label, imageSrc, description, price }: Charm
 
   return (
     <Link href={`charms/${label}`}>
-      <div className="w-80 border border-transparent hover:border-green-900">
-        <div></div>
+      <div className="w-60 border border-transparent hover:border-green-900">
         <div
           className="relative h-72 w-full"
           onMouseEnter={handleMouseEnter}
@@ -39,17 +38,10 @@ export default function CharmCard({ label, imageSrc, description, price }: Charm
             alt={label}
             sizes=""
             fill
-            className={`${playVideo ? "hidden" : "object-cover"}`}
+            className={`${playVideo ? "hidden" : "object-cover"} bg-white`}
           />
 
-          <video
-            ref={videoRef}
-            src="/video.mp4"
-            className="h-full object-cover"
-            autoPlay
-            muted
-            loop
-          >
+          <video ref={videoRef} src="/video.mp4" className="h-full object-cover" muted loop>
             Video
           </video>
         </div>
