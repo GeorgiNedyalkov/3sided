@@ -1,4 +1,4 @@
-import ThreeItemGrid from "@/components/grid/three-items";
+import Caroucel from "@/components/grid/caroucel";
 import Link from "next/link";
 
 // import CharmCard from "@/components/card";
@@ -9,7 +9,6 @@ export default async function Home() {
 
   return (
     <div className="m-4 flex h-screen flex-col items-center justify-center">
-      <ThreeItemGrid />
       <div className="flex flex-col gap-4">
         <p>We are currently under construction. Please check out our charm bar.</p>
         <Link href="/charm-bar">
@@ -17,6 +16,7 @@ export default async function Home() {
             Visit charm bar
           </button>
         </Link>
+        <Caroucel />
       </div>
 
       {/* <Sidebar /> */}

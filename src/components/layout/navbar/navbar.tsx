@@ -11,10 +11,6 @@ const navItems = [
     url: "/charm-bar",
   },
   {
-    title: "Collections",
-    url: "/collections",
-  },
-  {
     title: "Shop",
     url: "/shop",
   },
@@ -61,9 +57,7 @@ export default function Navbar() {
           <div className="w-full text-3xl font-extrabold uppercase">3Sided</div>
         </Link>
       </div>
-      <div className="flex basis-1/3 justify-end">
-        <CartModal />
-      </div>
+      <div className="flex basis-1/3 justify-end">{/* <CartModal /> */}</div>
     </nav>
   );
 }
