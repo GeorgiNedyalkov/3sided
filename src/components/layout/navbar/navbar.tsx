@@ -3,7 +3,6 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileMenu from "./mobile-menu";
 import NavLink from "./nav-link";
-import CartModal from "@/components/cart/cart-modal";
 
 const navItems = [
   {
