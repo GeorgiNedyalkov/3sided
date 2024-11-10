@@ -1,12 +1,5 @@
 # 3 Sided Ecommerce site
 
-## TODO:
-
-- [] Add item to cart
-- [] Create cart context
-- [] Design a hero page
-- [x] Write a specification
-
 ## Inspirations
 
 - [Charms and Chains](https://www.madebymary.com/collections/charms-and-chains)
@@ -54,3 +47,25 @@ Get the available chains and charms from shopify.
 1. Choose your **chain**
 2. Choose one of 5 charms
 3. Add to cart
+
+## Meeting 10.11.2024
+
+1. Homepage
+
+- How it works section.
+- Paralax scrolling effect with a background.
+
+2. Charm bar
+
+- Pick your charms in your basket first.
+- Choose your charms
+
+Clean, Elegant, Dark Green
+
+## Colors
+
+Primary color: #051f12
+Peachy pale: #ffd9c7
+Lavender pale: #d9c7d7
+White: #FFF5F0
+#fad9b9
