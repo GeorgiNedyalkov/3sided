@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Necklace } from "@/lib/shopify/types";
+import { Necklace } from "@/app/charm-bar/page";
 
 export default function CharmCanvas({
   charmPositions,
@@ -27,7 +27,7 @@ export default function CharmCanvas({
               ...necklace.settings[index],
               transform: `rotate(${necklace.settings[index].rotation})`,
             }}
-            className="h-12 w-12 lg:h-20 lg:w-20 object-cover"
+            className="h-12 w-12 object-cover lg:h-20 lg:w-20"
             width={150}
             height={150}
           />

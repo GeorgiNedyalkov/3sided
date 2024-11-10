@@ -6,7 +6,7 @@ import CharmImages from "@/components/charms/charm-images";
 import CharmCanvas from "@/components/charms/charm-canvas";
 import { necklaces, charmImages } from "@/lib/placeholder-data";
 
-type Necklace = {
+export type Necklace = {
   id: string;
   src: string;
   settings: (
