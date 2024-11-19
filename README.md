@@ -69,3 +69,65 @@ Peachy pale: #ffd9c7
 Lavender pale: #d9c7d7
 White: #FFF5F0
 #fad9b9
+
+## TODO
+
+Monday, 11.11.2024
+
+It is time to design the full website with minimal amount of coding.
+
+The most important feature is the charm bar where you select your charms. The clients want to try a drag and drop option
+think about how you can do that?
+
+- Create a sitemap
+- Create a wireframe
+- Full design of the homepage.
+
+- Add to cart funcionality. By the end of the week you should be able to buy a single charm. By the end of two weeks a bracelet.
+- Design the homepage.
+
+## Design
+
+Design in grayscale, you're forced to use **spacing**, **contrast**, and **size** to do all the heavy lifting.
+
+### Personality
+
+Simple, elegant, girly.
+
+Typefont: Serif for a professional look.
+
+Border-radius:
+
+- No borde radius: Formal
+
+Language: professional
+
+### System
+
+- Font size
+- Font weight
+- Line height
+- Color
+- Margin
+- Padding
+- Width
+- Height
+- Box shadows
+- Border radius
+- Border width
+- Opacity
+
+1. Font size
+
+Headlines
+
+2. Colors
+
+- Dark color for primary content (Headline of an article)
+- Grey for secondary content (Date an article was published)
+- Lighter gray for tertiary content (copyright notice on the footer)
+
+3. Font weights
+
+- Normal font weight (400 or 500) for most text
+- Heavier font weight (600 or 700) for text to emphasize
