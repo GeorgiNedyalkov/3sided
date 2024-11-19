@@ -5,6 +5,11 @@
 :root {
   --background: #ffffff;
   --foreground: #171717;
+  --primary-Green: #051f12;
+  --secondary-1: #d9c7d7;
+  --secondary-2: #fff5f0;
+  --tertiary-1: #ffd9c7;
+  --tertiary-2: #fad9b9;
 }
 
 html {

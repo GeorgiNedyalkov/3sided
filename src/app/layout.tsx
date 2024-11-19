@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import Navbar from "@/components/layout/navbar/navbar";
+// import Navbar from "@/components/layout/navbar/navbar";
 import "./globals.css";
 import { CartProvider } from "@/components/cart/cart-context";
 import { cookies } from "next/headers";
@@ -35,7 +35,7 @@ export default async function RootLayout({
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <CartProvider cartPromise={cart}>
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
         </CartProvider>
       </body>

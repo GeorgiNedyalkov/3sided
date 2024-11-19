@@ -62,29 +62,16 @@ Get the available chains and charms from shopify.
 
 Clean, Elegant, Dark Green
 
-## Colors
+## Components
 
-Primary color: #051f12
-Peachy pale: #ffd9c7
-Lavender pale: #d9c7d7
-White: #FFF5F0
-#fad9b9
+Product card:
 
-## TODO
+- The card should display a picture of the product
+- The card shoud show the price of the product
+- The card should have an add to cart button
+- The card might show the name of the product
 
-Monday, 11.11.2024
-
-It is time to design the full website with minimal amount of coding.
-
-The most important feature is the charm bar where you select your charms. The clients want to try a drag and drop option
-think about how you can do that?
-
-- Create a sitemap
-- Create a wireframe
-- Full design of the homepage.
-
-- Add to cart funcionality. By the end of the week you should be able to buy a single charm. By the end of two weeks a bracelet.
-- Design the homepage.
+On mobile there is no hover so all the information should be displayed
 
 ## Design
 
@@ -92,7 +79,9 @@ Design in grayscale, you're forced to use **spacing**, **contrast**, and **size*
 
 ### Personality
 
-Simple, elegant, girly.
+Play on a bar.
+
+Simple, elegant, luxurious.
 
 Typefont: Serif for a professional look.
 
@@ -121,13 +110,35 @@ Language: professional
 
 Headlines
 
+Small texts: 12px, 14px
+
+Medium text: 16px, 18px, 20px, 24px
+
+Big text: 32px, 48px, 60px
+
 2. Colors
 
 - Dark color for primary content (Headline of an article)
 - Grey for secondary content (Date an article was published)
-- Lighter gray for tertiary content (copyright notice on the footer)
+- Lighter gray for tertiary content (copyright notice on the footer)o
+
+primary: #051F12
+secondary: #D9C7D7 | #FFF5F0
+tertiary: #FFD9C7 | #FAD9B9
 
 3. Font weights
 
 - Normal font weight (400 or 500) for most text
 - Heavier font weight (600 or 700) for text to emphasize
+
+## Manifesto
+
+Everyone is unique and perfect in their own way.
+
+Your experiences shape the life you live.
+
+Cherish your memories each time you see a bracelet.
+
+## Inspiration
+
+- https://www.behance.net/gallery/158800441/eCommerce-shop-Jewelry?tracking_source=search_projects|e+commerce+jewelry+shop+ui+design&l=1
