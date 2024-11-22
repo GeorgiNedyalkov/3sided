@@ -49,17 +49,17 @@ export default function CharmCard({
         <video ref={videoRef} src="/video.mp4" className="h-full object-cover" muted loop>
           Video
         </video>
-        <div className="bg-secondary-1 text-primary absolute top-0 m-4 w-12 max-w-12 rounded-md text-center">
+        <div className="absolute top-0 m-4 w-12 max-w-12 rounded-md bg-secondary-1 text-center text-primary">
           {status}
         </div>
-        <div className="text-secondary-1 absolute right-0 top-0 m-4 w-6 rounded-md text-center lg:hidden">
+        <div className="absolute right-0 top-0 m-4 w-6 rounded-md text-center text-secondary-1 lg:hidden">
           <ShoppingBagIcon className="" />
         </div>
       </div>
       <div className="p-4 text-left">
         <div className="mb-2">{description}</div>
         <div className="text-3xl">
-          <span className="text-primary font-semibold">{price} </span>
+          <span className="font-semibold text-primary">{price} </span>
           <span className="text-lg">лв.</span>
         </div>
       </div>
