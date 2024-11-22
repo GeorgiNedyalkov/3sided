@@ -9,18 +9,12 @@ function getCharmByLabel(label: string | string[]) {
   return charms.find((charm) => `${charm.label}` == label);
 }
 
-export default function Gallery({
-  images,
-}: {
-  images: { src: string; alt: string }[];
-}) {
+export default function Gallery({ images }: { images: { src: string; alt: string }[] }) {
   const params = useParams();
   const charmLabel = params?.id;
   const charm = getCharmByLabel(charmLabel);
 
-  const [selectedImage, setSelectedImage] = useState<string | null>(
-    images[0].src || ""
-  );
+  const [selectedImage, setSelectedImage] = useState<string | null>(images[0].src || "");
 
   function chooseImage(imageSrc: string) {
     setSelectedImage(imageSrc);
@@ -28,7 +22,7 @@ export default function Gallery({
 
   return (
     <div>
-      <div className="h-[500px] w-full relative">
+      <div className="relative h-96 w-full md:h-[40vh]">
         <Image
           src={selectedImage || ""}
           alt={charm?.label || ""}
@@ -43,7 +37,7 @@ export default function Gallery({
         {charms.map((charm) => (
           <li
             key={charm.id}
-            className="border rounded-lg"
+            className="rounded-lg border"
             onClick={() => chooseImage(charm.imageSrc)}
             value={charm.imageSrc}
           >
@@ -52,7 +46,7 @@ export default function Gallery({
               width={150}
               height={150}
               alt=""
-              className="rounded-lg hover:scale-110 duration-300 cursor-pointer"
+              className="cursor-pointer rounded-lg duration-300 hover:scale-110"
             />
           </li>
         ))}

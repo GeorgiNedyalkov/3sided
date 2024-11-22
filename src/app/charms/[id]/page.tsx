@@ -1,17 +1,16 @@
 import Gallery from "@/components/product/gallery";
-import { getProduct } from "@/lib";
 import ProductDescription from "@/components/product/product-description";
+import { getProduct } from "@/lib";
 import { notFound } from "next/navigation";
 
-export default async function CharmPage() {
-  const handle = "first-charm";
-  const product = await getProduct(handle);
+export default async function CharmPage({ params }: { params: { id: string } }) {
+  const product = await getProduct(params.id); // the id is a handle here must fix
 
   if (!product) return notFound();
 
   return (
-    <div>
-      <div className="mb-10 grid w-full grid-cols-2 pt-20">
+    <>
+      <div className="mb-10 grid w-full grid-cols-1 sm:grid-cols-2">
         <Gallery
           images={product?.images.map((image) => ({
             src: image?.url,
@@ -21,6 +20,6 @@ export default async function CharmPage() {
         <ProductDescription charm={product} />
       </div>
       {/* <OtherProducts category={charm?.category || ""} /> */}
-    </div>
+    </>
   );
 }

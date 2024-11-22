@@ -136,8 +136,6 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
     },
   });
 
-  console.log(res);
-
   return reshapeProduct(res.body.data.product);
 }
 

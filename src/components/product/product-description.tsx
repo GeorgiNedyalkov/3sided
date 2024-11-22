@@ -17,7 +17,7 @@ export default function ProductDescription({ charm }: { charm: Product }) {
   }
 
   return (
-    <div className="w-3/4 pt-20">
+    <div className="px-2 pt-20 sm:w-3/4">
       <h1 className="mb-4 text-5xl font-semibold">Precious Charm</h1>
       <div className="text-gray-600">Handle: {charm.handle}</div>
       <div className="mb-2 text-gray-600">{charm?.description}</div>
