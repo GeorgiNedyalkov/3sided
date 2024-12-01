@@ -3,6 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import MobileMenu from "./mobile-menu";
 import NavLink from "./nav-link";
+import CartModal from "@/components/cart/cart-modal";
 
 const navItems = [
   {
@@ -56,7 +57,9 @@ export default function Navbar() {
           <div className="w-full text-3xl font-extrabold uppercase">3Sided</div>
         </Link>
       </div>
-      <div className="flex basis-1/3 justify-end">{/* <CartModal /> */}</div>
+      <div className="flex basis-1/3 justify-end">
+        <CartModal />
+      </div>
     </nav>
   );
 }
