@@ -11,10 +11,11 @@ import {
   ShopifyProductsOperation,
   ShopifyCollectionProductsOperation,
   ShopifyCreateCartOperation,
+  ShopifyAddToCartOperation,
 } from "./types";
 import { getCartQuery } from "./queries/cart";
 import { getCollectionProductsQuery } from "./queries/collections";
-import { createCartMutation } from "./mutations/cart";
+import { addToCartMutation, createCartMutation } from "./mutations/cart";
 
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 const domain = process.env.SHOPIFY_STORE_DOMAIN;
@@ -194,4 +195,20 @@ export async function createCart(): Promise<Cart> {
   });
 
   return reshapeCart(res.body.data.cartCreate.cart);
+}
+
+export async function addToCart(
+  cartId: string,
+  lines: { merchandiseId: string; quantity: number }[]
+): Promise<Cart> {
+  const res = await shopifyFetch<ShopifyAddToCartOperation>({
+    query: addToCartMutation,
+    variables: {
+      cartId,
+      lines,
+    },
+    cache: "no-store",
+  });
+
+  return reshapeCart(res.body.data.cartLinesAdd.cart);
 }

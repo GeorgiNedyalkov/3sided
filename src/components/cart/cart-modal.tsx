@@ -5,11 +5,13 @@ import { ShoppingCartIcon } from "@heroicons/react/16/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useCart } from "./cart-context";
 import { createCartAndSetCookies } from "./actions";
-import { Dialog, DialogPanel, Transition } from "@headlessui/react";
+import { Dialog, DialogPanel } from "@headlessui/react";
 
 export default function CartModal() {
   const { cart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
+
+  console.log(cart);
 
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
@@ -23,6 +25,7 @@ export default function CartModal() {
   return (
     <>
       <button onClick={openModal} className="rounded-md border-2 border-gray-600 p-2">
+        {/* TODO: Need to add the number of items in the cart */}
         <ShoppingCartIcon className="h-6" />
       </button>
 
