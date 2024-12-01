@@ -1,4 +1,4 @@
-import { getCollectionsProducts } from "@/lib";
+import { getCollectionsProducts } from "@/lib/shopify";
 import { Product } from "@/lib/shopify/types";
 import Image from "next/image";
 import Link from "next/link";

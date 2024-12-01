@@ -1,6 +1,6 @@
 import Gallery from "@/components/product/gallery";
 import ProductDescription from "@/components/product/product-description";
-import { getProduct } from "@/lib";
+import { getProduct } from "@/lib/shopify";
 import { notFound } from "next/navigation";
 
 export default async function CharmPage({ params }: { params: { id: string } }) {

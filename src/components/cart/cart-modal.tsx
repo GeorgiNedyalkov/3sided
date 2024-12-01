@@ -1,14 +1,25 @@
 "use client";
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import { ShoppingCartIcon } from "@heroicons/react/16/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import { useCart } from "./cart-context";
+import { createCartAndSetCookies } from "./actions";
 
 export default function CartModal() {
+  const { cart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
 
   const openModal = () => setIsOpen(true);
-
   const closeModal = () => setIsOpen(false);
+
+  useEffect(() => {
+    if (!cart) {
+      createCartAndSetCookies();
+    }
+  }, [cart]);
+
+  console.log(cart);
 
   return (
     <div>

@@ -1,5 +1,5 @@
 import CharmCard from "@/components/charms/charm-card";
-import { getProducts } from "@/lib";
+import { getProducts } from "@/lib/shopify";
 
 export default async function ProductsGrid() {
   const products = await getProducts();

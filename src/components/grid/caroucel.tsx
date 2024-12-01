@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { getCollectionsProducts } from "@/lib";
+import { getCollectionsProducts } from "@/lib/shopify";
 
 export default async function Caroucel() {
   const products = await getCollectionsProducts({
