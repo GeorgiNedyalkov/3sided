@@ -58,7 +58,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="flex basis-1/3 justify-end">
-        <CartModal />
+        <CartModal />{" "}
       </div>
     </nav>
   );
