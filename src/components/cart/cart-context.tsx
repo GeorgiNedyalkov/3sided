@@ -72,15 +72,15 @@ function createEmptyCart(): Cart {
     cost: {
       subtotalAmount: {
         amount: "0",
-        currencyCode: "EUR,",
+        currencyCode: "EUR",
       },
       totalAmount: {
         amount: "0",
-        currencyCode: "EUR,",
+        currencyCode: "EUR",
       },
       totalTaxAmount: {
         amount: "0",
-        currencyCode: "EUR,",
+        currencyCode: "EUR",
       },
     },
   };
@@ -92,7 +92,6 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
   switch (action.type) {
     case "ADD_ITEM": {
       const { product, variant } = action.payload;
-      // see if the product exists in the cart
       const createdItem = createItem(product, variant);
       const updatedLines = [...currentCart.lines, createdItem];
 

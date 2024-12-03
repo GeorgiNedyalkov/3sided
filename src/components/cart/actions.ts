@@ -9,7 +9,7 @@ export async function createCartAndSetCookies() {
 }
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export async function addItem(prevState: any, selectedVariantId: string | undefined) {
+export async function addItem(selectedVariantId: string | undefined) {
   const cartId = (await cookies()).get("cartId")?.value;
 
   if (!cartId || !selectedVariantId) {
