@@ -1,4 +1,44 @@
 import { Charm } from "./shopify/types";
+// Янина:
+// Зодия: лъв
+// Интереси: пътуване, евритинг мейкъп, aperol connoisseur
+// Чармс: костенурката със зеленото камъче, самолета с камъчета и ленивец
+// Напитка: порнстар мартини
+// Храна: италианска кухня
+// Песни: Jorja Smith - Addicted
+// Party next door - come and see me
+// Starstruck - something about the sunshine
+
+const girls = [
+  {
+    id: "qnita",
+    name: "Qnita",
+    zodiac: "Leo",
+    interests: ["Travel", "Everything makeup", "Aperol connoisseur"],
+    charms: ["turtle with green stone", "airplane with stones", "sloth"],
+    favoriteDrink: "Pornstar Martini",
+    songs: [
+      "Jorja Smith - Addicted",
+      "Party Next Door - come and see me",
+      "Starstruck - something about the sunshine",
+    ],
+  },
+  {
+    id: "qni",
+    name: "Qni",
+    zodiac: "Capri",
+    interests: ["Travel", "Everything makeup", "Aperol connoisseur"],
+    charms: ["Hello Kitty", "Dinosour", "Boy with red stone"],
+    favoriteDrink: "Skinos Sour",
+    songs: [
+      "Tv Girl - cigarettes out the Window",
+      "Lucki - more than ever",
+      "Lancey Foux - Lancey or Lancey",
+      "Drake - Not you too",
+      "Ken Carson - Overseas",
+    ],
+  },
+];
 
 const charms: Charm[] = [
   {
@@ -40,6 +80,11 @@ const charmImages = [
   "/charm_3.png",
   "/charm_4.webp",
   "/charm_5.webp",
+  "/1.png",
+  "/2.png",
+  "/3.png",
+  "/4.png",
+  "/5.png",
 ];
 
 // These should come from our backend
@@ -68,4 +113,4 @@ const necklaces = [
   },
 ];
 
-export { charms, necklaces, charmImages };
+export { charms, necklaces, charmImages, girls };
