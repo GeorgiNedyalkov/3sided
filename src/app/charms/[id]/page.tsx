@@ -3,7 +3,8 @@ import ProductDescription from "@/components/product/product-description";
 import { getProduct } from "@/lib/shopify";
 import { notFound } from "next/navigation";
 
-export default async function CharmPage({ params }: { params: { id: string } }) {
+export default async function CharmPage(props: { params: Promise<{ id: string }> }) {
+  const params = await props.params;
   const product = await getProduct(params.id); // the id is a handle here must fix
 
   if (!product) return notFound();
