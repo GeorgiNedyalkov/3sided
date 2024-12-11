@@ -22,7 +22,7 @@ export default async function ThreeItemGrid() {
   const homepageItems = await getCollectionsProducts({
     collection: "Charms",
   });
-  console.log(homepageItems);
+  // console.log(homepageItems);
 
   if (!homepageItems[0] || !homepageItems[1] || !homepageItems[2]) return null;
 

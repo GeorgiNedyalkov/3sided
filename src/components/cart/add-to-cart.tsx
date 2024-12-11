@@ -15,7 +15,6 @@ export default function AddToCartButton({ charm }: { charm: Product }) {
   const finalVariant = variants.find((variant) => variant.id === selectedVariantId)!;
 
   console.log(cart);
-
   return (
     <form
       action={async () => {

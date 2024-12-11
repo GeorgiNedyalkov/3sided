@@ -11,8 +11,6 @@ export default function CartModal() {
   const { cart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
 
-  console.log(cart);
-
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
