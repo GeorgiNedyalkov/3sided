@@ -11,7 +11,7 @@ function getCharmByLabel(label: string | string[]) {
 
 export default function Gallery({ images }: { images: { src: string; alt: string }[] }) {
   const params = useParams();
-  const charmLabel = params?.id;
+  const charmLabel = params.id!;
   const charm = getCharmByLabel(charmLabel);
 
   const [selectedImage, setSelectedImage] = useState<string | null>(images[0].src || "");
