@@ -1,41 +1,104 @@
 import { Charm } from "./shopify/types";
-// Янина:
-// Зодия: лъв
-// Интереси: пътуване, евритинг мейкъп, aperol connoisseur
-// Чармс: костенурката със зеленото камъче, самолета с камъчета и ленивец
-// Напитка: порнстар мартини
-// Храна: италианска кухня
-// Песни: Jorja Smith - Addicted
-// Party next door - come and see me
-// Starstruck - something about the sunshine
 
 const girls = [
   {
-    id: "qnita",
-    name: "Qnita",
+    id: "qnina",
+    name: "Qnina Poptomova",
     zodiac: "Leo",
     interests: ["Travel", "Everything makeup", "Aperol connoisseur"],
-    charms: ["turtle with green stone", "airplane with stones", "sloth"],
-    favoriteDrink: "Pornstar Martini",
+    // charms: ["turtle with green stone", "airplane with stones", "sloth"],
+    charms: [
+      {
+        name: "Turtle with green stone",
+        imgSrc: "/2.png",
+        link: "",
+      },
+      {
+        name: "Sloth",
+        imgSrc: "/3.png",
+        link: "",
+      },
+      {
+        name: "Airplane with stones",
+        imgSrc: "/4.png",
+        link: "",
+      },
+    ],
+    favoriteDrink: {
+      name: "Pornstar Martini",
+      src: "",
+    },
     songs: [
-      "Jorja Smith - Addicted",
-      "Party Next Door - come and see me",
-      "Starstruck - something about the sunshine",
+      {
+        artist: "Jorja Smith",
+        album: "Be Right Back",
+        song: "Addicted",
+      },
+      {
+        artist: "Party Next Door",
+        song: "Come and See me",
+      },
+      {
+        artist: "Starstruck",
+        song: "Something about the sunshine",
+      },
     ],
   },
+  //     id: "qni",
+  //     name: "Qni",
+  //     zodiac: "Capri",
+  //     interests: ["Travel", "Everything makeup", "Aperol connoisseur"],
+  //     charms: ["Hello Kitty", "Dinosour", "Boy with red stone"],
+  //     favoriteDrink: "Skinos Sour",
+  //     songs: [
+  //       "Tv Girl - cigarettes out the Window",
+  //       "Lucki - more than ever",
+  //       "Lancey Foux - Lancey or Lancey",
+  //       "Drake - Not you too",
+  //       "Ken Carson - Overseas",
+  //     ],
+  //   },
+
   {
-    id: "qni",
-    name: "Qni",
+    id: "devi",
+    name: "Devina Slavilova",
     zodiac: "Capri",
-    interests: ["Travel", "Everything makeup", "Aperol connoisseur"],
-    charms: ["Hello Kitty", "Dinosour", "Boy with red stone"],
-    favoriteDrink: "Skinos Sour",
+    interests: ["Finding new music", "Jewelry", "Taking cute pics"],
+    charms: [
+      {
+        name: "Dinosour",
+        imgSrc: "/2.png",
+        link: "",
+      },
+      {
+        name: "Cherries",
+        imgSrc: "/3.png",
+        link: "",
+      },
+      {
+        name: "Pomegranate",
+        imgSrc: "/4.png",
+        link: "",
+      },
+    ],
+    favoriteDrink: {
+      name: "Skinos Sour",
+      src: "/devi/skinos.png",
+    },
     songs: [
-      "Tv Girl - cigarettes out the Window",
-      "Lucki - more than ever",
-      "Lancey Foux - Lancey or Lancey",
-      "Drake - Not you too",
-      "Ken Carson - Overseas",
+      {
+        artist: "Massive Attack",
+        album: "Be Right Back",
+        song: "Angel",
+      },
+      {
+        artist: "Sade",
+        song: "Paradise",
+      },
+      {
+        artist: "PARTYNEXTDOOR",
+        song: "1941",
+      },
     ],
   },
 ];
