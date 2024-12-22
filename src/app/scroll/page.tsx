@@ -3,16 +3,20 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const charms = [
-  { src: "/charm_3.png", baseRotation: 0, offset: 2 },
+  { src: "/charm_3.png", baseRotation: 0, offset: 1 },
   { src: "/charm_4.webp", baseRotation: 45, offset: 0 },
   { src: "/charm_5.webp", baseRotation: -45, offset: 0 },
 ];
 
 export default function Page() {
   const [scrollY, setScrollY] = useState(0);
+  const [moveDown, setMoveDown] = useState(0);
 
   useEffect(() => {
-    const handleScroll = () => setScrollY(window.scrollY);
+    const handleScroll = () => {
+      setScrollY(window.scrollY);
+      setMoveDown((moveDown) => moveDown++);
+    };
 
     window.addEventListener("scroll", handleScroll);
 
@@ -20,7 +24,6 @@ export default function Page() {
   }, []);
 
   const calculateRotation = (baseRotation: number) => baseRotation + scrollY * 1;
-  const calculateTranslation = (offset: number) => scrollY * offset * 0.2;
 
   return (
     <div className="bg-primary">
@@ -50,10 +53,7 @@ export default function Page() {
                 height={100}
                 alt={`Charm ${idx + 1}`}
                 style={{
-                  transform: `rotate(${calculateRotation(charm.baseRotation)}deg) translateY(${calculateTranslation(
-                    charm.offset
-                  )}px)`,
-                  transformOrigin: "50% 50%",
+                  transform: `rotate(${calculateRotation(charm.baseRotation)}deg) translate3d(0, ${moveDown}px, 0)`,
                 }}
               />
             ))}
