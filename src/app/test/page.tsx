@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { FallingCharms } from "../scroll/page";
 
-const buttercream = "#EDE2CD";
-const finalBackground = "bg-[#cabdac]";
+// const buttercream = "#EDE2CD";
+// const finalBackground = "bg-[#cabdac]";
 
 export default function Page() {
   return (
@@ -158,94 +158,94 @@ function MatchSection() {
   );
 }
 
-function ImageCard({ src }: { src: string }) {
-  return (
-    <div>
-      <p className="flex items-end justify-end">WINTER SEASON 25</p>
-      <div className="relative h-[50vh] w-96 bg-slate-800">
-        <Image src={src} alt="" fill className="object-cover" />
-      </div>
-      <div className="flex justify-between">
-        <p className="pl-10">NEW COLLECTION</p>
-        <p>SOON</p>
-      </div>
-    </div>
-  );
-}
+// function ImageCard({ src }: { src: string }) {
+//   return (
+//     <div>
+//       <p className="flex items-end justify-end">WINTER SEASON 25</p>
+//       <div className="relative h-[50vh] w-96 bg-slate-800">
+//         <Image src={src} alt="" fill className="object-cover" />
+//       </div>
+//       <div className="flex justify-between">
+//         <p className="pl-10">NEW COLLECTION</p>
+//         <p>SOON</p>
+//       </div>
+//     </div>
+//   );
+// }
 
-function PantoneColors() {
-  return (
-    <div className="flex flex-col gap-20 md:flex-row">
-      <h2 className="pl-20 pt-10 text-3xl font-bold uppercase text-primary">
-        Ти <br /> избираш
-      </h2>
-      <PantoneCards />
-    </div>
-  );
-}
+// function PantoneColors() {
+//   return (
+//     <div className="flex flex-col gap-20 md:flex-row">
+//       <h2 className="pl-20 pt-10 text-3xl font-bold uppercase text-primary">
+//         Ти <br /> избираш
+//       </h2>
+//       <PantoneCards />
+//     </div>
+//   );
+// }
 
-function PantoneCards() {
-  const pantoneColors = ["#FFF0E9", "#9BA287", "#EDDAD1", "#DADAD9", "#504136"];
+// function PantoneCards() {
+//   const pantoneColors = ["#FFF0E9", "#9BA287", "#EDDAD1", "#DADAD9", "#504136"];
 
-  return (
-    <ul className="mx-48 grid w-1/2 md:grid-cols-3 md:grid-rows-2">
-      {pantoneColors.map((pantoneColorHash) => (
-        <li key={pantoneColorHash}>
-          <PantoneCard colorHash={pantoneColorHash} />
-        </li>
-      ))}
-    </ul>
-  );
-}
+//   return (
+//     <ul className="mx-48 grid w-1/2 md:grid-cols-3 md:grid-rows-2">
+//       {pantoneColors.map((pantoneColorHash) => (
+//         <li key={pantoneColorHash}>
+//           <PantoneCard colorHash={pantoneColorHash} />
+//         </li>
+//       ))}
+//     </ul>
+//   );
+// }
 
-function PantoneCard({ colorHash }: { colorHash: string }) {
-  return (
-    <div className="mx-auto flex h-52 w-52 flex-col items-center justify-center p-4">
-      <div className="flex h-40 w-full items-center justify-center">
-        <div
-          className={`h-32 w-32`}
-          style={{
-            backgroundColor: colorHash,
-          }}
-        />
-      </div>
-      <p className="text-center text-xl text-primary">{colorHash}</p>
-    </div>
-  );
-}
+// function PantoneCard({ colorHash }: { colorHash: string }) {
+//   return (
+//     <div className="mx-auto flex h-52 w-52 flex-col items-center justify-center p-4">
+//       <div className="flex h-40 w-full items-center justify-center">
+//         <div
+//           className={`h-32 w-32`}
+//           style={{
+//             backgroundColor: colorHash,
+//           }}
+//         />
+//       </div>
+//       <p className="text-center text-xl text-primary">{colorHash}</p>
+//     </div>
+//   );
+// }
 
-function SearchIcon() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      fill="none"
-      viewBox="0 0 24 24"
-      strokeWidth={1.5}
-      stroke="currentColor"
-      className="size-6"
-    >
-      <path
-        strokeLinecap="round"
-        strokeLinejoin="round"
-        d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-      />
-    </svg>
-  );
-}
+// function SearchIcon() {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       fill="none"
+//       viewBox="0 0 24 24"
+//       strokeWidth={1.5}
+//       stroke="currentColor"
+//       className="size-6"
+//     >
+//       <path
+//         strokeLinecap="round"
+//         strokeLinejoin="round"
+//         d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+//       />
+//     </svg>
+//   );
+// }
 
-function ShoppingBag() {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      className="size-6"
-    >
-      <path
-        fillRule="evenodd"
-        d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z"
-        clipRule="evenodd"
-      />
-    </svg>
-  );
-}
+// function ShoppingBag() {
+//   return (
+//     <svg
+//       xmlns="http://www.w3.org/2000/svg"
+//       viewBox="0 0 24 24"
+//       fill="currentColor"
+//       className="size-6"
+//     >
+//       <path
+//         fillRule="evenodd"
+//         d="M7.5 6v.75H5.513c-.96 0-1.764.724-1.865 1.679l-1.263 12A1.875 1.875 0 0 0 4.25 22.5h15.5a1.875 1.875 0 0 0 1.865-2.071l-1.263-12a1.875 1.875 0 0 0-1.865-1.679H16.5V6a4.5 4.5 0 1 0-9 0ZM12 3a3 3 0 0 0-3 3v.75h6V6a3 3 0 0 0-3-3Zm-3 8.25a3 3 0 1 0 6 0v-.75a.75.75 0 0 1 1.5 0v.75a4.5 4.5 0 1 1-9 0v-.75a.75.75 0 0 1 1.5 0v.75Z"
+//         clipRule="evenodd"
+//       />
+//     </svg>
+//   );
+// }
