@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { FallingCharms } from "../scroll/page";
+import FallingCharms from "@/components/falling-charms";
 
 // const buttercream = "#EDE2CD";
 // const finalBackground = "bg-[#cabdac]";
