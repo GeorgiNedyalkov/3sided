@@ -3,7 +3,7 @@ import { Charm } from "./shopify/types";
 const girls = [
   {
     id: "qnina",
-    name: "Qnina Poptomova",
+    name: "Yanina Poptomova",
     zodiac: "Leo",
     interests: ["Travel", "Everything makeup", "Aperol connoisseur"],
     // charms: ["turtle with green stone", "airplane with stones", "sloth"],
@@ -26,7 +26,7 @@ const girls = [
     ],
     favoriteDrink: {
       name: "Pornstar Martini",
-      src: "",
+      src: "/pornstar_martini.png",
     },
     songs: [
       {

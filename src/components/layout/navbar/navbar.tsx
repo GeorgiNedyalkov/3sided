@@ -14,6 +14,10 @@ const navItems = [
     title: "Shop",
     url: "/shop",
   },
+  {
+    title: "Test",
+    url: "/test",
+  },
 ];
 
 export default function Navbar() {

@@ -8,7 +8,7 @@ const charms = [
   { src: "/charm_5.webp", baseRotation: -45, offset: 0 },
 ];
 
-export default function Page() {
+export function FallingCharms() {
   const [scrollY, setScrollY] = useState(0);
   const [moveDown, setMoveDown] = useState(0);
 
@@ -24,22 +24,26 @@ export default function Page() {
   }, []);
 
   const calculateRotation = (baseRotation: number) => baseRotation + scrollY * 1;
-
   return (
     <div className="bg-primary">
       <div className="mx-auto flex h-screen w-full max-w-screen-xl flex-col justify-between md:flex-row">
         <div className="flex h-screen flex-col justify-between">
-          <h1 className="pt-20 text-2xl text-tertiary-2">
+          {/* <h1 className="pt-20 text-2xl text-tertiary-2">
             MEANT TO BE MIXED, MATCHED,
             <br />
             STACKED, AND THOROUGHLY <span className="font-bo text-tertiary-1">ENJOYED</span>
-          </h1>
+          </h1> */}
 
           <div className="pb-64">
-            <h3 className="text-2xl text-secondary-1">Welcome to our charm bar</h3>
-            <p className="text-tertiary-2">
-              You can create the jewelry based on your own personal style, hobbies, zodiac and more
-            </p>
+            <h3 className="pb-10 pt-20 text-2xl text-secondary-1">Welcome to our charm bar</h3>
+            <div className="flex flex-col gap-2">
+              <p className="text-tertiary-2">
+                You can create the jewelry based on your own personal style, hobbies, zodiac and
+                more.
+              </p>
+              <p className="text-tertiary-2">3SIDED that brand that took over Bulgaria.</p>
+              <p className="text-xl uppercase text-secondary-1">The first Charm Bar Ever</p>
+            </div>
           </div>
         </div>
         <div>
@@ -66,16 +70,20 @@ export default function Page() {
   );
 }
 
-// function CharmedCocktail() {
-//   return (
-//     <div className="flex flex-col items-center">
-//       <div className="-mb-24">
-//         <Image src="/hand_charm_drop_no_background.png" width={400} height={400} alt="" />
-//       </div>
-//       <Image src="/charm_3.png" width={100} height={100} alt="" className="ml-32" />
-//       <Image src="/charm_4.webp" width={100} height={100} alt="" className="mr-32" />
-//       <Image src="/charm_5.webp" width={100} height={100} alt="" className="" />
-//       <Image src="/pornstar_martini.png" width={400} height={400} alt="" className="" />
-//     </div>
-//   );
-// }
+export default function Page() {
+  return <FallingCharms />;
+}
+
+function CharmedCocktail() {
+  return (
+    <div className="flex flex-col items-center">
+      <div className="-mb-24">
+        <Image src="/hand_charm_drop_no_background.png" width={400} height={400} alt="" />
+      </div>
+      <Image src="/charm_3.png" width={100} height={100} alt="" className="ml-32" />
+      <Image src="/charm_4.webp" width={100} height={100} alt="" className="mr-32" />
+      <Image src="/charm_5.webp" width={100} height={100} alt="" className="" />
+      <Image src="/pornstar_martini.png" width={400} height={400} alt="" className="" />
+    </div>
+  );
+}

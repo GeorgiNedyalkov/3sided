@@ -3,67 +3,71 @@ import Image from "next/image";
 import Link from "next/link";
 
 export default function Page() {
-  const { id, name, zodiac, interests, charms, favoriteDrink, songs } = girls[1];
+  const { name, zodiac, interests, charms, favoriteDrink, songs } = girls[0];
 
   return (
     <div>
-      <h1>Qnita</h1>
+      <div className="mx-auto max-w-screen-2xl">
+        <div className="grid grid-cols-3 grid-rows-2">
+          <div className="col-start-1 row-start-1">
+            <div className="mt-10 flex w-96 flex-col gap-10">
+              {/* Desciption and Title */}
+              <div>
+                <h4 className="mb-4 text-2xl font-bold text-gray-950">Social Media Queen</h4>
+                <p className="text-slate-500">
+                  Social media lurker during the night. A go getter business girly during the day.
+                </p>
+              </div>
+              {/* Zodiac */}
+              <div className="relative h-64 w-64">
+                <div>
+                  <p className="flex text-sm text-slate-500">Sign</p>
+                  <h4 className="text-2xl font-semibold text-slate-900">{zodiac}</h4>
+                </div>
+                <Image
+                  src="/capri.png"
+                  alt={`Image of a ${zodiac} sing charm`}
+                  className="object-fill"
+                  fill
+                />
+              </div>
+            </div>
+          </div>
+          {/* Name and Main Picture */}
+          <div className="relative col-start-2 row-span-2 row-start-1">
+            <Image
+              src="/devi/devi.jpg"
+              alt={`Image of ${name}`}
+              className="absolute z-0 object-cover"
+              fill
+            />
+            <div className="absolute -left-40 top-4 z-10 bg-secondary-2 p-2 text-5xl font-semibold text-primary">
+              {name}
+            </div>
+          </div>
+          {/* Songs */}
+          <div className="z-10 col-start-3">
+            <Songs songs={songs} />
+          </div>
+          {/* Favorite Drink*/}
+          <div className="relative col-start-1 row-start-2 p-4">
+            <p className="text-sm text-slate-500">Favorite Drink</p>
+            <h4 className="text-2xl font-semibold text-slate-900">{favoriteDrink.name}</h4>
+            <Image
+              src={favoriteDrink.src}
+              alt={favoriteDrink.name}
+              fill
+              className="object-contain"
+            />
+          </div>
+          {/* Hobbies and Charms*/}
+          <div className="col-start-3 row-start-2 flex flex-col gap-10 pl-20">
+            <Hobbies interests={interests} />
+            <FavoriteCharms favoriteCharms={charms} />
+          </div>
+        </div>
+      </div>
     </div>
-    // <div className="mx-auto max-w-screen-2xl">
-    //   <div className="grid grid-cols-3 grid-rows-2">
-    //     <div className="col-start-1 row-start-1">
-    //       <div className="mt-10 flex w-96 flex-col gap-10">
-    //         {/* Desciption and Title */}
-    //         <div>
-    //           <h4 className="mb-4 text-2xl font-bold text-gray-950">Social Media Queen</h4>
-    //           <p className="text-slate-500">
-    //             Social media lurker during the night. A go getter business girly during the day.
-    //           </p>
-    //         </div>
-    //         {/* Zodiac */}
-    //         <div className="relative h-64 w-64">
-    //           <div>
-    //             <p className="flex text-sm text-slate-500">Sign</p>
-    //             <h4 className="text-2xl font-semibold text-slate-900">{zodiac}</h4>
-    //           </div>
-    //           <Image
-    //             src="/capri.png"
-    //             alt={`Image of a ${zodiac} sing charm`}
-    //             className="object-fill"
-    //             fill
-    //           />
-    //         </div>
-    //       </div>
-    //     </div>
-    //     {/* Name and Main Picture */}
-    //     <div className="relative col-start-2 row-span-2 row-start-1">
-    //       <Image
-    //         src="/devi/devi.jpg"
-    //         alt={`Image of ${name}`}
-    //         className="absolute z-0 object-cover"
-    //         fill
-    //       />
-    //       <div className="absolute -left-40 top-4 z-10 bg-secondary-2 p-2 text-5xl font-semibold text-primary">
-    //         {name}
-    //       </div>
-    //     </div>
-    //     {/* Songs */}
-    //     <div className="z-10 col-start-3">
-    //       <Songs songs={songs} />
-    //     </div>
-    //     {/* Favorite Drink*/}
-    //     <div className="relative col-start-1 row-start-2 p-4">
-    //       <p className="text-sm text-slate-500">Favorite Drink</p>
-    //       <h4 className="text-2xl font-semibold text-slate-900">{favoriteDrink.name}</h4>
-    //       <Image src={favoriteDrink.src} alt={favoriteDrink.name} fill className="object-contain" />
-    //     </div>
-    //     {/* Hobbies and Charms*/}
-    //     <div className="col-start-3 row-start-2 flex flex-col gap-10 pl-20">
-    //       <Hobbies interests={interests} />
-    //       <FavoriteCharms favoriteCharms={charms} />
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
 
