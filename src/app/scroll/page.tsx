@@ -74,16 +74,16 @@ export default function Page() {
   return <FallingCharms />;
 }
 
-function CharmedCocktail() {
-  return (
-    <div className="flex flex-col items-center">
-      <div className="-mb-24">
-        <Image src="/hand_charm_drop_no_background.png" width={400} height={400} alt="" />
-      </div>
-      <Image src="/charm_3.png" width={100} height={100} alt="" className="ml-32" />
-      <Image src="/charm_4.webp" width={100} height={100} alt="" className="mr-32" />
-      <Image src="/charm_5.webp" width={100} height={100} alt="" className="" />
-      <Image src="/pornstar_martini.png" width={400} height={400} alt="" className="" />
-    </div>
-  );
-}
+// function CharmedCocktail() {
+//   return (
+//     <div className="flex flex-col items-center">
+//       <div className="-mb-24">
+//         <Image src="/hand_charm_drop_no_background.png" width={400} height={400} alt="" />
+//       </div>
+//       <Image src="/charm_3.png" width={100} height={100} alt="" className="ml-32" />
+//       <Image src="/charm_4.webp" width={100} height={100} alt="" className="mr-32" />
+//       <Image src="/charm_5.webp" width={100} height={100} alt="" className="" />
+//       <Image src="/pornstar_martini.png" width={400} height={400} alt="" className="" />
+//     </div>
+//   );
+// }
