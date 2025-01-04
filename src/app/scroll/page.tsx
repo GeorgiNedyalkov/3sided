@@ -70,9 +70,9 @@ export function FallingCharms() {
   );
 }
 
-export default function Page() {
-  return <FallingCharms />;
-}
+// export default function Page() {
+//   return <FallingCharms />;
+// }
 
 // function CharmedCocktail() {
 //   return (
