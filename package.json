@@ -11,9 +11,12 @@
   "dependencies": {
     "@headlessui/react": "^2.2.0",
     "@heroicons/react": "^2.1.5",
+    "@types/nodemailer": "^6.4.17",
     "next": "15.0.0-rc.1",
+    "nodemailer": "^6.9.16",
     "react": "19.0.0-rc-cd22717c-20241013",
-    "react-dom": "19.0.0-rc-cd22717c-20241013"
+    "react-dom": "19.0.0-rc-cd22717c-20241013",
+    "zod": "^3.24.1"
   },
   "devDependencies": {
     "@types/node": "^20",

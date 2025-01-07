@@ -142,3 +142,23 @@ Cherish your memories each time you see a bracelet.
 ## Inspiration
 
 - https://www.behance.net/gallery/158800441/eCommerce-shop-Jewelry?tracking_source=search_projects|e+commerce+jewelry+shop+ui+design&l=1
+
+## Contact
+
+### Contact Form
+
+Form
+
+- first name
+- last name
+- email address
+- message
+- checkbox for marketing materials
+- privacy policy or somthing else
+- submit button
+- clear fields after email is sent
+
+1. Front end
+2. Validation on the front end: Something else
+3. Back end
+4. Validation on the backend: Zod

@@ -18,6 +18,10 @@ const navItems = [
     title: "Test",
     url: "/test",
   },
+  {
+    title: "Contact",
+    url: "/contact",
+  },
 ];
 
 export default function Navbar() {
