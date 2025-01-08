@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Necklace } from "@/app/charm-bar/page";
+import { Necklace } from "../charm-bar/charm-bar";
 
 export default function CharmCanvas({
   charmPositions,
