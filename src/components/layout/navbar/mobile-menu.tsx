@@ -35,7 +35,7 @@ export default function MobileMenu() {
         <Bars3Icon className="h-6" />
       </button>
       <div
-        className={`absolute top-0 flex h-screen w-full transform bg-slate-200 transition-all duration-500 ease-in-out ${isOpen ? "left-0" : "-left-96"} `}
+        className={`absolute top-0 flex h-screen w-full transform bg-slate-200 transition-all duration-500 ease-in-out ${isOpen ? "left-0" : "-left-full"} `}
       >
         <div className="p-6">
           <button onClick={closeMenu} className="mb-4">
