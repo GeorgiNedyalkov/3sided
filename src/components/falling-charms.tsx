@@ -28,12 +28,6 @@ export default function FallingCharms() {
     <div className="bg-primary">
       <div className="mx-auto flex h-screen w-full max-w-screen-xl flex-col justify-between md:flex-row">
         <div className="flex h-screen flex-col justify-between">
-          {/* <h1 className="pt-20 text-2xl text-tertiary-2">
-            MEANT TO BE MIXED, MATCHED,
-            <br />
-            STACKED, AND THOROUGHLY <span className="font-bo text-tertiary-1">ENJOYED</span>
-          </h1> */}
-
           <div className="pb-64">
             <h3 className="pb-10 pt-20 text-2xl text-secondary-1">Welcome to our charm bar</h3>
             <div className="flex flex-col gap-2">

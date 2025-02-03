@@ -7,20 +7,16 @@ import CartModal from "@/components/cart/cart-modal";
 
 const navItems = [
   {
-    title: "Charm bar",
+    title: "Home",
+    url: "/",
+  },
+  {
+    title: "About us",
+    url: "/about",
+  },
+  {
+    title: "Charm Bar",
     url: "/charm-bar",
-  },
-  {
-    title: "Shop",
-    url: "/shop",
-  },
-  {
-    title: "Test",
-    url: "/test",
-  },
-  {
-    title: "Contact",
-    url: "/contact",
   },
 ];
 
@@ -48,7 +44,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className={`sticky z-10 flex h-20 w-full transform items-center justify-between bg-gray-100 p-8 transition-all duration-500 ease-in-out ${isVisible ? "top-0" : "-top-20"}`}
+      className={`sticky z-10 flex h-20 w-full transform items-center justify-between bg-[#490202] p-8 text-white transition-all duration-500 ease-in-out ${isVisible ? "top-0" : "-top-20"}`}
     >
       <div className="block basis-1/3 md:hidden">
         <MobileMenu />
@@ -66,7 +62,7 @@ export default function Navbar() {
         </Link>
       </div>
       <div className="flex basis-1/3 justify-end">
-        <CartModal />{" "}
+        <CartModal />
       </div>
     </nav>
   );
