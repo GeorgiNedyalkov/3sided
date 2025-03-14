@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { Necklace } from "../charm-bar/charm-bar";
+import { Necklace } from "@/lib/shopify/types";
 
 export default function CharmCanvas({
   charmPositions,

@@ -38,16 +38,6 @@ Pages:
   - Shipping
   - Cookies
 
-## Charm Bar
-
-Create your own
-
-Get the available chains and charms from shopify.
-
-1. Choose your **chain**
-2. Choose one of 5 charms
-3. Add to cart
-
 ## Meeting 10.11.2024
 
 1. Homepage
@@ -162,3 +152,16 @@ Form
 2. Validation on the front end: Something else
 3. Back end
 4. Validation on the backend: Zod
+
+## Charm bar
+
+Create your own
+
+Get the available chains and charms from shopify.
+
+1. Choose your **chain**
+2. Choose one of 5 charms
+3. Add to cart
+
+4. Pick a category
+5. Pick a chain

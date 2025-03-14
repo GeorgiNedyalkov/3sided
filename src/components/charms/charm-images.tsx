@@ -10,7 +10,7 @@ export default function CharmImages({
   charmImages: string[];
 }) {
   return (
-    <div className="flex w-full gap-4 overflow-x-scroll p-4">
+    <div className="flex h-40 w-full gap-4 overflow-x-scroll p-4">
       {charmImages.map((src, index) => (
         <Image
           key={index}
@@ -18,7 +18,7 @@ export default function CharmImages({
           onClick={() => onCharmSelect(src, position)}
           width={100}
           height={100}
-          className="cursor-pointer object-cover"
+          className="cursor-pointer object-contain"
           alt={`Charm ${index + 1}`}
         />
       ))}

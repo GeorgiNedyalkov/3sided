@@ -271,6 +271,7 @@ export type ShopifyProductsOperation = {
   };
 };
 
+// Product Subtypes
 export type Charm = {
   id: string;
   number: string;
@@ -280,4 +281,23 @@ export type Charm = {
   description: string;
   quantity: number;
   price: number;
+};
+
+export type Necklace = {
+  id: string;
+  src: string;
+  settings: (
+    | {
+        top: string;
+        left: string;
+        rotation: string;
+        right?: undefined;
+      }
+    | {
+        top: string;
+        right: string;
+        rotation: string;
+        left?: undefined;
+      }
+  )[];
 };

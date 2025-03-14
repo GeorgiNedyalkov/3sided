@@ -1,28 +1,32 @@
 "use client";
+
+// import { useState } from "react";
+
+// export default function CharmBar({ charms }) {
+//   console.log(charms);
+
+//   const [totalPrice, setTotalPrice] = useState(50);
+
+//   return (
+//     <div>
+//       {/* Chain */}
+//       <div>Total Price: {totalPrice} bgn</div>
+//       {/* Charms */}
+//       {/* <div>
+//         {charms.map((charm) => (
+//           <div>{charm.id}</div>
+//         ))}
+//       </div> */}
+//     </div>
+//   );
+// }
+
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import CharmImages from "@/components/charms/charm-images";
 import CharmCanvas from "@/components/charms/charm-canvas";
 import { necklaces, charmImages } from "@/lib/placeholder-data";
-
-export type Necklace = {
-  id: string;
-  src: string;
-  settings: (
-    | {
-        top: string;
-        left: string;
-        rotation: string;
-        right?: undefined;
-      }
-    | {
-        top: string;
-        right: string;
-        rotation: string;
-        left?: undefined;
-      }
-  )[];
-};
+import { Necklace } from "@/lib/shopify/types";
 
 export default function CharmBar() {
   const [selectedNecklace, setSelectedNecklace] = useState<Necklace>(necklaces[0]);
@@ -39,6 +43,10 @@ export default function CharmBar() {
     setSelectedPosition(position - 1); // Adjust index to match array position
   }
 
+  function handleSelectPosition(position) {
+    setSelectedPosition(position - 1);
+  }
+
   useEffect(() => {
     if (selectedCharm && selectedPosition >= 0) {
       setCharmPositions((prevPositions) => {
@@ -50,22 +58,15 @@ export default function CharmBar() {
   }, [selectedCharm, selectedPosition]);
 
   return (
-    <div className="m-4 md:m-20 lg:grid-cols-2">
-      <div className="mb-4">
-        <h1 className="mb-4 text-2xl font-semibold md:text-3xl">
-          Create your own personalized bracelet
-        </h1>
-        <p className="max-w-[500px] text-sm md:text-base">
-          Select up to five charms to create your unique bracelet.
-          <br />
-          Click on the charms for each position to see how it looks like.
-        </p>
-      </div>
-      <div className="grid w-full gap-4 lg:grid-cols-2">
-        <div className="row-start-1 lg:col-start-1 lg:row-span-3 lg:row-start-2">
+    <>
+      <div className="">
+        {/* Canvas */}
+        <div className="">
           <CharmCanvas charmPositions={charmPositions} necklace={selectedNecklace} />
         </div>
-        <div className="lg:col-start-2">
+
+        {/* Bracelets */}
+        <div className="">
           <div className="mb-4 rounded-md bg-slate-100 p-2 font-medium">Choose a bracelet</div>
           <div className="flex w-full gap-4 overflow-y-auto p-4">
             {necklaces.map((necklace, index) => (
@@ -81,7 +82,21 @@ export default function CharmBar() {
             ))}
           </div>
         </div>
-        {[...Array(5)].map((_, i) => (
+
+        {/* Select a charm position */}
+        <p className="bg-red-50 text-xl">{selectedPosition}</p>
+        <div className="flex gap-4">
+          {[1, 2, 3, 4, 5].map((charmPosition, i) => (
+            <button
+              key={i}
+              onClick={() => handleSelectPosition(charmPosition)}
+              className={`${selectedPosition == charmPosition ? "bg-black" : ""} h-10 w-10 rounded-full bg-gray-200`}
+            ></button>
+          ))}
+        </div>
+
+        {/* Charms */}
+        {[...Array(1)].map((_, i) => (
           <div key={i} className={`lg:col-start-2 lg:row-start-${i + 3}`}>
             <div className="rounded-md bg-slate-100 p-2 font-medium">
               {i == 0 ? "Choose Central Charm" : `Choose Charm ${i + 1}`}
@@ -94,6 +109,6 @@ export default function CharmBar() {
           </div>
         ))}
       </div>
-    </div>
+    </>
   );
 }
