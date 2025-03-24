@@ -6,55 +6,65 @@ import { charms } from "@/lib/placeholder-data";
 import Image from "next/image";
 
 export default function Page() {
-  const [selectedCharms, setSelectedCharms] = useState<Charm[]>([]);
-  const [selectedCharm, setSelectedCharm] = useState(3);
-  const [totalPrice, setTotalPrice] = useState(0);
+  const numberOfCharms = 5;
+
+  const [selectedCharms, setSelectedCharms] = useState<Charm[]>(
+    new Array(numberOfCharms).fill(null)
+  );
+
+  const [selectedCharmPosition, setSelectedCharmPosition] = useState<number>(2);
+
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+
+  function handleSelectCharmPosition(position: number) {
+    setSelectedCharmPosition(position);
+  }
 
   function handleCharmSelect(charm: Charm, position: number) {
     const newSelectedCharms = [...selectedCharms];
     newSelectedCharms[position] = charm;
     setSelectedCharms(newSelectedCharms);
 
+    // Fix the price
     setTotalPrice((prevPrice) => (prevPrice += charm.price));
+    console.log(selectedCharms);
   }
-
-  console.log(selectedCharms);
 
   return (
     <div className="m-10 flex flex-col gap-10">
       {/* Info */}
-      <div>
-        Selected charms:
-        {selectedCharms.length != 0 &&
-          selectedCharms.map((charm) => (
-            <div key={charm.id}>
-              <Image
-                src={charm.imageSrc}
-                // onClick={() => onCharmSelect(src, position)}
-                onClick={() => handleCharmSelect(charm, selectedCharm)}
-                width={80}
-                height={80}
-                className="cursor-pointer object-contain"
-                alt={`Charm ${1}`}
-              />
-            </div>
-          ))}
-      </div>
-
       <div>Total Price: {totalPrice}</div>
 
       {/* Select Position */}
-      <div>Selected Charm Position: {selectedCharm}</div>
-      <div className="flex gap-10">
-        {[1, 2, 3, 4, 5].map((position) => (
-          <button
-            key={position}
-            onClick={() => setSelectedCharm(position)}
-            className={clsx("h-10 w-10 rounded-full bg-slate-200", {
-              "bg-slate-900": position == selectedCharm,
-            })}
-          />
-        ))}
+      <div>Selected Charm Position: {selectedCharmPosition}</div>
+      <div className="flex gap-8">
+        {selectedCharms.map((selectedCharm, index) =>
+          selectedCharm ? (
+            <div key={index}>
+              <Image
+                className={clsx(
+                  "rounded-full",
+                  selectedCharmPosition == index ? "bg-slate-950" : ""
+                )}
+                onClick={() => handleSelectCharmPosition(index)}
+                src={selectedCharm.imageSrc}
+                alt={selectedCharm.label}
+                width={80}
+                height={80}
+              />
+            </div>
+          ) : (
+            <div key={index}>
+              <button
+                onClick={() => handleSelectCharmPosition(index)}
+                className={clsx(
+                  "h-12 w-12 rounded-full",
+                  selectedCharmPosition === index ? "bg-slate-950" : "bg-slate-400"
+                )}
+              />
+            </div>
+          )
+        )}
       </div>
 
       {/* Charms */}
@@ -63,8 +73,7 @@ export default function Page() {
           <div key={charm.id}>
             <Image
               src={charm.imageSrc}
-              // onClick={() => onCharmSelect(src, position)}
-              onClick={() => handleCharmSelect(charm, selectedCharm)}
+              onClick={() => handleCharmSelect(charm, selectedCharmPosition)}
               width={80}
               height={80}
               className="cursor-pointer object-contain"

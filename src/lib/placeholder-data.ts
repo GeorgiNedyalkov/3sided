@@ -105,7 +105,7 @@ const girls = [
 
 const charms: Charm[] = [
   {
-    id: "1",
+    id: "1a",
     number: "782524599",
     category: "charm",
     label: "Charm_1",
@@ -115,7 +115,7 @@ const charms: Charm[] = [
     price: 50,
   },
   {
-    id: "2",
+    id: "2b",
     number: "782534349",
     label: "Charm_2",
     category: "charm",
@@ -125,7 +125,7 @@ const charms: Charm[] = [
     price: 69,
   },
   {
-    id: "3",
+    id: "3c",
     number: "926534349",
     label: "Bracelet_1",
     category: "bracelet",
@@ -135,7 +135,7 @@ const charms: Charm[] = [
     price: 45,
   },
   {
-    id: "4",
+    id: "4d",
     number: "782524599",
     category: "charm",
     label: "Charm_1",
@@ -145,7 +145,7 @@ const charms: Charm[] = [
     price: 50,
   },
   {
-    id: "5",
+    id: "5e",
     number: "782534349",
     label: "Charm_2",
     category: "charm",
@@ -155,7 +155,7 @@ const charms: Charm[] = [
     price: 69,
   },
   {
-    id: "6",
+    id: "6f",
     number: "926534349",
     label: "Bracelet_1",
     category: "bracelet",
