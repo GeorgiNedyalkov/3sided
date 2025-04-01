@@ -32,6 +32,9 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
+      <head>
+        <link rel="stylesheet" href="https://use.typekit.net/urc1gyw.css"></link>
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <CartProvider cartPromise={cart}>
           <Navbar />

@@ -26,24 +26,14 @@ export default async function Page() {
       <div className="m-32">
         <h1 className="mb-4 text-3xl">Three Sided</h1>
         <p className="h-96 w-[50vw]">
-          Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet consectetur adipisicing elit.
-          Impedit architecto neque repellat rerum, iure odio sit voluptatem illum dolore illo
-          aliquid accusamus maiores. Eos hic adipisci provident aperiam quasi laboriosam earum
-          repellat, molestiae modi amet tempore inventore veritatis delectus mollitia illum, quia
-          nostrum est, ipsa quaerat omnis. Delectus in sapiente perferendis fuga itaque
-          reprehenderit sit nam consequuntur animi asperiores, placeat, consectetur dolorum facere
-          neque optio vero nulla expedita. Saepe totam officia illo, iste nisi earum autem? Expedita
-          quod, excepturi exercitationem, suscipit error quasi eveniet ipsa blanditiis animi
-          delectus itaque sunt adipisci vel deleniti corporis! Quos tenetur itaque odit pariatur
-          impedit! Dolorum praesentium quo quisquam sapiente commodi velit necessitatibus, incidunt
-          placeat non doloremque perferendis error tempore sint iure natus quasi, at delectus magnam
-          quae esse eum. Distinctio veritatis temporibus ducimus eveniet provident suscipit, veniam
-          commodi labore deleniti maxime dolore libero eligendi earum similique, magnam harum. Fugit
-          incidunt esse commodi. Quia, harum officia distinctio suscipit, accusantium nulla alias
-          explicabo quisquam dolorum nisi quae aut? Animi nobis vero laborum quidem repellendus,
-          nihil voluptates? Officia blanditiis, quibusdam fugit iusto cumque autem reprehenderit
-          amet explicabo nisi vel voluptas quis. Dolor ipsa repellendus libero optio pariatur
-          similique, perferendis harum sapiente corrupti tempore excepturi aut! Facere, provident!
+          Известен факт е, че читателя обръща внимание на съдържанието, което чете, а не на
+          оформлението му. Свойството на Lorem Ipsum е, че до голяма степен има нормално
+          разпределение на буквите и се чете по-лесно, за разлика от нормален текст на английски
+          език като "Това е съдържание, това е съдържание". Много системи за публикуване и редактори
+          на Уеб страници използват Lorem Ipsum като примерен текстов модел "по подразбиране",
+          поради което при търсене на фразата "lorem ipsum" в Интернет ще бъдат открити много
+          сайтове в процес на разработка. Някой от тези сайтове биват променяни с времето, а други
+          по случайност или нарочно(за забавление и пр.) биват оставяни в този си незавършен вид. p
         </p>
       </div>
       <CharmBarNew charms={charms} />;
