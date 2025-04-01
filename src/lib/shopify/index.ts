@@ -128,10 +128,25 @@ function reshapeCart(cart: ShopifyCart) {
   };
 }
 
-export async function getProducts(): Promise<ShopifyProduct[]> {
+export async function getProducts({
+  query,
+  reverse,
+  sortKey,
+}: {
+  query?: string;
+  reverse?: boolean;
+  sortKey?: string;
+}): Promise<ShopifyProduct[]> {
   const result = await shopifyFetch<ShopifyProductsOperation>({
     query: getProductsQuery,
+    variables: {
+      query,
+      reverse,
+      sortKey,
+    },
   });
+
+  console.log(result);
 
   return removeEdgesAndNodes(result.body.data.products);
 }

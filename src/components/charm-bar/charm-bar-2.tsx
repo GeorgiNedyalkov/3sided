@@ -68,6 +68,8 @@ export default function CharmBarNew({ charms }: { charms: Product[] }) {
       <div className="flex gap-10">
         {charms.map((charm) => (
           <div key={charm.id}>
+            <p>{charm.title}</p>
+            <p>{charm.priceRange.maxVariantPrice.amount}</p>
             <Image
               src={charm.featuredImage.url}
               onClick={() => handleCharmSelect(charm, selectedCharmPosition)}

@@ -155,6 +155,12 @@ Form
 
 ## Charm bar
 
+How to work with graphql
+
+1. Load all charms
+
+getProductByType
+
 Create your own
 
 Get the available chains and charms from shopify.
@@ -168,7 +174,7 @@ Get the available chains and charms from shopify.
 
 Focus on the charm bar
 
-#### Charms Section
+Charms Section
 
 - Display more charms
 - Filter by size

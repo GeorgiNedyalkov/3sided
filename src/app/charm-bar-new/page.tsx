@@ -1,13 +1,28 @@
 import CharmBarNew from "@/components/charm-bar/charm-bar-2";
-import { getCollectionsProducts } from "@/lib/shopify";
+import { getCollectionsProducts, getProducts } from "@/lib/shopify";
 
 export default async function Page() {
+  const query = "product_type:Charm";
+
   const charms = await getCollectionsProducts({
-    collection: "Charms",
+    collection: "Letters",
+  });
+
+  const products = await getProducts({
+    reverse: true,
+    query: query,
   });
 
   return (
     <div>
+      <div className="m-4 flex gap-4">
+        {products.map((product) => (
+          <div key={product.id} className="bg-slate-200 p-2">
+            <p>{product.title}</p>
+            <p>{product.priceRange.maxVariantPrice.amount}</p>
+          </div>
+        ))}
+      </div>
       <div className="m-32">
         <h1 className="mb-4 text-3xl">Three Sided</h1>
         <p className="h-96 w-[50vw]">
