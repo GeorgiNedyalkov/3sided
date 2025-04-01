@@ -165,3 +165,24 @@ Get the available chains and charms from shopify.
 
 4. Pick a category
 5. Pick a chain
+
+Focus on the charm bar
+
+#### Charms Section
+
+- Display more charms
+- Filter by size
+- Filter by category
+- Add ability to remove a charm
+- Add to cart
+- Make an order
+- Setup payment
+- Sorting
+
+Learn about context
+Figure out how to use context?
+
+Backend:
+
+- Learn all about the backend
+- Webhooks ( Synchronization )
