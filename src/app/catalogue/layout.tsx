@@ -1,4 +1,5 @@
 import Collections from "@/components/layout/catalogue/collections";
+import ProductTypes from "@/components/layout/catalogue/product-types";
 
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -13,6 +14,7 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
           <div className="flex gap-10">
             Filter by:
             <Collections />
+            <ProductTypes />
           </div>
           <div>Sort by:</div>
         </div>

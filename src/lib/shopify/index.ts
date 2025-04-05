@@ -19,6 +19,7 @@ import {
 import { getCartQuery } from "./queries/cart";
 import { getCollectionProductsQuery, getCollectionsQuery } from "./queries/collections";
 import { addToCartMutation, createCartMutation } from "./mutations/cart";
+import { getProductTypesQuery } from "./queries/product-types";
 
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 const domain = process.env.SHOPIFY_STORE_DOMAIN;
@@ -229,9 +230,33 @@ export async function getCollections(): Promise<Collection[]> {
     ),
   ];
 
-  console.log(collections);
+  // console.log(collections);
 
   return collections;
+}
+
+// Add types
+export async function getProductTypes() {
+  const res = await shopifyFetch({ query: getProductTypesQuery });
+
+  const rawProductTypes = removeEdgesAndNodes(res.body?.data?.productTypes);
+
+  // path: `/catalogue/${collection.handle}`,
+  console.log(rawProductTypes);
+
+  const productTypes = [];
+
+  for (const productType of rawProductTypes) {
+    console.log(productType);
+
+    productTypes.push({
+      title: productType,
+      handle: productType,
+      path: `/catalogue/${productType}`,
+    });
+  }
+
+  return productTypes;
 }
 
 export async function getCollectionProducts({
