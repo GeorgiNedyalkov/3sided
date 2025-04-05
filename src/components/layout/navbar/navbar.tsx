@@ -18,6 +18,14 @@ const navItems = [
     title: "Charm Bar",
     url: "/charm-bar",
   },
+  {
+    title: "Charm Bar New",
+    url: "/charm-bar-new",
+  },
+  {
+    title: "Catalogue",
+    url: "/catalogue",
+  },
 ];
 
 export default function Navbar() {
