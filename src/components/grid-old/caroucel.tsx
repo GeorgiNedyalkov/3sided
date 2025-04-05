@@ -11,7 +11,7 @@ export default async function Caroucel() {
 
   return (
     <div className="mx-auto max-w-screen-2xl overflow-x-auto">
-      <ul className="animate-carousel flex items-center">
+      <ul className="flex animate-carousel items-center">
         {caroucelProducts.map((product, i) => (
           <Link
             className="relative h-96 w-96 flex-none"
