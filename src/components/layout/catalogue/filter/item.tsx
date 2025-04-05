@@ -17,8 +17,6 @@ export default function FilterItem({ item }: { item: PathFilterItem }) {
   const searchParams = useSearchParams();
   const newParams = new URLSearchParams(searchParams.toString());
 
-  console.log({ pathname, searchParams, newParams });
-
   return (
     <>
       <li key={item.title}>

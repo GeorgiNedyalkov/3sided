@@ -1,9 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ShopifyProduct } from "@/lib/shopify/types";
+import { Product } from "@/lib/shopify/types";
 import Grid from "../grid";
 
-export default function ProductGridItems({ products }: { products: ShopifyProduct[] }) {
+export default function ProductGridItems({ products }: { products: Product[] }) {
   return (
     <>
       {products.map((product) => (

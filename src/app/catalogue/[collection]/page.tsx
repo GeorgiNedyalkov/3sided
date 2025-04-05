@@ -1,3 +1,5 @@
+import Grid from "@/components/grid";
+import ProductGridItems from "@/components/layout/product-grid-items";
 import { getCollectionProducts } from "@/lib/shopify";
 
 export default async function CategoryPage(props: {
@@ -8,19 +10,11 @@ export default async function CategoryPage(props: {
   const params = await props.params;
   const products = await getCollectionProducts({ collection: params.collection });
 
-  console.log({ products });
-
   return (
     <section>
-      <ul>
-        {products.map((product, i) => (
-          <SampleProduct key={i} product={product} />
-        ))}
-      </ul>
+      <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
+        <ProductGridItems products={products} />
+      </Grid>
     </section>
   );
-}
-
-export function SampleProduct({ product }) {
-  return <div>{product.title}</div>;
 }

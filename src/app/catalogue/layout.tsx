@@ -1,3 +1,5 @@
+import Collections from "@/components/layout/catalogue/collections";
+
 export default function SearchLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
@@ -8,9 +10,9 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
 
         {/* Filters and Sorting */}
         <div className="flex justify-between">
-          <div>
+          <div className="flex gap-10">
             Filter by:
-            <div>Collections: </div>
+            <Collections />
           </div>
           <div>Sort by:</div>
         </div>
