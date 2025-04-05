@@ -1,4 +1,4 @@
-import FilterItem from "@/components/layout/filter/item";
+import FilterItem from "@/components/layout/catalogue/filter/item";
 import { getCollections } from "@/lib/shopify";
 import { Collection } from "@/lib/shopify/types";
 

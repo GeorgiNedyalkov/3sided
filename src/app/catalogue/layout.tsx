@@ -8,7 +8,10 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
 
         {/* Filters and Sorting */}
         <div className="flex justify-between">
-          <div>Filter by:</div>
+          <div>
+            Filter by:
+            <div>Collections: </div>
+          </div>
           <div>Sort by:</div>
         </div>
 

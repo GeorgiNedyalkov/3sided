@@ -1,6 +1,6 @@
 import { getProducts } from "@/lib/shopify";
 import Grid from "@/components/grid";
-import ProductGridItems from "@/components/grid/product-grid-items";
+import ProductGridItems from "@/components/layout/product-grid-items";
 
 export default async function CataloguePage() {
   const searchValue = "";
