@@ -12,9 +12,12 @@ import {
   ShopifyCollectionProductsOperation,
   ShopifyCreateCartOperation,
   ShopifyAddToCartOperation,
+  ShopifyCollectionsOperation,
+  ShopifyCollection,
+  Collection,
 } from "./types";
 import { getCartQuery } from "./queries/cart";
-import { getCollectionProductsQuery } from "./queries/collections";
+import { getCollectionProductsQuery, getCollectionsQuery } from "./queries/collections";
 import { addToCartMutation, createCartMutation } from "./mutations/cart";
 
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
@@ -128,6 +131,33 @@ function reshapeCart(cart: ShopifyCart) {
   };
 }
 
+function reshapeCollection(collection: ShopifyCollection): Collection | undefined {
+  if (!collection) {
+    return undefined;
+  }
+
+  return {
+    ...collection,
+    path: `/search/${collection.handle}`,
+  };
+}
+
+const reshapeCollections = (collections: ShopifyCollection[]) => {
+  const reshapedCollections = [];
+
+  for (const collection of collections) {
+    if (collection) {
+      const reshapedCollection = reshapeCollection(collection);
+
+      if (reshapedCollection) {
+        reshapedCollections.push(reshapedCollection);
+      }
+    }
+  }
+
+  return reshapedCollections;
+};
+
 export async function getProducts({
   query,
   reverse,
@@ -145,8 +175,6 @@ export async function getProducts({
       sortKey,
     },
   });
-
-  console.log(result);
 
   return removeEdgesAndNodes(result.body.data.products);
 }
@@ -177,7 +205,36 @@ export async function getCart(cartId: string | undefined): Promise<Cart | undefi
   return reshapeCart(res.body.data.cart);
 }
 
-export async function getCollectionsProducts({
+export async function getCollections(): Promise<Collection[]> {
+  const res = await shopifyFetch<ShopifyCollectionsOperation>({
+    query: getCollectionsQuery,
+  });
+
+  const shopifyCollections = removeEdgesAndNodes(res.body?.data?.collections);
+
+  const collections = [
+    {
+      handle: "",
+      title: "All",
+      description: "All products",
+      seo: {
+        title: "All",
+        description: "All products",
+      },
+      path: "/search",
+      updatedAt: new Date().toISOString(),
+    },
+    ...reshapeCollections(shopifyCollections).filter(
+      (collection) => !collection.handle.startsWith("hidden")
+    ),
+  ];
+
+  console.log(collections);
+
+  return collections;
+}
+
+export async function getCollectionProducts({
   collection,
   reverse,
   sortKey,

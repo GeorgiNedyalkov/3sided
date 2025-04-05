@@ -192,3 +192,31 @@ Backend:
 
 - Learn all about the backend
 - Webhooks ( Synchronization )
+
+```javascript
+  //
+  {
+  /\*
+  // const query = "product_type:Charm";
+
+  // const charms = await getCollectionsProducts({
+  // collection: "Letters",
+  // });
+
+  // const products = await getProducts({
+  // reverse: true,
+  // query: query,
+  // });
+
+    <div className="m-4 flex gap-4">
+          {products.map((product) => (
+            <div key={product.id} className="bg-slate-200 p-2">
+              <p>{product.title}</p>
+              <p>{product.priceRange.maxVariantPrice.amount}</p>
+            </div>
+          ))}
+        </div>
+        <CharmBarNew charms={charms} />; */
+  }
+
+```
