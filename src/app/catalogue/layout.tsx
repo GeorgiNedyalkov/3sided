@@ -1,7 +1,9 @@
 import Collections from "@/components/layout/catalogue/collections";
+import { FilterList } from "@/components/layout/catalogue/filter";
 import ProductTypes from "@/components/layout/catalogue/product-types";
+import { sorting } from "@/lib/constants";
 
-export default function SearchLayout({ children }: { children: React.ReactNode }) {
+export default function CatalogueLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
       {/* REMOVE COLORS AFTER YOU ARE DONE */}
@@ -16,7 +18,9 @@ export default function SearchLayout({ children }: { children: React.ReactNode }
             <Collections />
             <ProductTypes />
           </div>
-          <div>Sort by:</div>
+          <div>
+            <FilterList list={sorting} title="Sort by:" />
+          </div>
         </div>
 
         {/* Products */}

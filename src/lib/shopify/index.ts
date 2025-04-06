@@ -167,7 +167,7 @@ export async function getProducts({
   query?: string;
   reverse?: boolean;
   sortKey?: string;
-}): Promise<ShopifyProduct[]> {
+}): Promise<Product[]> {
   const result = await shopifyFetch<ShopifyProductsOperation>({
     query: getProductsQuery,
     variables: {
@@ -177,6 +177,7 @@ export async function getProducts({
     },
   });
 
+  // TODO: Reshape products
   return removeEdgesAndNodes(result.body.data.products);
 }
 
@@ -231,7 +232,6 @@ export async function getCollections(): Promise<Collection[]> {
   ];
 
   // console.log(collections);
-
   return collections;
 }
 
@@ -270,7 +270,7 @@ export async function getCollectionProducts({
 }): Promise<Product[]> {
   const res = await shopifyFetch<ShopifyCollectionProductsOperation>({
     query: getCollectionProductsQuery,
-    tags: ["Animals"],
+    tags: [],
     variables: {
       handle: collection,
       reverse,

@@ -4,7 +4,6 @@ import { FilterList } from "./filter";
 export default async function ProductTypes() {
   const products = await getProductTypes();
 
-  console.log(products);
   return (
     <>
       {products.length > 0 ? (
