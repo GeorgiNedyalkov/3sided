@@ -1,17 +1,18 @@
 import Image from "next/image";
 import { Necklace } from "@/lib/shopify/types";
+import { chainSettings } from "@/lib/placeholder-data";
 
 export default function CharmCanvas({
   charmPositions,
-  necklace,
+  chain,
 }: {
   charmPositions: (string | null)[];
-  necklace: Necklace;
+  chain: Necklace;
 }) {
   return (
     <div className="relative mx-auto h-[250px] w-[250px] lg:h-[500px] lg:w-[500px]">
       <Image
-        src={necklace.src}
+        src={chain.src}
         alt="Necklace background"
         className="absolute h-full w-full object-contain"
         fill
@@ -24,8 +25,8 @@ export default function CharmCanvas({
             alt={`Charm ${index + 1}`}
             style={{
               position: "absolute",
-              ...necklace.settings[index],
-              transform: `rotate(${necklace.settings[index].rotation})`,
+              ...chainSettings[index],
+              transform: `rotate(${chain.settings[index].rotation})`,
             }}
             className="h-12 w-12 object-cover lg:h-20 lg:w-20"
             width={150}

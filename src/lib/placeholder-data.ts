@@ -202,4 +202,12 @@ const necklaces = [
   },
 ];
 
-export { charms, necklaces, charmImages, girls };
+const chainSettings = [
+  { top: "78%", left: "42%", rotation: "0deg" },
+  { top: "62%", right: "18%", rotation: "-45deg" },
+  { top: "62%", left: "18%", rotation: "45deg" },
+  { top: "40%", right: "8%", rotation: "-45deg" },
+  { top: "40%", left: "10%", rotation: "45deg" },
+];
+
+export { charms, necklaces, chainSettings, charmImages, girls };

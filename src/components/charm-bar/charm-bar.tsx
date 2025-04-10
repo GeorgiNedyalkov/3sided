@@ -1,26 +1,5 @@
 "use client";
 
-// import { useState } from "react";
-
-// export default function CharmBar({ charms }) {
-//   console.log(charms);
-
-//   const [totalPrice, setTotalPrice] = useState(50);
-
-//   return (
-//     <div>
-//       {/* Chain */}
-//       <div>Total Price: {totalPrice} bgn</div>
-//       {/* Charms */}
-//       {/* <div>
-//         {charms.map((charm) => (
-//           <div>{charm.id}</div>
-//         ))}
-//       </div> */}
-//     </div>
-//   );
-// }
-
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import CharmImages from "@/components/charms/charm-images";
@@ -62,7 +41,7 @@ export default function CharmBar() {
       <div className="">
         {/* Canvas */}
         <div className="">
-          <CharmCanvas charmPositions={charmPositions} necklace={selectedNecklace} />
+          <CharmCanvas charmPositions={charmPositions} chain={selectedNecklace} />
         </div>
 
         {/* Bracelets */}
