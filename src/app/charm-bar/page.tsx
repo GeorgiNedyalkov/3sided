@@ -2,7 +2,7 @@ import CharmBar from "@/components/charm-bar/charm-bar";
 import { getProducts } from "@/lib/shopify";
 
 export default async function Page() {
-  const charms = await getProducts();
+  const charms = await getProducts({});
 
   return (
     <div className="m-4 md:m-20 lg:grid-cols-2">
