@@ -11,13 +11,15 @@ export default function LookBook() {
   const toggleIsGold = () => setIsGold((prevIsGold) => !prevIsGold);
 
   return (
-    <section className="bg-slate-50 p-20">
-      <h2 className="mb-4 text-6xl font-bold">Look Book</h2>
-      <div className="flex items-center justify-between">
-        <p className="mb-4 w-80">
-          Get inspired by our signature pieces and create a charm to call your own
-        </p>
-        <ToggleGold isGold={isGold} toggleIsGold={toggleIsGold} />
+    <section className="bg-slate-50 p-4 lg:p-20">
+      <div className="mb-10 flex flex-col gap-4">
+        <h2 className="text-6xl font-bold">Look Book</h2>
+        <div className="flex flex-col items-center justify-between md:flex-row">
+          <p className="w-96">
+            Get inspired by our signature pieces and create a charm to call your own
+          </p>
+          <ToggleGold isGold={isGold} toggleIsGold={toggleIsGold} />
+        </div>
       </div>
 
       {/* Grid */}
@@ -41,14 +43,14 @@ export default function LookBook() {
           </Link>
         </div>
 
-        <div className="relative h-64 w-full">
+        <div className="relative h-80 w-full">
           <GridImage
             isGold={isGold}
             goldImage="/activity_1.jpg"
             silverImage="/website/letters.jpg"
           />
         </div>
-        <div className="relative h-64 w-full">
+        <div className="relative h-80 w-full">
           <GridImage isGold={isGold} goldImage="/activity_2.jpg" silverImage="/activity_1.jpg" />
         </div>
       </div>
@@ -72,39 +74,37 @@ function GridImage({
 
 function ToggleGold({ isGold, toggleIsGold }: { isGold: boolean; toggleIsGold: () => void }) {
   return (
-    <div>
-      <div className="m-20 flex items-center gap-2">
-        <span
-          className={clsx({
-            "font-bold": isGold,
+    <div className="flex items-center gap-2">
+      <span
+        className={clsx({
+          "font-bold": isGold,
+        })}
+      >
+        Gold
+      </span>
+      <button
+        onClick={toggleIsGold}
+        className={clsx(
+          "flex h-6 w-16 items-center rounded-xl bg-slate-300 transition-all duration-300",
+          {
+            "bg-yellow-300": isGold,
+          }
+        )}
+      >
+        <div
+          className={clsx("m-2 h-4 w-4 rounded-full bg-black transition-all duration-300", {
+            "translate-x-8 bg-slate-700": !isGold,
+            "bg-yellow-700": isGold,
           })}
-        >
-          Gold
-        </span>
-        <button
-          onClick={toggleIsGold}
-          className={clsx(
-            "flex h-6 w-16 items-center rounded-xl bg-slate-300 transition-all duration-300",
-            {
-              "bg-yellow-300": isGold,
-            }
-          )}
-        >
-          <div
-            className={clsx("m-2 h-4 w-4 rounded-full bg-black transition-all duration-300", {
-              "translate-x-8 bg-slate-700": !isGold,
-              "bg-yellow-700": isGold,
-            })}
-          />
-        </button>
-        <span
-          className={clsx({
-            "font-bold": !isGold,
-          })}
-        >
-          Silver
-        </span>
-      </div>
+        />
+      </button>
+      <span
+        className={clsx({
+          "font-bold": !isGold,
+        })}
+      >
+        Silver
+      </span>
     </div>
   );
 }
