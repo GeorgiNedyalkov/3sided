@@ -1,59 +1,56 @@
-import Categories from "@/components/hero/categories-section";
-import HeroSection from "@/components/hero/hero-section";
-import Image from "next/image";
-
-// const buttercream = "#EDE2CD";
-// const finalBackground = "bg-[#cabdac]";
+import LookBook from "@/components/lookbook";
 
 export default function Page() {
   return (
     <>
-      <HeroSection />
-      <h3 className="bg-primary py-10 pl-4 text-2xl text-white">Какво правим</h3>
-      <ImageCopySection
-        text="Нашият дизайн съчетава функционалност и естетика, за да предложи уникално изживяване"
-        src="/image_1.jpg"
-      />
-      <div className="h-1 w-full bg-primary pb-10">
-        <div>
-          <div className="h-1 w-full bg-white" />
-        </div>
-      </div>
-      <ImageCopySection
-        text="Нашият дизайн съчетава функционалност и естетика, за да предложи уникално изживяване"
-        src="/image_2.jpg"
-        reverse
-      />
-      <div className="h-1 w-full bg-primary pb-10">
-        <div>
-          <div className="h-1 w-full bg-white" />
-        </div>
-      </div>
-      <Categories />
+      <LookBook />
     </>
   );
 }
 
-function ImageCopySection({
-  text,
-  src,
-  reverse,
-}: {
-  text: string;
-  src: string;
-  reverse?: boolean;
-}) {
-  return (
-    <div className="bg-primary pb-10 text-white">
-      <div className="flex items-center justify-center gap-2">
-        <div className={`relative ${reverse ? "order-2" : "order-1"} h-96 w-56`}>
-          <Image src={src} alt="Charms on a bag" className="object-cover" fill />
-        </div>
-        <p className={`${reverse ? "order-1" : "order-2"} w-32`}>{text}</p>
-      </div>
-    </div>
-  );
-}
+// <HeroSection />
+// <h3 className="bg-primary py-10 pl-4 text-2xl text-white">Какво правим</h3>
+// <ImageCopySection
+//   text="Нашият дизайн съчетава функционалност и естетика, за да предложи уникално изживяване"
+//   src="/image_1.jpg"
+// />
+// <div className="h-1 w-full bg-primary pb-10">
+//   <div>
+//     <div className="h-1 w-full bg-white" />
+//   </div>
+// </div>
+// <ImageCopySection
+//   text="Нашият дизайн съчетава функционалност и естетика, за да предложи уникално изживяване"
+//   src="/image_2.jpg"
+//   reverse
+// />
+// <div className="h-1 w-full bg-primary pb-10">
+//   <div>
+//     <div className="h-1 w-full bg-white" />
+//   </div>
+// </div>
+// <Categories />
+
+// function ImageCopySection({
+//   text,
+//   src,
+//   reverse,
+// }: {
+//   text: string;
+//   src: string;
+//   reverse?: boolean;
+// }) {
+//   return (
+//     <div className="bg-primary pb-10 text-white">
+//       <div className="flex items-center justify-center gap-2">
+//         <div className={`relative ${reverse ? "order-2" : "order-1"} h-96 w-56`}>
+//           <Image src={src} alt="Charms on a bag" className="object-cover" fill />
+//         </div>
+//         <p className={`${reverse ? "order-1" : "order-2"} w-32`}>{text}</p>
+//       </div>
+//     </div>
+//   );
+// }
 
 // function MatchSection() {
 //   return (

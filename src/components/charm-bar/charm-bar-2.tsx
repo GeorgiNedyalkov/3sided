@@ -1,10 +1,11 @@
 "use client";
+
 import { clsx } from "clsx";
 import { useState } from "react";
 import { Product } from "@/lib/shopify/types";
 import Image from "next/image";
 
-export default function CharmBarNew({ charms }: { charms: Product[] }) {
+export default function CharmBarNew() {
   const numberOfCharms = 5;
 
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -62,24 +63,6 @@ export default function CharmBarNew({ charms }: { charms: Product[] }) {
             </div>
           )
         )}
-      </div>
-
-      {/* Charms */}
-      <div className="flex gap-10">
-        {charms.map((charm) => (
-          <div key={charm.id}>
-            <p>{charm.title}</p>
-            <p>{charm.priceRange.maxVariantPrice.amount}</p>
-            <Image
-              src={charm.featuredImage.url}
-              onClick={() => handleCharmSelect(charm, selectedCharmPosition)}
-              width={100}
-              height={100}
-              className="cursor-pointer object-contain"
-              alt={`Charm ${1}`}
-            />
-          </div>
-        ))}
       </div>
     </div>
   );

@@ -1,3 +1,4 @@
+import CharmBarNew from "@/components/charm-bar/charm-bar-2";
 import CharmCanvas from "@/components/charms/charm-canvas";
 import { getProducts } from "@/lib/shopify";
 import Image from "next/image";
@@ -49,6 +50,9 @@ export default async function Page() {
           <li>Large</li>
         </ul> */}
       </div>
+
+      <CharmBarNew />
+
       <div>
         <h3 className="font-bold">Step 3: Pick your charms</h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-10">
