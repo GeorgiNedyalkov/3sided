@@ -1,4 +1,4 @@
-import LookBook from "@/components/lookbook";
+import LookBook from "@/components/home/lookbook";
 
 export default function Page() {
   return (
