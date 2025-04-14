@@ -43,14 +43,14 @@ export default function LookBook() {
           </Link>
         </div>
 
-        <div className="relative h-80 w-full">
+        <div className="relative h-60 w-full">
           <GridImage
             isGold={isGold}
             goldImage="/activity_1.jpg"
             silverImage="/website/letters.jpg"
           />
         </div>
-        <div className="relative h-80 w-full">
+        <div className="relative w-full">
           <GridImage isGold={isGold} goldImage="/activity_2.jpg" silverImage="/activity_1.jpg" />
         </div>
       </div>
