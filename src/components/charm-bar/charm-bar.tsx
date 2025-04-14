@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Product } from "@/lib/shopify/types";
 import CategorySelector from "./category-selector";
 import ChainSelector from "./chain-selector";
@@ -21,11 +21,16 @@ export default function CharmBar({ charms, chains }: { charms: Product[]; chains
     const newSelectedCharms = [...selectedCharms];
     newSelectedCharms[position] = charm;
     setSelectedCharms(newSelectedCharms);
-
-    // Fix the price
-    setTotalPrice((prevPrice) => (prevPrice += Number(charm.priceRange.maxVariantPrice.amount)));
-    console.log(selectedCharms);
   }
+
+  useEffect(() => {
+    const newPrice = selectedCharms.reduce(
+      (sum, charm) => (sum += charm != null ? Number(charm?.priceRange.maxVariantPrice.amount) : 0),
+      0
+    );
+
+    setTotalPrice(newPrice);
+  }, [selectedCharms]);
 
   return (
     <div className="flex flex-col items-center justify-between md:flex-row">
