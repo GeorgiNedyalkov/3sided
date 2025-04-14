@@ -2,7 +2,7 @@ import CharmCard from "@/components/charms/charm-card";
 import { getProducts } from "@/lib/shopify";
 
 export default async function ProductsGrid() {
-  const products = await getProducts();
+  const products = await getProducts({});
 
   products.map((product) => {
     const { handle, featuredImage } = product;
@@ -18,7 +18,7 @@ export default async function ProductsGrid() {
         <div key={product.id + "-" + index}>
           <CharmCard
             description={product.description}
-            imageSrc={product.images.edges[0].node.url}
+            imageSrc={product.featuredImage?.url}
             price={Number(product.priceRange.maxVariantPrice.amount)}
             label={product.handle}
             status="Sale"

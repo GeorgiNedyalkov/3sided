@@ -2,21 +2,16 @@ import CharmBar from "@/components/charm-bar/charm-bar";
 import { getProducts } from "@/lib/shopify";
 
 export default async function Page() {
-  const charms = await getProducts({});
+  const selectedChain = "necklace";
+  // get the chains from a selected category (Necklace)
+  const chains = await getProducts({ query: `product_type:${selectedChain}` });
+
+  // get the charms
+  const charms = await getProducts({ query: "product_type:charm" });
 
   return (
-    <div className="m-4 md:m-20 lg:grid-cols-2">
-      {/* <div className="mb-4">
-        <h1 className="mb-4 text-2xl font-semibold md:text-3xl">
-          Create your own personalized bracelet
-        </h1>
-        <p className="max-w-[500px] text-sm md:text-base">
-          Select up to five charms to create your unique bracelet.
-          <br />
-          Click on the charms for each position to see how it looks like.
-        </p>
-      </div> */}
-      <CharmBar charms={charms} />
-    </div>
+    <>
+      <CharmBar charms={charms} chains={chains} />
+    </>
   );
 }

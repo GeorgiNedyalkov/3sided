@@ -1,93 +1,68 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import CharmImages from "@/components/charms/charm-images";
-import CharmCanvas from "@/components/charms/charm-canvas";
-import { necklaces, charmImages } from "@/lib/placeholder-data";
-import { Necklace } from "@/lib/shopify/types";
+import { useState } from "react";
+import { Product } from "@/lib/shopify/types";
+import CategorySelector from "./category-selector";
+import ChainSelector from "./chain-selector";
+import CharmSelector from "./charms";
+import CharmPositionSelector from "./charm-position-selector";
 
-export default function CharmBar() {
-  const [selectedNecklace, setSelectedNecklace] = useState<Necklace>(necklaces[0]);
-  const [selectedCharm, setSelectedCharm] = useState<string | null>(null);
-  const [selectedPosition, setSelectedPosition] = useState<number>(0);
-  const [charmPositions, setCharmPositions] = useState(Array(charmImages.length).fill(null));
+export default function CharmBar({ charms, chains }: { charms: Product[]; chains: Product[] }) {
+  const numberOfCharms = 5;
 
-  function handleNeckalceSelect(necklace: Necklace) {
-    setSelectedNecklace(necklace);
+  const [totalPrice, setTotalPrice] = useState<number>(0);
+  const [selectedCategory, setSelectedCategory] = useState("bracelet");
+  const [selectedCharmPosition, setSelectedCharmPosition] = useState<number>(2);
+  const [selectedCharms, setSelectedCharms] = useState<Product[]>(
+    new Array(numberOfCharms).fill(null)
+  );
+
+  function handleCharmSelect(charm: Product, position: number) {
+    const newSelectedCharms = [...selectedCharms];
+    newSelectedCharms[position] = charm;
+    setSelectedCharms(newSelectedCharms);
+
+    // Fix the price
+    setTotalPrice((prevPrice) => (prevPrice += Number(charm.priceRange.maxVariantPrice.amount)));
+    console.log(selectedCharms);
   }
-
-  function handleCharmSelect(imageSrc: string, position: number) {
-    setSelectedCharm(imageSrc);
-    setSelectedPosition(position - 1); // Adjust index to match array position
-  }
-
-  function handleSelectPosition(position) {
-    setSelectedPosition(position - 1);
-  }
-
-  useEffect(() => {
-    if (selectedCharm && selectedPosition >= 0) {
-      setCharmPositions((prevPositions) => {
-        const newPositions = [...prevPositions];
-        newPositions[selectedPosition] = selectedCharm;
-        return newPositions;
-      });
-    }
-  }, [selectedCharm, selectedPosition]);
 
   return (
-    <>
-      <div className="">
-        {/* Canvas */}
-        <div className="">
-          <CharmCanvas charmPositions={charmPositions} chain={selectedNecklace} />
-        </div>
+    <div className="flex flex-col items-center justify-between md:flex-row">
+      <div className="h-screen w-1/2 bg-slate-300 p-10">
+        {/* Info */}
+        <div>Total Price: {totalPrice}</div>
 
-        {/* Bracelets */}
-        <div className="">
-          <div className="mb-4 rounded-md bg-slate-100 p-2 font-medium">Choose a bracelet</div>
-          <div className="flex w-full gap-4 overflow-y-auto p-4">
-            {necklaces.map((necklace, index) => (
-              <Image
-                key={necklace.id}
-                src={necklace.src}
-                onClick={() => handleNeckalceSelect(necklace)}
-                width={100}
-                height={100}
-                className="cursor-pointer object-cover"
-                alt={`Charm ${index + 1}`}
-              />
-            ))}
-          </div>
-        </div>
-
-        {/* Select a charm position */}
-        <p className="bg-red-50 text-xl">{selectedPosition}</p>
-        <div className="flex gap-4">
-          {[1, 2, 3, 4, 5].map((charmPosition, i) => (
-            <button
-              key={i}
-              onClick={() => handleSelectPosition(charmPosition)}
-              className={`${selectedPosition == charmPosition ? "bg-black" : ""} h-10 w-10 rounded-full bg-gray-200`}
-            ></button>
-          ))}
-        </div>
-
-        {/* Charms */}
-        {[...Array(1)].map((_, i) => (
-          <div key={i} className={`lg:col-start-2 lg:row-start-${i + 3}`}>
-            <div className="rounded-md bg-slate-100 p-2 font-medium">
-              {i == 0 ? "Choose Central Charm" : `Choose Charm ${i + 1}`}
-            </div>
-            <CharmImages
-              charmImages={charmImages}
-              onCharmSelect={handleCharmSelect}
-              position={i + 1}
-            />
-          </div>
-        ))}
+        {/* Select Position */}
+        <div>Selected Charm Position: {selectedCharmPosition}</div>
+        <CharmPositionSelector
+          selectedCharms={selectedCharms}
+          selectedCharmPosition={selectedCharmPosition}
+          onSelectPosition={setSelectedCharmPosition}
+        />
       </div>
-    </>
+
+      <div className="flex h-screen w-1/2 flex-col gap-10 p-4">
+        <h1 className="mx-auto text-center text-5xl font-bold">Charm Bar</h1>
+        <div>
+          <h2 className="font-bold">Step 1: Choose a category</h2>
+          <CategorySelector selectedCategory={selectedCategory} onSelect={setSelectedCategory} />
+        </div>
+        <div>
+          {/* Necklace for now */}
+          <h2 className="font-bold">Step 2: Pick your chain</h2>
+          <ChainSelector chains={chains} />
+        </div>
+
+        <div>
+          <h2 className="font-bold">Step 3: Pick your charms</h2>
+          <CharmSelector
+            charms={charms}
+            position={selectedCharmPosition}
+            onSelect={handleCharmSelect}
+          />
+        </div>
+      </div>
+    </div>
   );
 }
