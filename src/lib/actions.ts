@@ -62,3 +62,14 @@ export async function submitContactData(formData: FormData): Promise<void> {
     console.error("Error sending email:", error);
   }
 }
+
+async function subscribeToNewsletter(formData: FormData) {
+  const { email } = {
+    email: formData.get("email"),
+  };
+
+  // mutate date
+  // revalidate cashe
+
+  await subscribeToNewsletter(email);
+}

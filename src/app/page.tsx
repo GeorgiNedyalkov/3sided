@@ -1,9 +1,13 @@
+import HeroSection from "@/components/hero/hero-section";
 import LookBook from "@/components/home/lookbook";
+import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 
 export default function Page() {
   return (
     <>
-      <LookBook />
+      {/* <HeroSection /> */}
+      {/* <LookBook /> */}
+      <NewsletterBanner />
     </>
   );
 }
