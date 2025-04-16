@@ -1,3 +1,5 @@
+// import { useEffect, useRef } from "react";
+
 import { Product } from "@/lib/shopify/types";
 import clsx from "clsx";
 import Image from "next/image";
@@ -18,11 +20,27 @@ export default function CharmPositionSelector({
     rotation?: string;
   }[];
 }) {
+  // const charmAreaRef = useRef<HTMLDivElement>(null);
+
+  // useEffect(() => {
+  //   function handleClickOutside(event: MouseEvent) {
+  //     if (charmAreaRef.current && !charmAreaRef.current.contains(event.target as Node)) {
+  //       onSelectPosition(-1);
+  //     }
+  //   }
+
+  //   document.addEventListener("mousedown", handleClickOutside);
+  //   return () => {
+  //     document.removeEventListener("mousedown", handleClickOutside);
+  //   };
+  // }, [onSelectPosition]);
+
   return (
     <div>
       {selectedCharms.map((selectedCharm, index) =>
         selectedCharm ? (
           <div
+            // ref={charmAreaRef}
             key={index}
             className="absolute h-20 w-20"
             style={{
@@ -35,7 +53,7 @@ export default function CharmPositionSelector({
             <Image
               className={clsx(
                 "absolute rounded-full",
-                selectedCharmPosition == index ? "ring-2 ring-black" : ""
+                selectedCharmPosition == index ? "ring-1 ring-black/10" : ""
               )}
               onClick={() => onSelectPosition(index)}
               src={selectedCharm.featuredImage.url}
