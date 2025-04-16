@@ -5,6 +5,7 @@ import "./globals.css";
 import { CartProvider } from "@/components/cart/cart-context";
 import { cookies } from "next/headers";
 import { getCart } from "@/lib/shopify";
+import Footer from "@/components/layout/footer";
 
 const geistSans = localFont({
   src: "../fonts/GeistMonoVF.woff",
@@ -40,6 +41,7 @@ export default async function RootLayout({
         <CartProvider cartPromise={cart}>
           <Navbar />
           {children}
+          <Footer />
         </CartProvider>
       </body>
     </html>

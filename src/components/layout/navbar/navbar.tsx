@@ -7,20 +7,24 @@ import CartModal from "@/components/cart/cart-modal";
 
 const navItems = [
   {
-    title: "Home",
-    url: "/",
-  },
-  {
-    title: "About us",
-    url: "/about",
-  },
-  {
     title: "Charm Bar",
     url: "/charm-bar",
   },
   {
     title: "Catalogue",
     url: "/catalogue",
+  },
+  {
+    title: "Lookbook",
+    url: "/lookbook",
+  },
+  {
+    title: "About us",
+    url: "/about",
+  },
+  {
+    title: "Contact us",
+    url: "/contact",
   },
 ];
 
@@ -61,13 +65,20 @@ export default function Navbar() {
         ))}
       </ul>
       <div className="flex basis-1/3 place-content-center">
-        <Link href="/">
-          <div className="w-full text-3xl font-extrabold uppercase">3Sided</div>
-        </Link>
+        <Logo />
       </div>
+
       <div className="flex basis-1/3 justify-end">
         <CartModal />
       </div>
     </nav>
+  );
+}
+
+export function Logo() {
+  return (
+    <Link href="/">
+      <div className="w-full text-3xl font-extrabold uppercase">3Sided</div>
+    </Link>
   );
 }
