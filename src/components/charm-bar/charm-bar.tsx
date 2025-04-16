@@ -34,7 +34,7 @@ export default function CharmBar({ charms, chains }: { charms: Product[]; chains
 
   return (
     <div className="flex flex-col items-center justify-between md:flex-row">
-      <div className="h-screen w-1/2 bg-slate-300 p-10">
+      <div className="h-screen w-1/2 bg-stone-100 p-10">
         {/* Info */}
         <div>Total Price: {totalPrice}</div>
 

@@ -3,6 +3,7 @@ import { getProducts } from "@/lib/shopify";
 
 export default async function Page() {
   const selectedChain = "necklace";
+
   // get the chains from a selected category (Necklace)
   const chains = await getProducts({ query: `product_type:${selectedChain}` });
 

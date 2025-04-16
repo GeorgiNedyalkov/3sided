@@ -5,9 +5,13 @@ import NewsletterBanner from "@/components/newsletter/newsletter-banner";
 export default function Page() {
   return (
     <>
-      {/* <HeroSection /> */}
-      {/* <LookBook /> */}
+      <HeroSection />
+      {/* Charm Bar */}
+      {/*  Categories*/}
+      {/*  Catalogue */}
+      <LookBook />
       <NewsletterBanner />
+      {/* Footer */}
     </>
   );
 }
