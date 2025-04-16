@@ -1,39 +1,42 @@
 import Image from "next/image";
-import { Necklace } from "@/lib/shopify/types";
-import { chainSettings } from "@/lib/placeholder-data";
+import { Necklace, Product } from "@/lib/shopify/types";
+import CharmPositionSelector from "../charm-bar/charm-position-selector";
+
+const settings = [
+  { top: "78%", left: "42%", rotation: "0deg" },
+  { top: "62%", right: "18%", rotation: "-45deg" },
+  { top: "62%", left: "18%", rotation: "45deg" },
+  { top: "40%", right: "8%", rotation: "-45deg" },
+  { top: "40%", left: "10%", rotation: "45deg" },
+];
 
 export default function CharmCanvas({
-  charmPositions,
+  selectedCharms,
+  selectedCharmPosition,
+  onSelectPosition,
   chain,
 }: {
-  charmPositions: (string | null)[];
+  selectedCharms: Product[];
+  selectedCharmPosition: number;
+  onSelectPosition(index: number): void;
   chain: Necklace;
 }) {
   return (
     <div className="relative mx-auto h-[250px] w-[250px] lg:h-[500px] lg:w-[500px]">
       <Image
         src={chain.src}
-        alt="Necklace background"
+        alt="Selected chain on the charm bar"
         className="absolute h-full w-full object-contain"
         fill
+        priority
       />
-      {charmPositions.map((src, index) =>
-        src ? (
-          <Image
-            key={index}
-            src={src}
-            alt={`Charm ${index + 1}`}
-            style={{
-              position: "absolute",
-              ...chainSettings[index],
-              transform: `rotate(${chain.settings[index].rotation})`,
-            }}
-            className="h-12 w-12 object-cover lg:h-20 lg:w-20"
-            width={150}
-            height={150}
-          />
-        ) : null
-      )}
+
+      <CharmPositionSelector
+        positionSettings={settings}
+        selectedCharms={selectedCharms}
+        selectedCharmPosition={selectedCharmPosition}
+        onSelectPosition={onSelectPosition}
+      />
     </div>
   );
 }

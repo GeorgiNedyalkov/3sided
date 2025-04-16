@@ -38,7 +38,7 @@ export default async function RootLayout({
       </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <CartProvider cartPromise={cart}>
-          <Navbar />
+          {/* <Navbar /> */}
           {children}
         </CartProvider>
       </body>

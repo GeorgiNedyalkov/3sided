@@ -19,10 +19,6 @@ const navItems = [
     url: "/charm-bar",
   },
   {
-    title: "Charm Bar old",
-    url: "/charm-bar-old",
-  },
-  {
     title: "Catalogue",
     url: "/catalogue",
   },

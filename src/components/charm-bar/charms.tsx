@@ -15,7 +15,7 @@ export default function CharmSelector({
       {charms.map((charm) => (
         <li key={charm.handle} onClick={() => onSelect(charm, position)}>
           <h4>{charm.title}</h4>
-          <div className="relative h-32 w-32 cursor-pointer">
+          <div className="relative h-20 w-20 cursor-pointer">
             <Image
               src={charm.featuredImage.url}
               alt={charm.title}
