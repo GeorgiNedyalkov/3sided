@@ -41,7 +41,7 @@ export default async function RootLayout({
         <CartProvider cartPromise={cart}>
           <Navbar />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </CartProvider>
       </body>
     </html>
