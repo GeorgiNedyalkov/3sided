@@ -1,13 +1,17 @@
-import CharmBarSection from "@/components/charm-bar/charm-bar-section";
+import CharmBarIntroSection from "@/components/home/charm-bar-intro-section";
 import HeroSection from "@/components/hero/hero-section";
 import LookBook from "@/components/home/lookbook";
 import NewsletterBanner from "@/components/newsletter/newsletter-banner";
+// import CategoriesSection from "@/components/home/categories-section";
+import CollectionsSection from "@/components/home/collections-section";
 
 export default function Page() {
   return (
     <>
       <HeroSection />
-      <CharmBarSection />
+      <CharmBarIntroSection />
+      <CollectionsSection />
+      {/* <CategoriesSection /> */}
       <LookBook />
       <NewsletterBanner />
     </>
