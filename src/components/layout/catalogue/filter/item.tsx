@@ -8,7 +8,7 @@ import { createUrl } from "@/lib/utils";
 import clsx from "clsx";
 
 function PathFilterItem({ item }: { item: PathFilterItem }) {
-  const pathname = usePathname(); // returns current path as string "/catalogue", "/catalogue/charms"
+  // const pathname = usePathname(); // returns current path as string "/catalogue", "/catalogue/charms"
   const searchParams = useSearchParams(); // provides functions to read the search params and extract their values
 
   const newParams = new URLSearchParams(searchParams.toString());

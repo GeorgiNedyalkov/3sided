@@ -63,13 +63,16 @@ export async function submitContactData(formData: FormData): Promise<void> {
   }
 }
 
-async function subscribeToNewsletter(formData: FormData) {
+export async function subscribeToNewsletter(formData: FormData) {
   const { email } = {
     email: formData.get("email"),
   };
 
   // mutate date
   // revalidate cashe
+  if (!email) {
+    return "Error no email";
+  }
 
-  await subscribeToNewsletter(email);
+  // await subscribeToNewsletter(email);
 }
