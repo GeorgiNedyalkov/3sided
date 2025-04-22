@@ -13,7 +13,7 @@ export default function CharmBar({ charms, chains }: { charms: Product[]; chains
 
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [selectedCategory, setSelectedCategory] = useState("bracelet");
-  const [selectedCharmPosition, setSelectedCharmPosition] = useState<number>(2);
+  const [selectedCharmPosition, setSelectedCharmPosition] = useState<number>(0);
   // Select a chain from a specific category
 
   const [selectedCharms, setSelectedCharms] = useState<Product[]>(

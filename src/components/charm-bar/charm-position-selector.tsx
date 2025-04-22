@@ -26,7 +26,7 @@ export default function CharmPositionSelector({
         selectedCharm ? (
           <div
             key={index}
-            className="absolute h-20 w-20"
+            className="absolute h-16 w-16"
             style={{
               top: `${positionSettings[index]?.top}`,
               right: `${positionSettings[index]?.right}`,
@@ -50,8 +50,8 @@ export default function CharmPositionSelector({
             <button
               onClick={() => onSelectPosition(index)}
               className={clsx(
-                "absolute h-8 w-8 rounded-full md:h-16 md:w-16",
-                selectedCharmPosition === index ? "bg-slate-950" : "bg-slate-400"
+                "absolute h-8 w-8 rounded-full ring-1 ring-stone-200 md:h-16 md:w-16",
+                selectedCharmPosition === index ? "ring-black" : "ring-stone-200"
               )}
               style={{
                 top: `${positionSettings[index]?.top}`,
