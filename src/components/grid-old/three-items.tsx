@@ -1,4 +1,4 @@
-import { getCollectionsProducts } from "@/lib/shopify";
+import { getCollectionProducts } from "@/lib/shopify";
 import { Product } from "@/lib/shopify/types";
 import Image from "next/image";
 import Link from "next/link";
@@ -19,7 +19,7 @@ function ThreeGridItem({ item, size }: { item: Product; size: "full" | "half" })
 }
 
 export default async function ThreeItemGrid() {
-  const homepageItems = await getCollectionsProducts({
+  const homepageItems = await getCollectionProducts({
     collection: "Charms",
   });
   // console.log(homepageItems);
