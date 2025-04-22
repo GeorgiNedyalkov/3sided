@@ -21,11 +21,11 @@ export default function LookBookThreePictureGrid() {
         </div>
 
         <div className="flex flex-col justify-end">
-          <div className="mb-4 text-center">
+          <div className="mb-4 max-w-96 text-center">
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
           </div>
-          <div className="relative h-80 w-full lg:w-72">
+          <div className="relative h-80 w-full">
             <Image src="/devi.jpg" alt="" className="object-cover" fill />
           </div>
         </div>
