@@ -221,6 +221,9 @@ Backend:
 
 ```
 
+Bonus Idea: Save my designs
+Bonus Idea: Share on social media
+
 ### Look book Page
 
 3 Look
