@@ -20,27 +20,11 @@ export default function CharmPositionSelector({
     rotation?: string;
   }[];
 }) {
-  // const charmAreaRef = useRef<HTMLDivElement>(null);
-
-  // useEffect(() => {
-  //   function handleClickOutside(event: MouseEvent) {
-  //     if (charmAreaRef.current && !charmAreaRef.current.contains(event.target as Node)) {
-  //       onSelectPosition(-1);
-  //     }
-  //   }
-
-  //   document.addEventListener("mousedown", handleClickOutside);
-  //   return () => {
-  //     document.removeEventListener("mousedown", handleClickOutside);
-  //   };
-  // }, [onSelectPosition]);
-
   return (
     <div>
       {selectedCharms.map((selectedCharm, index) =>
         selectedCharm ? (
           <div
-            // ref={charmAreaRef}
             key={index}
             className="absolute h-20 w-20"
             style={{
@@ -66,7 +50,7 @@ export default function CharmPositionSelector({
             <button
               onClick={() => onSelectPosition(index)}
               className={clsx(
-                "absolute h-16 w-16 rounded-full",
+                "absolute h-8 w-8 rounded-full md:h-16 md:w-16",
                 selectedCharmPosition === index ? "bg-slate-950" : "bg-slate-400"
               )}
               style={{

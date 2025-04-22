@@ -11,20 +11,23 @@ export default function CharmSelector({
   onSelect(charm: Product, position: number): void;
 }) {
   return (
-    <ul className="flex flex-wrap gap-4">
-      {charms.map((charm) => (
-        <li key={charm.handle} onClick={() => onSelect(charm, position)}>
-          <h4>{charm.title}</h4>
-          <div className="relative h-20 w-20 cursor-pointer">
+    <ul className="grid grid-cols-3 gap-2 md:grid-cols-5">
+      {[...charms, ...charms, ...charms, ...charms, ...charms, ...charms, ...charms, ...charms].map(
+        (charm, index) => (
+          <li
+            key={index}
+            className="relative h-16 w-16 cursor-pointer lg:h-20 lg:w-20"
+            onClick={() => onSelect(charm, position)}
+          >
             <Image
               src={charm.featuredImage.url}
               alt={charm.title}
               className="h-full w-full object-cover"
               fill
             />
-          </div>
-        </li>
-      ))}
+          </li>
+        )
+      )}
     </ul>
   );
 }
