@@ -1,5 +1,5 @@
 import { getProductTypes } from "@/lib/shopify";
-import { FilterList } from "./filter";
+// import { FilterList } from "./filter";
 
 export default async function ProductTypes() {
   const products = await getProductTypes();
@@ -7,8 +7,9 @@ export default async function ProductTypes() {
   return (
     <>
       {products.length > 0 ? (
-        <FilterList list={products} title="Product Types" />
+        <div></div>
       ) : (
+        // <FilterList list={products} title="Product Types" />
         <div>No Product Types</div>
       )}
     </>
