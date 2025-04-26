@@ -1,22 +1,18 @@
 import Image from "next/image";
-import { Product } from "@/lib/shopify/types";
+import Link from "next/link";
+import { getProducts } from "@/lib/shopify";
 
-export default function ChainSelector({ chains }: { chains: Product[] }) {
+export default async function ChainSelector({ category }: { category: string }) {
+  const chains = await getProducts({ query: `product_type:${category}` });
+
   return (
-    <ul className="flex gap-4">
+    <nav className="flex gap-4">
       {chains.map((chain) => (
-        <li key={chain.handle}>
+        <Link href={`/charm-bar/${category}/${chain.handle}`} key={chain.handle}>
           <h4>{chain.title}</h4>
-          <div className="relative h-32 w-32">
-            <Image
-              src={chain.featuredImage.url}
-              alt={chain.title}
-              className="h-full w-full object-cover"
-              fill
-            />
-          </div>
-        </li>
+          <Image src={chain.featuredImage.url} alt={chain.title} width={500} height={500} />
+        </Link>
       ))}
-    </ul>
+    </nav>
   );
 }

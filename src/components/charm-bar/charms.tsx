@@ -11,7 +11,7 @@ export default function CharmSelector({
   onSelect(charm: Product, position: number): void;
 }) {
   return (
-    <ul className="grid grid-cols-3 gap-2 md:grid-cols-5">
+    <ul className="flex max-w-96 flex-wrap gap-4">
       {[...charms].map((charm, index) => (
         <li
           key={index}

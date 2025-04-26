@@ -8,11 +8,18 @@ export default function Categories() {
         <h2 className="pl-4 pt-10 text-3xl uppercase">Select a category</h2>
       </div>
       <div className="flex flex-col items-center md:flex-row">
-        <CategoryCard link="#" src="/categories/necklace.jpg" title="Gerdan" />
-        <CategoryCard link="#" src="/categories/glass.jpg" title="Grivna" />
-        <CategoryCard link="#" src="/categories/keychain.jpg" title="Kluchodurjatel" />
-        <CategoryCard link="#" src="/categories/bag.jpg" title="Verijka za chanti" />
-        <CategoryCard link="#" src="/categories/shoes.jpg" title="Waistchain" />
+        <CategoryCard link="/charm-bar/necklace" src="/categories/necklace.jpg" title="Gerdan" />
+        <CategoryCard link="charm-bar/bracelet" src="/categories/glass.jpg" title="Grivna" />
+        <CategoryCard
+          link="/charm-bar/keychain"
+          src="/categories/keychain.jpg"
+          title="Kluchodurjatel"
+        />
+        <CategoryCard
+          link="/charm-bar/bagchain"
+          src="/categories/bag.jpg"
+          title="Verijka za chanti"
+        />
       </div>
     </div>
   );

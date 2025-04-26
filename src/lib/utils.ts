@@ -8,3 +8,7 @@ export const createUrl = (pathname: string, params: URLSearchParams | ReadonlyUR
 
   return `${pathname}${queryString}`;
 };
+
+export function capitalize(str: string) {
+  return str[0].toUpperCase() + str.slice(1);
+}

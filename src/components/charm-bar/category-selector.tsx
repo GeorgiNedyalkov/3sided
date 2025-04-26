@@ -1,29 +1,47 @@
 import clsx from "clsx";
+import Link from "next/link";
+import Image from "next/image";
 
-export default function CategorySelector({
-  selectedCategory,
-  onSelect,
-}: {
-  selectedCategory: string;
-  onSelect(catergory: string): void;
-}) {
-  const categories = ["bracelet", "necklace", "keychain", "bagchain"];
+export default function CategorySelector() {
+  const categories = [
+    {
+      category: "bracelet",
+      imageSrc: "/categories/bracelet.jpg",
+    },
+    {
+      category: "necklace",
+      imageSrc: "/categories/necklace.jpg",
+    },
+    {
+      category: "keychain",
+      imageSrc: "/categories/keychain.jpg",
+    },
+    {
+      category: "bagchain",
+      imageSrc: "/categories/bagchain.jpg",
+    },
+  ];
 
   return (
     <>
-      <div className="flex gap-2">
-        {categories.map((category) => (
-          <button
-            className={clsx("rounded border p-2", {
-              "bg-black text-white": selectedCategory == category,
-            })}
+      <li className="flex gap-2 pb-20">
+        {categories.map(({ category, imageSrc }) => (
+          <Link
             key={category}
-            onClick={() => onSelect(category)}
+            href={`/charm-bar/${category}`}
+            className="hover: rounded p-2 text-center font-bold"
           >
-            {category.charAt(0).toUpperCase() + category.slice(1)}
-          </button>
+            <Image
+              src={imageSrc}
+              width={500}
+              height={500}
+              alt={`${category} main picture`}
+              className="h-[500px] w-[500px] object-cover"
+            />
+            <p className="pt-2">{category.charAt(0).toUpperCase() + category.slice(1)}</p>
+          </Link>
         ))}
-      </div>
+      </li>
     </>
   );
 }
