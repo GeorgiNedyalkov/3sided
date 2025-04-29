@@ -7,18 +7,6 @@ import { cookies } from "next/headers";
 import { getCart } from "@/lib/shopify";
 import Footer from "@/components/layout/footer";
 
-const geistSans = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-
-const geistMono = localFont({
-  src: "../fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
-});
-
 export const metadata: Metadata = {
   title: "3SIDED",
   description: "Buy charms and bracelets from 3Sided",
@@ -37,7 +25,7 @@ export default async function RootLayout({
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/urc1gyw.css"></link>
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
+      <body className={`antialiased`}>
         <CartProvider cartPromise={cart}>
           <Navbar />
           {children}

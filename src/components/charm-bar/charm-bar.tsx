@@ -5,6 +5,7 @@ import CharmSelector from "@/components/charm-bar/charms";
 import CharmCanvas from "@/components/charms/charm-canvas";
 import { necklaces } from "@/lib/placeholder-data";
 import { Product } from "@/lib/shopify/types";
+import AddToCartButton from "../cart/add-to-cart";
 
 export default function CharmBar({ charms }: { charms: Product[] }) {
   const numberOfCharms = 5;
@@ -49,7 +50,7 @@ export default function CharmBar({ charms }: { charms: Product[] }) {
           onSelect={handleCharmSelect}
         />
         <div className="flex items-center justify-center">
-          <button className="text-mid w-32 bg-black p-2 text-center text-white">Add to cart</button>
+          <AddToCartButton charm={selectedCharms[0]} />
         </div>
       </div>
     </div>

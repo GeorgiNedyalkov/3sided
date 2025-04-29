@@ -5,29 +5,32 @@ import { addItem } from "./actions";
 import { useActionState } from "react";
 
 export default function AddToCartButton({ charm }: { charm: Product }) {
-  const { addCartItem, cart } = useCart();
-  const { variants } = charm;
+  // const { addCartItem, cart } = useCart();
+  // const { variants } = charm;
 
-  const [message, formAction] = useActionState(addItem, null);
+  // const [message, formAction] = useActionState(addItem, null);
 
-  const selectedVariantId = variants[0].id;
-  const actionWithVariant = formAction.bind(null, selectedVariantId);
-  const finalVariant = variants.find((variant) => variant.id === selectedVariantId)!;
+  // const selectedVariantId = variants[0].id;
+  // const actionWithVariant = formAction.bind(null, selectedVariantId);
+  // const finalVariant = variants.find((variant) => variant.id === selectedVariantId)!;
 
-  console.log(cart);
+  // console.log(cart);
   return (
     <form
-      action={async () => {
-        addCartItem(finalVariant, charm);
-        await actionWithVariant();
-      }}
+    // action={async () => {
+    //   addCartItem(finalVariant, charm);
+    //   await actionWithVariant();
+    // }}
     >
-      <button type="submit" className="h-12 rounded-xl bg-gray-900 px-4 py-2 text-gray-100">
+      <button
+        type="submit"
+        className="w-52 rounded-md bg-primary p-3 uppercase text-white transition-all duration-300 hover:bg-red-900"
+      >
         Add to cart
       </button>
 
       <p aria-live="polite" className="sr-only" role="status">
-        {message}
+        {/* {message} */}
       </p>
     </form>
   );
