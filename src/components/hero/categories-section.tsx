@@ -1,6 +1,34 @@
 import Link from "next/link";
 import Image from "next/image";
 
+const categories = [
+  {
+    title: "Necklace",
+    imageSrc: "/categories/necklace.jpg",
+    link: "/charm-bar/necklace",
+  },
+  {
+    title: "Bracelet",
+    imageSrc: "/categories/bracelet.jpg",
+    link: "/charm-bar/necklace",
+  },
+  {
+    title: "Necklace",
+    imageSrc: "/categories/necklace.jpg",
+    link: "/charm-bar/necklace",
+  },
+  {
+    title: "Necklace",
+    imageSrc: "/categories/necklace.jpg",
+    link: "/charm-bar/necklace",
+  },
+  {
+    title: "Necklace",
+    imageSrc: "/categories/necklace.jpg",
+    link: "/charm-bar/necklace",
+  },
+];
+
 export default function Categories() {
   return (
     <div className="bg-primary text-white underline">
@@ -17,7 +45,12 @@ export default function Categories() {
         />
         <CategoryCard
           link="/charm-bar/bagchain"
-          src="/categories/bag.jpg"
+          src="/categories/bagchain.jpg"
+          title="Verijka za chanti"
+        />
+        <CategoryCard
+          link="/charm-bar/waistchain"
+          src="/categories/waistchain.jpg"
           title="Verijka za chanti"
         />
       </div>
@@ -29,7 +62,7 @@ function CategoryCard({ src, title, link }: { src: string; title: string; link: 
   return (
     <Link href={link}>
       <h3 className="text-lg md:pb-10 md:pl-10">{title}</h3>
-      <div className="relative h-[60vh] w-96 overflow-hidden">
+      <div className="relative h-[60vh] min-w-96 overflow-hidden">
         <Image
           src={src}
           alt=""

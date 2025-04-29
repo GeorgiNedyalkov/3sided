@@ -9,8 +9,8 @@ interface Breadcrumb {
 
 export default function Breadcrumbs({ breadcrumbs }: { breadcrumbs: Breadcrumb[] }) {
   return (
-    <nav aria-label="Breadcrumb">
-      <ol className="text-md lg:text-md flex">
+    <nav aria-label="Breadcrumb" className="p-2">
+      <ol className="text-md lg:text-md flex text-sm">
         {breadcrumbs.map((breadcrumb, index) => (
           <li
             key={breadcrumb.href}

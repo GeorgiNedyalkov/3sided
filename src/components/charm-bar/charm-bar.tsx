@@ -31,7 +31,7 @@ export default function CharmBar({ charms }: { charms: Product[] }) {
   }, [selectedCharms]);
 
   return (
-    <div className="mb-20 flex justify-around">
+    <div className="mb-20 flex flex-col justify-around md:flex-row">
       <div>
         <CharmCanvas
           selectedCharms={selectedCharms}
@@ -40,15 +40,17 @@ export default function CharmBar({ charms }: { charms: Product[] }) {
           chain={necklaces[1]}
         />
         <div className="mb-10">Total Price: {totalPrice}</div>
-        <button className="text-mid w-32 bg-black p-2 text-center text-white">Add to cart</button>
       </div>
 
-      <div>
+      <div className="flex flex-col gap-10">
         <CharmSelector
           charms={charms}
           position={selectedCharmPosition}
           onSelect={handleCharmSelect}
         />
+        <div className="flex items-center justify-center">
+          <button className="text-mid w-32 bg-black p-2 text-center text-white">Add to cart</button>
+        </div>
       </div>
     </div>
   );

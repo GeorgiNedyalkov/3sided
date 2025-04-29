@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function CharmBarSection() {
   return (
-    <div className="w-full px-20">
+    <div className="w-full px-20 md:mb-20">
       <h2 className="py-12 text-4xl font-bold">First Charm Bar in Bulgaria</h2>
       <div className="flex items-center">
         <div className="relative z-0 h-[800px] w-1/2">
@@ -13,7 +13,7 @@ export default function CharmBarSection() {
             fill
           />
         </div>
-        <p className="z-10 -ml-20 max-w-[500px]">
+        <p className="z-10 -ml-20 max-w-[500px] bg-gray-100 p-4 text-gray-900">
           There are many variations of passages of Lorem Ipsum available, but the majority have
           suffered alteration in some form, by injected humour, or randomised words which dont look
           even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be

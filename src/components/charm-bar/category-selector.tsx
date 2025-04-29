@@ -24,7 +24,7 @@ export default function CategorySelector() {
 
   return (
     <>
-      <li className="flex gap-2 pb-20">
+      <li className="flex flex-col gap-2 pb-20 md:flex-row">
         {categories.map(({ category, imageSrc }) => (
           <Link
             key={category}
