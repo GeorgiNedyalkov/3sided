@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Logo } from "./navbar/navbar";
+import { LogoMark } from "../logo";
 
 export default function Footer() {
   return (
     <div className="bg-stone-300 p-4 lg:px-20 lg:pt-20">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-end">
         <div className="flex items-center justify-center py-5 lg:mr-auto lg:py-0">
-          <Logo />
+          <LogoMark />
         </div>
 
         <div className="grid grid-cols-2 gap-10 lg:mb-20 lg:grid-cols-4 lg:gap-28">

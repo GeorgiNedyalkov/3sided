@@ -227,3 +227,42 @@ Bonus Idea: Share on social media
 ### Look book Page
 
 3 Look
+
+### TODO:
+
+Navbar
+
+- Add logo rather than 3sided
+- Add icons for cart, login, and search
+- Add burger menu to desktop as well
+- Add sidebar burger menu
+- List Links
+- On hover of certain section bring out another bar
+
+Hero
+
+- Create a reusable button component
+- Add copy to paragraph
+  "Design you own personalized jewelry that’s unique to you"
+
+Home Page
+
+- Add missing sections
+
+Contact us
+
+- Finish contact us with all the functionality and desing
+
+About us
+
+- Wait for the design of the about us
+
+Charm Bar
+
+Catalogue
+
+Cart
+
+Accounts and Login
+
+Search functionality
