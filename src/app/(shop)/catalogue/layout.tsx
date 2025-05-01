@@ -1,6 +1,6 @@
 import Collections from "@/components/layout/catalogue/collections";
 import { FilterList } from "@/components/layout/catalogue/filter";
-import ProductTypes from "@/components/layout/catalogue/product-types";
+// import ProductTypes from "@/components/layout/catalogue/product-types";
 import { sorting } from "@/lib/constants";
 
 export default function CatalogueLayout({ children }: { children: React.ReactNode }) {
@@ -16,7 +16,7 @@ export default function CatalogueLayout({ children }: { children: React.ReactNod
           <div className="flex gap-10">
             Filter by:
             <Collections />
-            <ProductTypes />
+            {/* <ProductTypes /> */}
           </div>
           <div>
             <FilterList list={sorting} title="Sort by:" />

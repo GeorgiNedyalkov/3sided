@@ -5,9 +5,9 @@ import { capitalize } from "@/lib/utils";
 export default async function CategorySelectPage({
   params,
 }: {
-  params: {
+  params: Promise<{
     category: string;
-  };
+  }>;
 }) {
   const { category } = await params;
 
