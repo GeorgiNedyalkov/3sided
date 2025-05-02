@@ -5,7 +5,7 @@ import CharmSelector from "@/components/charm-bar/charms";
 import CharmCanvas from "@/components/charms/charm-canvas";
 import { necklaces } from "@/lib/placeholder-data";
 import { Product } from "@/lib/shopify/types";
-import AddToCartButton from "../cart/add-to-cart";
+// import AddToCartButton from "../cart/add-to-cart";
 
 export default function CharmBar({ charms }: { charms: Product[] }) {
   const numberOfCharms = 5;
