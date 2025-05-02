@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Navbar from "@/components/layout/navbar/navbar";
 import "./globals.css";
 import { CartProvider } from "@/components/cart/cart-context";
-import { cookies } from "next/headers";
 import { getCart } from "@/lib/shopify";
 import Footer from "@/components/layout/footer";
 
