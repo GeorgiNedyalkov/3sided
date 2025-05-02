@@ -50,7 +50,6 @@ export default function CharmBar({ charms }: { charms: Product[] }) {
           onSelect={handleCharmSelect}
         />
         <div className="flex items-center justify-center">
-          <AddToCartButton charm={selectedCharms[0]} />
         </div>
       </div>
     </div>

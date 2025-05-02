@@ -58,8 +58,15 @@ export default function CartModal() {
                         <p>Your cart is empty</p>
                       </div>
                     ) : (
-                      <div>You have items in cart</div>
-                    )}
+                      <div>
+                        {cart.lines.map((line, index) => (
+                          <div key={index}>
+                            {line.merchandise.product.title}
+                          </div>
+                        ))}
+                      </div>
+                    )
+                    }
                   </DialogPanel>
                 </TransitionChild>
               </div>

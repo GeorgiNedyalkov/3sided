@@ -20,6 +20,8 @@ import { getCartQuery } from "./queries/cart";
 import { getCollectionProductsQuery, getCollectionsQuery } from "./queries/collections";
 import { addToCartMutation, createCartMutation } from "./mutations/cart";
 // import { getProductTypesQuery } from "./queries/product-types";
+//
+import { cookies } from "next/headers";
 
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 const domain = process.env.SHOPIFY_STORE_DOMAIN;
@@ -191,10 +193,14 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
   return reshapeProduct(res.body.data.product);
 }
 
-export async function getCart(cartId: string | undefined): Promise<Cart | undefined> {
+export async function getCart(): Promise<Cart | undefined> {
+  const cartId = (await cookies()).get("cartId")?.value;
+
   if (!cartId) {
     return undefined;
   }
+
+  // TODO: When you checkout delete cart
 
   const res = await shopifyFetch<ShopifyCartOperation>({
     query: getCartQuery,
@@ -295,16 +301,15 @@ export async function createCart(): Promise<Cart> {
 }
 
 export async function addToCart(
-  cartId: string,
   lines: { merchandiseId: string; quantity: number }[]
 ): Promise<Cart> {
+  const cartId = (await cookies()).get("cartId")?.value!;
   const res = await shopifyFetch<ShopifyAddToCartOperation>({
     query: addToCartMutation,
     variables: {
       cartId,
       lines,
     },
-    cache: "no-store",
   });
 
   return reshapeCart(res.body.data.cartLinesAdd.cart);

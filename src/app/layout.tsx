@@ -16,8 +16,7 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const cartId = (await cookies()).get("cartId")?.value;
-  const cart = getCart(cartId);
+  const cart = getCart();
 
   return (
     <html lang="en">
