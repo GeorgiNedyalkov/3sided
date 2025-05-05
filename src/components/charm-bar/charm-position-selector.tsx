@@ -20,13 +20,21 @@ export default function CharmPositionSelector({
     rotation?: string;
   }[];
 }) {
+
+  const isMedium = (charm: Product) => charm.tags.includes("size:medium");
+  const isLarge = (charm: Product) => charm.tags.includes("size:large");
+
   return (
     <div>
       {selectedCharms.map((selectedCharm, index) =>
         selectedCharm ? (
           <div
             key={index}
-            className="absolute h-16 w-16"
+            className={clsx("absolute h-16 w-16",
+              {
+                "h-20 w-20": isMedium(selectedCharm),
+                "h-24 w-24": isLarge(selectedCharm),
+              })}
             style={{
               top: `${positionSettings[index]?.top}`,
               right: `${positionSettings[index]?.right}`,
@@ -35,9 +43,10 @@ export default function CharmPositionSelector({
             }}
           >
             <Image
-              className={clsx(
-                "absolute rounded-full",
-                selectedCharmPosition == index ? "ring-1 ring-black/10" : ""
+              className={clsx("absolute rounded-full",
+                {
+                  "ring-1 ring-black/10": selectedCharmPosition == index
+                }
               )}
               onClick={() => onSelectPosition(index)}
               src={selectedCharm.featuredImage.url}

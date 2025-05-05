@@ -22,7 +22,7 @@ export default function CharmCanvas({
   chain: Necklace;
 }) {
   return (
-    <div className="relative mx-auto h-[250px] w-[90vw] lg:h-[500px] lg:w-[500px]">
+    <div className="relative mx-auto h-[250px] w-[90vw] lg:h-[70vh] lg:w-[500px]">
       <Image
         src={chain.src}
         alt="Selected chain on the charm bar"
