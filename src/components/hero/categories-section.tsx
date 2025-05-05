@@ -1,33 +1,33 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const categories = [
-  {
-    title: "Necklace",
-    imageSrc: "/categories/necklace.jpg",
-    link: "/charm-bar/necklace",
-  },
-  {
-    title: "Bracelet",
-    imageSrc: "/categories/bracelet.jpg",
-    link: "/charm-bar/necklace",
-  },
-  {
-    title: "Necklace",
-    imageSrc: "/categories/necklace.jpg",
-    link: "/charm-bar/necklace",
-  },
-  {
-    title: "Necklace",
-    imageSrc: "/categories/necklace.jpg",
-    link: "/charm-bar/necklace",
-  },
-  {
-    title: "Necklace",
-    imageSrc: "/categories/necklace.jpg",
-    link: "/charm-bar/necklace",
-  },
-];
+// const categories = [
+//   {
+//     title: "Necklace",
+//     imageSrc: "/categories/necklace.jpg",
+//     link: "/charm-bar/necklace",
+//   },
+//   {
+//     title: "Bracelet",
+//     imageSrc: "/categories/bracelet.jpg",
+//     link: "/charm-bar/necklace",
+//   },
+//   {
+//     title: "Necklace",
+//     imageSrc: "/categories/necklace.jpg",
+//     link: "/charm-bar/necklace",
+//   },
+//   {
+//     title: "Necklace",
+//     imageSrc: "/categories/necklace.jpg",
+//     link: "/charm-bar/necklace",
+//   },
+//   {
+//     title: "Necklace",
+//     imageSrc: "/categories/necklace.jpg",
+//     link: "/charm-bar/necklace",
+//   },
+// ];
 
 export default function Categories() {
   return (

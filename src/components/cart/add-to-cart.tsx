@@ -30,7 +30,7 @@ export default function AddToCartButton({ charm }: { charm: Product }) {
       </button>
 
       <p aria-live="polite" className="sr-only" role="status">
-        {/* {message} */}
+        {message}
       </p>
     </form>
   );

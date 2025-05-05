@@ -2,15 +2,21 @@ import CharmBar from "@/components/charm-bar/charm-bar";
 import { getProducts } from "@/lib/shopify";
 import { capitalize } from "@/lib/utils";
 import Breadcrumbs from "@/components/breadcrumbs";
+// import type { Metadata } from "next";
 
-export default async function CharmsSelectPage({
-  params,
-}: {
-  params: {
-    chain: string;
-    category: string;
-  };
-}) {
+type Props = {
+  params: Promise<{ category: string; chain: string }>;
+};
+
+// export async function generateMetadata({ params }: Props): Promise<Metadata> {
+//   const { chain } = await params;
+
+//   return {
+//     title: chain,
+//   };
+// }
+
+export default async function CharmsSelectPage({ params }: Props) {
   const charms = await getProducts({ query: "product_type:charm" });
 
   const { category, chain } = await params;
@@ -28,7 +34,7 @@ export default async function CharmsSelectPage({
     },
     {
       label: "Step 3: Pick your charms",
-      href: "category",
+      href: "",
       active: true,
     },
   ];

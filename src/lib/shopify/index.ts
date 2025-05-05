@@ -19,7 +19,7 @@ import {
 import { getCartQuery } from "./queries/cart";
 import { getCollectionProductsQuery, getCollectionsQuery } from "./queries/collections";
 import { addToCartMutation, createCartMutation } from "./mutations/cart";
-import { getProductTypesQuery } from "./queries/product-types";
+// import { getProductTypesQuery } from "./queries/product-types";
 
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 const domain = process.env.SHOPIFY_STORE_DOMAIN;
@@ -177,8 +177,7 @@ export async function getProducts({
     },
   });
 
-  // TODO: Reshape products
-  return removeEdgesAndNodes(result.body.data.products);
+  return reshapeProducts(removeEdgesAndNodes(result.body.data.products));
 }
 
 export async function getProduct(handle: string): Promise<Product | undefined> {
@@ -236,28 +235,28 @@ export async function getCollections(): Promise<Collection[]> {
 }
 
 // Add types
-export async function getProductTypes() {
-  const res = await shopifyFetch({ query: getProductTypesQuery });
+// export async function getProductTypes() {
+//   const res = await shopifyFetch({ query: getProductTypesQuery });
 
-  const rawProductTypes = removeEdgesAndNodes(res.body?.data?.productTypes);
+//   const rawProductTypes = removeEdgesAndNodes(res.body?.data?.productTypes);
 
-  // path: `/catalogue/${collection.handle}`,
-  console.log(rawProductTypes);
+//   // path: `/catalogue/${collection.handle}`,
+//   console.log(rawProductTypes);
 
-  const productTypes = [];
+//   const productTypes = [];
 
-  for (const productType of rawProductTypes) {
-    console.log(productType);
+//   for (const productType of rawProductTypes) {
+//     console.log(productType);
 
-    productTypes.push({
-      title: productType,
-      handle: productType,
-      path: `/catalogue/${productType}`,
-    });
-  }
+//     productTypes.push({
+//       title: productType,
+//       handle: productType,
+//       path: `/catalogue/${productType}`,
+//     });
+//   }
 
-  return productTypes;
-}
+//   return productTypes;
+// }
 
 export async function getCollectionProducts({
   collection,
