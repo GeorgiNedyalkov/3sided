@@ -123,8 +123,7 @@ export default function ContactForm() {
   );
 }
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-function FormUnderlined() {
+export function FormUnderlined() {
   return (
     <form>
       <div className="flex flex-col gap-4 p-10">

@@ -288,16 +288,16 @@ export type Necklace = {
   src: string;
   settings: (
     | {
-        top: string;
-        left: string;
-        rotation: string;
-        right?: undefined;
-      }
+      top: string;
+      left: string;
+      rotation: string;
+      right?: undefined;
+    }
     | {
-        top: string;
-        right: string;
-        rotation: string;
-        left?: undefined;
-      }
+      top: string;
+      right: string;
+      rotation: string;
+      left?: undefined;
+    }
   )[];
 };

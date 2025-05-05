@@ -1,10 +1,10 @@
 "use client";
-import Link from "next/link";
-import { useEffect, useState } from "react";
 
-import CartModal from "@/components/cart/cart-modal";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/16/solid";
 import clsx from "clsx";
+import { useEffect, useState } from "react";
+import Link from "next/link";
+import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from "@heroicons/react/16/solid";
+import CartModal from "@/components/cart/cart-modal";
 import { LogoMark } from "@/components/logo";
 
 const navItems = [
@@ -105,6 +105,7 @@ export default function Navbar() {
       </div>
 
       <div className="flex basis-1/3 justify-end">
+        <MagnifyingGlassIcon />
         <CartModal />
       </div>
     </nav>

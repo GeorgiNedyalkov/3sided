@@ -32,3 +32,5 @@ export default function OtherProducts({ category }: { category: string }) {
     </div>
   );
 }
+
+

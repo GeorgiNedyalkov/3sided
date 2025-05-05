@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import Navbar from "@/components/layout/navbar/navbar";
 import "./globals.css";
 import { CartProvider } from "@/components/cart/cart-context";

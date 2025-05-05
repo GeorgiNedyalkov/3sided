@@ -71,55 +71,6 @@ Design in grayscale, you're forced to use **spacing**, **contrast**, and **size*
 
 Play on a bar.
 
-Simple, elegant, luxurious.
-
-Typefont: Serif for a professional look.
-
-Border-radius:
-
-- No borde radius: Formal
-
-Language: professional
-
-### System
-
-- Font size
-- Font weight
-- Line height
-- Color
-- Margin
-- Padding
-- Width
-- Height
-- Box shadows
-- Border radius
-- Border width
-- Opacity
-
-1. Font size
-
-Headlines
-
-Small texts: 12px, 14px
-
-Medium text: 16px, 18px, 20px, 24px
-
-Big text: 32px, 48px, 60px
-
-2. Colors
-
-- Dark color for primary content (Headline of an article)
-- Grey for secondary content (Date an article was published)
-- Lighter gray for tertiary content (copyright notice on the footer)o
-
-primary: #051F12
-secondary: #D9C7D7 | #FFF5F0
-tertiary: #FFD9C7 | #FAD9B9
-
-3. Font weights
-
-- Normal font weight (400 or 500) for most text
-- Heavier font weight (600 or 700) for text to emphasize
 
 ## Manifesto
 
@@ -193,33 +144,6 @@ Backend:
 - Learn all about the backend
 - Webhooks ( Synchronization )
 
-```javascript
-  //
-  {
-  /\*
-  // const query = "product_type:Charm";
-
-  // const charms = await getCollectionsProducts({
-  // collection: "Letters",
-  // });
-
-  // const products = await getProducts({
-  // reverse: true,
-  // query: query,
-  // });
-
-    <div className="m-4 flex gap-4">
-          {products.map((product) => (
-            <div key={product.id} className="bg-slate-200 p-2">
-              <p>{product.title}</p>
-              <p>{product.priceRange.maxVariantPrice.amount}</p>
-            </div>
-          ))}
-        </div>
-        <CharmBarNew charms={charms} />; */
-  }
-
-```
 
 Bonus Idea: Save my designs
 Bonus Idea: Share on social media
@@ -232,12 +156,12 @@ Bonus Idea: Share on social media
 
 Navbar
 
-- Add logo rather than 3sided
-- Add icons for cart, login, and search
-- Add burger menu to desktop as well
+- [x] Add logo rather than 3sided
+- [] Add icons for cart, login, and search
+- [x] Add burger menu to desktop as well
+  - Add choosing collections and categories views when hovered
 - Add sidebar burger menu
 - List Links
-- On hover of certain section bring out another bar
 
 Hero
 
@@ -259,10 +183,17 @@ About us
 
 Charm Bar
 
+
 Catalogue
+
+ - Add Hero section to catalogue
 
 Cart
 
 Accounts and Login
 
 Search functionality
+
+
+###
+

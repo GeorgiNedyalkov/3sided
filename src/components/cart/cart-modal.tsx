@@ -1,6 +1,7 @@
+
 "use client";
 
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect, useRef, Fragment } from "react";
 import { ShoppingCartIcon } from "@heroicons/react/16/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { useCart } from "./cart-context";
@@ -11,7 +12,7 @@ import { ShoppingBagIcon } from "@heroicons/react/20/solid";
 export default function CartModal() {
   const { cart } = useCart();
   const [isOpen, setIsOpen] = useState(false);
-
+  const quantityRef = useRef(cart?.totalQuantity);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
@@ -20,6 +21,17 @@ export default function CartModal() {
       createCartAndSetCookies();
     }
   }, [cart]);
+
+  useEffect(() => {
+    if (cart?.totalQuantity && cart?.totalQuantity !== quantityRef.current && cart?.totalQuantity > 0) {
+      if (!isOpen) {
+        setIsOpen(true)
+      }
+
+      quantityRef.current = cart?.totalQuantity;
+    }
+
+  }, [isOpen, cart?.totalQuantity, quantityRef]);
 
   return (
     <>
@@ -51,7 +63,6 @@ export default function CartModal() {
                         <XMarkIcon className="h-6" />
                       </button>
                     </div>
-
                     {!cart || cart.lines.length === 0 ? (
                       <div className="flex flex-col items-center gap-4">
                         <ShoppingCartIcon className="h-24" />
