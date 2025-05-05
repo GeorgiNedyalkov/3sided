@@ -3,7 +3,7 @@
 import clsx from "clsx";
 import { useEffect, useState } from "react";
 import Link from "next/link";
-import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon } from "@heroicons/react/16/solid";
+import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon, UserIcon } from "@heroicons/react/16/solid";
 import CartModal from "@/components/cart/cart-modal";
 import { LogoMark } from "@/components/logo";
 
@@ -104,8 +104,9 @@ export default function Navbar() {
         <LogoMark />
       </div>
 
-      <div className="flex basis-1/3 justify-end">
-        <MagnifyingGlassIcon />
+      <div className="flex basis-1/3 justify-end items-center gap-4">
+        <MagnifyingGlassIcon className="h-8" />
+        <UserIcon className="h-8" />
         <CartModal />
       </div>
     </nav>

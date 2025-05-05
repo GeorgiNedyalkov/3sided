@@ -35,8 +35,18 @@ export default function CartModal() {
 
   return (
     <>
+
       <button onClick={openModal} className="rounded-md p-2">
-        <ShoppingBagIcon className="h-6" />
+        <div className="relative">
+          <ShoppingBagIcon className="h-6" />
+          {
+            cart && cart.lines.length === 0 && (
+              <div className="flex items-center justify-center absolute -mt-4 -mr-2 top-0 right-0 bg-red-300 rounded-full text-[11px] w-4 h-4">
+                {cart.lines.length}
+              </div>
+            )
+          }
+        </div>
       </button>
 
       <Transition show={isOpen} as={Fragment}>
