@@ -1,75 +1,71 @@
 import Link from "next/link";
 import Image from "next/image";
 
-// const categories = [
-//   {
-//     title: "Necklace",
-//     imageSrc: "/categories/necklace.jpg",
-//     link: "/charm-bar/necklace",
-//   },
-//   {
-//     title: "Bracelet",
-//     imageSrc: "/categories/bracelet.jpg",
-//     link: "/charm-bar/necklace",
-//   },
-//   {
-//     title: "Necklace",
-//     imageSrc: "/categories/necklace.jpg",
-//     link: "/charm-bar/necklace",
-//   },
-//   {
-//     title: "Necklace",
-//     imageSrc: "/categories/necklace.jpg",
-//     link: "/charm-bar/necklace",
-//   },
-//   {
-//     title: "Necklace",
-//     imageSrc: "/categories/necklace.jpg",
-//     link: "/charm-bar/necklace",
-//   },
-// ];
+const categories = [
+	{
+		title: "Necklace",
+		imageSrc: "/categories/necklace.jpg",
+		link: "/charm-bar/necklace",
+	},
+	{
+		title: "Bracelet",
+		imageSrc: "/categories/bracelet.jpg",
+		link: "/charm-bar/necklace",
+	},
+	{
+		title: "Keychain",
+		imageSrc: "/categories/keychain.jpg",
+		link: "/charm-bar/keychain",
+	},
+	{
+		title: "Bagchain",
+		imageSrc: "/categories/bagchain.jpg",
+		link: "/charm-bar/bagchain",
+	},
+	{
+		title: "Waistchain",
+		imageSrc: "/categories/waistchain.webp",
+		link: "/charm-bar/waistchain",
+	},
+	{
+		title: "Pin",
+		imageSrc: "/categories/pin.png",
+		link: "/charm-bar/pin",
+	},
+];
 
 export default function Categories() {
-  return (
-    <div className="bg-primary text-white underline">
-      <div className="flex h-52 items-center md:h-96">
-        <h2 className="pl-4 pt-10 text-3xl uppercase">Select a category</h2>
-      </div>
-      <div className="flex flex-col items-center md:flex-row">
-        <CategoryCard link="/charm-bar/necklace" src="/categories/necklace.jpg" title="Gerdan" />
-        <CategoryCard link="charm-bar/bracelet" src="/categories/glass.jpg" title="Grivna" />
-        <CategoryCard
-          link="/charm-bar/keychain"
-          src="/categories/keychain.jpg"
-          title="Kluchodurjatel"
-        />
-        <CategoryCard
-          link="/charm-bar/bagchain"
-          src="/categories/bagchain.jpg"
-          title="Verijka za chanti"
-        />
-        <CategoryCard
-          link="/charm-bar/waistchain"
-          src="/categories/waistchain.jpg"
-          title="Verijka za chanti"
-        />
-      </div>
-    </div>
-  );
+	return (
+		<div className="bg-primary text-white underline">
+			<h2 className="pl-4 pt-10 text-3xl uppercase lg:pl-10 lg:pt-20 lg:pb-8">Select a category</h2>
+			<div className="flex flex-col items-center justify-between md:flex-row">
+				{categories.slice(0, 5).map((category) => (
+					<CategoryCard 
+					key={category.title} 
+					link={category.link} 
+					src={category.imageSrc} 
+					title={category.title} 
+					/>
+				))}
+			</div>
+		</div>
+	);
 }
 
 function CategoryCard({ src, title, link }: { src: string; title: string; link: string }) {
-  return (
-    <Link href={link}>
-      <h3 className="text-lg md:pb-10 md:pl-10">{title}</h3>
-      <div className="relative h-[60vh] min-w-96 overflow-hidden">
-        <Image
-          src={src}
-          alt=""
-          fill
-          className="object-cover transition-transform duration-300 hover:scale-110"
-        />
-      </div>
-    </Link>
-  );
+	return (
+		<Link href={link} className="w-full">
+		<h3 className="relative text-xl md:pb-10 md:pl-10">
+			{title}
+		</h3>
+		<div className="relative h-[60vh] w-full overflow-hidden">
+				<Image
+				src={src}
+				alt={`An image of a ${title} category`}
+				className="object-cover transition-transform duration-300 hover:scale-110"
+				fill
+				/>
+			</div>
+		</Link>
+	);
 }
