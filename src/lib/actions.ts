@@ -2,6 +2,7 @@
 
 import { z } from "zod";
 import nodemailer from "nodemailer";
+import { addSubscriber } from "@/lib/mailer-lite";
 
 const schema = z.object({
   firstName: z.string(),
@@ -63,16 +64,26 @@ export async function submitContactData(formData: FormData): Promise<void> {
   }
 }
 
+
+// Server action subscribe to newsletter
 export async function subscribeToNewsletter(formData: FormData) {
-  const { email } = {
+  // Extract data from form data
+  const rawEmailData = {
     email: formData.get("email"),
   };
 
-  // mutate date
-  // revalidate cashe
-  if (!email) {
-    return "Error no email";
-  }
+  // Validate and prepare the data
+  const EmailSchema = z.string().email({ message: "Error: Invalid email" });
 
-  // await subscribeToNewsletter(email);
+  const email = EmailSchema.parse(rawEmailData.email);
+
+  console.log(email);
+
+  try {
+    await addSubscriber(email);
+  } catch (error) {
+    console.log(error);
+    throw new Error("Error: could not add subscriber to newsletter list")
+  }
 }
+

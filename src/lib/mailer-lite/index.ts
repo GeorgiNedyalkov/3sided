@@ -13,12 +13,14 @@ if (!process.env.MAILER_LITE_API_KEY) {
 }
 
 export async function addSubscriber(email: string) {
+  const newsletterGroupID = "151862254197802746"
+
   const params: CreateOrUpdateSubscriberParams = {
     email: email,
     fields: {
       name: "Test",
     },
-    groups: ["151862254197802746"],
+    groups: [newsletterGroupID],
   };
 
   try {

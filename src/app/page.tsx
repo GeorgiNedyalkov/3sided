@@ -12,8 +12,8 @@ export default function Page() {
     <>
       <HeroSection />
       {/* <CategoriesSlider /> */}
-      <CharmBarIntroSection />
-      <FallingCharms />
+      {/* <CharmBarIntroSection /> */}
+      {/* <FallingCharms /> */}
       <Categories />
       <CollectionsSection />
       <LookBook />

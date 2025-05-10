@@ -163,6 +163,8 @@ Navbar
 - Add sidebar burger menu
 - List Links
 
+- Clicking outside of the navbar when the navbar is open closes the navbar
+
 Hero
 
 - Create a reusable button component
@@ -195,5 +197,11 @@ Accounts and Login
 Search functionality
 
 
-###
+Newletters
+ - [x] Fix the styling
+ - [x] Validation
+ - [x] Add subscriber
+ - [] Display errors
+ - [] Display thank you
+
 
