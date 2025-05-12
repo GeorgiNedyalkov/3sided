@@ -1,6 +1,6 @@
-import CharmBar from "@/components/charm-bar/charm-bar";
 import { getProducts } from "@/lib/shopify";
 import { capitalize } from "@/lib/utils";
+import CharmBar from "@/components/charm-bar/charm-bar";
 import Breadcrumbs from "@/components/breadcrumbs";
 // import type { Metadata } from "next";
 

@@ -21,7 +21,6 @@ export default async function CharmPage(props: { params: Promise<{ id: string }>
         />
         <ProductDescription charm={product} />
       </div>
-      <OtherProducts category="charm" />
     </>
   );
 }
