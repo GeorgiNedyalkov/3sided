@@ -1,5 +1,4 @@
 import Gallery from "@/components/product/gallery";
-import OtherProducts from "@/components/product/other-options";
 import ProductDescription from "@/components/product/product-description";
 import { getProduct } from "@/lib/shopify";
 import { notFound } from "next/navigation";

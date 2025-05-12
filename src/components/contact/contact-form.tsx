@@ -52,9 +52,9 @@ export default function ContactForm() {
     }
   }
 
-  // if (isSubmitted) {
-  //   return <div>Thank you for your request. We will answer you shortly.</div>;
-  // }
+  if (isSubmitted) {
+    return <div>Thank you for your request. We will answer you shortly.</div>;
+  }
 
   return (
     <form onSubmit={handleFormSubmit} className="max-w-xl">

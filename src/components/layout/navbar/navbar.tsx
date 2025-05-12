@@ -7,7 +7,7 @@ import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon, UserIcon } from "@heroicons/
 import CartModal from "@/components/cart/cart-modal";
 import { LogoMark } from "@/components/logo";
 import { categoriesComponents } from "@/lib/placeholder-data"
-import { NavigationItemComponent, NavItem } from "@/lib/definitions"
+import { NavItem } from "@/lib/definitions"
 
 const navItems: NavItem[] = [
   {
@@ -131,7 +131,7 @@ function NavigationItem({item}: {item: NavItem}) {
 				<div className="absolute h-screen top-0 p-10 -right-[300px] bg-slate-500 w-96 h-96 hidden group-hover:block">
 				{
 					item.components.map((component) => (
-						<div>
+						<div key={component.link}>
 							<p>{component.title}</p>
 						</div>
 					))

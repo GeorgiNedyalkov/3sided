@@ -1,5 +1,3 @@
-import clsx from "clsx";
-
 import { Product } from "@/lib/shopify/types";
 import Image from "next/image";
 

@@ -6,7 +6,6 @@ import { cookies } from "next/headers";
 
 
 export async function addItem(prevState: any, selectedVariantId: string | undefined) {
-
   if (!selectedVariantId) {
     return "Error adding item to cart";
   }
@@ -21,7 +20,7 @@ export async function addItem(prevState: any, selectedVariantId: string | undefi
 }
 
 export async function createCartAndSetCookies() {
-  let cart = await createCart();
+  const cart = await createCart();
   (await cookies()).set("cartId", cart.id!);
 }
 
