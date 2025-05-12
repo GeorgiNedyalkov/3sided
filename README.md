@@ -84,6 +84,13 @@ Bonus Idea: Share on social media
     - [] Navbar
 
 - Finish the contact us page
+    - [x] Send and receive emails
+    - [] Hadle errors
+    - [] Refactor to use useActionState
+    - [] Write tests
+
+
+
 
 
 
