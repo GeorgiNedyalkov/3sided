@@ -52,9 +52,9 @@ export default function ContactForm() {
     }
   }
 
-  if (isSubmitted) {
-    return <div>Thank you for your request. We will answer you shortly.</div>;
-  }
+  // if (isSubmitted) {
+  //   return <div>Thank you for your request. We will answer you shortly.</div>;
+  // }
 
   return (
     <form onSubmit={handleFormSubmit} className="max-w-xl">
@@ -69,7 +69,7 @@ export default function ContactForm() {
               name="firstName"
               type="text"
               placeholder="First Name"
-              className="border-b-2 border-b-black p-2"
+              className="border-b-2 border-b-black focus:outline-none py-2"
 			  required
             />
           </div>
@@ -82,7 +82,7 @@ export default function ContactForm() {
               name="lastName"
               type="text"
               placeholder="Last Name"
-              className="border-b-2 border-b-black p-2"
+              className="border-b-2 border-b-black focus:outline-none py-2"
 			  required
             />
           </div>
@@ -96,7 +96,7 @@ export default function ContactForm() {
             name="email"
             type="email"
             placeholder="Email"
-            className="border-b-2 border-b-black p-2"
+            className="border-b-2 border-b-black focus:outline-none py-2"
             required
           />
         </div>

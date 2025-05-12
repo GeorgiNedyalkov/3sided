@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
-import Navbar from "@/components/layout/navbar/navbar";
 import "./globals.css";
-import { CartProvider } from "@/components/cart/cart-context";
 import { cookies } from "next/headers";
+
+import { CartProvider } from "@/components/cart/cart-context";
 import { getCart } from "@/lib/shopify";
+import Navbar from "@/components/layout/navbar/navbar";
 import Footer from "@/components/layout/footer";
 
 export const metadata: Metadata = {
