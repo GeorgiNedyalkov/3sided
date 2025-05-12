@@ -1,6 +1,6 @@
-import { Charm } from "./shopify/types";
+import { Charm, NavigationItemComponent } from "@/lib/shopify/types";
 
-const girls = [
+export const girls = [
   {
     id: "qnina",
     name: "Yanina Poptomova",
@@ -103,7 +103,7 @@ const girls = [
   },
 ];
 
-const charms: Charm[] = [
+export const charms: Charm[] = [
   {
     id: "1a",
     number: "782524599",
@@ -167,7 +167,7 @@ const charms: Charm[] = [
 ];
 
 // These should come from our backend
-const charmImages = [
+export const charmImages = [
   "/web/star_1.PNG",
   "/web/rapanche.png",
   "/web/5.png",
@@ -177,7 +177,7 @@ const charmImages = [
 ];
 
 // These should come from our backend
-const necklaces = [
+export const necklaces = [
   {
     id: "1",
     src: "/necklace.webp",
@@ -202,7 +202,7 @@ const necklaces = [
   },
 ];
 
-const chainSettings = [
+export const chainSettings = [
   { top: "78%", left: "42%", rotation: "0deg" },
   { top: "62%", right: "18%", rotation: "-45deg" },
   { top: "62%", left: "18%", rotation: "45deg" },
@@ -210,4 +210,68 @@ const chainSettings = [
   { top: "40%", left: "10%", rotation: "45deg" },
 ];
 
-export { charms, necklaces, chainSettings, charmImages, girls };
+export const categoriesComponents : NavigationItemComponent[] = [
+	{
+		title: "Necklace",
+		imageSrc: "/categories/necklace.jpg",
+		link: "/charm-bar/necklace",
+	},
+	{
+		title: "Bracelet",
+		imageSrc: "/categories/bracelet.jpg",
+		link: "/charm-bar/necklace",
+	},
+	{
+		title: "Keychain",
+		imageSrc: "/categories/keychain.jpg",
+		link: "/charm-bar/keychain",
+	},
+	{
+		title: "Bagchain",
+		imageSrc: "/categories/bagchain.jpg",
+		link: "/charm-bar/bagchain",
+	},
+	{
+		title: "Waistchain",
+		imageSrc: "/categories/waistchain.webp",
+		link: "/charm-bar/waistchain",
+	},
+	{
+		title: "Pin",
+		imageSrc: "/categories/pin.png",
+		link: "/charm-bar/pin",
+	},
+];
+
+export const collectionComponents: NavigationItemComponent[] = [
+	{
+		title: "Necklace",
+		imageSrc: "/categories/necklace.jpg",
+		link: "/charm-bar/necklace",
+	},
+	{
+		title: "Bracelet",
+		imageSrc: "/categories/bracelet.jpg",
+		link: "/charm-bar/necklace",
+	},
+	{
+		title: "Keychain",
+		imageSrc: "/categories/keychain.jpg",
+		link: "/charm-bar/keychain",
+	},
+	{
+		title: "Bagchain",
+		imageSrc: "/categories/bagchain.jpg",
+		link: "/charm-bar/bagchain",
+	},
+	{
+		title: "Waistchain",
+		imageSrc: "/categories/waistchain.webp",
+		link: "/charm-bar/waistchain",
+	},
+	{
+		title: "Pin",
+		imageSrc: "/categories/pin.png",
+		link: "/charm-bar/pin",
+	},
+];

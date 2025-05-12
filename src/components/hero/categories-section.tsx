@@ -1,45 +1,13 @@
 import Link from "next/link";
 import Image from "next/image";
-
-const categories = [
-	{
-		title: "Necklace",
-		imageSrc: "/categories/necklace.jpg",
-		link: "/charm-bar/necklace",
-	},
-	{
-		title: "Bracelet",
-		imageSrc: "/categories/bracelet.jpg",
-		link: "/charm-bar/necklace",
-	},
-	{
-		title: "Keychain",
-		imageSrc: "/categories/keychain.jpg",
-		link: "/charm-bar/keychain",
-	},
-	{
-		title: "Bagchain",
-		imageSrc: "/categories/bagchain.jpg",
-		link: "/charm-bar/bagchain",
-	},
-	{
-		title: "Waistchain",
-		imageSrc: "/categories/waistchain.webp",
-		link: "/charm-bar/waistchain",
-	},
-	{
-		title: "Pin",
-		imageSrc: "/categories/pin.png",
-		link: "/charm-bar/pin",
-	},
-];
+import { categoriesComponents } from "@/lib/placeholder-data"
 
 export default function Categories() {
 	return (
 		<div className="bg-primary text-white underline">
 			<h2 className="pl-4 pt-10 text-3xl uppercase lg:pl-10 lg:pt-20 lg:pb-8">Select a category</h2>
 			<div className="flex flex-col items-center justify-between md:flex-row">
-				{categories.slice(0, 5).map((category) => (
+				{categoriesComponents.slice(0, 5).map((category) => (
 					<CategoryCard 
 					key={category.title} 
 					link={category.link} 
