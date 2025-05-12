@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+
 import { CartProvider } from "@/components/cart/cart-context";
 import { getCart } from "@/lib/shopify";
 import Navbar from "@/components/layout/navbar/navbar";

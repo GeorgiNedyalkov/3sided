@@ -3,9 +3,9 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const charms = [
-  { src: "/charm_3.png", baseRotation: 0, offset: 1 },
-  { src: "/charm_4.webp", baseRotation: 45, offset: 0 },
-  { src: "/charm_5.webp", baseRotation: -45, offset: 0 },
+  { src: "/falling/1.png", baseRotation: 0, offset: 1 },
+  { src: "/falling/2.png", baseRotation: 15, offset: 0 },
+  { src: "/falling/3.png", baseRotation: -15, offset: 0 },
 ];
 
 export default function FallingCharms() {
