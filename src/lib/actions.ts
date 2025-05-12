@@ -42,6 +42,7 @@ export async function submitContactData(formData: FormData): Promise<void> {
     },
   });
 
+  // Send contact form data to our email
   try {
     await transporter.sendMail({
       from: process.env.EMAIL,
@@ -50,20 +51,23 @@ export async function submitContactData(formData: FormData): Promise<void> {
       text: `${validatedFields.data.message}`,
     });
     console.log("Email sent to your inbox");
-
-    // Comment out automatic email while testing
-    // await transporter.sendMail({
-    //   from: process.env.EMAIL,
-    //   to: validatedFields.data.email,
-    //   subject: `Thank you for your inquiry:`,
-    //   text: `Thank you very much for your message ${validatedFields.data.firstName} ${validatedFields.data.lastName}! \n You will hear from us in under one hour. We promise 💖`,
-    // });
-    // console.log("Automatic reply to the sender");
   } catch (error) {
     console.error("Error sending email:", error);
   }
-}
 
+  // Send automatic response email
+  try {
+    await transporter.sendMail({
+      from: process.env.EMAIL,
+      to: validatedFields.data.email,
+      subject: `Thank you for your inquiry:`,
+      text: `Thank you very much for your message ${validatedFields.data.firstName} ${validatedFields.data.lastName}! \n You will hear from us in under one hour. We promise 💖`,
+    });
+    console.log("Automatic reply to the sender");
+  } catch (error) {
+    console.error("Error sending automatic response:", error);
+  }
+}
 
 // Server action subscribe to newsletter
 export async function subscribeToNewsletter(formData: FormData) {
