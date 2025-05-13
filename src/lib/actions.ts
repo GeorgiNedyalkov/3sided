@@ -90,4 +90,3 @@ export async function subscribeToNewsletter(formData: FormData) {
     throw new Error("Error: could not add subscriber to newsletter list")
   }
 }
-
