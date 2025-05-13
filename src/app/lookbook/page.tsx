@@ -8,9 +8,9 @@ export default function LookbookPage() {
   return (
     <>
       <LookBookHeader />
-      <FullscreenImage src="/hor.png" alt="Charms on a chessboard" />
+      {/* <FullscreenImage src="/hor.png" alt="Charms on a chessboard" /> */}
       <LookBookThreeColumnsGrid />
-      <FullscreenImage src="/hor2.png" alt="" />
+      {/* <FullscreenImage src="/hor2.png" alt="" /> */}
       <LookBookThreePictureGrid />
       <LookBookFourPicturesGrid />
     </>
