@@ -66,7 +66,6 @@ Backend:
 - Learn all about the backend
 - Webhooks ( Synchronization )
 
-
 Bonus Idea: Save my designs
 Bonus Idea: Share on social media
 
@@ -77,48 +76,11 @@ Bonus Idea: Share on social media
 
 ## TODO
 
-
 - [] Fix the font
 - [] Fix the navbar dissapearing
 - [] Collections to be determined
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+- [] Charm Cards
+- [] Product page 
+  - Size 
+  - CTA (Go to charm bar)
 

@@ -7,6 +7,8 @@ const charms = [
   { src: "/falling/2.png", baseRotation: 15, offset: 2 },
   { src: "/falling/3.png", baseRotation: -15, offset: 3 },
   { src: "/falling/4.png", baseRotation: -15, offset: 4 },
+  { src: "/falling/5.png", baseRotation: -15, offset: 5 },
+  { src: "/falling/6.png", baseRotation: -15, offset: 20 },
 ];
 
 export default function FallingCharms() {
@@ -45,15 +47,13 @@ export default function FallingCharms() {
                   fill
                 />
               </div>
-
-
             </div>
           </div>
         </div>
         <div>
           {/* Falling Charms Arm */}
           <div className="flex flex-col items-start">
-            <Image src="/falling/hand.png" className="" width={600} height={600} alt="" />
+            <Image src="/falling/hand.png" className="" width={800} height={800} alt="" />
             {charms.map((charm, idx) => (
               <Image
                 key={idx}
@@ -62,12 +62,12 @@ export default function FallingCharms() {
                 height={70}
                 alt={`Charm ${idx + 1}`}
                 style={{
-                  marginLeft: 100,
+                  marginLeft: 160,
                   transform: `rotate(${calculateRotation(charm.baseRotation)}deg) translate3d(0, ${moveDown}px, 0)`,
                 }}
               />
             ))}
-            <Image src="/falling/bowl.png" width={500} height={500} alt="" className="-ml-28" />
+            <Image src="/falling/bowl.png" width={800} height={800} alt="" className="-ml-28" />
           </div>
         </div>
       </div>

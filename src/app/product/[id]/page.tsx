@@ -10,16 +10,14 @@ export default async function CharmPage(props: { params: Promise<{ id: string }>
   if (!product) return notFound();
 
   return (
-    <>
-      <div className="mb-10 grid w-full grid-cols-1 sm:grid-cols-2">
-        <Gallery
-          images={product?.images.map((image) => ({
-            src: image?.url,
-            alt: image?.altText || "",
-          }))}
-        />
-        <ProductDescription charm={product} />
-      </div>
-    </>
+    <div className="h-[60vh] items-center grid w-full grid-cols-1 sm:grid-cols-2">
+      <Gallery
+        images={product?.images.map((image) => ({
+          src: image?.url,
+          alt: image?.altText || "",
+        }))}
+      />
+      <ProductDescription charm={product} />
+    </div>
   );
 }
