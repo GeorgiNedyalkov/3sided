@@ -93,13 +93,12 @@ function NavigationMenu() {
 			<button onClick={openMenu}>
 				<Bars3Icon className="flex h-10" />
 			</button>
-			<div
-				className={clsx(
-					"absolute top-0 z-50 flex h-screen w-96 transform bg-primary transition-all duration-500 ease-in-out -left-0",
-					{
-						"-left-full": !isOpen,
-					}
-				)}
+			<div className={clsx(
+				"absolute top-0 z-50 flex h-screen w-96 transform bg-primary transition-all duration-500 ease-in-out -left-0",
+				{
+					"-left-full": !isOpen,
+				}
+			)}
 			>
 				<div className="p-6">
 					<button onClick={closeMenu} className="mb-20">
@@ -122,17 +121,19 @@ function NavigationMenu() {
 function NavigationItem({ item }: { item: NavItem }) {
 	return (
 		<Link href={item.url} className="cursor-pointer text-3xl group">
-			<div className="group">
+			<div className="group bg-slate-800 w-96">
 				<span className="group relative inline-block">
 					{item.title}
 					<span className="absolute bottom-0 left-1/2 h-[2px] w-0 bg-red-500 transition-all duration-500 group-hover:left-0 group-hover:w-full"></span>
 				</span>
 				{
 					item.components && item.components.length > 0 && (
-						<div className="absolute h-screen top-0 p-10 -right-[300px] bg-slate-500 w-96 h-96 hidden group-hover:block">
+						<div className="z-10 absolute h-screen top-0 p-10 -right-[200px] bg-red-200 w-96 hidden group-hover:block">
 							{
 								item.components.map((component) => (
-									<div key={component.link}>
+									<div
+										className="z-200 hover:bg-slate-600"
+										key={component.link}>
 										<p>{component.title}</p>
 									</div>
 								))
