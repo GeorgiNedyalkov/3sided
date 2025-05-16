@@ -54,11 +54,13 @@ export default function Navbar() {
 		return () => {
 			window.removeEventListener("scroll", handleScrollbar);
 		};
-	}, [lastScrollPosition]);
+	}, []);
+
 	return (
 		<nav
 			className={clsx("sticky z-[999] flex h-20 w-full transform items-center justify-between bg-[#490202] p-8 text-white transition-all duration-500 ease-in-out top-0",
 				{
+					"top-0": isVisible,
 					"-top-20": !isVisible
 				}
 			)}>
@@ -82,7 +84,7 @@ export default function Navbar() {
 
 
 function NavigationMenu() {
-	const [isOpen, setIsOpen] = useState(true);
+	const [isOpen, setIsOpen] = useState(false);
 
 	const openMenu = () => setIsOpen(true);
 	const closeMenu = () => setIsOpen(false);

@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import ToggleGold from "./toggle";
 import GridImage from "./lookbook-grid-image";
+import { LinkButton } from "../buttons";
 
 export default function LookBook() {
   const [isGold, setIsGold] = useState(true);
@@ -11,7 +12,7 @@ export default function LookBook() {
   const toggleIsGold = () => setIsGold((prevIsGold) => !prevIsGold);
 
   return (
-    <section className="bg-slate-50 p-10 lg:p-20">
+    <section className="p-10 lg:p-20">
       {/* Header */}
       <div className="mb-10 flex flex-col gap-4">
         <h2 className="text-6xl font-bold">Look Book</h2>
@@ -26,27 +27,30 @@ export default function LookBook() {
       {/* Grid */}
       <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:grid-rows-2 md:gap-10 lg:grid-cols-3 lg:grid-rows-3 lg:gap-16">
         <div className="relative col-start-1 row-span-2 h-72 w-full border lg:h-full">
-          <p>Hello</p>
           <GridImage
             isGold={isGold}
             goldImage="/website/letters.jpg"
             silverImage="/activity_1.jpg"
           />
         </div>
-        <div className="relative row-span-2 h-72 w-full md:col-start-2 md:h-full lg:col-span-2">
+        <div className="relative row-span-2 h-72 w-full md:col-start-2 md:h-full lg:col-span-1">
           <GridImage isGold={isGold} goldImage="/image_2.jpg" silverImage="/website/letters.jpg" />
         </div>
-        <div className="flex flex-col items-center justify-center md:items-start md:justify-start">
-          <p className="mb-4">
+        <div className="relative row-span-2 h-72 w-full md:col-start-2 md:h-full lg:col-span-1">
+          <GridImage isGold={isGold} goldImage="/image_2.jpg" silverImage="/website/letters.jpg" />
+        </div>
+        <div className="flex flex-col w-full items-center justify-start">
+          <p className="mb-4 w-64 text-center">
             Express your own personality and create something the is as unique as you
           </p>
-          <Link href="/lookbook">
-            <button className="w-32 bg-black p-2 font-semibold text-white">Get inspired</button>
-          </Link>
+          <LinkButton href="/lookbook">
+            Get Inspired
+          </LinkButton>
         </div>
 
         <div className="relative h-72 w-full md:h-60">
           <GridImage
+            className=""
             isGold={isGold}
             goldImage="/activity_1.jpg"
             silverImage="/website/letters.jpg"

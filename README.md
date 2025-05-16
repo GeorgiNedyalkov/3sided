@@ -77,17 +77,10 @@ Bonus Idea: Share on social media
 
 ## TODO
 
-- Finish the homepage
-    - [x] Categories
-    - [x] Collections
-    - [] Falling charms
-    - [] Navbar
 
-- Finish the contact us page
-    - [x] Send and receive emails
-    - [] Hadle errors
-    - [] Refactor to use useActionState
-    - [] Write tests
+- [] Fix the font
+- [] Fix the navbar dissapearing
+- [] Collections to be determined
 
 
 

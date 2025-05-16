@@ -4,12 +4,14 @@ export default function GridImage({
   isGold,
   goldImage,
   silverImage,
+  className,
 }: {
   isGold: boolean;
   goldImage: string;
   silverImage: string;
+  className?: string;
 }) {
   const imageSrc = isGold ? goldImage : silverImage;
 
-  return <Image src={imageSrc} alt="" className="h-full w-full object-cover" fill />;
+  return <Image src={imageSrc} alt="" className={`h-full w-full object-cover ${className} `} fill />;
 }

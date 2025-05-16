@@ -38,7 +38,7 @@ function LogoMark() {
   return (
     <Link href="/">
       <svg
-        className="h-28 w-28"
+        className="h-full w-24"
         xmlns="http://www.w3.org/2000/svg"
         id="Layer_1"
         viewBox="0 0 285 235.2"
