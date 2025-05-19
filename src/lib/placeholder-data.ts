@@ -1,4 +1,5 @@
-import { Charm, NavigationItemComponent } from "@/lib/shopify/types";
+import { Charm } from "@/lib/shopify/types";
+import { NavigationItemComponent } from "@/lib/definitions"
 
 export const girls = [
   {
@@ -210,68 +211,68 @@ export const chainSettings = [
   { top: "40%", left: "10%", rotation: "45deg" },
 ];
 
-export const categoriesComponents : NavigationItemComponent[] = [
-	{
-		title: "Necklace",
-		imageSrc: "/categories/necklace.jpg",
-		link: "/charm-bar/necklace",
-	},
-	{
-		title: "Bracelet",
-		imageSrc: "/categories/bracelet.jpg",
-		link: "/charm-bar/necklace",
-	},
-	{
-		title: "Keychain",
-		imageSrc: "/categories/keychain.jpg",
-		link: "/charm-bar/keychain",
-	},
-	{
-		title: "Bagchain",
-		imageSrc: "/categories/bagchain.jpg",
-		link: "/charm-bar/bagchain",
-	},
-	{
-		title: "Waistchain",
-		imageSrc: "/categories/waistchain.webp",
-		link: "/charm-bar/waistchain",
-	},
-	{
-		title: "Pin",
-		imageSrc: "/categories/pin.png",
-		link: "/charm-bar/pin",
-	},
+export const categoriesComponents: NavigationItemComponent[] = [
+  {
+    title: "Necklace",
+    imageSrc: "/categories/necklace.jpg",
+    link: "/charm-bar/necklace",
+  },
+  {
+    title: "Bracelet",
+    imageSrc: "/categories/bracelet.jpg",
+    link: "/charm-bar/necklace",
+  },
+  {
+    title: "Keychain",
+    imageSrc: "/categories/keychain.jpg",
+    link: "/charm-bar/keychain",
+  },
+  {
+    title: "Bagchain",
+    imageSrc: "/categories/bagchain.jpg",
+    link: "/charm-bar/bagchain",
+  },
+  {
+    title: "Waistchain",
+    imageSrc: "/categories/waistchain.webp",
+    link: "/charm-bar/waistchain",
+  },
+  {
+    title: "Pin",
+    imageSrc: "/categories/pin.png",
+    link: "/charm-bar/pin",
+  },
 ];
 
 export const collectionComponents: NavigationItemComponent[] = [
-	{
-		title: "Necklace",
-		imageSrc: "/categories/necklace.jpg",
-		link: "/charm-bar/necklace",
-	},
-	{
-		title: "Bracelet",
-		imageSrc: "/categories/bracelet.jpg",
-		link: "/charm-bar/necklace",
-	},
-	{
-		title: "Keychain",
-		imageSrc: "/categories/keychain.jpg",
-		link: "/charm-bar/keychain",
-	},
-	{
-		title: "Bagchain",
-		imageSrc: "/categories/bagchain.jpg",
-		link: "/charm-bar/bagchain",
-	},
-	{
-		title: "Waistchain",
-		imageSrc: "/categories/waistchain.webp",
-		link: "/charm-bar/waistchain",
-	},
-	{
-		title: "Pin",
-		imageSrc: "/categories/pin.png",
-		link: "/charm-bar/pin",
-	},
+  {
+    title: "Necklace",
+    imageSrc: "/categories/necklace.jpg",
+    link: "/charm-bar/necklace",
+  },
+  {
+    title: "Bracelet",
+    imageSrc: "/categories/bracelet.jpg",
+    link: "/charm-bar/necklace",
+  },
+  {
+    title: "Keychain",
+    imageSrc: "/categories/keychain.jpg",
+    link: "/charm-bar/keychain",
+  },
+  {
+    title: "Bagchain",
+    imageSrc: "/categories/bagchain.jpg",
+    link: "/charm-bar/bagchain",
+  },
+  {
+    title: "Waistchain",
+    imageSrc: "/categories/waistchain.webp",
+    link: "/charm-bar/waistchain",
+  },
+  {
+    title: "Pin",
+    imageSrc: "/categories/pin.png",
+    link: "/charm-bar/pin",
+  },
 ];

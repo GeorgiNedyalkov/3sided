@@ -1,7 +1,7 @@
 export type NavigationItemComponent = {
-		title: string,
-		imageSrc: string,
-		link: string,
+	title: string,
+	imageSrc: string,
+	link: string,
 };
 
 export type NavItem = {
