@@ -1,7 +1,4 @@
-"use client";
-
 import Image from "next/image";
-import { useState } from "react";
 import { useParams } from "next/navigation";
 import { charms } from "@/lib/placeholder-data";
 
@@ -14,13 +11,11 @@ export default function Gallery({ images }: { images: { src: string; alt: string
   const charmLabel = params.id!;
   const charm = getCharmByLabel(charmLabel);
 
-  const [selectedImage, setSelectedImage] = useState<string | null>(images[0].src || "");
-
   return (
     <div>
       <div className="relative h-96 w-full md:h-[40vh]">
         <Image
-          src={selectedImage || ""}
+          src={images[0].src || ""}
           alt={charm?.label || ""}
           fill
           className="object-contain"
