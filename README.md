@@ -81,6 +81,7 @@ Bonus Idea: Share on social media
 - [] Fix the font
 - [] Fix the navbar dissapearing
 - [] Collections to be determined
+  - When you click on a collection there is a link to the catalogue to the catalogue page
 
 
 

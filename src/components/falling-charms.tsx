@@ -45,8 +45,6 @@ export default function FallingCharms() {
                   fill
                 />
               </div>
-
-
             </div>
           </div>
         </div>
