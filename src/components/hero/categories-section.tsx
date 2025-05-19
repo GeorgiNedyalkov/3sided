@@ -4,8 +4,8 @@ import { categoriesComponents } from "@/lib/placeholder-data"
 
 export default function Categories() {
 	return (
-		<div className="bg-primary text-white underline">
-			<h2 className="pl-4 pt-10 text-3xl uppercase lg:pl-10 lg:pt-20 lg:pb-8">Select a category</h2>
+		<div className="bg-white text-primary mt-20 mb-40">
+			<h2 className="pl-4 pt-10 text-4xl uppercase lg:pl-10 lg:pt-10 lg:pb-20">Select a category</h2>
 			<div className="flex flex-col items-center justify-between md:flex-row">
 				{categoriesComponents.slice(0, 5).map((category) => (
 					<CategoryCard 
@@ -23,7 +23,7 @@ export default function Categories() {
 function CategoryCard({ src, title, link }: { src: string; title: string; link: string }) {
 	return (
 		<Link href={link} className="w-full">
-		<h3 className="relative text-xl md:pb-10 md:pl-10">
+		<h3 className="relative text-2xl underline md:pb-10 md:pl-10">
 			{title}
 		</h3>
 		<div className="relative h-[60vh] w-full overflow-hidden">

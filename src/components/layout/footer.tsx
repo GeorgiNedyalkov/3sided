@@ -3,20 +3,29 @@ import { LogoMark } from "../logo";
 
 export default function Footer() {
   return (
-    <div className="bg-stone-300 p-4 lg:px-20 lg:pt-20">
+    <div className="bg-primary text-white p-4 lg:px-20 lg:pt-20">
       <div className="flex flex-col lg:flex-row lg:items-start lg:justify-end">
         <div className="flex items-center justify-center py-5 lg:mr-auto lg:py-0">
           <LogoMark />
         </div>
 
-        <div className="grid grid-cols-2 gap-10 lg:mb-20 lg:grid-cols-4 lg:gap-28">
-          <div className="w-32">
+        <div className="grid grid-cols-2 gap-10 lg:mb-20 lg:grid-cols-4 lg:gap-28 text-lg">
+          <div className="w-52">
             <h3 className="mb-2 text-3xl font-bold">Collections</h3>
+            <div className="flex gap-10">
             <ul>
               <li>Love</li>
               <li>Halloween</li>
-              <li>Love</li>
+              <li>Shells</li>
+              <li>Girlies</li>
             </ul>
+            <ul>
+              <li>Food</li>
+              <li>Hobbies</li>
+              <li>Professions</li>
+              <li>Birthstones</li>
+            </ul>
+            </div>
           </div>
           <div>
             <h3 className="mb-2 text-3xl font-bold">Categories</h3>
@@ -64,8 +73,8 @@ export default function Footer() {
             <div className="h-10 w-16 bg-stone-400"></div>
             <div className="h-10 w-16 bg-stone-400"></div>
           </div>
-          <p className="mt-4 text-center text-sm text-stone-900/60">
-            &copy; 3SIDED All rights reserved
+          <p className="mt-4 text-center text-sm text-white">
+            &copy; THRESIDED AD All rights reserved
           </p>
         </div>
       </div>

@@ -7,11 +7,11 @@ export default function NewsletterBanner() {
   const [email, setEmail] = useState("")
 
   return (
-    <div className="flex flex-col bg-stone-500 px-4 py-6 h-64 md:flex-row md:items-center md:justify-center lg:gap-52 lg:h-80">
+    <div className="flex flex-col border border-t-primary border-t-4 px-4 py-6 h-64 md:flex-row md:items-center md:justify-center lg:gap-52 lg:h-80">
       <div className="flex mb-8">
         <div>
-          <h2 className="mb-2 text-2xl lg:text-4xl lg:mb-6 font-bold">Subscribe to our Newsletter</h2>
-          <p className="w-80">
+          <h2 className="mb-2 text-primary text-2xl lg:text-4xl lg:mb-6 font-bold">Subscribe to our Newsletter</h2>
+          <p className="w-80 text-primary">
             Get the latest news, new hot offers and be part of our community of girlies.
           </p>
         </div>
@@ -25,7 +25,7 @@ export default function NewsletterBanner() {
           id="email"
           name="email"
           type="email"
-          className="w-full p-2"
+          className="w-full p-2 border border-primary"
           placeholder="devi@gmail.com"
         />
         <button type="submit" className="w-32 rounded-r-md p-2 bg-red-950 text-white hover:bg-red-500">

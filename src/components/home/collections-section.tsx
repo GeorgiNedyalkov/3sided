@@ -31,7 +31,7 @@ export default function CollectionsSection() {
 	]
 
   return (
-    <div className="p-20">
+    <div className="p-20 bg-primary text-white">
       <h2 className="pb-10 text-4xl font-bold">Collections</h2>
       <div className="grid grid-cols-1 md:grid-cols-2 md:gap-20">
 		  {collections.map((collection) => (

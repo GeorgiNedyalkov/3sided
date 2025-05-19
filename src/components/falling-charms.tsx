@@ -32,17 +32,16 @@ export default function FallingCharms() {
       <div className="mx-auto flex h-screen w-full justify-between flex-col md:flex-row">
         <div className="flex h-screen flex-col justify-between">
           <div className="pb-64">
-            <div className="pl-40 flex flex-col justify-center gap-2">
+            <div className="pl-40 flex flex-col justify-center gap-4">
               <h3 className="pb-4 pt-20 text-5xl text-secondary-1">Welcome to our charm bar</h3>
-              <p className="text-tertiary-2">
+              <p className="text-tertiary-2 text-xl w-96">
                 You can create the jewelry based on your own personal style, hobbies, zodiac and
                 more.
               </p>
-              <p className="text-tertiary-2">3SIDED that brand that took over Bulgaria.</p>
-              <div className="h-[70vh] w-[500px] relative">
+              <div className="h-[70vh] w-[50vw] relative">
                 <Image
-                  className="object-contain"
-                  src="/falling/milk.jpg"
+                  className="object-cover"
+                  src="/home/chess.png"
                   alt="This is a cup"
                   fill
                 />
@@ -58,8 +57,8 @@ export default function FallingCharms() {
               <Image
                 key={idx}
                 src={charm.src}
-                width={70}
-                height={70}
+                width={100}
+                height={100}
                 alt={`Charm ${idx + 1}`}
                 style={{
                   marginLeft: 160,
@@ -67,7 +66,8 @@ export default function FallingCharms() {
                 }}
               />
             ))}
-            <Image src="/falling/bowl.png" width={800} height={800} alt="" className="-ml-28" />
+
+            {/* <Image src="/falling/bowl.png" width={800} height={800} alt="" className="-ml-28" /> */}
           </div>
         </div>
       </div>
