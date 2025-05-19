@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Link from "next/link";
 import ToggleGold from "./toggle";
 import GridImage from "./lookbook-grid-image";
 import { LinkButton } from "../buttons";
