@@ -25,20 +25,23 @@ export default function LookBook() {
       </div>
 
       {/* Grid */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:grid-rows-2 md:gap-10 lg:grid-cols-3 lg:grid-rows-3 lg:gap-16">
-        <div className="relative col-start-1 row-span-2 h-72 w-full border lg:h-full">
+      <div className="flex gap-20 mb-20">
+        <div className="relative h-72 w-full border lg:h-[40vh]">
           <GridImage
             isGold={isGold}
             goldImage="/website/letters.jpg"
             silverImage="/activity_1.jpg"
           />
         </div>
-        <div className="relative row-span-2 h-72 w-full md:col-start-2 md:h-full lg:col-span-1">
+        <div className="relative h-72 w-full border lg:h-[40vh]">
           <GridImage isGold={isGold} goldImage="/image_2.jpg" silverImage="/website/letters.jpg" />
         </div>
-        <div className="relative row-span-2 h-72 w-full md:col-start-2 md:h-full lg:col-span-1">
+        <div className="relative h-72 w-full border lg:h-[40vh]">
           <GridImage isGold={isGold} goldImage="/image_2.jpg" silverImage="/website/letters.jpg" />
         </div>
+      </div>
+
+      <div className="flex gap-20">
         <div className="flex flex-col w-full items-center justify-start">
           <p className="mb-4 w-64 text-center">
             Express your own personality and create something the is as unique as you
@@ -48,7 +51,7 @@ export default function LookBook() {
           </LinkButton>
         </div>
 
-        <div className="relative h-72 w-full md:h-60">
+        <div className="relative h-72 w-full md:h-[40vh]">
           <GridImage
             className=""
             isGold={isGold}

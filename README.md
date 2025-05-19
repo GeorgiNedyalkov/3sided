@@ -66,7 +66,6 @@ Backend:
 - Learn all about the backend
 - Webhooks ( Synchronization )
 
-
 Bonus Idea: Save my designs
 Bonus Idea: Share on social media
 
@@ -77,13 +76,15 @@ Bonus Idea: Share on social media
 
 ## TODO
 
-
 - [] Fix the font
 - [] Fix the navbar dissapearing
 - [] Collections to be determined
   - When you click on a collection there is a link to the catalogue to the catalogue page
 
-
+- [] Charm Cards
+- [] Product page 
+  - Size 
+  - CTA (Go to charm bar)
 
 
 
