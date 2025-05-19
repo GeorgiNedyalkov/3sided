@@ -16,10 +16,6 @@ export default function Gallery({ images }: { images: { src: string; alt: string
 
   const [selectedImage, setSelectedImage] = useState<string | null>(images[0].src || "");
 
-  function chooseImage(imageSrc: string) {
-    setSelectedImage(imageSrc);
-  }
-
   return (
     <div>
       <div className="relative h-96 w-full md:h-[40vh]">
@@ -32,25 +28,6 @@ export default function Gallery({ images }: { images: { src: string; alt: string
           priority
         />
       </div>
-
-      {/* <ul className="flex items-center justify-center gap-5"> */}
-      {/*   {charms.map((charm) => ( */}
-      {/*     <li */}
-      {/*       key={charm.id} */}
-      {/*       className="rounded-lg border" */}
-      {/*       onClick={() => chooseImage(charm.imageSrc)} */}
-      {/*       value={charm.imageSrc} */}
-      {/*     > */}
-      {/*       <Image */}
-      {/*         src={charm.imageSrc} */}
-      {/*         width={150} */}
-      {/*         height={150} */}
-      {/*         alt="" */}
-      {/*         className="cursor-pointer rounded-lg duration-300 hover:scale-110" */}
-      {/*       /> */}
-      {/*     </li> */}
-      {/*   ))} */}
-      {/* </ul> */}
     </div>
   );
 }
