@@ -5,7 +5,9 @@ import { revalidateTag } from "next/cache";
 import { cookies } from "next/headers";
 
 
-export async function addItem(prevState: any | undefined, selectedVariantId: string | undefined) {
+// @typescript-eslint/no-explicit-any
+// @typescript-eslint/no-unused-vars
+export async function addItem(prevState: any, selectedVariantId: string | undefined) {
   if (!selectedVariantId) {
     return "Error adding item to cart";
   }

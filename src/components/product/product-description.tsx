@@ -1,10 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import AddToCartButton from "@/components/cart/add-to-cart";
-import { ChevronDownIcon, ChevronUpIcon } from "@heroicons/react/20/solid";
 import { Product } from "@/lib/shopify/types";
-import { LinkButton } from "../buttons";
+import { LinkButton } from "@/components/buttons"
 
 export default function ProductDescription({ charm }: { charm: Product }) {
   return (
