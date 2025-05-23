@@ -1,8 +1,10 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, MutableRefObject } from "react";
 
 // TODO: Improve through Grok Suggestions https://grok.com/chat/08522e38-a51e-4747-9250-f4b6c177966d
+// TODO: Make charms have absolute positions relative 
+// to the section and not being influenced if they are not in the viewport
 
 const charms = [
   { src: "/falling/1.png", baseRotation: 0, offsetX: 15 },
@@ -14,7 +16,7 @@ const charms = [
 ];
 
 export default function FallingCharms() {
-  const ref = useRef(); // this is the reference of an element that triggers a scroll animation
+  const ref = useRef<MutableRefObject<HTMLDivElement> | null>(null); // this is the reference of an element that triggers a scroll animation
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [rotation, setRotation] = useState(0);
@@ -28,6 +30,8 @@ export default function FallingCharms() {
     });
 
 
+    if (!ref.current) return;
+
     observer.observe(ref.current);
 
     return () => {
@@ -39,8 +43,6 @@ export default function FallingCharms() {
     if (!isVisible) {
       return
     }
-
-    console.log("Falling")
 
     const handleScroll = () => {
       const lastScrollPosition = window.scrollY;
@@ -65,13 +67,13 @@ export default function FallingCharms() {
 
   return (
     <section ref={ref} className="bg-primary">
-      <div className="px-20 text-white flex flex-col gap-4 lg:flex-row">
+      <div className="px-4 lg:px-20 text-white flex flex-col gap-4 lg:flex-row">
         <div className="flex flex-col gap-4">
           <h3 className="pb-4 pt-20 text-5xl">Welcome to our charm bar</h3>
-          <p className="text-xl w-96">You can create the jewelry based on your own personal style, hobbies, zodiac and
+          <p className="text-xl max-w-96">You can create the jewelry based on your own personal style, hobbies, zodiac and
             more.
           </p>
-          <div className="h-[70vh] w-[50vw] relative">
+          <div className="relative h-[50vh] w-full lg:w-[50vw] lg:h-[70vh] ">
             <Image
               className="object-cover"
               src="/home/chess.png"
@@ -98,7 +100,7 @@ export default function FallingCharms() {
                   width={100}
                   height={100}
                   alt={`Charm ${idx + 1}`}
-                  className="transition-all duration-500 ease-in-out"
+                  className="transition-all duration-500 ease-in-out w-12 h-12 lg:w-24 lg:h-24"
                   style={{
                     transform: `rotateZ(${charm.baseRotation + rotation}deg)`,
                   }}
