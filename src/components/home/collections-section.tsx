@@ -99,11 +99,11 @@ function Collections({ collections }: {
 		< ul className="grid px-20 grid-cols-1 md:grid-cols-2 md:gap-20">
 			{collections.map((collection) => (
 				<Link key={collection.id} href={collection.link} className="w-full">
-					<div className="relative h-[50vh] w-full bg-stone-600">
+					<div className="relative h-[35vh] w-[35vw] w-full bg-stone-600">
 						{/* TODO: optimize images */}
 						<Image
 							src={collection.imageSrc}
-							alt={`Charms from a  $ { collection. name} collection`}
+							alt={`Charms from a  ${collection.name} collection`}
 							className="object-cover"
 							fill
 						/>
@@ -116,5 +116,5 @@ function Collections({ collections }: {
 }
 
 function SectionTitle({ children }: { children: React.ReactNode }) {
-	return <h2 className="pb-10 text-4xl font-bold">{children}</h2>
+	return <h2 className="pb-10 text-6xl font-bold">{children}</h2>
 }

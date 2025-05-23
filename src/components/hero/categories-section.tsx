@@ -5,7 +5,7 @@ import { categoriesComponents } from "@/lib/placeholder-data"
 export default function Categories() {
 	return (
 		<div className="bg-white text-primary mt-20 mb-40">
-			<h2 className="pl-4 pt-10 text-4xl uppercase lg:pl-10 lg:pt-10 lg:pb-20">Select a category</h2>
+			<h2 className="pl-4 pt-10 text-6xl uppercase lg:pl-10 lg:pt-10 lg:pb-20">Select a category</h2>
 			<div className="flex flex-col items-center justify-between md:flex-row">
 				{categoriesComponents.slice(0, 5).map((category) => (
 					<CategoryCard
