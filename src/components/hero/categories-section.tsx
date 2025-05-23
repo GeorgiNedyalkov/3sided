@@ -8,11 +8,11 @@ export default function Categories() {
 			<h2 className="pl-4 pt-10 text-4xl uppercase lg:pl-10 lg:pt-10 lg:pb-20">Select a category</h2>
 			<div className="flex flex-col items-center justify-between md:flex-row">
 				{categoriesComponents.slice(0, 5).map((category) => (
-					<CategoryCard 
-					key={category.title} 
-					link={category.link} 
-					src={category.imageSrc} 
-					title={category.title} 
+					<CategoryCard
+						key={category.title}
+						link={category.link}
+						src={category.imageSrc}
+						title={category.title}
 					/>
 				))}
 			</div>
@@ -23,15 +23,15 @@ export default function Categories() {
 function CategoryCard({ src, title, link }: { src: string; title: string; link: string }) {
 	return (
 		<Link href={link} className="w-full">
-		<h3 className="relative text-2xl underline md:pb-10 md:pl-10">
-			{title}
-		</h3>
-		<div className="relative h-[60vh] w-full overflow-hidden">
+			<h3 className="relative text-2xl underline md:pb-10 md:pl-10">
+				{title}
+			</h3>
+			<div className="relative h-[60vh] w-full overflow-hidden">
 				<Image
-				src={src}
-				alt={`An image of a ${title} category`}
-				className="object-cover transition-transform duration-300 hover:scale-110"
-				fill
+					src={src}
+					alt={`An image of a ${title} category`}
+					className="object-cover transition-transform duration-300 hover:scale-110"
+					fill
 				/>
 			</div>
 		</Link>

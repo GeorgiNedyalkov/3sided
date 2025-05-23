@@ -6,7 +6,7 @@ import "swiper/css/navigation";
 import { Navigation } from "swiper/modules";
 import Link from "next/link";
 
-export default function CategoriesSlider() {
+export default function CollectionsSliders() {
   return (
     <div>
       <div className="p-10">
@@ -21,8 +21,6 @@ export default function CategoriesSlider() {
         modules={[Navigation]}
         spaceBetween={50}
         slidesPerView={1}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
         className="relative h-[80vh] bg-slate-200"
       >
         <SwiperSlide>

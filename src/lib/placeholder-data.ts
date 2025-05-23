@@ -1,6 +1,3 @@
-import { Charm } from "@/lib/shopify/types";
-
-
 // These should come from our backend
 export const charmImages = [
   "/web/star_1.PNG",
@@ -45,7 +42,7 @@ export const chainSettings = [
   { top: "40%", left: "10%", rotation: "45deg" },
 ];
 
-export const categoriesComponents: NavigationItemComponent[] = [
+export const categoriesComponents = [
   {
     title: "Necklace",
     imageSrc: "/categories/necklace.jpg",
@@ -78,7 +75,7 @@ export const categoriesComponents: NavigationItemComponent[] = [
   },
 ];
 
-export const collectionComponents: NavigationItemComponent[] = [
+export const collectionComponents = [
   {
     title: "Necklace",
     imageSrc: "/categories/necklace.jpg",
