@@ -41,30 +41,31 @@ export default function Navbar() {
 	const [lastScrollPosition, setLastScrollPosition] = useState(0);
 
 	useEffect(() => {
-		function handleScrollbar() {
-			if (window.scrollY > lastScrollPosition) {
+		const handleScroll = () => {
+			const currentScrollPosition = window.scrollY;
+
+			console.log({ currentScrollPosition, lastScrollPosition, isVisible })
+
+			if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
 				setIsVisible(false);
 			} else {
 				setIsVisible(true);
 			}
 
-			setLastScrollPosition(window.scrollY);
+			setLastScrollPosition(currentScrollPosition);
 		}
 
-		window.addEventListener("scroll", handleScrollbar);
+		window.addEventListener("scroll", handleScroll);
 
 		return () => {
-			window.removeEventListener("scroll", handleScrollbar);
+			window.removeEventListener("scroll", handleScroll);
 		};
-	}, []);
+	}, [lastScrollPosition]);
 
 	return (
 		<nav
-			className={clsx("sticky z-[999] flex h-20 w-full transform items-center justify-between bg-[#490202] p-8 text-white transition-all duration-500 ease-in-out top-0",
-				{
-					"top-0": isVisible,
-					"-top-20": !isVisible
-				}
+			className={clsx("fixed z-[999] flex h-20 w-full transform items-center justify-between bg-[#490202] p-8 text-white transition-all duration-500 ease-in-out",
+				isVisible ? "top-0" : "-top-20"
 			)}>
 			<div className="flex basis-1/3">
 				<NavigationMenu />
