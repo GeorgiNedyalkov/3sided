@@ -1,21 +1,21 @@
 "use client"
 
-import Image from "next/image"
-import { useEffect, useState } from "react";
-
-import clsx from "clsx";
 import Link from "next/link";
+import { useEffect, useState } from "react";
+import clsx from "clsx";
 import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon, UserIcon } from "@heroicons/react/16/solid";
 import CartModal from "@/components/cart/cart-modal";
 import { LogoMark } from "@/components/logo";
-import { categoriesComponents } from "@/lib/placeholder-data"
-import { NavItem } from "@/lib/definitions"
+
+type NavItem = {
+	title: string;
+	url: string;
+}
 
 const navItems: NavItem[] = [
 	{
 		title: "Charm Bar",
 		url: "/charm-bar",
-		components: categoriesComponents,
 	},
 	{
 		title: "Catalogue",
@@ -125,22 +125,6 @@ function NavigationItem({ item }: { item: NavItem }) {
 					</span>
 				</div>
 			</Link>
-			<div>
-				{
-					item.components && item.components.length > 0 && (
-						<div className="z-10 absolute h-screen top-0 left-96 p-10 bg-red-200 w-[50vw] hidden group-hover:flex group-hover:flex-wrap gap-20 transition-all duration-300">
-							{
-								item.components.map((component) => (
-									<Link key={component.link} href={component.link} className="z-200 hover:bg-slate-600 w-80 h-80 relative">
-										<Image src={component.imageSrc} alt={`Link to ${component.title} category`} className="object-cover" fill />
-										<p className="z-300">{component.title}</p>
-									</Link>
-								))
-							}
-						</div>
-					)
-				}
-			</div>
 		</div >
 	)
 }

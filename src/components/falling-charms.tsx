@@ -1,76 +1,116 @@
 "use client";
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+
+// TODO: Improve through Grok Suggestions https://grok.com/chat/08522e38-a51e-4747-9250-f4b6c177966d
 
 const charms = [
-  { src: "/falling/1.png", baseRotation: 0, offset: 1 },
-  { src: "/falling/2.png", baseRotation: 15, offset: 2 },
-  { src: "/falling/3.png", baseRotation: -15, offset: 3 },
-  { src: "/falling/4.png", baseRotation: -15, offset: 4 },
-  { src: "/falling/5.png", baseRotation: -15, offset: 5 },
-  { src: "/falling/6.png", baseRotation: -15, offset: 20 },
+  { src: "/falling/1.png", baseRotation: 0, offsetX: 15 },
+  { src: "/falling/2.png", baseRotation: 15, offsetX: -15 },
+  { src: "/falling/3.png", baseRotation: -15, offsetX: 15 },
+  { src: "/falling/4.png", baseRotation: -45, offsetX: -15 },
+  { src: "/falling/5.png", baseRotation: 45, offsetX: 15 },
+  { src: "/falling/6.png", baseRotation: -45, offsetX: -15 },
 ];
 
 export default function FallingCharms() {
+  const ref = useRef(); // this is the reference of an element that triggers a scroll animation
+  const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
-  const [moveDown, setMoveDown] = useState(0);
+  const [rotation, setRotation] = useState(0);
+  const [translateY, setTranslateY] = useState(0);
 
   useEffect(() => {
+    const observer = new IntersectionObserver(([entry]) =>
+      setIsVisible(entry.isIntersecting), {
+      rootMargin: "0px",
+      threshold: 0.2,
+    });
+
+
+    observer.observe(ref.current);
+
+    return () => {
+      observer.disconnect();
+    };
+  }, [ref])
+
+  useEffect(() => {
+    if (!isVisible) {
+      return
+    }
+
+    console.log("Falling")
+
     const handleScroll = () => {
+      const lastScrollPosition = window.scrollY;
+      const scrollUp = scrollY < lastScrollPosition
+
       setScrollY(window.scrollY);
-      setMoveDown((moveDown) => moveDown++);
+      setRotation(prevRotation => prevRotation += 45)
+      setTranslateY(prevTranslate => {
+        if (scrollUp) {
+          prevTranslate += 20
+        } else {
+          prevTranslate -= 20
+        }
+        return prevTranslate;
+      });
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  }, [rotation, translateY, isVisible]);
 
-  const calculateRotation = (baseRotation: number) => baseRotation + scrollY * 1;
+
   return (
-    <div className="bg-primary">
-      <div className="mx-auto flex h-screen w-full justify-between flex-col md:flex-row">
-        <div className="flex h-screen flex-col justify-between">
-          <div className="pb-64">
-            <div className="pl-40 flex flex-col justify-center gap-4">
-              <h3 className="pb-4 pt-20 text-5xl text-secondary-1">Welcome to our charm bar</h3>
-              <p className="text-tertiary-2 text-xl w-96">
-                You can create the jewelry based on your own personal style, hobbies, zodiac and
-                more.
-              </p>
-              <div className="h-[70vh] w-[50vw] relative">
-                <Image
-                  className="object-cover"
-                  src="/home/chess.png"
-                  alt="This is a cup"
-                  fill
-                />
-              </div>
-            </div>
+    <section ref={ref} className="bg-primary">
+      <div className="px-20 text-white flex flex-col gap-4 lg:flex-row">
+        <div className="flex flex-col gap-4">
+          <h3 className="pb-4 pt-20 text-5xl">Welcome to our charm bar</h3>
+          <p className="text-xl w-96">You can create the jewelry based on your own personal style, hobbies, zodiac and
+            more.
+          </p>
+          <div className="h-[70vh] w-[50vw] relative">
+            <Image
+              className="object-cover"
+              src="/home/chess.png"
+              alt="This is a cup"
+              fill
+            />
           </div>
         </div>
         <div>
-          {/* Falling Charms Arm */}
-          <div className="flex flex-col items-start">
-            <Image src="/falling/hand.png" className="" width={800} height={800} alt="" />
+          <div className="flex flex-col items-center">
+            {/* TODO: optimize images */}
+            <Image src="/falling/hand.png" alt="Hand that is holding a charm" width={800} height={800} className="" />
+
             {charms.map((charm, idx) => (
-              <Image
-                key={idx}
-                src={charm.src}
-                width={100}
-                height={100}
-                alt={`Charm ${idx + 1}`}
+              <div
+                className="transition-all duration-300 ease-linear"
                 style={{
-                  marginLeft: 160,
-                  transform: `rotate(${calculateRotation(charm.baseRotation)}deg) translate3d(0, ${moveDown}px, 0)`,
+                  transform: `translateY(${translateY}px) translateX(${charm.offsetX}px)`,
                 }}
-              />
+              >
+                <Image
+                  key={idx}
+                  src={charm.src}
+                  width={100}
+                  height={100}
+                  alt={`Charm ${idx + 1}`}
+                  className="transition-all duration-500 ease-in-out"
+                  style={{
+                    transform: `rotateZ(${charm.baseRotation + rotation}deg)`,
+                  }}
+                />
+              </div>
             ))}
 
-            {/* <Image src="/falling/bowl.png" width={800} height={800} alt="" className="-ml-28" /> */}
+            <Image src="/falling/bowl.png" alt="Golden bowl where the charms are falling" width={800} height={800} className="" />
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }
+

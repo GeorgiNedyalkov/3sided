@@ -76,15 +76,42 @@ Bonus Idea: Share on social media
 
 ## TODO
 
-- [] Fix the font
-- [] Fix the navbar dissapearing
-- [] Collections to be determined
-  - When you click on a collection there is a link to the catalogue to the catalogue page
+Qnina:
+- Text Content
 
-- [] Charm Cards
-- [] Product page 
-  - Size 
-  - CTA (Go to charm bar)
+Devi and Qni
+- Video this weekend
+
+Cart:
+- Adding a product
+- Shopping cart items
+
+Navbar:
+- Remove components
+- Open links when hovering
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -5,7 +5,7 @@ import ToggleGold from "./toggle";
 import GridImage from "./lookbook-grid-image";
 import { LinkButton } from "../buttons";
 
-export default function LookBook() {
+export default function LookBookSection() {
   const [isGold, setIsGold] = useState(true);
 
   const toggleIsGold = () => setIsGold((prevIsGold) => !prevIsGold);
@@ -15,11 +15,10 @@ export default function LookBook() {
       {/* Header */}
       <div className="mb-10 flex flex-col gap-4">
         <h2 className="text-6xl font-bold">Look Book</h2>
-        <div className="flex flex-col items-center justify-between gap-4 md:flex-row">
+        <div className="flex flex-col items-center justify-between gap-4 md:gap-20 md:flex-row">
           <p className="max-w-96">
             Get inspired by our signature pieces and create a charm to call your own
           </p>
-          <ToggleGold isGold={isGold} toggleIsGold={toggleIsGold} />
         </div>
       </div>
 
@@ -42,7 +41,8 @@ export default function LookBook() {
 
       <div className="flex gap-20">
         <div className="flex flex-col w-full items-center justify-start">
-          <p className="mb-4 w-64 text-center">
+          <ToggleGold isGold={isGold} toggleIsGold={toggleIsGold} />
+          <p className="my-4 w-64 text-center">
             Express your own personality and create something the is as unique as you
           </p>
           <LinkButton href="/lookbook">
@@ -52,7 +52,6 @@ export default function LookBook() {
 
         <div className="relative h-72 w-full md:h-[40vh]">
           <GridImage
-            className=""
             isGold={isGold}
             goldImage="/activity_1.jpg"
             silverImage="/website/letters.jpg"
