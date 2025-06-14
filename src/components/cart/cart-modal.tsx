@@ -7,27 +7,24 @@ import { XMarkIcon } from "@heroicons/react/24/solid";
 import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
 
 import { useCart } from "./cart-context";
-// import { createCartAndSetCookies } from "./actions";
+import { createCartAndSetCookie } from "./actions";
 
 export default function CartModal() {
   const { cart } = useCart();
-
-  console.log("-------------------------CART MODAL IS HEERREE-------------------------!");
-  console.log({ modalCart: cart });
-
   const [isOpen, setIsOpen] = useState(false);
-  // const quantityRef = useRef(cart?.totalQuantity);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  // TODO: If there is no cart create on and add it to cookies
+  // TESTING
+  console.log("-------------------------CART MODAL IS HEERREE-------------------------!");
+  console.log({ modalCart: cart });
 
-  // useEffect(() => {
-  //   if (!cart) {
-  //     createCartAndSetCookies();
-  //   }
-  // }, [cart]);
-  //
+  useEffect(() => {
+    if (!cart) {
+      createCartAndSetCookie();
+    }
+  }, [cart]);
+
   // useEffect(() => {
   //   if (cart?.totalQuantity && cart?.totalQuantity !== quantityRef.current && cart?.totalQuantity > 0) {
   //     if (!isOpen) {
