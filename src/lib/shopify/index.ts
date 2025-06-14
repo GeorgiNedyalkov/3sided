@@ -193,25 +193,6 @@ export async function getProduct(handle: string): Promise<Product | undefined> {
 	return reshapeProduct(res.body.data.product);
 }
 
-export async function getCart(): Promise<Cart | undefined> {
-	const cartId = (await cookies()).get("cartId")?.value;
-
-	if (!cartId) {
-		return undefined;
-	}
-
-	// TODO: When you checkout delete cart
-
-	const res = await shopifyFetch<ShopifyCartOperation>({
-		query: getCartQuery,
-		variables: {
-			cartId,
-		},
-	});
-
-	return reshapeCart(res.body.data.cart);
-}
-
 export async function getCollections(): Promise<Collection[]> {
 	const res = await shopifyFetch<ShopifyCollectionsOperation>({
 		query: getCollectionsQuery,
@@ -291,6 +272,11 @@ export async function getCollectionProducts({
 	return reshapeProducts(removeEdgesAndNodes(res.body.data.collection.products));
 }
 
+
+//////////
+// CART // 
+//////////
+
 export async function createCart(): Promise<Cart> {
 	const res = await shopifyFetch<ShopifyCreateCartOperation>({
 		query: createCartMutation,
@@ -299,6 +285,22 @@ export async function createCart(): Promise<Cart> {
 
 	return reshapeCart(res.body.data.cartCreate.cart);
 }
+
+export async function getCart(cartId: string | undefined): Promise<Cart | undefined> {
+	if (!cartId) {
+		return undefined;
+	}
+
+	const res = await shopifyFetch<ShopifyCartOperation>({
+		query: getCartQuery,
+		variables: {
+			cartId,
+		},
+	});
+
+	return reshapeCart(res.body.data.cart);
+}
+
 
 export async function addToCart(
 	lines: { merchandiseId: string; quantity: number }[]
@@ -314,8 +316,3 @@ export async function addToCart(
 
 	return reshapeCart(res.body.data.cartLinesAdd.cart);
 }
-
-
-
-
-

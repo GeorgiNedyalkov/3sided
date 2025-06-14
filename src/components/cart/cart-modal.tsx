@@ -1,51 +1,57 @@
-
 "use client";
 
-import { useState, useEffect, useRef, Fragment } from "react";
+import { useState, useEffect, Fragment } from "react";
 import { ShoppingCartIcon } from "@heroicons/react/16/solid";
-import { XMarkIcon } from "@heroicons/react/24/solid";
-import { useCart } from "./cart-context";
-import { createCartAndSetCookies } from "./actions";
-import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
 import { ShoppingBagIcon } from "@heroicons/react/20/solid";
+import { XMarkIcon } from "@heroicons/react/24/solid";
+import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/react";
+
+import { useCart } from "./cart-context";
+// import { createCartAndSetCookies } from "./actions";
 
 export default function CartModal() {
   const { cart } = useCart();
+
+  console.log("-------------------------CART MODAL IS HEERREE-------------------------!");
+  console.log({ modalCart: cart });
+
   const [isOpen, setIsOpen] = useState(false);
-  const quantityRef = useRef(cart?.totalQuantity);
+  // const quantityRef = useRef(cart?.totalQuantity);
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  useEffect(() => {
-    if (!cart) {
-      createCartAndSetCookies();
-    }
-  }, [cart]);
+  // TODO: If there is no cart create on and add it to cookies
 
-  useEffect(() => {
-    if (cart?.totalQuantity && cart?.totalQuantity !== quantityRef.current && cart?.totalQuantity > 0) {
-      if (!isOpen) {
-        setIsOpen(true)
-      }
 
-      quantityRef.current = cart?.totalQuantity;
-    }
-
-  }, [isOpen, cart?.totalQuantity, quantityRef]);
+  // useEffect(() => {
+  //   if (!cart) {
+  //     createCartAndSetCookies();
+  //   }
+  // }, [cart]);
+  //
+  // useEffect(() => {
+  //   if (cart?.totalQuantity && cart?.totalQuantity !== quantityRef.current && cart?.totalQuantity > 0) {
+  //     if (!isOpen) {
+  //       setIsOpen(true)
+  //     }
+  //
+  //     quantityRef.current = cart?.totalQuantity;
+  //   }
+  //
+  // }, [isOpen, cart?.totalQuantity, quantityRef]);
 
   return (
     <>
-
       <button onClick={openModal} className="rounded-md p-2">
         <div className="relative">
           <ShoppingBagIcon className="h-6" />
-          {
-            cart && cart.lines.length === 0 && (
-              <div className="flex items-center justify-center absolute -mt-4 -mr-2 top-0 right-0 bg-red-300 rounded-full text-[11px] w-4 h-4">
-                {cart.lines.length}
-              </div>
-            )
-          }
+          {/* { */}
+          {/*   cart && cart.lines.length === 0 && ( */}
+          {/*     <div className="flex items-center justify-center absolute -mt-4 -mr-2 top-0 right-0 bg-red-300 rounded-full text-[11px] w-4 h-4"> */}
+          {/*       {cart.lines.length} */}
+          {/*     </div> */}
+          {/*   ) */}
+          {/* } */}
         </div>
       </button>
 
@@ -73,21 +79,21 @@ export default function CartModal() {
                         <XMarkIcon className="h-6" />
                       </button>
                     </div>
-                    {!cart || cart.lines.length === 0 ? (
-                      <div className="flex flex-col items-center gap-4">
-                        <ShoppingCartIcon className="h-24" />
-                        <p>Your cart is empty</p>
-                      </div>
-                    ) : (
-                      <div>
-                        {cart.lines.map((line, index) => (
-                          <div key={index}>
-                            {line.merchandise.product.title}
-                          </div>
-                        ))}
-                      </div>
-                    )
-                    }
+                    {/* {!cart || cart.lines.length === 0 ? ( */}
+                    {/*   <div className="flex flex-col items-center gap-4"> */}
+                    {/*     <ShoppingCartIcon className="h-24" /> */}
+                    {/*     <p>Your cart is empty</p> */}
+                    {/*   </div> */}
+                    {/* ) : ( */}
+                    {/*   <div> */}
+                    {/*     {cart.lines.map((line, index) => ( */}
+                    {/*       <div key={index}> */}
+                    {/*         {line.merchandise.product.title} */}
+                    {/*       </div> */}
+                    {/*     ))} */}
+                    {/*   </div> */}
+                    {/* ) */}
+                    {/* } */}
                   </DialogPanel>
                 </TransitionChild>
               </div>

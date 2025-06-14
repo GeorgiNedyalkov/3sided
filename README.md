@@ -92,6 +92,13 @@ Navbar:
 
 
 
+## Cart
+
+Adding an item to the cart.
+
+When the user enters the website we create a cart and set the cookies of the cart.
+
+When the user adds an item to the cart we do what?
 
 
 

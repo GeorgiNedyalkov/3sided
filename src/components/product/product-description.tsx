@@ -1,5 +1,6 @@
 import { Product } from "@/lib/shopify/types";
 import { LinkButton } from "@/components/buttons"
+import { AddToCartButton } from "@/components/add-to-cart-button";
 
 export default async function ProductDescription({ charm }: { charm: Product }) {
   return (
@@ -27,9 +28,8 @@ export default async function ProductDescription({ charm }: { charm: Product }) 
       </div>
 
 
-      <button className="bg-black text-white p-2 my-10 w-32 cursor-pointer">Add to cart</button>
 
-
+      <AddToCartButton product={charm} />
     </div>
   );
 }
