@@ -27,8 +27,6 @@ export default async function ProductDescription({ charm }: { charm: Product }) 
         <LinkButton href="/charm-bar">Go to Charm Bar</LinkButton>
       </div>
 
-
-
       <AddToCartButton product={charm} />
     </div>
   );

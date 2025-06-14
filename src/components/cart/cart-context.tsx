@@ -1,20 +1,18 @@
 "use client";
 
 import type { Cart, CartItem, Product, ProductVariant } from "@/lib/shopify/types";
-import React, { createContext, use, useContext, useMemo, useOptimistic, useReducer } from "react";
+import React, { createContext, useContext, useReducer } from "react";
 
 // type UpdateType = "plus" | "minus" | "delete";
 
 type CartAction =
   // | { type: "UPDATE_ITEM"; payload: { merchandiseId: string; updateType: UpdateType } }
-  // | { type: "ADD_ITEM"; payload: { variant: ProductVariant; product: Product } };
-  | { type: "ADD_ITEM"; payload: { product: Product } };
+  | { type: "ADD_ITEM"; payload: { variant: ProductVariant, product: Product } };
 
 type CartContextType = {
   cart: Cart | undefined;
   // updateCartItem: (merchandiseId: string, updateType: UpdateType) => void;
-  // addCartItem: (variant: ProductVariant, product: Product) => void;
-  addCartItem: (product: Product) => void;
+  addCartItem: (variant: ProductVariant, product: Product) => void;
 };
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -45,8 +43,9 @@ function calculateItemCost(quantity: number, price: string): string {
 //   };
 // }
 
-function createCartItem(product: Product): CartItem {
+function createCartItem(variant: ProductVariant, product: Product): CartItem {
   // TODO: if an item is created we update it
+
   const quantity = 1;
   const totalAmount = calculateItemCost(quantity, product.priceRange.maxVariantPrice.amount)
   return {
@@ -59,9 +58,9 @@ function createCartItem(product: Product): CartItem {
       }
     },
     merchandise: {
-      id: product.id,
-      title: product.title,
-      // selectedOptions: {}, TODO: add later maybe if needed
+      id: variant.id,
+      title: variant.title,
+      selectedOptions: variant.selectedOptions,
       product: {
         id: product.id,
         handle: product.handle,
@@ -140,11 +139,11 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
     case "ADD_ITEM": {
 
       console.log("adding item to the cart");
-      const { product } = action.payload;
+      const { variant, product } = action.payload;
       // TODO: see if item exists and update it
 
       // create cart item
-      const updatedItem = createCartItem(product);
+      const updatedItem = createCartItem(variant, product);
 
       // add to cart lines
       const updatedLines = [...currentCart.lines, updatedItem];
@@ -192,13 +191,11 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
 //   return { ...currentCart, ...updateCartTotals(updatedLines), lines: updatedLines };
 // }
 
-
 export function CartProvider({ children, cartFromCookies }: { children: React.ReactNode, cartFromCookies: Cart }) {
-
   const [cartState, dispatch] = useReducer(cartReducer, cartFromCookies);
 
-  const addCartItem = (product: Product) => {
-    dispatch({ type: "ADD_ITEM", payload: { product } });
+  const addCartItem = (variant: ProductVariant, product: Product) => {
+    dispatch({ type: "ADD_ITEM", payload: { variant, product } });
   }
 
   const value = {

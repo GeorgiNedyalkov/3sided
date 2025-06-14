@@ -303,15 +303,16 @@ export async function getCart(cartId: string | undefined): Promise<Cart | undefi
 
 
 export async function addToCart(
+	cartId: string,
 	lines: { merchandiseId: string; quantity: number }[]
 ): Promise<Cart> {
-	const cartId = (await cookies()).get("cartId")?.value!;
 	const res = await shopifyFetch<ShopifyAddToCartOperation>({
 		query: addToCartMutation,
 		variables: {
 			cartId,
 			lines,
 		},
+		cache: 'no-store'
 	});
 
 	return reshapeCart(res.body.data.cartLinesAdd.cart);

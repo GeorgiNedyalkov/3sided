@@ -22,7 +22,6 @@ export default function CartModal() {
 
   // TODO: If there is no cart create on and add it to cookies
 
-
   // useEffect(() => {
   //   if (!cart) {
   //     createCartAndSetCookies();
@@ -45,13 +44,13 @@ export default function CartModal() {
       <button onClick={openModal} className="rounded-md p-2">
         <div className="relative">
           <ShoppingBagIcon className="h-6" />
-          {/* { */}
-          {/*   cart && cart.lines.length === 0 && ( */}
-          {/*     <div className="flex items-center justify-center absolute -mt-4 -mr-2 top-0 right-0 bg-red-300 rounded-full text-[11px] w-4 h-4"> */}
-          {/*       {cart.lines.length} */}
-          {/*     </div> */}
-          {/*   ) */}
-          {/* } */}
+          {
+            cart && cart.lines.length > 0 && (
+              <div className="flex items-center justify-center absolute -mt-4 -mr-2 top-0 right-0 bg-red-300 rounded-full text-[11px] w-4 h-4">
+                {cart.lines.length}
+              </div>
+            )
+          }
         </div>
       </button>
 
@@ -79,21 +78,26 @@ export default function CartModal() {
                         <XMarkIcon className="h-6" />
                       </button>
                     </div>
-                    {/* {!cart || cart.lines.length === 0 ? ( */}
-                    {/*   <div className="flex flex-col items-center gap-4"> */}
-                    {/*     <ShoppingCartIcon className="h-24" /> */}
-                    {/*     <p>Your cart is empty</p> */}
-                    {/*   </div> */}
-                    {/* ) : ( */}
-                    {/*   <div> */}
-                    {/*     {cart.lines.map((line, index) => ( */}
-                    {/*       <div key={index}> */}
-                    {/*         {line.merchandise.product.title} */}
-                    {/*       </div> */}
-                    {/*     ))} */}
-                    {/*   </div> */}
-                    {/* ) */}
-                    {/* } */}
+                    {!cart || cart.lines.length === 0 ? (
+                      <div className="flex flex-col items-center gap-4">
+                        <ShoppingCartIcon className="h-24" />
+                        <p>Your cart is empty</p>
+                      </div>
+                    ) : (
+                      <div>
+                        {cart.lines.map((line, index) => (
+                          <div key={index}>
+                            <p>
+                              {line.merchandise.product.title}
+                            </p>
+                            <p>
+                              {line.merchandise.product.handle}
+                            </p>
+                          </div>
+                        ))}
+                      </div>
+                    )
+                    }
                   </DialogPanel>
                 </TransitionChild>
               </div>
