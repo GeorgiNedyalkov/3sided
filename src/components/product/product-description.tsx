@@ -1,9 +1,7 @@
-"use client";
-
 import { Product } from "@/lib/shopify/types";
 import { LinkButton } from "@/components/buttons"
 
-export default function ProductDescription({ charm }: { charm: Product }) {
+export default async function ProductDescription({ charm }: { charm: Product }) {
   return (
     <div className="px-2 pt-20 sm:w-3/4">
       <h1 className="mb-4 text-6xl font-semibold">Precious Charm</h1>
@@ -27,6 +25,11 @@ export default function ProductDescription({ charm }: { charm: Product }) {
       <div className="flex items-end gap-4">
         <LinkButton href="/charm-bar">Go to Charm Bar</LinkButton>
       </div>
+
+
+      <button className="bg-black text-white p-2 my-10 w-32 cursor-pointer">Add to cart</button>
+
+
     </div>
   );
 }
