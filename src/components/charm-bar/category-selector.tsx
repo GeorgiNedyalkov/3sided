@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
+// TODO: Categories should be fetched from shopify
 export default function CategorySelector() {
   const categories = [
     {
@@ -21,6 +22,8 @@ export default function CategorySelector() {
     },
   ];
 
+  // TODO: optimize 
+  // TODO: make interactive 
   return (
     <>
       <li className="flex flex-col gap-2 pb-20 md:flex-row">

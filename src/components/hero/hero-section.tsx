@@ -5,7 +5,7 @@ export default function HeroSection() {
   return (
     <section className="relative h-screen w-full">
       <video
-        src="/Hero.MOV"
+        src="/Hero_1.MOV"
         className="absolute left-0 top-0 h-full w-full object-cover"
         autoPlay
         loop

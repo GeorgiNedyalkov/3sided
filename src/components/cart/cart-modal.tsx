@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, Fragment } from "react";
+import Image from "next/image";
 import { ShoppingCartIcon } from "@heroicons/react/16/solid";
 import { ShoppingBagIcon } from "@heroicons/react/20/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
@@ -8,6 +9,7 @@ import { Dialog, DialogPanel, Transition, TransitionChild } from "@headlessui/re
 
 import { useCart } from "./cart-context";
 import { createCartAndSetCookie } from "./actions";
+import { redirectToCheckout } from "./actions";
 
 export default function CartModal() {
   const { cart } = useCart();
@@ -15,26 +17,13 @@ export default function CartModal() {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  // TESTING
-  console.log("-------------------------CART MODAL IS HEERREE-------------------------!");
-  console.log({ modalCart: cart });
 
+  // NOTE: When doing the useEffect the cookies are cleared on every refresh
   useEffect(() => {
     if (!cart) {
       createCartAndSetCookie();
     }
   }, [cart]);
-
-  // useEffect(() => {
-  //   if (cart?.totalQuantity && cart?.totalQuantity !== quantityRef.current && cart?.totalQuantity > 0) {
-  //     if (!isOpen) {
-  //       setIsOpen(true)
-  //     }
-  //
-  //     quantityRef.current = cart?.totalQuantity;
-  //   }
-  //
-  // }, [isOpen, cart?.totalQuantity, quantityRef]);
 
   return (
     <>
@@ -83,13 +72,31 @@ export default function CartModal() {
                     ) : (
                       <div>
                         {cart.lines.map((line, index) => (
-                          <div key={index}>
-                            <p>
-                              {line.merchandise.product.title}
-                            </p>
-                            <p>
-                              {line.merchandise.product.handle}
-                            </p>
+                          <div key={index} className="flex flex-col items-center justify-between">
+                            <div className="flex">
+                              <p>
+                                {line.merchandise.product.title}
+                              </p>
+                              <Image
+                                src={line.merchandise.product.featuredImage.url}
+                                alt={line.merchandise.product.title}
+                                width={200}
+                                height={200}
+                              />
+                              <p>{line.quantity}</p>
+                            </div>
+                            <div className="flex">
+                              <p className="text-lg">
+                                {line.cost.totalAmount.amount} <span className="text-sm">{line.cost.totalAmount.currencyCode}</span>
+                              </p>
+                            </div>
+                            <div className="border border-white" />
+
+                            <form action={redirectToCheckout}>
+                              <button className="bg-black p-4 my-20">
+                                Proceed to Checkout
+                              </button>
+                            </form>
                           </div>
                         ))}
                       </div>

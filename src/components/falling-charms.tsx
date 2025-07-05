@@ -70,8 +70,8 @@ export default function FallingCharms() {
       <div className="px-4 lg:px-20 text-white flex flex-col gap-4 lg:flex-row">
         <div className="flex flex-col gap-4">
           <h3 className="pb-4 pt-20 text-5xl">Welcome to our charm bar</h3>
-          <p className="text-xl max-w-96">You can create the jewelry based on your own personal style, hobbies, zodiac and
-            more.
+          <p className="text-xl max-w-xl mb-4">
+            Създаден от три жени, креативни по свой собствен начин, в 3SIDED вярваме, че бижутата трябва да разказват твоята история — one charm at a time.
           </p>
           <div className="relative h-[50vh] w-full lg:w-[50vw] lg:h-[70vh] ">
             <Image

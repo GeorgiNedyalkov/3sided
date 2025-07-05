@@ -18,8 +18,6 @@ export default async function RootLayout({
   children: React.ReactNode;
 }>) {
 
-  // NOTE: get the cart Id when we enter the website from the cookies.
-  // we get the cart with the cart id
   const cartId = (await cookies()).get("cartId")?.value;
 
   // NOTE: await the promise first

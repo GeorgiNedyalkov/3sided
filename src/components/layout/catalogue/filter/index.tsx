@@ -7,7 +7,7 @@ export type PathFilterItem = { title: string; path: string };
 export function FilterItemList({ list }: { list: ListItem[] }) {
   return (
     <>
-      {list.map((item, i) => (
+      {list.map((item: ListItem, i) => (
         <FilterItem key={i} item={item} />
       ))}
     </>

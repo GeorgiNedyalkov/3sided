@@ -1,34 +1,34 @@
 import { getProducts } from "@/lib/shopify";
-import { capitalize } from "@/lib/utils";
 import CharmBar from "@/components/charm-bar/charm-bar";
 import Breadcrumbs from "@/components/breadcrumbs";
-// import type { Metadata } from "next";
+import { FilterList } from "@/components/layout/catalogue/filter";
+import Collections from "@/components/layout/catalogue/collections";
 
 type Props = {
   params: Promise<{ category: string; chain: string }>;
-};
+  searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
+}
 
-// export async function generateMetadata({ params }: Props): Promise<Metadata> {
-//   const { chain } = await params;
-
-//   return {
-//     title: chain,
-//   };
-// }
-
-export default async function CharmsSelectPage({ params }: Props) {
+export default async function CharmsSelectPage({ params, searchParams }: Props) {
   const charms = await getProducts({ query: "product_type:charm" });
 
-  const { category, chain } = await params;
+  console.log({ searchParams });
+
+  const { category } = await params;
 
   const breadcrumbs = [
     {
-      label: capitalize(category),
+      label: "Home",
+      href: "/",
+      active: false,
+    },
+    {
+      label: "Category",
       href: "/charm-bar",
       active: false,
     },
     {
-      label: capitalize(chain),
+      label: "Chain",
       href: `/charm-bar/${category}`,
       active: false,
     },
@@ -41,8 +41,17 @@ export default async function CharmsSelectPage({ params }: Props) {
 
   return (
     <>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
+      <div className="flex justify-between">
+        <div className="flex flex-col">
+          <Breadcrumbs breadcrumbs={breadcrumbs} />
+          <p className="text-sm p-2">
+            Now the best part begins — mix and match charms that reflect your mood, memories, or personality. Go minimal or go bold — it’s all up to you.
+          </p>
+        </div>
+        <Collections />
+      </div>
       <CharmBar charms={charms} />
     </>
   );
 }
+
