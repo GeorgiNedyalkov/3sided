@@ -9,10 +9,9 @@ import { useState, useEffect, useRef, MutableRefObject } from "react";
 const charms = [
   { src: "/falling/1.png", baseRotation: 0, offsetX: 15 },
   { src: "/falling/2.png", baseRotation: 15, offsetX: -15 },
-  { src: "/falling/3.png", baseRotation: -15, offsetX: 15 },
-  { src: "/falling/4.png", baseRotation: -45, offsetX: -15 },
-  { src: "/falling/5.png", baseRotation: 45, offsetX: 15 },
-  { src: "/falling/6.png", baseRotation: -45, offsetX: -15 },
+  { src: "/falling/1.png", baseRotation: -15, offsetX: 15 },
+  { src: "/falling/2.png", baseRotation: -45, offsetX: -15 },
+  { src: "/falling/1.png", baseRotation: 45, offsetX: 15 },
 ];
 
 export default function FallingCharms() {
@@ -67,7 +66,7 @@ export default function FallingCharms() {
 
   return (
     <section ref={ref} className="bg-primary">
-      <div className="px-4 lg:px-20 text-white flex flex-col gap-4 lg:flex-row">
+      <div className="lg:pl-20 text-white flex flex-col gap-4 lg:flex-row lg:justify-between">
         <div className="flex flex-col gap-4">
           <h3 className="pb-4 pt-20 text-5xl">Welcome to our charm bar</h3>
           <p className="text-xl max-w-xl mb-4">
@@ -83,32 +82,33 @@ export default function FallingCharms() {
           </div>
         </div>
         <div>
-          <div className="flex flex-col items-center">
+          <div className="flex flex-col items-start">
             {/* TODO: optimize images */}
             <Image src="/falling/hand.png" alt="Hand that is holding a charm" width={800} height={800} className="" />
 
-            {charms.map((charm, idx) => (
-              <div
-                className="transition-all duration-300 ease-linear"
-                style={{
-                  transform: `translateY(${translateY}px) translateX(${charm.offsetX}px)`,
-                }}
-              >
-                <Image
-                  key={idx}
-                  src={charm.src}
-                  width={100}
-                  height={100}
-                  alt={`Charm ${idx + 1}`}
-                  className="transition-all duration-500 ease-in-out w-12 h-12 lg:w-24 lg:h-24"
+            <div className="ml-20">
+              {charms.map((charm, idx) => (
+                <div
+                  className="transition-all duration-300 ease-linear"
                   style={{
-                    transform: `rotateZ(${charm.baseRotation + rotation}deg)`,
+                    transform: `translateY(${translateY}px) translateX(${charm.offsetX}px)`,
                   }}
-                />
-              </div>
-            ))}
+                >
+                  <Image
+                    key={idx}
+                    src={charm.src}
+                    width={100}
+                    height={100}
+                    alt={`Charm ${idx + 1}`}
+                    className="transition-all duration-500 ease-in-out w-12 h-12 lg:w-24 lg:h-24"
+                    style={{
+                      transform: `rotateZ(${charm.baseRotation + rotation}deg)`,
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
 
-            <Image src="/falling/bowl.png" alt="Golden bowl where the charms are falling" width={800} height={800} className="" />
           </div>
         </div>
       </div>

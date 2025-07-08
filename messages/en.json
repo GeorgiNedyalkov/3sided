@@ -1,0 +1,24 @@
+{
+  "Homepage": {
+    "heroParagraph": "Your design journey begins here",
+    "CharmbarButton": "Visit Charm bar"
+  },
+  "CharmBarIntroSection": {
+    "p1": "Welcome to Bulgaria’s first-ever Charm Bar — a space where you become the designer. At the Charm Bar, you can mix and match charms to create pieces that reflect your personality, mood, or moment. Whether bold or minimal, sweet or edgy — your jewellery is as unique as you are.",
+    "p2": "Creating your piece is easy and fun — just follow a few simple steps. Start by choosing a base chain and the type of jewellery you want. Then, unleash your creativity by mixing and matching from our countless charm combinations.Your piece, your rules."
+  },
+  "WelocomeToTheCharmbar": {
+    "p1": "Founded by three women from diverse creative backgrounds, 3SIDED believes that jewellery should tell your story — one charm at a time."
+  },
+  "LookbookSection": {
+    "headline": "Explore our lookbook for a dose of inspiration — charm combos, curated styles, and endless creative ideas.",
+    "p1": "Find your style. Get inspired",
+    "p2": "Pssst ....if you need inspiration click here.",
+    "linkButton": "Get inspired"
+  },
+  "Newsletter": {
+    "headline": "Subscribe to our Newsletter",
+    "paragraph": "Get the latest news, new hot offers and be part of our community of girlies.",
+    "signUpButton": "Subscribe"
+  }
+}

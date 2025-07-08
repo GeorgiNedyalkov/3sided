@@ -142,10 +142,33 @@ When the user adds an item to the cart we do what?
 
 
 
+TODO:
+- Add internationalization
+- Translate charm bar
+- Fix Navbar bug
+- Fix Filters pick bug
+- Fix Newsletter subscribtion
+
+
+Charmbar:
+- Add Necklace Product
+- Send a picture of the created design
+
+
+Chore:
+- Cookies 
+- Privacy policy
+- Terms and Conditions
+
+
+Later:
+- Falling Charms Testing and Refactoring
 
 
 
-
+Translation:
+- Footer
+- Navbar
 
 
 

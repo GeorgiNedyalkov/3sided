@@ -1,6 +1,9 @@
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 
 export default function CharmBarSection() {
+  const t = useTranslations("CharmBarIntroSection");
+
   return (
     <div className="w-full mb-10 md:px-20 md:mb-20">
       <h2 className="text-center py-10 md:py-12 text-4xl font-bold md:text-left">First Charm Bar in Bulgaria</h2>
@@ -14,7 +17,7 @@ export default function CharmBarSection() {
           />
         </div>
         <p className="w-full md:max-w-64 px-8 py-8 text-center text-gray-900">
-          Добре дошли в първия Charm Bar в България — мястото, където ТИ си дизайнерът. Тук можеш да комбинираш различни чармове, за да създадеш бижу, което изразява теб — твоето настроение, стил или момент. Независимо дали обичаш нещо дръзко, минималистично, нежно или различно — твоето бижу е толкова уникално, колкото си самият ти.
+          {t("p1")}
         </p>
         <div className="relative h-[700px] w-96">
           <Image
@@ -25,7 +28,7 @@ export default function CharmBarSection() {
           />
         </div>
         <p className="w-full md:max-w-64 px-8 py-8 text-center text-gray-900">
-          Създаването на твоето бижу е лесно и забавно — само в няколко стъпки. Избери типа бижу и основата му, след което развихри въображението си с безброй комбинации от чармове.Ти решаваш как да изглежда твоето 3SIDED бижу
+          {t("p2")}
         </p>
         <div className="relative h-[700px] w-96">
           {/* TODO: Add the new pomegranite */}

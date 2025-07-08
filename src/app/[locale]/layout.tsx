@@ -1,7 +1,12 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { CartProvider } from "@/components/cart/cart-context";
+
+import { NextIntlClientProvider, hasLocale } from "next-intl";
+import { notFound } from "next/navigation";
+import { routing } from "@/i18n/routing";
+
 import { getCart } from "@/lib/shopify";
+import { CartProvider } from "@/components/cart/cart-context";
 import Navbar from "@/components/layout/navbar/navbar";
 import Footer from "@/components/layout/footer";
 
@@ -14,27 +19,38 @@ export const metadata: Metadata = {
 
 export default async function RootLayout({
   children,
+  params
 }: Readonly<{
   children: React.ReactNode;
+  params: Promise<{ locale: string }>
 }>) {
 
-  const cartId = (await cookies()).get("cartId")?.value;
+  const { locale } = await params;
 
-  // NOTE: await the promise first
-  // later pass the promise to the cart
+  if (!hasLocale(routing.locales, locale)) {
+    notFound();
+  }
+
+  const cartId = (await cookies()).get("cartId")?.value;
   const cart = await getCart(cartId);
 
+  if (!cart) {
+    console.log("Error: there is no cart");
+    return "Can't find a cart"
+  }
+
   return (
-    <html lang="en">
+    <html lang={locale}>
       <head>
         <link rel="stylesheet" href="https://use.typekit.net/urc1gyw.css"></link>
       </head>
       <body className={`antialiased`}>
-        {/* <CartProvider cartPromise={cart}> */}
         <CartProvider cartFromCookies={cart}>
-          <Navbar />
-          {children}
-          <Footer />
+          <NextIntlClientProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </NextIntlClientProvider>
         </CartProvider>
       </body>
     </html>

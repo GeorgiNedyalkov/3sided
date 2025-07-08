@@ -4,9 +4,12 @@ import { useState } from "react";
 import ToggleGold from "./toggle";
 import GridImage from "./lookbook-grid-image";
 import { LinkButton } from "../buttons";
+import { useTranslations } from "next-intl";
 
 export default function LookBookSection() {
   const [isGold, setIsGold] = useState(true);
+
+  const t = useTranslations("LookbookSection");
 
   const toggleIsGold = () => setIsGold((prevIsGold) => !prevIsGold);
 
@@ -16,6 +19,7 @@ export default function LookBookSection() {
         <h2 className="text-6xl font-bold">Look Book</h2>
         <div className="flex flex-col items-center justify-between gap-4 md:gap-20 md:flex-row">
           <p className="max-w-xl">
+            {t("headline")}
             Разгледай нашия Lookbook за доза вдъхновение — комбинации, подбрани визии и безкрайни идеи.
           </p>
         </div>
@@ -46,9 +50,9 @@ export default function LookBookSection() {
       <div className="flex gap-20">
         <div className="flex flex-col w-full items-center justify-start">
           <ToggleGold isGold={isGold} toggleIsGold={toggleIsGold} />
-          <p className="mt-4 mb-2 w-96 text-center">Открий своя стил и се вдъхнови.</p>
-          <p className="mb-4 w-96 text-center">- Пссс ... ако имаш нужда от вдъхновение натисни тук</p>
-          <LinkButton href="/lookbook">Get Inspired</LinkButton>
+          <p className="mt-4 mb-2 w-96 text-center">{t("p1")}</p>
+          <p className="mb-4 w-96 text-center">- {t("p2")}</p>
+          <LinkButton href="/lookbook">{t("linkButton")}</LinkButton>
         </div>
         <div className="relative h-72 w-full md:h-[40vh]">
           <GridImage
