@@ -75,7 +75,10 @@ export default function CollectionsSection() {
 	return (
 		<section className="px-4 bg-primary text-white lg:p-20 ">
 			<SectionTitle>Collections</SectionTitle>
-			<Swiper navigation={true} modules={[Navigation]}>
+			<Swiper
+				navigation={true}
+				modules={[Navigation]}
+			>
 				<SwiperSlide>
 					<Collections collections={collectionsSlide1} />
 				</SwiperSlide>
