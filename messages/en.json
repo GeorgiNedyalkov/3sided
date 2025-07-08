@@ -1,4 +1,8 @@
 {
+  "LocaleSwitcher": {
+    "label": "Change language",
+    "locale": "{locale, select, bg { Bulgarian} en {English}}"
+  },
   "Homepage": {
     "heroParagraph": "Your design journey begins here",
     "CharmbarButton": "Visit Charm bar"

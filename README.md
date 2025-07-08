@@ -175,6 +175,8 @@ Translation:
 - Navbar
 
 
+Learn:
+- Figure out locale switcher
 
 
 

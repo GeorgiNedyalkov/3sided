@@ -7,6 +7,9 @@ import { Bars3Icon, XMarkIcon, MagnifyingGlassIcon, UserIcon } from "@heroicons/
 import CartModal from "@/components/cart/cart-modal";
 import { LogoMark } from "@/components/logo";
 
+// TODO:  Fix import
+import LocaleSwitcher from "@/components/layout/navbar/locale-switcher";
+
 type NavItem = {
 	title: string;
 	url: string;
@@ -76,8 +79,10 @@ export default function Navbar() {
 			</div>
 
 			<div className="flex basis-1/3 justify-end items-center gap-4">
-				<MagnifyingGlassIcon className="h-8" />
-				<UserIcon className="h-8" />
+				{/* TODO: Add when Ready */}
+				{/* <MagnifyingGlassIcon className="h-8" /> */}
+				{/* <UserIcon className="h-8" /> */}
+				<LocaleSwitcher />
 				<CartModal />
 			</div>
 		</nav>
