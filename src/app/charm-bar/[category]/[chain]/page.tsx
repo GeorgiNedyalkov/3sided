@@ -12,8 +12,6 @@ type Props = {
 export default async function CharmsSelectPage({ params, searchParams }: Props) {
   const charms = await getProducts({ query: "product_type:charm" });
 
-  console.log({ searchParams });
-
   const { category } = await params;
 
   const breadcrumbs = [

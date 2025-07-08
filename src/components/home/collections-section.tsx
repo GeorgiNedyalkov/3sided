@@ -30,14 +30,14 @@ const collectionsSlide1: CollectionsProps = [
 		imageSrc: "/collections/summer.jpg"
 	},
 	{
-		id: "diamond",
-		name: "Diamond",
+		id: "letters_and_numbers",
+		name: "Letters and Numbers",
 		link: "/catalogue/",
-		imageSrc: "/collections/diamond.jpg"
+		imageSrc: "/collections/girls.webp"
 	},
 	{
-		id: "just-girls",
-		name: "Just Girls",
+		id: "hobbies",
+		name: "Hobbies and Professions",
 		link: "/catalogue/",
 		imageSrc: "/collections/girls.webp"
 	},
@@ -45,26 +45,26 @@ const collectionsSlide1: CollectionsProps = [
 
 const collectionsSlide2: CollectionsProps = [
 	{
-		id: "5",
-		name: "",
+		id: "food_and_drinks",
+		name: "Foods and Drinks",
 		link: "/catalogue/",
 		imageSrc: "/collections/girls.webp"
 	},
 	{
-		id: "6",
-		name: "Just Girls",
+		id: "devine",
+		name: "Divine Charms",
 		link: "/catalogue/",
 		imageSrc: "/collections/girls.webp"
 	},
 	{
-		id: "7",
-		name: "Just Girls",
+		id: "flowers",
+		name: "Flowers",
 		link: "/catalogue/",
-		imageSrc: "/collections/girls.webp"
+		imageSrc: "/collections/diamond.jpg"
 	},
 	{
-		id: "8",
-		name: "Just Girls",
+		id: "animals",
+		name: "Animals",
 		link: "/catalogue/",
 		imageSrc: "/collections/girls.webp"
 	},

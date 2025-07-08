@@ -288,6 +288,7 @@ export async function createCart(): Promise<Cart> {
 
 export async function getCart(cartId: string | undefined): Promise<Cart | undefined> {
 	if (!cartId) {
+		console.log()
 		return undefined;
 	}
 
@@ -297,6 +298,11 @@ export async function getCart(cartId: string | undefined): Promise<Cart | undefi
 			cartId,
 		},
 	});
+
+	// NOTE: Old carts return undefined
+	if (!res.body.data.cart) {
+		return undefined;
+	}
 
 	return reshapeCart(res.body.data.cart);
 }

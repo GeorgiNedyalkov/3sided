@@ -24,8 +24,6 @@ export default async function RootLayout({
   // later pass the promise to the cart
   const cart = await getCart(cartId);
 
-  console.log({ cart });
-
   return (
     <html lang="en">
       <head>

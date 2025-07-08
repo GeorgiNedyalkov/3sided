@@ -54,7 +54,7 @@ export const categoriesComponents = [
     link: "/charm-bar/necklace",
   },
   {
-    title: "Keychain",
+    title: "Lipgloss Chain",
     imageSrc: "/categories/keychain.jpg",
     link: "/charm-bar/keychain",
   },
