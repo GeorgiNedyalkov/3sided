@@ -20,5 +20,17 @@
     "headline": "Subscribe to our Newsletter",
     "paragraph": "Get the latest news, new hot offers and be part of our community of girlies.",
     "signUpButton": "Subscribe"
+  },
+  "Charmbar": {
+    "paragraph": "Creating your jewellery at the Charm Bar is easy and fun. Follow a few simple steps and design a piece that’s all about you. From the base to the final charm — it’s your story in jewellery form.",
+    "category": "Category",
+    "categoryTitle": "Step 1: Choose a category",
+    "categoryStep": "First, choose what kind of piece you want to create — bracelet, necklace, bag, waist or lipgloss chain. Your design journey starts here.",
+    "chain": "Chain",
+    "chainSizeTitle": "Step 2: Pick a chain and size",
+    "chainSizeStep": "Pick your base chain — silver or gold-tone — and select the size that fits your style. This is the foundation of your creation.",
+    "charmTitle": "Step 3: Pick your charms",
+    "charmStep": "Now the best part begins — mix and match charms that reflect your mood, memories, or personality. Go minimal or go bold — it’s all up to you.",
+    "proceedToCheckout": "Once your piece feels just right, proceed to checkout and get ready to wear something truly personal."
   }
 }

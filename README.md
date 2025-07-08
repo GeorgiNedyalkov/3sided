@@ -143,16 +143,20 @@ When the user adds an item to the cart we do what?
 
 
 TODO:
-- Add internationalization
-- Translate charm bar
+- [X] Add internationalization
+- [X] Translate charm bar
+- Add language switcher
 - Fix Navbar bug
-- Fix Filters pick bug
 - Fix Newsletter subscribtion
 
 
 Charmbar:
 - Add Necklace Product
+- Fix Filters pick bug
+- Make the neckalace follow the scrolldown
 - Send a picture of the created design
+- Add Charmbar Context
+- Add reset button
 
 
 Chore:

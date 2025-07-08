@@ -3,6 +3,7 @@ import CharmBar from "@/components/charm-bar/charm-bar";
 import Breadcrumbs from "@/components/breadcrumbs";
 import { FilterList } from "@/components/layout/catalogue/filter";
 import Collections from "@/components/layout/catalogue/collections";
+import { getTranslations } from "next-intl/server";
 
 type Props = {
   params: Promise<{ category: string; chain: string }>;
@@ -14,6 +15,8 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
 
   const { category } = await params;
 
+  const t = await getTranslations("Charmbar");
+
   const breadcrumbs = [
     {
       label: "Home",
@@ -21,18 +24,18 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
       active: false,
     },
     {
-      label: "Category",
+      label: t("category"),
       href: "/charm-bar",
       active: false,
     },
     {
-      label: "Chain",
+      label: t("chain"),
       href: `/charm-bar/${category}`,
       active: false,
     },
     {
-      label: "Step 3: Pick your charms",
-      href: "",
+      label: t("charmTitle"),
+      href: "#",
       active: true,
     },
   ];
@@ -42,9 +45,7 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
       <div className="flex justify-between">
         <div className="flex flex-col">
           <Breadcrumbs breadcrumbs={breadcrumbs} />
-          <p className="text-sm p-2">
-            Now the best part begins — mix and match charms that reflect your mood, memories, or personality. Go minimal or go bold — it’s all up to you.
-          </p>
+          <p className="text-sm p-2">{t("charmStep")}</p>
         </div>
         <Collections />
       </div>
