@@ -36,5 +36,23 @@
     "charmTitle": "Step 3: Pick your charms",
     "charmStep": "Now the best part begins — mix and match charms that reflect your mood, memories, or personality. Go minimal or go bold — it’s all up to you.",
     "proceedToCheckout": "Once your piece feels just right, proceed to checkout and get ready to wear something truly personal."
+  },
+  "Footer": {
+    "love": "Love",
+    "halloween": "Halloween",
+    "shells": "Shells",
+    "girlies": "Girlies",
+    "returnPolicy": "Return policy",
+    "faq": "FAQ",
+    "shipping": "shipping",
+    "deliveryDetails": "Delivery Details",
+    "aboutUs": "About us",
+    "privacyPolicy": "Privay policy",
+    "termsAndConditions": "Terms and conditions",
+    "about3Sided": "About 3SDIDED",
+    "forTheClient": "For the Client",
+    "categories": "Categories",
+    "collections": "Collections",
+    "findUs": "Follow us on"
   }
 }

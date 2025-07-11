@@ -36,5 +36,23 @@
     "charmTitle": "Стъпка 3: Избери чармове",
     "charmStep": "Сега започва креативната / най-добрата част — комбинирай чармове, които отразяват теб, твоето настроение или спомени. Минималистично или дръзко? Ти решаваш.",
     "proceedToCheckout": "Когато всичко е точно както ти харесва, премини към финализиране на поръчката и се подготви да носиш нещо наистина лично."
+  },
+  "Footer": {
+    "love": "Love",
+    "halloween": "Halloween",
+    "shells": "Shells",
+    "girlies": "Girlies",
+    "returnPolicy": "Return policy",
+    "faq": "Често задавни въпроси",
+    "shipping": "shipping",
+    "deliveryDetails": "Delivery Details",
+    "aboutUs": "За Нас",
+    "privacyPolicy": "Политика на поверителността",
+    "termsAndConditions": "Правила и Условия",
+    "about3Sided": "За 3SDIDED",
+    "forTheClient": "За клиента",
+    "categories": "Категории",
+    "collections": "Колекции",
+    "findUs": "Последвайте ни"
   }
 }

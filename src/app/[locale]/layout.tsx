@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   description: "Buy charms and bracelets from 3Sided",
 };
 
-export default async function RootLayout({
+export default async function LocaleLayout({
   children,
   params
 }: Readonly<{
@@ -28,15 +28,16 @@ export default async function RootLayout({
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
+    console.log("Doesnt have locale");
     notFound();
   }
 
   const cartId = (await cookies()).get("cartId")?.value;
+
   const cart = await getCart(cartId);
 
   if (!cart) {
     console.log("Error: there is no cart");
-    return "Can't find a cart"
   }
 
   return (

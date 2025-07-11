@@ -51,9 +51,9 @@ export default function FallingCharms() {
       setRotation(prevRotation => prevRotation += 45)
       setTranslateY(prevTranslate => {
         if (scrollUp) {
-          prevTranslate += 20
+          prevTranslate += 10
         } else {
-          prevTranslate -= 20
+          prevTranslate -= 10
         }
         return prevTranslate;
       });
