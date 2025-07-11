@@ -217,7 +217,6 @@ export async function getCollections(): Promise<Collection[]> {
 		),
 	];
 
-	// console.log(collections);
 	return collections;
 }
 

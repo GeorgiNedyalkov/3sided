@@ -12,7 +12,7 @@ export const charmImages = [
 export const necklaces = [
   {
     id: "1",
-    src: "/necklace.webp",
+    src: "charm-bar/necklace.png",
     settings: [
       { top: "78%", left: "42%", rotation: "0deg" },
       { top: "62%", right: "18%", rotation: "-45deg" },
@@ -23,7 +23,7 @@ export const necklaces = [
   },
   {
     id: "2",
-    src: "/necklace.png",
+    src: "/charm-bar/necklace.png",
     settings: [
       { top: "80%", left: "42%", rotation: "0deg" },
       { top: "65%", right: "23%", rotation: "-45deg" },
