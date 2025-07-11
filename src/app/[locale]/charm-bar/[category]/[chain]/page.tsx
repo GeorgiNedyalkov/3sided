@@ -3,6 +3,7 @@ import { getProducts, getCollections } from "@/lib/shopify";
 import CharmBar from "@/components/charm-bar/charm-bar";
 import Breadcrumbs from "@/components/breadcrumbs";
 import FilterItemDropdown from "@/components/layout/catalogue/filter/dropdown";
+import { getProduct } from "@/lib/shopify";
 import { Toggle } from "@/components/home/toggle";
 
 type Props = {
@@ -10,11 +11,11 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function CharmsSelectPage({ params, searchParams }: Props) {
+export default async function CharmsSelectPage({ params }: Props) {
+  const { category, chain } = await params;
   const charms = await getProducts({ query: "product_type:charm" });
   const collections = await getCollections();
-
-  const { category } = await params;
+  const selectedChain = await getProduct(chain);
 
   const t = await getTranslations("Charmbar");
 
@@ -39,8 +40,7 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
           <Toggle />
         </div>
       </div>
-      <CharmBar charms={charms} />
+      <CharmBar charms={charms} chain={selectedChain!} />
     </>
   );
 }
-

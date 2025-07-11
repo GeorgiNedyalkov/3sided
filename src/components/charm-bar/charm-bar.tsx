@@ -10,7 +10,7 @@ import { AddAllToCartButton } from "../cart/add-to-cart";
 
 // TODO: The necklace should be passed also
 
-export default function CharmBar({ charms }: { charms: Product[] }) {
+export default function CharmBar({ charms, chain }: { charms: Product[], chain: Product }) {
   const numberOfCharms = 5;
 
   const [totalPrice, setTotalPrice] = useState<number>(0);
@@ -37,7 +37,7 @@ export default function CharmBar({ charms }: { charms: Product[] }) {
   }, [selectedCharms]);
 
   return (
-    <div className="mb-20 flex flex-col justify-around md:flex-row">
+    <div className="mb-20 flex flex-col justify-between md:flex-row gap-52">
       <div>
         <CharmCanvas
           selectedCharms={selectedCharms}
@@ -48,7 +48,7 @@ export default function CharmBar({ charms }: { charms: Product[] }) {
         <div className="mb-10">Total Price: {totalPrice}</div>
       </div>
 
-      <div className="flex flex-col gap-10">
+      <div className="flex flex-col gap-10 w-full">
         <CharmSelector
           charms={charms}
           position={selectedCharmPosition}
@@ -60,7 +60,7 @@ export default function CharmBar({ charms }: { charms: Product[] }) {
             selectedCharms.length > 3 && (
               <div>
                 Once your piece feels just right, proceed to checkout and get ready to wear something truly personal.
-                <AddAllToCartButton items={selectedCharms} />
+                <AddAllToCartButton items={[...selectedCharms, chain]} />
               </div>
             )
           }
