@@ -7,10 +7,10 @@ export default function CatalogueLayout({ children }: { children: React.ReactNod
   return (
     <>
       <div className="mx-auto flex max-w-screen-2xl flex-col gap-20">
-        <div className="flex justify-between">
+        <div className="flex justify-between mt-40">
           <div className="flex gap-10">
             Filter by:
-            <Collections path="/catalogue" />
+            <Collections />
             {/* <ProductTypes /> */}
           </div>
           <div>

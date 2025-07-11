@@ -12,9 +12,8 @@ function PathFilterItem({ item }: { item: PathFilterItem }) {
   const searchParams = useSearchParams(); // provides functions to read the search params and extract their values
   const newParams = new URLSearchParams(searchParams.toString());
 
-  console.log(item)
-  console.log({ pathname });
-  console.log({ path: item.path });
+  console.log({ item, pathname })
+
   return (
     <>
       <li key={item.title}>

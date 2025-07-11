@@ -1,7 +1,9 @@
 import { getTranslations } from "next-intl/server";
-import { getProducts } from "@/lib/shopify";
+import { getProducts, getCollections } from "@/lib/shopify";
 import CharmBar from "@/components/charm-bar/charm-bar";
 import Breadcrumbs from "@/components/breadcrumbs";
+import FilterItemDropdown from "@/components/layout/catalogue/filter/dropdown";
+import { Toggle } from "@/components/home/toggle";
 
 type Props = {
   params: Promise<{ category: string; chain: string }>;
@@ -10,6 +12,7 @@ type Props = {
 
 export default async function CharmsSelectPage({ params, searchParams }: Props) {
   const charms = await getProducts({ query: "product_type:charm" });
+  const collections = await getCollections();
 
   const { category } = await params;
 
@@ -27,6 +30,13 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
         <div className="flex flex-col">
           <Breadcrumbs breadcrumbs={breadcrumbs} />
           <p className="text-sm p-2 max-w-3xl">{t("charmStep")}</p>
+        </div>
+        <div className="flex items-center justify-end">
+          <div className="flex items-center">
+            <h2>Collections: </h2>
+            <FilterItemDropdown list={collections} />
+          </div>
+          <Toggle />
         </div>
       </div>
       <CharmBar charms={charms} />
