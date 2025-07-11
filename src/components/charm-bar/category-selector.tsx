@@ -13,8 +13,8 @@ export default function CategorySelector() {
       imageSrc: "/categories/necklace.jpg",
     },
     {
-      category: "keychain",
-      imageSrc: "/categories/keychain.jpg",
+      category: "lipgloss",
+      imageSrc: "/categories/lipgloss.jpg",
     },
     {
       category: "bagchain",
@@ -22,24 +22,24 @@ export default function CategorySelector() {
     },
   ];
 
-  // TODO: optimize 
-  // TODO: make interactive 
+  // TODO: make interactive and optimize
   return (
     <>
-      <li className="flex flex-col gap-2 pb-20 md:flex-row">
+      <li className="flex flex-col gap-2 pb-20 md:flex-row md:justify-between">
         {categories.map(({ category, imageSrc }) => (
           <Link
             key={category}
             href={`/charm-bar/${category}`}
             className="hover: rounded p-2 text-center font-bold"
           >
-            <Image
-              src={imageSrc}
-              width={500}
-              height={500}
-              alt={`${category} main picture`}
-              className="h-[500px] w-[500px] object-cover"
-            />
+            <div className="relative w-[400px] h-[500px]">
+              <Image
+                src={imageSrc}
+                alt={`${category} main picture`}
+                fill
+                className="object-cover"
+              />
+            </div>
             <p className="pt-2">{category.charAt(0).toUpperCase() + category.slice(1)}</p>
           </Link>
         ))}

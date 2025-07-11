@@ -55,8 +55,8 @@ export const categoriesComponents = [
   },
   {
     title: "Lipgloss Chain",
-    imageSrc: "/categories/keychain.jpg",
-    link: "/charm-bar/keychain",
+    imageSrc: "/categories/lipgloss.jpg",
+    link: "/charm-bar/lipgloss",
   },
   {
     title: "Bagchain",
@@ -75,35 +75,3 @@ export const categoriesComponents = [
   },
 ];
 
-export const collectionComponents = [
-  {
-    title: "Necklace",
-    imageSrc: "/categories/necklace.jpg",
-    link: "/charm-bar/necklace",
-  },
-  {
-    title: "Bracelet",
-    imageSrc: "/categories/bracelet.jpg",
-    link: "/charm-bar/necklace",
-  },
-  {
-    title: "Keychain",
-    imageSrc: "/categories/keychain.jpg",
-    link: "/charm-bar/keychain",
-  },
-  {
-    title: "Bagchain",
-    imageSrc: "/categories/bagchain.jpg",
-    link: "/charm-bar/bagchain",
-  },
-  {
-    title: "Waistchain",
-    imageSrc: "/categories/waistchain.webp",
-    link: "/charm-bar/waistchain",
-  },
-  {
-    title: "Pin",
-    imageSrc: "/categories/pin.png",
-    link: "/charm-bar/pin",
-  },
-];
