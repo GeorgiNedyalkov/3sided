@@ -2,8 +2,8 @@
 import { addToCart, createCart, getCart } from "@/lib/shopify";
 import { redirect } from "next/navigation"
 import { cookies } from "next/headers";
-// import { TAGS } from "@/lib/constants";
-// import { revalidateTag } from "next/cache";
+import { TAGS } from "@/lib/constants";
+import { revalidateTag } from "next/cache";
 
 export async function addItem(prevState: any, selectedVariantId: string) {
 	let cartId = (await cookies()).get("cartId")?.value;
@@ -14,7 +14,7 @@ export async function addItem(prevState: any, selectedVariantId: string) {
 
 	try {
 		await addToCart(cartId, [{ merchandiseId: selectedVariantId, quantity: 1 }]);
-		// revalidateTag(TAGS.cart);
+		revalidateTag(TAGS.cart);
 	} catch (e) {
 		console.error(e)
 		return 'Error adding item to cart';
@@ -31,7 +31,6 @@ export async function redirectToCheckout() {
 	if (!cart) {
 		return "Missing cart";
 	}
-
 
 	redirect(cart.checkoutUrl);
 }
