@@ -6,6 +6,7 @@ import CharmCanvas from "@/components/charms/charm-canvas";
 import { necklaces } from "@/lib/placeholder-data";
 import { Product } from "@/lib/shopify/types";
 import { AddToCartButton } from "../add-to-cart-button";
+import { AddAllToCartButton } from "../cart/add-to-cart";
 
 // TODO: The necklace should be passed also
 
@@ -56,10 +57,10 @@ export default function CharmBar({ charms }: { charms: Product[] }) {
         <div className="flex items-center justify-center">
           {
             // NOTE: Testing
-            selectedCharms[0] && (
+            selectedCharms.length > 3 && (
               <div>
                 Once your piece feels just right, proceed to checkout and get ready to wear something truly personal.
-                <AddToCartButton product={selectedCharms[0]} />
+                <AddAllToCartButton items={selectedCharms} />
               </div>
             )
           }

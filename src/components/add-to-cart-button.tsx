@@ -13,15 +13,14 @@ export function AddToCartButton({ product }: { product: Product }) {
 
   console.log({ variants })
 
-  // TODO: Handle different variants
-  const defaultVariant = variants.length === 1 ? variants[0].id : undefined;
-  const actionWithId = formAction.bind(null, defaultVariant);
+  const defaultVariantId = variants.length === 1 ? variants[0].id : undefined;
+  const actionWithId = formAction.bind(null, defaultVariantId);
 
   return (
     <form
       action={async () => {
         // This updates the client state and then we need to update the server state
-        addCartItem(defaultVariant, product);
+        addCartItem(defaultVariantId, product);
         await actionWithId();
       }}>
 
