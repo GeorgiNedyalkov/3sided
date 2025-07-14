@@ -15,7 +15,7 @@ export default function FaqPage() {
 
 					<ul className="grid gap-4">
 						{questions.map((title) => (
-							<li>
+							<li key={title}>
 								<p className="font-bold pb-2">{t(`${category}.${title}.question`)}</p>
 								<p>{t(`${category}.${title}.answer`)}</p>
 							</li>
