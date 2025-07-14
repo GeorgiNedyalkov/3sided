@@ -15,7 +15,7 @@ export default function NewsletterBanner() {
           <h2 className="mb-2 text-primary text-2xl lg:text-4xl lg:mb-6 font-bold">
             {t("headline")}
           </h2>
-          <p className="w-80 text-primary">
+          <p className="w-96 text-primary">
             {t("paragraph")}
           </p>
         </div>

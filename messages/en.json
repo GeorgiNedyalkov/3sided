@@ -1,4 +1,16 @@
 {
+  "Lookbook": {
+    "p1": "Whether you're looking for something eccentric, elegant, or minimalist, here you'll find ideas that will unlock your imagination."
+  },
+  "Collections": "Collections",
+  "categories": {
+    "heading" : "Select a category",
+    "Necklace": "Necklace",
+    "Bracelet": "Bracelet",
+    "Lipgloss Chain": "Lipgloss Chain",
+    "Bagchain": "Bagchain",
+    "Waistchain": "Waistchain"
+  },
   "LocaleSwitcher": {
     "label": "Change language",
     "locale": "{locale, select, bg { Bulgarian} en {English}}"
@@ -8,10 +20,12 @@
     "CharmbarButton": "Visit Charm bar"
   },
   "CharmBarIntroSection": {
+    "heading": "First Charm Bar in Bulgaria",
     "p1": "Welcome to Bulgaria’s first-ever Charm Bar — a space where you become the designer. At the Charm Bar, you can mix and match charms to create pieces that reflect your personality, mood, or moment. Whether bold or minimal, sweet or edgy — your jewellery is as unique as you are.",
-    "p2": "Creating your piece is easy and fun — just follow a few simple steps. Start by choosing a base chain and the type of jewellery you want. Then, unleash your creativity by mixing and matching from our countless charm combinations.Your piece, your rules."
+    "p2": "Creating your piece is easy and fun — just follow a few simple steps. Start by choosing a base chain and the type of jewellery you want. Then, unleash your creativity by mixing and matching from our countless charm combinations. Your piece, your rules."
   },
-  "WelocomeToTheCharmbar": {
+  "welocomeToTheCharmbar": {
+    "heading": "Welcome to our Charm Bar",
     "p1": "Founded by three women from diverse creative backgrounds, 3SIDED believes that jewellery should tell your story — one charm at a time."
   },
   "LookbookSection": {
@@ -54,5 +68,72 @@
     "categories": "Categories",
     "collections": "Collections",
     "findUs": "Follow us on"
+  },
+  "Faq": {
+    "FAQ": "Frequently Asked Questions",
+    "CharmBar": {
+      "category": "CharmBar",
+      "WhatIsCharmBar": {
+        "question": "What is Charm Bar?",
+        "answer": "This is the first online platform in Bulgaria for creating fully customized jewelry, where you are the designer and you create the jewelry entirely according to your own taste and design."
+      },
+      "HowToOrder": {
+        "question": "How can I place an order?",
+        "answer": "By clicking the 'Charm Bar' button on the homepage, you'll be able to start creating and choose the base of your jewelry and let your creativity flow with countless charm combinations."
+      },
+      "HowToCreateJewelry": {
+        "question": "How can I create my own jewelry?",
+        "answer": "Follow the steps on the website—choose the type of jewelry, add your favorite charms (which you can choose by size and color), arrange them as you like, and see a preview of the final result in the last step."
+      },
+      "Materials": {
+        "question": "What are the materials of the chains and charms?",
+        "answer": "The materials we use are stainless steel and silver, and some have a gold coating. The base components and charms are made from high-quality metals that are skin-friendly and won’t change color when cared for properly."
+      },
+      "ChainLength": {
+        "question": "How can I choose the chain length?",
+        "answer": "In the first step, when selecting the chain, you'll be able to choose your preferred length. If you're unsure, there is also a helpful size chart with recommendations (if we have one)."
+      }
+    },
+    "ReturnsAndShipping": {
+      "category": "Returns and Shipping",
+      "DeliveryTime": {
+        "question": "How long does delivery take?",
+        "answer": "We know you can't wait to receive your 3SIDED jewelry, so we aim to have it delivered within one week from the order date. Once shipped, standard delivery takes between 1 and 3 days."
+      },
+      "SpecialPackaging": {
+        "question": "Do you offer special packaging?",
+        "answer": "Every package is special and crafted with attention to every detail. All 3SIDED products come in a metal box (which you can later use for storage), a velvet pouch to protect your jewelry, and a small gift from us. If you want to surprise someone with a 3SIDED gift and include a personalized message, contact us through our contact form or message us on Instagram @."
+      },
+      "Returns": {
+        "question": "Can I request a return?",
+        "answer": "Since each piece of jewelry is custom-made for you, our products are non-returnable. However, if we’ve sent you a defective item, please contact us via the contact form or message us on Instagram @ within 7 days of receiving your order."
+      },
+      "OrderDelivery": {
+        "question": "How will I receive my order?",
+        "answer": "We use courier services to deliver to an address or courier office of your choice. You'll receive a notification with a tracking link once the order is shipped so you can monitor its status."
+      },
+      "ShippingCost": {
+        "question": "How much does shipping cost?",
+        "answer": "Shipping is free for orders over 100 BGN. For orders below this amount, the cost is standard according to the courier’s rates."
+      }
+    },
+    "Payment": {
+      "category": "Payment",
+      "PaymentMethods": {
+        "question": "What payment methods do you offer?",
+        "answer": "We accept payments by card."
+      },
+      "AdvancePayment": {
+        "question": "Why do I have to pay in advance?",
+        "answer": "For personalized jewelry, advance payment is required because the item is custom-made specifically for you. This also ensures faster processing and delivery."
+      }
+    },
+    "Care": {
+      "category": "Care",
+      "JewelryCare": {
+        "question": "How do I take care of my jewelry?",
+        "answer": "Store your jewelry in a dry place—preferably in the velvet pouch we provided. Keep it away from moisture and chemicals, avoid contact with perfumes and water, and protect it from impacts. Clean gently with a soft cloth. For more care tips, refer to the instructions included with your jewelry."
+      }
+    }
   }
 }

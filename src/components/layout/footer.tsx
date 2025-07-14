@@ -62,15 +62,7 @@ export default function Footer() {
         <div className="mt-10 text-center">
           <h2 className="mb-4 text-xl font-bold">{t("findUs")}</h2>
           <div className="flex items-center justify-center gap-4">
-            <a href="#">
-              <Image
-                src="/icons/socials/facebook.svg"
-                alt="Facebook link"
-                width={50}
-                height={50}
-              />
-            </a>
-            <a href="#">
+            <a href="https://www.instagram.com/3sidedcharmbar?igsh=M29uOWx5M2dtYml0">
               <Image
                 src="/icons/socials/instagram.svg"
                 alt="Instagram link"
@@ -78,7 +70,7 @@ export default function Footer() {
                 height={50}
               />
             </a>
-            <a href="#">
+            <a href="https://www.tiktok.com/@3sided0?_t=ZN-8xwTWd8eC06&_r=1">
               <Image
                 src="/icons/socials/tik-tok.svg"
                 alt="Tik Tok link"
@@ -94,13 +86,13 @@ export default function Footer() {
         </div>
 
         <div className="flex flex-col">
-          <div className="flex items-center justify-center gap-2">
-            {
-              [1, 2, 3, 4].map((card) => (
-                <div key={card} className="h-10 w-16 bg-stone-200" />
-              ))
-            }
-          </div>
+          {/* <div className="flex items-center justify-center gap-2"> */}
+          {/*   { */}
+          {/*     [1, 2, 3, 4].map((card) => ( */}
+          {/*       <div key={card} className="h-10 w-16 bg-stone-200" /> */}
+          {/*     )) */}
+          {/*   } */}
+          {/* </div> */}
           <p className="mt-4 text-center text-sm text-white">
             &copy; THRESIDED AD All rights reserved
           </p>

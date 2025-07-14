@@ -8,6 +8,7 @@ import { Navigation } from 'swiper/modules'
 
 import 'swiper/css';
 import 'swiper/css/navigation';
+import { useTranslations } from "next-intl";
 
 type CollectionsProps = {
 	id: string;
@@ -21,7 +22,7 @@ const collectionsSlide1: CollectionsProps = [
 		id: "love",
 		name: "Love",
 		link: "/catalogue/",
-		imageSrc: "/collections/love.png"
+		imageSrc: "/collections/love.jpg"
 	},
 	{
 		id: "summer",
@@ -33,13 +34,13 @@ const collectionsSlide1: CollectionsProps = [
 		id: "letters_and_numbers",
 		name: "Letters and Numbers",
 		link: "/catalogue/",
-		imageSrc: "/collections/girls.webp"
+		imageSrc: "/collections/letters.jpg"
 	},
 	{
 		id: "hobbies",
 		name: "Hobbies and Professions",
 		link: "/catalogue/",
-		imageSrc: "/collections/girls.webp"
+		imageSrc: "/collections/hobbies.jpg"
 	},
 ]
 
@@ -48,11 +49,11 @@ const collectionsSlide2: CollectionsProps = [
 		id: "food_and_drinks",
 		name: "Foods and Drinks",
 		link: "/catalogue/",
-		imageSrc: "/collections/girls.webp"
+		imageSrc: "/collections/food.jpg"
 	},
 	{
 		id: "devine",
-		name: "Divine Charms",
+		name: "Divine",
 		link: "/catalogue/",
 		imageSrc: "/collections/girls.webp"
 	},
@@ -72,9 +73,10 @@ const collectionsSlide2: CollectionsProps = [
 
 
 export default function CollectionsSection() {
+	const t = useTranslations()
 	return (
 		<section className="px-4 bg-primary text-white lg:p-20 ">
-			<SectionTitle>Collections</SectionTitle>
+			<SectionTitle>{t("Collections")}</SectionTitle>
 			<Swiper
 				navigation={true}
 				modules={[Navigation]}

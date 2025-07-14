@@ -16,11 +16,10 @@ export default function LookBookSection() {
   return (
     <section className="p-10 lg:p-20">
       <div className="mb-10 flex flex-col gap-4">
-        <h2 className="text-6xl font-bold">Look Book</h2>
+        <h2 className="text-6xl font-bold">Lookbook</h2>
         <div className="flex flex-col items-center justify-between gap-4 md:gap-20 md:flex-row">
           <p className="max-w-xl">
             {t("headline")}
-            Разгледай нашия Lookbook за доза вдъхновение — комбинации, подбрани визии и безкрайни идеи.
           </p>
         </div>
       </div>
@@ -35,7 +34,7 @@ export default function LookBookSection() {
         <div className="relative h-72 w-full border lg:h-[40vh]">
           <GridImage
             isGold={isGold}
-            goldImage="/home/lookbook/gold/2.png"
+            goldImage="/home/lookbook/gold/2.jpg"
             silverImage="/home/lookbook/silver/2.jpg"
           />
         </div>

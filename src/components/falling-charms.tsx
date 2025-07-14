@@ -1,4 +1,5 @@
 "use client";
+import { useTranslations } from "next-intl";
 import Image from "next/image";
 import { useState, useEffect, useRef, MutableRefObject } from "react";
 
@@ -20,6 +21,8 @@ export default function FallingCharms() {
   const [scrollY, setScrollY] = useState(0);
   const [rotation, setRotation] = useState(0);
   const [translateY, setTranslateY] = useState(0);
+
+  const t = useTranslations("welocomeToTheCharmbar");
 
   useEffect(() => {
     const observer = new IntersectionObserver(([entry]) =>
@@ -68,14 +71,14 @@ export default function FallingCharms() {
     <section ref={ref} className="bg-primary">
       <div className="lg:pl-20 text-white flex flex-col gap-4 lg:flex-row lg:justify-between">
         <div className="flex flex-col gap-4">
-          <h3 className="pb-4 pt-20 text-5xl">Welcome to our charm bar</h3>
-          <p className="text-xl max-w-xl mb-4">
-            Създаден от три жени, креативни по свой собствен начин, в 3SIDED вярваме, че бижутата трябва да разказват твоята история — one charm at a time.
+          <h3 className="pb-4 pt-20 text-5xl">{t("heading")}</h3>
+          <p className="text-xl max-w-2xl mb-4">
+            {t("p1")}
           </p>
           <div className="relative h-[50vh] w-full lg:w-[50vw] lg:h-[70vh] ">
             <Image
               className="object-cover"
-              src="/home/chess.png"
+              src="/falling/chess.jpg"
               alt="This is a cup"
               fill
             />
@@ -86,7 +89,7 @@ export default function FallingCharms() {
             {/* TODO: optimize images */}
             <Image src="/falling/hand.png" alt="Hand that is holding a charm" width={800} height={800} className="" />
 
-            <div className="ml-20">
+            <div className="ml-32">
               {charms.map((charm, idx) => (
                 <div
                   className="transition-all duration-300 ease-linear"

@@ -1,11 +1,16 @@
 import Link from "next/link";
 import Image from "next/image";
 import { categoriesComponents } from "@/lib/placeholder-data"
+import { useTranslations } from "next-intl";
 
 export default function Categories() {
+	const t = useTranslations("categories");
+
 	return (
 		<div className="bg-white text-primary mt-20 mb-40">
-			<h2 className="pl-4 pt-10 text-6xl uppercase lg:pl-10 lg:pt-10 lg:pb-20">Select a category</h2>
+			<h2 className="pl-4 pt-10 text-6xl uppercase lg:pl-10 lg:pt-10 lg:pb-20">
+				{t("heading")}
+			</h2>
 			<div className="flex flex-col items-center justify-between md:flex-row">
 				{categoriesComponents.slice(0, 5).map((category) => (
 					<CategoryCard
@@ -21,10 +26,12 @@ export default function Categories() {
 }
 
 function CategoryCard({ src, title, link }: { src: string; title: string; link: string }) {
+	const t = useTranslations("categories");
+
 	return (
 		<Link href={link} className="w-full">
 			<h3 className="relative text-2xl underline md:pb-10 md:pl-10">
-				{title}
+				{t(title)}
 			</h3>
 			<div className="relative h-[60vh] w-full overflow-hidden">
 				<Image

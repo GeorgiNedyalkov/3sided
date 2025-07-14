@@ -1,52 +1,41 @@
 import Image from "next/image";
+import { mobileCollages, desktopCollages } from "@/lib/placeholder-data";
+import { useTranslations } from "next-intl";
 
-import LookBookHeader from "@/components/lookbook/lookbook-header";
-
-const collages = [
-  { src: "/lookbook/blue_collage.jpg", alt: "Blue collage", horizontal: false },
-  { src: "/lookbook/blue_collage_2.jpg", alt: "Second blue collage", horizontal: false },
-  { src: "/lookbook/devi_2_collage.jpg", alt: "Devi second collage", horizontal: false },
-  { src: "/lookbook/devi_collage.jpg", alt: "Devi collage", horizontal: false },
-  { src: "/lookbook/hands_collage.jpg", alt: "Hands collage", horizontal: false },
-  { src: "/lookbook/horizontal_blue.jpg", alt: "Horizontal blue theme", horizontal: true },
-  { src: "/lookbook/horizontal_blue_2.jpg", alt: "Second horizontal blue theme", horizontal: true },
-  { src: "/lookbook/horizontal_cowboy.jpg", alt: "Horizontal cowboy theme", horizontal: true },
-  { src: "/lookbook/horizontal_devi.jpg", alt: "Horizontal Devi", horizontal: true },
-  { src: "/lookbook/horizontal_devi_1.jpg", alt: "Horizontal Devi version 1", horizontal: true },
-  { src: "/lookbook/horizontal_hands.jpg", alt: "Horizontal hands", horizontal: true },
-  { src: "/lookbook/horizontal_qni.jpg", alt: "Horizontal Qni", horizontal: true },
-  { src: "/lookbook/horizontal_qni_2.jpg", alt: "Horizontal Qni version 2", horizontal: true },
-  { src: "/lookbook/horizontal_qnina.jpg", alt: "Horizontal Qnina", horizontal: true },
-  { src: "/lookbook/horizontal_red.jpg", alt: "Horizontal red", horizontal: true },
-  { src: "/lookbook/horizontal_red_2.jpg", alt: "Horizontal red version 2", horizontal: true },
-  { src: "/lookbook/qni_2_collage.jpg", alt: "Qni second collage", horizontal: false },
-  { src: "/lookbook/qni_collage.jpg", alt: "Qni collage", horizontal: false },
-  { src: "/lookbook/qnina_collage.jpg", alt: "Qnina collage", horizontal: false },
-  { src: "/lookbook/red_2_collage.jpg", alt: "Second red collage", horizontal: false },
-  { src: "/lookbook/red_collage.jpg", alt: "Red collage", horizontal: false },
-];
-
-
-export default function LookbookPage() {
+function Collage({ src, alt }: { src: string, alt: string }) {
   return (
-    <>
-      <LookBookHeader />
-      <div className="flex flex-wrap gap-10 items-center justify-center">
-        {collages.map(({ src, alt }) => (
-          <Collage src={src} alt={alt} />
-        ))}
-      </div>
-    </>
+    <Image src={src} alt={alt} width={1280} height={720} />
   )
 }
 
-function Collage({ src, alt, horizontal }: { src: string, alt: string, horizontal?: boolean }) {
-
-  let width = horizontal ? 1280 : 719;
-  let height = horizontal ? 720 : 1280;
+export default function LookbookPage() {
+  const t = useTranslations("Lookbook");
 
   return (
-    <Image src={src} alt={alt} width={width} height={height} />
+    <div className="mb-20">
+      <div className="mt-20 flex flex-col items-center justify-center pb-10">
+        <h2 className="py-4 text-3xl font-semibold md:pb-10 md:text-6xl lg:pb-4 lg:text-9xl">
+          Lookbook
+        </h2>
+        <p className="max-w-2xl text-center">
+          {t("p1")}
+        </p>
+      </div>
+
+      {/* Mobile */}
+      <div className="md:hidden flex flex-wrap gap-10 items-center justify-center">
+        {mobileCollages.map(({ src, alt }) => (
+          <Collage src={src} alt={alt} />
+        ))}
+      </div>
+
+      {/* Desktop*/}
+      <div className="hidden md:block md:flex md:flex-wrap gap-10 items-center justify-center">
+        {desktopCollages.map(({ src, alt }) => (
+          <Collage src={src} alt={alt} />
+        ))}
+      </div>
+    </div>
   )
 }
 

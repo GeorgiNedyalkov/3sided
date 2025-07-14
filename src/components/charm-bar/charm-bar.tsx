@@ -15,6 +15,7 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
 
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [selectedCharmPosition, setSelectedCharmPosition] = useState<number>(0);
+  const [isGold, setIsGold] = useState(false);
 
   const [selectedCharms, setSelectedCharms] = useState<Product[]>(
     new Array(numberOfCharms).fill(null)
@@ -26,7 +27,7 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
     setSelectedCharms(newSelectedCharms);
   }
 
-  console.log({ selectedCharms });
+  console.log({ charms });
 
   useEffect(() => {
     const newPrice = selectedCharms.reduce(
@@ -46,6 +47,15 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
           chain={necklaces[1]}
         />
         <div className="mb-10">Total Price: {totalPrice}</div>
+
+        <p className="text-lg">Choose a minimum of 3 charms</p>
+
+        {
+          // NOTE: Testing
+          selectedCharms.length > 3 && (
+            <AddAllToCartButton items={[...selectedCharms, chain]} />
+          )
+        }
       </div>
 
       <div className="flex flex-col gap-10 w-full">
@@ -54,17 +64,6 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
           position={selectedCharmPosition}
           onSelect={handleCharmSelect}
         />
-        <div className="flex items-center justify-center">
-          {
-            // NOTE: Testing
-            selectedCharms.length > 3 && (
-              <div>
-                Once your piece feels just right, proceed to checkout and get ready to wear something truly personal.
-                <AddAllToCartButton items={[...selectedCharms, chain]} />
-              </div>
-            )
-          }
-        </div>
       </div>
     </div>
   );

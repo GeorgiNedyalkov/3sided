@@ -10,7 +10,7 @@ export default async function ChainSelector({ category }: { category: string }) 
     <nav className="flex gap-4">
       {chains.map((chain) => (
         <Link href={`/charm-bar/${category}/${chain.handle}`} key={chain.handle}>
-          <Image src={chain.featuredImage.url} alt={chain.title} width={500} height={500} />
+          <Image src={chain.featuredImage.url} alt={chain.title} width={300} height={300} />
           <h4 className="text-center">{chain.title}</h4>
         </Link>
       ))}

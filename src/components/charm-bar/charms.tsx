@@ -11,7 +11,7 @@ function CharmsList({
   onSelect(charm: Product, position: number): void;
 }) {
   return (
-    <ul className="flex w-full flex-wrap gap-4">
+    <ul className="flex w-[40vw] h-[50vh] flex-wrap gap-4 overflow-y-scroll">
       {[...charms].map((charm) => (
         <li
           key={charm.id}

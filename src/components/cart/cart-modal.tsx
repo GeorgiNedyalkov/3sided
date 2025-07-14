@@ -19,7 +19,6 @@ export default function CartModal() {
   const openModal = () => setIsOpen(true);
   const closeModal = () => setIsOpen(false);
 
-  // NOTE: When doing the useEffect the cookies are cleared on every refresh
   useEffect(() => {
     if (!cart) {
       createCartAndSetCookie();
@@ -71,7 +70,7 @@ export default function CartModal() {
                         <p>Your cart is empty</p>
                       </div>
                     ) : (
-                      <div className="flex flex-col items-start justify-between h-[85vh] gap-4 overflow-y-auto">
+                      <div className="flex flex-col items-start justify-between h-[85vh] pr-10 gap-4 overflow-y-auto">
                         <div className="grid gap-4 w-full">
                           {cart.lines.map((line, index) => (
                             <div key={index} className="flex flex-col gap-4 w-full">

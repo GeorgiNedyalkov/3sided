@@ -145,6 +145,33 @@ function reshapeCollection(collection: ShopifyCollection): Collection | undefine
 	};
 }
 
+function reshapeCollectionWithMaterial(collection: ShopifyCollection, newpath: string): Collection | undefined {
+	if (!collection) {
+		return undefined;
+	}
+
+	return {
+		...collection,
+		path: `${newpath}${collection.handle}`,
+	};
+}
+
+const reshapeCollectionsWithMaterial = (collections: ShopifyCollection[], path: string) => {
+	const reshapedCollections = [];
+
+	for (const collection of collections) {
+		if (collection) {
+			const reshapedCollection = reshapeCollectionWithMaterial(collection, path);
+
+			if (reshapedCollection) {
+				reshapedCollections.push(reshapedCollection);
+			}
+		}
+	}
+
+	return reshapedCollections;
+};
+
 const reshapeCollections = (collections: ShopifyCollection[]) => {
 	const reshapedCollections = [];
 
@@ -212,9 +239,34 @@ export async function getCollections(): Promise<Collection[]> {
 			path: "/catalogue",
 			updatedAt: new Date().toISOString(),
 		},
-		...reshapeCollections(shopifyCollections).filter(
-			(collection) => !collection.handle.startsWith("hidden")
-		),
+		...reshapeCollections(shopifyCollections)
+	];
+
+	return collections;
+}
+
+export async function getCollectionsWithMaterial(path: string): Promise<Collection[]> {
+	const res = await shopifyFetch<ShopifyCollectionsOperation>({
+		query: getCollectionsQuery,
+	});
+
+	const shopifyCollections = removeEdgesAndNodes(res.body?.data?.collections);
+
+	console.log(path);
+
+	const collections = [
+		{
+			handle: "",
+			title: "All",
+			description: "All products",
+			seo: {
+				title: "All",
+				description: "All products",
+			},
+			path,
+			updatedAt: new Date().toISOString(),
+		},
+		...reshapeCollectionsWithMaterial(shopifyCollections, path)
 	];
 
 	return collections;

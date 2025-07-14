@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { getProducts, getCollections } from "@/lib/shopify";
+import { getProducts, getCollections, getCollectionsWithMaterial } from "@/lib/shopify";
 import CharmBar from "@/components/charm-bar/charm-bar";
 import Breadcrumbs from "@/components/breadcrumbs";
 import FilterItemDropdown from "@/components/layout/catalogue/filter/dropdown";
@@ -14,7 +14,13 @@ type Props = {
 export default async function CharmsSelectPage({ params }: Props) {
   const { category, chain } = await params;
   const charms = await getProducts({ query: "product_type:charm" });
-  const collections = await getCollections();
+
+  const path = `/${category}/${chain}/`
+
+  const collections = await getCollectionsWithMaterial(path);
+
+  console.log(collections);
+
   const selectedChain = await getProduct(chain);
 
   const t = await getTranslations("Charmbar");
