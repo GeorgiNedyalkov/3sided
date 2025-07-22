@@ -191,7 +191,9 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
 //   return { ...currentCart, ...updateCartTotals(updatedLines), lines: updatedLines };
 // }
 
-export function CartProvider({ children, cartFromCookies }: { children: React.ReactNode, cartFromCookies: Cart }) {
+export function CartProvider({ children, cartFromCookies }: {
+  children: React.ReactNode, cartFromCookies: Cart
+}) {
   const [cartState, dispatch] = useReducer(cartReducer, cartFromCookies);
 
   const addCartItem = (variant: ProductVariant, product: Product) => {

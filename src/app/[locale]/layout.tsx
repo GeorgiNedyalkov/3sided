@@ -45,7 +45,8 @@ export default async function LocaleLayout({
         <link rel="stylesheet" href="https://use.typekit.net/urc1gyw.css"></link>
       </head>
       <body className={`antialiased`}>
-        <CartProvider cartFromCookies={cart}>
+
+        <CartProvider cartFromCookies={cart!}>
           <NextIntlClientProvider>
             <Navbar />
             {children}
