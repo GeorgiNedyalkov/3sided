@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import CharmSelector from "@/components/charm-bar/charms";
 import CharmCanvas from "@/components/charms/charm-canvas";
 import { necklaces } from "@/lib/placeholder-data";
 import { Product } from "@/lib/shopify/types";
 import { AddToCartButton } from "../add-to-cart-button";
 import { AddAllToCartButton } from "../cart/add-to-cart";
+import html2canvas from "html2canvas";
 
 // TODO: The necklace should be passed also
 
@@ -27,7 +28,21 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
     setSelectedCharms(newSelectedCharms);
   }
 
-  console.log({ charms });
+  const ref = useRef<HTMLDivElement>(null);
+
+  async function handleScreenshot() {
+    console.log("clicked")
+    if (!ref.current) return;
+
+    const canvas = await html2canvas(ref.current);
+    const dataURL = canvas.toDataURL("image/png")
+
+    const link = document.createElement("a");
+    link.href = dataURL;
+    link.download = "layered-image.png";
+    link.click();
+  }
+
 
   useEffect(() => {
     const newPrice = selectedCharms.reduce(
@@ -39,7 +54,8 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
 
   return (
     <div className="mb-20 flex flex-col justify-between md:flex-row gap-52">
-      <div>
+      <button onClick={handleScreenshot}>Download</button>
+      <div ref={ref}>
         <CharmCanvas
           selectedCharms={selectedCharms}
           selectedCharmPosition={selectedCharmPosition}

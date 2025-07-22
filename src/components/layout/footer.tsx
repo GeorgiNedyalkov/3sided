@@ -18,7 +18,7 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-10 lg:mb-20 lg:grid-cols-4 lg:gap-28 text-lg">
           <div className="w-52">
             <h3 className="mb-2 text-3xl font-bold">{t("collections")}</h3>
-            <div className="flex gap-10">
+            <div className="flex gap-4 text-sm md:text-md">
               <ul>
                 <li>Love</li>
                 <li>Halloween</li>
@@ -35,7 +35,7 @@ export default function Footer() {
           </div>
           <div>
             <h3 className="mb-2 text-3xl font-bold">{t("categories")}</h3>
-            <ul>
+            <ul className="text-sm md:text-md">
               <li>Bracelet</li>
               <li>Necklace</li>
               <li>Keychain</li>
@@ -43,8 +43,8 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="mb-2 text-3xl font-bold">{t("forTheClient")}</h3>
-            <ul>
+            <h3 className="mb-2 text-2xl md:text-3xl font-bold">{t("forTheClient")}</h3>
+            <ul className="text-sm md:text-md">
               <li>Return policy</li>
               <li>{t("faq")}</li>
               <li>Shipping</li>
@@ -52,9 +52,11 @@ export default function Footer() {
             </ul>
           </div>
           <div>
-            <h3 className="mb-2 text-3xl font-bold">{t("about3Sided")}</h3>
-            <div>LookBook</div>
-            <div>{t("aboutUs")}</div>
+            <h3 className="mb-2 text-2xl md:text-3xl font-bold">{t("about3Sided")}</h3>
+            <ul className="text-sm md:text-md">
+              <li>LookBook</li>
+              <li>{t("aboutUs")}</li>
+            </ul>
           </div>
         </div>
       </div>
@@ -80,19 +82,12 @@ export default function Footer() {
             </a>
           </div>
         </div>
-        <div className="order-2 my-10 flex flex-col gap-2 items-start">
+        <div className="order-2 mt-10 flex flex-col gap-2 items-center md:items-start">
           <Link href="terms">{t("termsAndConditions")}</Link>
           <Link href="privacy-policy">{t("privacyPolicy")}</Link>
         </div>
 
-        <div className="flex flex-col">
-          {/* <div className="flex items-center justify-center gap-2"> */}
-          {/*   { */}
-          {/*     [1, 2, 3, 4].map((card) => ( */}
-          {/*       <div key={card} className="h-10 w-16 bg-stone-200" /> */}
-          {/*     )) */}
-          {/*   } */}
-          {/* </div> */}
+        <div className="flex flex-col items-center justify-center">
           <p className="mt-4 text-center text-sm text-white">
             &copy; THRESIDED AD All rights reserved
           </p>

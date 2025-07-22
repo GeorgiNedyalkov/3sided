@@ -1,8 +1,11 @@
-// import { useEffect, useRef } from "react";
+"use client"
+
+import { useRef } from "react";
 
 import { Product } from "@/lib/shopify/types";
 import clsx from "clsx";
 import Image from "next/image";
+import html2canvas from "html2canvas";
 
 export default function CharmPositionSelector({
   selectedCharms,
@@ -21,11 +24,28 @@ export default function CharmPositionSelector({
   }[];
 }) {
 
+
   const isMedium = (charm: Product) => charm.tags.includes("size:medium");
   const isLarge = (charm: Product) => charm.tags.includes("size:large");
 
+  const ref = useRef<HTMLDivElement>(null);
+
+  async function handleScreenshot() {
+    console.log("clicked")
+    if (!ref.current) return;
+
+    const canvas = await html2canvas(ref.current);
+    const dataURL = canvas.toDataURL("image/png")
+
+
+    const link = document.createElement("a");
+    link.href = dataURL;
+    link.download = "layered-image.png";
+    link.click();
+  }
+
   return (
-    <div>
+    <div ref={ref}>
       {selectedCharms.map((selectedCharm, index) =>
         selectedCharm ? (
           <div

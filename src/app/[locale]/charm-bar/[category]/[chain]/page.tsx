@@ -1,5 +1,5 @@
 import { getTranslations } from "next-intl/server";
-import { getProducts, getCollections, getCollectionsWithMaterial } from "@/lib/shopify";
+import { getProducts, getCollections } from "@/lib/shopify";
 import CharmBar from "@/components/charm-bar/charm-bar";
 import Breadcrumbs from "@/components/breadcrumbs";
 import FilterItemDropdown from "@/components/layout/catalogue/filter/dropdown";
@@ -11,19 +11,17 @@ type Props = {
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
 }
 
-export default async function CharmsSelectPage({ params }: Props) {
+export default async function CharmsSelectPage({ params, searchParams }: Props) {
   const { category, chain } = await params;
-  const charms = await getProducts({ query: "product_type:charm" });
-
-  const path = `/${category}/${chain}/`
-
-  const collections = await getCollectionsWithMaterial(path);
-
-  console.log(collections);
+  const { material } = await searchParams;
 
   const selectedChain = await getProduct(chain);
+  const charms = await getProducts({ query: `product_type:charm tag:${material}` });
 
-  const t = await getTranslations("Charmbar");
+  // console.log(charms);
+  const collections = await getCollections();
+
+  const t = await getTranslations("Charmbar")
 
   const breadcrumbs = [
     { label: "Home", href: "/", active: false },

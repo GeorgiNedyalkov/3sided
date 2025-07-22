@@ -143,26 +143,36 @@ When the user adds an item to the cart we do what?
 
 
 TODO:
+- [] BUILD THE PROJECT!!! 
 - [X] Add internationalization
 - [X] Translate charm bar
-- Add language switcher
+- [x] Add language switcher
 - Fix Navbar bug
 - Fix Newsletter subscribtion
 
 
 Charmbar:
-- Add Necklace Product
+- [x] Add Necklace Product
+- Send a picture of the created design
 - Fix Filters pick bug
 - Make the neckalace follow the scrolldown
-- Send a picture of the created design
 - Add Charmbar Context
-- Add reset button
+- Add Reset button
+
+Cart:
+- Remove Item
+- Update Quantity
+- Figure out Cashing Cookies etc.
+
+
+This morning do these!
 
 
 Chore:
 - Cookies 
 - Privacy policy
 - Terms and Conditions
+- [x] FAQ
 
 
 Later:
@@ -171,12 +181,12 @@ Later:
 
 
 Translation:
-- Footer
+- [x] Footer
 - Navbar
 
 
 Learn:
-- Figure out locale switcher
+- [] Figure out locale switcher
 
 
 
