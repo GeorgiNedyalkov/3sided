@@ -1,8 +1,8 @@
 import Image from "next/image";
 
-import YaninaWeb from "../../../../public/about/yanina_web.jpg"
-import QniWeb from "../../../../public/about/qni_web.jpg"
-import DeviWeb from "../../../../public/about/devi_web.jpg"
+import DeviWeb from "@/public/about/devi_web.jpg";
+import QniWeb from "@/public/about/qni_web.jpg";
+import YaninaWeb from "@/public/about/yanina_web.jpg";
 
 export default function Page() {
   return (
