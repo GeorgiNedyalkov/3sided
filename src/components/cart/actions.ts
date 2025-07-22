@@ -1,4 +1,5 @@
 "use server";
+
 import { addToCart, createCart, getCart } from "@/lib/shopify";
 import { redirect } from "next/navigation"
 import { cookies } from "next/headers";
@@ -22,14 +23,16 @@ export async function addItem(prevState: any, selectedVariantId: string) {
 }
 
 export async function redirectToCheckout() {
-	let cartId = (await cookies()).get("cartId")?.value;
+	let cartId = (await cookies()).get('cartId')?.value;
+
 	if (!cartId) {
-		return "Missing cart id";
+		throw new Error("Missing cart ID");
 	}
 
 	let cart = await getCart(cartId);
+
 	if (!cart) {
-		return "Missing cart";
+		throw new Error("Missing cart ID");
 	}
 
 	redirect(cart.checkoutUrl);
