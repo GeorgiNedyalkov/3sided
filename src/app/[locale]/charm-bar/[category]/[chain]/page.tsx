@@ -16,7 +16,7 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
   const { material } = await searchParams;
 
   const selectedChain = await getProduct(chain);
-  const charms = await getProducts({ query: `product_type:charm tag:${material}` });
+  const charms = await getProducts({ query: `product_type:charm tag:${material ? material : "gold"}` });
 
   // console.log(charms);
   const collections = await getCollections();
