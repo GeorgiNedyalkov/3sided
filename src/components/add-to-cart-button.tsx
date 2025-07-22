@@ -14,7 +14,7 @@ export function AddToCartButton({ product }: { product: Product }) {
   console.log({ variants })
 
   const defaultVariantId = variants.length === 1 ? variants[0].id : undefined;
-  const actionWithId = formAction.bind(null, defaultVariantId);
+  const actionWithId = formAction.bind(null, defaultVariantId!);
 
   return (
     <form
