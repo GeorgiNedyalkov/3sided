@@ -35,8 +35,6 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
 
   return (
     <div className="mb-20 flex flex-col justify-between md:flex-row gap-52">
-
-
       <div>
         <CharmCanvas
           selectedCharms={selectedCharms}

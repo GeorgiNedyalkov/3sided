@@ -100,7 +100,6 @@ function reshapeProduct(product: ShopifyProduct) {
 		...rest,
 		variants: removeEdgesAndNodes(variants),
 		images: reshapeImages(images, product.title),
-		// variants: removeEdgesAndNodes(variants),
 	};
 }
 
@@ -217,31 +216,6 @@ export async function getCollections(): Promise<Collection[]> {
 
 	return collections;
 }
-
-
-// Add types
-// export async function getProductTypes() {
-//   const res = await shopifyFetch({ query: getProductTypesQuery });
-
-//   const rawProductTypes = removeEdgesAndNodes(res.body?.data?.productTypes);
-
-//   // path: `/catalogue/${collection.handle}`,
-//   console.log(rawProductTypes);
-
-//   const productTypes = [];
-
-//   for (const productType of rawProductTypes) {
-//     console.log(productType);
-
-//     productTypes.push({
-//       title: productType,
-//       handle: productType,
-//       path: `/catalogue/${productType}`,
-//     });
-//   }
-
-//   return productTypes;
-// }
 
 export async function getCollectionProducts({
 	collection,

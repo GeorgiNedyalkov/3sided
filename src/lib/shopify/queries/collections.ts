@@ -54,3 +54,5 @@ export const getCollectionProductsQuery = /* GraphQL */ `
   }
   ${productFragment}
 `;
+
+
