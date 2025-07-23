@@ -15,13 +15,12 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
   const { category, chain } = await params;
   const { material } = await searchParams;
 
-  const selectedChain = await getProduct(chain);
+  const t = await getTranslations("Charmbar")
   const charms = await getProducts({ query: `product_type:charm tag:${material ? material : "gold"}` });
+  const collections = await getCollections();
+  const selectedChain = await getProduct(chain);
 
   // console.log(charms);
-  const collections = await getCollections();
-
-  const t = await getTranslations("Charmbar")
 
   const breadcrumbs = [
     { label: "Home", href: "/", active: false },

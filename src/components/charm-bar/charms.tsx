@@ -1,6 +1,33 @@
 import { Product } from "@/lib/shopify/types";
 import Image from "next/image";
 
+function Charm({
+  charm,
+  position,
+  onSelect,
+}: {
+  charm: Product;
+  position: number;
+  onSelect(charm: Product, position: number): void;
+}) {
+  return (
+    <li
+      key={charm.id}
+      className="relative cursor-pointer w-16 h-16 lg:w-20 lg:h-20"
+      onClick={() => onSelect(charm, position)}
+    >
+      <Image
+        src={charm.featuredImage.url}
+        alt={charm.title}
+        className="object-cover"
+        fill
+        sizes="80px"
+      />
+    </li>
+
+  )
+}
+
 function CharmsList({
   charms,
   position,
@@ -11,21 +38,14 @@ function CharmsList({
   onSelect(charm: Product, position: number): void;
 }) {
   return (
-    <ul className="flex w-[40vw] h-[50vh] flex-wrap gap-4 overflow-y-scroll">
+    <ul className="flex w-full max-h-[50vh] flex-wrap gap-4 overflow-y-scroll">
       {[...charms].map((charm) => (
-        <li
+        <Charm
           key={charm.id}
-          className="relative cursor-pointer w-16 h-16 lg:w-20 lg:h-20"
-          onClick={() => onSelect(charm, position)}
-        >
-          <Image
-            src={charm.featuredImage.url}
-            alt={charm.title}
-            className="object-cover"
-            fill
-            sizes="80px"
-          />
-        </li>
+          charm={charm}
+          position={position}
+          onSelect={onSelect}
+        />
       ))
       }
     </ul >
@@ -35,7 +55,6 @@ function CharmsList({
 function SizeTitle({ title }: { title: string }) {
   return <h3 className="font-semibold text-xl text-primary w-48 text-center rounded-md">{title}</h3>
 }
-
 
 export default function CharmSelector({
   charms,
@@ -47,9 +66,9 @@ export default function CharmSelector({
   onSelect(charm: Product, position: number): void;
 }) {
 
-  const smallCharms = charms.filter((charm) => charm.tags.includes("size:small"))
-  const mediumCharms = charms.filter((charm) => charm.tags.includes("size:medium"))
-  const largeCharms = charms.filter((charm) => charm.tags.includes("size:large"))
+  const smallCharms = charms.filter((charm) => charm.tags.includes("small"))
+  const mediumCharms = charms.filter((charm) => charm.tags.includes("medium"))
+  const largeCharms = charms.filter((charm) => charm.tags.includes("large"))
 
   return (
     <>
