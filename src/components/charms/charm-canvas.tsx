@@ -67,7 +67,7 @@ export default function CharmCanvas({
       />
 
 
-      {/* NOTE: Upload Image */}
+      {/* NOTE: This is just for testing upload Image */}
       <form action={formAction}>
         <button
           className="absolute bg-black text-white p-4"

@@ -15,7 +15,7 @@ export default function AddToCartButton({ charm }: { charm: Product }) {
   const actionWithVariant = formAction.bind(null, selectedVariantId);
   const finalVariant = variants.find((variant) => variant.id === selectedVariantId)!;
 
-  console.log(cart);
+  // console.log(cart);
   return (
     <form
       action={async () => {
@@ -63,7 +63,7 @@ export function AddAllToCartButton({ items }: { items: Product[] }) {
     }
   };
 
-  console.log(cart);
+  // console.log(cart);
   return (
     <form
       action={async () => {

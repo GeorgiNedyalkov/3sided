@@ -10,7 +10,7 @@ export default async function CataloguePage(props: {
   const { sort, q: searchValue } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
 
-  console.log({ searchValue, searchParams });
+  // console.log({ searchValue, searchParams });
 
   const products = await getProducts({ sortKey, reverse, query: searchValue });
 

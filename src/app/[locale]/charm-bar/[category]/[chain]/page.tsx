@@ -6,6 +6,14 @@ import FilterItemDropdown from "@/components/layout/catalogue/filter/dropdown";
 import { getProduct } from "@/lib/shopify";
 import { Toggle } from "@/components/home/toggle";
 
+const testEds = [
+  {
+    node: {
+      handle: ""
+    }
+  }
+]
+
 type Props = {
   params: Promise<{ category: string; chain: string }>;
   searchParams: Promise<{ [key: string]: string | string[] | undefined }>;
@@ -20,11 +28,8 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
   const t = await getTranslations("Charmbar")
 
   const charms = await getProducts({ query: query });
-
   const collections = await getCollections();
   const selectedChain = await getProduct(chain);
-
-  // const collection = await getCollectionProducts({ query: query })
 
   const breadcrumbs = [
     { label: "Home", href: "/", active: false },

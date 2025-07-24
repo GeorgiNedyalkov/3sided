@@ -4,9 +4,7 @@ import { LogoMark } from "../logo";
 import { useTranslations } from "next-intl";
 
 export default function Footer() {
-
   const t = useTranslations("Footer");
-
 
   return (
     <div className="bg-primary text-white p-4 lg:px-20 lg:pt-20">
@@ -14,25 +12,25 @@ export default function Footer() {
         <div className="flex items-center justify-center py-5 lg:mr-auto lg:py-0">
           <LogoMark />
         </div>
-
         <div className="grid grid-cols-2 gap-10 lg:mb-20 lg:grid-cols-4 lg:gap-28 text-lg">
-          <div className="w-52">
-            <h3 className="mb-2 text-3xl font-bold">{t("collections")}</h3>
-            <div className="flex gap-4 text-sm md:text-md">
-              <ul>
-                <li>Love</li>
-                <li>Halloween</li>
-                <li>Shells</li>
-                <li>Girlies</li>
-              </ul>
-              <ul>
-                <li>Food</li>
-                <li>Hobbies</li>
-                <li>Professions</li>
-                <li>Birthstones</li>
-              </ul>
-            </div>
-          </div>
+          {/* TODO: Figure out if we need collections */}
+          {/* <div className="w-52"> */}
+          {/*   <h3 className="mb-2 text-3xl font-bold">{t("collections")}</h3> */}
+          {/*   <div className="flex gap-4 text-sm md:text-md"> */}
+          {/*     <ul> */}
+          {/*       <li>Love</li> */}
+          {/*       <li>Halloween</li> */}
+          {/*       <li>Shells</li> */}
+          {/*       <li>Girlies</li> */}
+          {/*     </ul> */}
+          {/*     <ul> */}
+          {/*       <li>Food</li> */}
+          {/*       <li>Hobbies</li> */}
+          {/*       <li>Professions</li> */}
+          {/*       <li>Birthstones</li> */}
+          {/*     </ul> */}
+          {/*   </div> */}
+          {/* </div> */}
           <div>
             <h3 className="mb-2 text-3xl font-bold">{t("categories")}</h3>
             <ul className="text-sm md:text-md">
@@ -42,20 +40,33 @@ export default function Footer() {
               <li>Waistchain</li>
             </ul>
           </div>
-          <div>
-            <h3 className="mb-2 text-2xl md:text-3xl font-bold">{t("forTheClient")}</h3>
-            <ul className="text-sm md:text-md">
-              <li>Return policy</li>
-              <li>{t("faq")}</li>
-              <li>Shipping</li>
-              <li>Delivery Details</li>
-            </ul>
-          </div>
+          {/* TODO: Figure out if we need the things in this section*/}
+          {/* <div> */}
+          {/*   <h3 className="mb-2 text-2xl md:text-3xl font-bold">{t("forTheClient")}</h3> */}
+          {/*   <ul className="text-sm md:text-md"> */}
+          {/*     <li>Return policy</li> */}
+          {/*     <li>Shipping</li> */}
+          {/*     <li>Delivery Details</li> */}
+          {/*   </ul> */}
+          {/* </div> */}
           <div>
             <h3 className="mb-2 text-2xl md:text-3xl font-bold">{t("about3Sided")}</h3>
             <ul className="text-sm md:text-md">
-              <li>LookBook</li>
-              <li>{t("aboutUs")}</li>
+              <li>
+                <Link href="/faq">
+                  {t("faq")}
+                </Link>
+              </li>
+              <li>
+                <Link href="/lookbook">
+                  LookBook
+                </Link>
+              </li>
+              <li>
+                <Link href="/about">
+                  {t("aboutUs")}
+                </Link>
+              </li>
             </ul>
           </div>
         </div>

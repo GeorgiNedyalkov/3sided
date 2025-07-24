@@ -23,8 +23,6 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
     newSelectedCharms[position] = charm;
     setSelectedCharms(newSelectedCharms);
   }
-
-
   useEffect(() => {
     const newPrice = selectedCharms.reduce(
       (sum, charm) => (sum += charm != null ? Number(charm?.priceRange.maxVariantPrice.amount) : 0),
@@ -34,7 +32,7 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
   }, [selectedCharms]);
 
   return (
-    <div className="mb-20 flex flex-col justify-between md:flex-row gap-52">
+    <div className="mb-20 flex flex-col justify-around md:flex-row gap-52">
       <div>
         <CharmCanvas
           selectedCharms={selectedCharms}
@@ -43,7 +41,6 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
           chain={necklaces[1]}
         />
         <div className="mb-10">Total Price: {totalPrice}</div>
-
         <p className="text-lg">Choose a minimum of 3 charms</p>
 
         {
@@ -54,7 +51,7 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
         }
       </div>
 
-      <div className="flex flex-col gap-10 w-full">
+      <div className="max-w-[50vw] flex flex-1/2 flex-col gap-10 w-full">
         <CharmSelector
           charms={charms}
           position={selectedCharmPosition}

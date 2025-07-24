@@ -1,6 +1,7 @@
 import { imageFragment } from "./images";
 import seoFragment from "./seo";
 
+// NOTE: Adding collections to products for filtering purposes
 const productFragment = /* GraphQL */ `
   fragment product on Product {
     id
@@ -38,6 +39,13 @@ const productFragment = /* GraphQL */ `
             amount
             currencyCode
           }
+        }
+      }
+    }
+    collections(first: 5) {
+      edges {
+        node {
+          handle
         }
       }
     }

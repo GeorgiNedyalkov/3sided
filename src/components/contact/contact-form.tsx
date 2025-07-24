@@ -70,7 +70,7 @@ export default function ContactForm() {
               type="text"
               placeholder="First Name"
               className="border-b-2 border-b-black focus:outline-none py-2"
-			  required
+              required
             />
           </div>
           <div className="flex w-full flex-col">
@@ -83,7 +83,7 @@ export default function ContactForm() {
               type="text"
               placeholder="Last Name"
               className="border-b-2 border-b-black focus:outline-none py-2"
-			  required
+              required
             />
           </div>
         </div>
@@ -109,7 +109,7 @@ export default function ContactForm() {
             name="message"
             placeholder="Please write us a short message about your inquiry..."
             className="border-b-2 border-b-black p-2"
-			required
+            required
           />
         </div>
         <button

@@ -47,8 +47,6 @@ export default function Navbar() {
 		const handleScroll = () => {
 			const currentScrollPosition = window.scrollY;
 
-			console.log({ currentScrollPosition, lastScrollPosition, isVisible })
-
 			if (currentScrollPosition > lastScrollPosition && currentScrollPosition > 100) {
 				setIsVisible(false);
 			} else {

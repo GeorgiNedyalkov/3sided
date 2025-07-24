@@ -21,7 +21,12 @@ export default function Page() {
 
   return (
     <>
+      <div className="mx-auto">
+        <p className="text-center max-w-xl">{t("paragraph")}</p>
+      </div>
+
       <Breadcrumbs breadcrumbs={breadcrumbs} />
+
       <p className="text-sm p-2">
         {t("categoryStep")}
       </p>

@@ -119,7 +119,9 @@ export default function CartModal() {
                               </span>
                             </p>
                           </div>
-                          <form action={redirectToCheckout}>
+                          <form action={() => {
+                            redirectToCheckout();
+                          }}>
                             <button className="bg-white w-full text-primary uppercase font-bold p-4 rounded hover:bg-white/80 mt-10">
                               Proceed to Checkout
                             </button>

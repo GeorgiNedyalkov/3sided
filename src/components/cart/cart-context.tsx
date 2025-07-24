@@ -133,7 +133,7 @@ function createEmptyCart(): Cart {
 
 function cartReducer(state: Cart | undefined, action: CartAction): Cart {
   const currentCart = state || createEmptyCart();
-  console.log({ currentCart });
+  // console.log({ currentCart });
 
   switch (action.type) {
     case "ADD_ITEM": {
