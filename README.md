@@ -176,8 +176,7 @@ Chore:
 
 
 Later:
-- Falling Charms Testing and Refactoring
-
+- [x] Falling Charms Testing and Refactoring
 
 
 Translation:
@@ -186,14 +185,17 @@ Translation:
 
 
 Learn:
-- [] Figure out locale switcher
+- [x] Figure out locale switcher
 
+Charmbar review:
 
+1. Selected chain
 
+Now the chain is hardcoded. We need to pass the image of the selected chain to the
+charmbar.
 
+We need to define the settings for each category.
 
-
-
-
-
-
+Plan:
+- Add all the products for each category
+- Define the settings for charms placements on the chain

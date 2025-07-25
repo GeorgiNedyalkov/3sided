@@ -23,10 +23,9 @@ export default function CharmCanvas({
   selectedCharms: Product[];
   selectedCharmPosition: number;
   onSelectPosition(index: number): void;
-  chain: Necklace;
+  chain: Product;
 }) {
   const [state, formAction, isPending] = useActionState(takePictureAction, null);
-
   const ref = useRef<HTMLDivElement>(null);
 
   async function takePictureAction(
@@ -52,7 +51,7 @@ export default function CharmCanvas({
   return (
     <div ref={ref} className="relative mx-auto h-[250px] w-[90vw] lg:h-[70vh] lg:w-[500px]">
       <Image
-        src={chain.src}
+        src={chain.featuredImage.url}
         alt="Selected chain on the charm bar"
         className="absolute h-full w-full object-contain"
         fill
@@ -68,20 +67,20 @@ export default function CharmCanvas({
 
 
       {/* NOTE: This is just for testing upload Image */}
-      <form action={formAction}>
-        <button
-          className="absolute bg-black text-white p-4"
-          type="submit"
-          disabled={isPending}
-        >
-          <p>
-            {isPending ? "..." : "Upload"}
-          </p>
-        </button>
-      </form>
-
-      {state?.error && <p className="text-red-500">{state.error}</p>}
-      {state?.success && <p className="text-green-500">Image uploaded successfully</p>}
+      {/* <form action={formAction}> */}
+      {/*   <button */}
+      {/*     className="absolute bg-black text-white p-4" */}
+      {/*     type="submit" */}
+      {/*     disabled={isPending} */}
+      {/*   > */}
+      {/*     <p> */}
+      {/*       {isPending ? "..." : "Upload"} */}
+      {/*     </p> */}
+      {/*   </button> */}
+      {/* </form> */}
+      {/**/}
+      {/* {state?.error && <p className="text-red-500">{state.error}</p>} */}
+      {/* {state?.success && <p className="text-green-500">Image uploaded successfully</p>} */}
 
     </div>
   );

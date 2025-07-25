@@ -1,11 +1,8 @@
 "use client"
 
-import { useRef } from "react";
-
-import { Product } from "@/lib/shopify/types";
 import clsx from "clsx";
 import Image from "next/image";
-import html2canvas from "html2canvas";
+import { Product } from "@/lib/shopify/types";
 
 export default function CharmPositionSelector({
   selectedCharms,
@@ -24,28 +21,11 @@ export default function CharmPositionSelector({
   }[];
 }) {
 
-
-  const isMedium = (charm: Product) => charm.tags.includes("size:medium");
-  const isLarge = (charm: Product) => charm.tags.includes("size:large");
-
-  const ref = useRef<HTMLDivElement>(null);
-
-  async function handleScreenshot() {
-    console.log("clicked")
-    if (!ref.current) return;
-
-    const canvas = await html2canvas(ref.current);
-    const dataURL = canvas.toDataURL("image/png")
-
-
-    const link = document.createElement("a");
-    link.href = dataURL;
-    link.download = "layered-image.png";
-    link.click();
-  }
+  const isMedium = (charm: Product) => charm.tags.includes("medium");
+  const isLarge = (charm: Product) => charm.tags.includes("large");
 
   return (
-    <div ref={ref}>
+    <div>
       {selectedCharms.map((selectedCharm, index) =>
         selectedCharm ? (
           <div
@@ -64,9 +44,7 @@ export default function CharmPositionSelector({
           >
             <Image
               className={clsx("absolute rounded-full",
-                {
-                  "ring-1 ring-black/10": selectedCharmPosition == index
-                }
+                selectedCharmPosition === index ? "ring-black" : "ring-stone-200"
               )}
               onClick={() => onSelectPosition(index)}
               src={selectedCharm.featuredImage.url}

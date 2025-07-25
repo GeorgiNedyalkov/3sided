@@ -8,6 +8,7 @@ export default function NewsletterBanner() {
   const [email, setEmail] = useState("");
   const t = useTranslations("Newsletter");
 
+  // TODO: add checkmark
   return (
     <div className="flex flex-col border border-t-primary border-t-4 px-4 py-6 h-64 md:flex-row md:items-center md:justify-center lg:gap-52 lg:h-80">
       <div className="flex mb-8">

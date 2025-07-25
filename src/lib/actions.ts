@@ -4,6 +4,17 @@ import { z } from "zod";
 import nodemailer from "nodemailer";
 import { addSubscriber } from "@/lib/mailer-lite";
 
+const transporter = nodemailer.createTransport({
+  service: "Gmail",
+  host: "smtp.gmail.com",
+  port: 465,
+  secure: true,
+  auth: {
+    user: process.env.EMAIL,
+    pass: process.env.EMAIL_PASSWORD,
+  },
+});
+
 const schema = z.object({
   firstName: z.string(),
   lastName: z.string(),
@@ -31,16 +42,6 @@ export async function submitContactData(formData: FormData): Promise<void> {
 
   console.log("Validated form data: ", validatedFields);
 
-  const transporter = nodemailer.createTransport({
-    service: "Gmail",
-    host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    auth: {
-      user: process.env.EMAIL,
-      pass: process.env.EMAIL_PASSWORD,
-    },
-  });
 
   // Send contact form data to our email
   try {
@@ -69,6 +70,9 @@ export async function submitContactData(formData: FormData): Promise<void> {
   }
 }
 
+// Validate and prepare the data
+const EmailSchema = z.string().email({ message: "Error: Invalid email" });
+
 // Server action subscribe to newsletter
 export async function subscribeToNewsletter(formData: FormData) {
   // Extract data from form data
@@ -76,15 +80,20 @@ export async function subscribeToNewsletter(formData: FormData) {
     email: formData.get("email"),
   };
 
-  // Validate and prepare the data
-  const EmailSchema = z.string().email({ message: "Error: Invalid email" });
-
   const email = EmailSchema.parse(rawEmailData.email);
 
   console.log(email);
 
   try {
     await addSubscriber(email);
+
+    const result = await transporter.sendMail({
+      from: "gnedyalkov94@gmail.com",
+      to: email,
+      subject: "Welcome to 3sided family",
+      text: `Thank you very much for your message`,
+    })
+    console.log(result);
   } catch (error) {
     console.log(error);
     throw new Error("Error: could not add subscriber to newsletter list")
