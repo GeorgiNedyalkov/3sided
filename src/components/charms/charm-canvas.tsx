@@ -49,7 +49,7 @@ export default function CharmCanvas({
   }
 
   return (
-    <div ref={ref} className="relative mx-auto h-[250px] w-[90vw] lg:h-[70vh] lg:w-[500px]">
+    <div ref={ref} className="relative mx-auto h-[500px] w-[90vw] lg:h-[70vh] lg:w-[500px]">
       <Image
         src={chain.featuredImage.url}
         alt="Selected chain on the charm bar"

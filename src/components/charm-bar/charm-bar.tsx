@@ -1,11 +1,9 @@
 "use client";
 
-import { useEffect, useState, useRef, useActionState } from "react";
+import { useEffect, useState } from "react";
 import CharmSelector from "@/components/charm-bar/charms";
 import CharmCanvas from "@/components/charms/charm-canvas";
-import { necklaces } from "@/lib/placeholder-data";
 import { Product } from "@/lib/shopify/types";
-// import { AddToCartButton } from "../add-to-cart-button";
 import { AddAllToCartButton } from "../cart/add-to-cart";
 
 export default function CharmBar({ charms, chain }: { charms: Product[], chain: Product }) {
@@ -32,14 +30,11 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
     setTotalPrice(newPrice);
   }, [selectedCharms]);
 
-  console.log(chain)
-
   return (
     <div className="mb-20 flex flex-col justify-center md:flex-row gap-10">
       <div>
         <CharmCanvas
           chain={chain}
-          // chain={necklaces[1]}
           selectedCharms={selectedCharms}
           selectedCharmPosition={selectedCharmPosition}
           onSelectPosition={setSelectedCharmPosition}
@@ -49,14 +44,14 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
         <p className="text-lg">Choose a minimum of 3 charms</p>
 
         {
-          // NOTE: Testing improve
+          // NOTE: Testing improve null charms are also included this is why this does not work
           selectedCharms.length > 3 && (
             <AddAllToCartButton items={[...selectedCharms, chain]} />
           )
         }
       </div>
 
-      <div className="max-w-[40vw] flex flex-col gap-10 w-full">
+      <div className="lg:max-w-[40vw] flex flex-col gap-10 w-full">
         <CharmSelector
           charms={charms}
           position={selectedCharmPosition}

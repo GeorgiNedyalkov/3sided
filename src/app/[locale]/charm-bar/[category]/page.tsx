@@ -9,11 +9,6 @@ export default async function CategorySelectPage({ params }: { params: Promise<{
 
   const breadcrumbs = [
     {
-      label: "Home",
-      href: "/",
-      active: false,
-    },
-    {
       label: t("category"),
       href: "/charm-bar",
       active: false,

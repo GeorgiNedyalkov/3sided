@@ -206,3 +206,14 @@ Plan:
 We add a tag to the charm of the collection id. 
 We have a client component collection selector that updates the url
 Then in the charm bar [category][chain] page we add it to a query for get products
+
+
+Design Desitions:
+
+- All charms in charms selector will be the same size. They will be smaller on the chain
+
+Ideas:
+
+- Featured collection section
+
+
