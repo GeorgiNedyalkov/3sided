@@ -191,7 +191,7 @@ Charmbar review:
 
 1. Selected chain
 
-Now the chain is hardcoded. We need to pass the image of the selected chain to the
+-[x] Now the chain is hardcoded. We need to pass the image of the selected chain to the
 charmbar.
 
 We need to define the settings for each category.
@@ -199,3 +199,10 @@ We need to define the settings for each category.
 Plan:
 - Add all the products for each category
 - Define the settings for charms placements on the chain
+
+
+2. Filter Charms by collection
+
+We add a tag to the charm of the collection id. 
+We have a client component collection selector that updates the url
+Then in the charm bar [category][chain] page we add it to a query for get products
