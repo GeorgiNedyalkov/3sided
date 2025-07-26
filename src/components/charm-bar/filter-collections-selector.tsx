@@ -25,6 +25,10 @@ export default function FilterCollections() {
   const pathname = usePathname();
   const { replace } = useRouter();
 
+  const selectedCollection = searchParams.get("collection") || "all"
+
+  console.log(selectedCollection);
+
   function onSelectCollection(collection: string) {
     const params = new URLSearchParams(searchParams);
 
@@ -36,13 +40,19 @@ export default function FilterCollections() {
 
     replace(`${pathname}?${params}`)
   }
+
   return (
     <div className="flex gap-4">
       <h3>Filter by Collection:</h3>
-      <select onChange={(e) => onSelectCollection(e.target.value)}>
+      <select
+        value={selectedCollection}
+        onChange={(e) => onSelectCollection(e.target.value)}
+      >
         {
-          charmCollections.map((collection) => (
-            <option key={collection.id} value={collection.id}>{collection.title}</option>
+          charmCollections.map((c) => (
+            <option key={c.id} value={c.id}>
+              {c.title}
+            </option>
           ))
         }
       </select>

@@ -10,6 +10,8 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import { useTranslations } from "next-intl";
 
+// TODO: Import collections from placeholder because they are shared with charm bar
+
 type CollectionsProps = {
 	id: string;
 	name: string;
@@ -21,25 +23,25 @@ const collectionsSlide1: CollectionsProps = [
 	{
 		id: "love",
 		name: "Love",
-		link: "/catalogue/",
+		link: "charm-bar/necklace/necklace-2?collection=love",
 		imageSrc: "/collections/love.jpg"
 	},
 	{
 		id: "summer",
 		name: "Summer",
-		link: "/catalogue/",
+		link: "charm-bar/necklace/necklace-2?collection=summer",
 		imageSrc: "/collections/summer.jpg"
 	},
 	{
 		id: "letters_and_numbers",
 		name: "Letters and Numbers",
-		link: "/catalogue/",
+		link: "charm-bar/necklace/necklace-2?collection=letters",
 		imageSrc: "/collections/letters.jpg"
 	},
 	{
 		id: "hobbies",
 		name: "Hobbies and Professions",
-		link: "/catalogue/",
+		link: "charm-bar/necklace/necklace-2?collection=hobies",
 		imageSrc: "/collections/hobbies.jpg"
 	},
 ]
@@ -48,25 +50,25 @@ const collectionsSlide2: CollectionsProps = [
 	{
 		id: "food_and_drinks",
 		name: "Foods and Drinks",
-		link: "/catalogue/",
+		link: "charm-bar/necklace/necklace-2?collection=food",
 		imageSrc: "/collections/food.jpg"
 	},
 	{
 		id: "devine",
 		name: "Divine",
-		link: "/catalogue/",
+		link: "charm-bar/necklace/necklace-2?collection=girls",
 		imageSrc: "/collections/girls.webp"
 	},
 	{
 		id: "flowers",
 		name: "Flowers",
-		link: "/catalogue/",
+		link: "charm-bar/necklace/necklace-2?collection=plants",
 		imageSrc: "/collections/diamond.jpg"
 	},
 	{
 		id: "animals",
 		name: "Animals",
-		link: "/catalogue/",
+		link: "charm-bar/necklace/necklace-2?collection=Animal",
 		imageSrc: "/collections/girls.webp"
 	},
 ]
