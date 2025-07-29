@@ -7,6 +7,9 @@ export default async function CharmPage(props: { params: Promise<{ id: string }>
   const params = await props.params;
   const product = await getProduct(params.id);
 
+  console.log(product);
+
+
   if (!product) return notFound();
 
   return (
