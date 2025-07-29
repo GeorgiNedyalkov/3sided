@@ -11,22 +11,22 @@ export default function Page() {
       {/* Devi Web */}
       <div className="hidden md:block relative w-full h-screen">
         <Image src="/about/devi_web.jpg" alt="Devi Example" className="object-cover" fill />
-        <div className="absolute top-[5%] left-[41%]">
-          <h2 className="text-primary text-6xl">Девина Славилова</h2>
+        <div className="absolute w-full pt-10">
+          <h2 className="text-primary text-6xl text-center">Девина Славилова</h2>
         </div>
-        <div className="absolute text-green-500 top-[25%] left-[46%] lg:text-slate-200 xl:text-red-500 2xl:text-indigo-700 2xl:text-3xl max-w-96">
+        <div className="absolute top-[25%] left-[45%] xl:text-red-500 2xl:text-2xl 2xl:text-indigo-700 max-w-96">
           <p>Зодия - Козирог</p>
           <p>Любим коктейл - Esspresso Martini</p>
           <p>Любима песен - Donell Jones <br /> "You know whats up"</p>
           <p>Любим Чарм - Multicolored Shell</p>
         </div>
-        <div className="absolute top-[36%] left-[56%]">
-          <div className="relative w-56 h-56">
-            <Image src="/about/shell_charm.png" alt="" fill className="object-cover" />
+        <div className="absolute top-[40%] left-[56%]">
+          <div className="relative w-52 h-52">
+            <Image src="/about/cherry_charm.png" alt="" fill className="object-cover" />
           </div>
         </div>
-        <div className="absolute bottom-32 left-[28%]">
-          <p className="max-w-4xl text-4xl mb-10">
+        <div className="absolute bottom-[10%] left-[28%]">
+          <p className="max-w-2xl text-4xl mb-10 2xl:text-2xl">
             Коя съм аз?
             Нестандартен фармацевт, който откри, че създаването на нещо красиво лекува повече от всяко лекарство. След години учене, реших да следвам мечтите си и с две уникални момичета създадохме 3SIDED. Нашата мисия? Да създаваме бижута, които не просто изглеждат добре, а разказват истории и са част от теб!
           </p>
