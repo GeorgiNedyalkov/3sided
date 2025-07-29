@@ -8,63 +8,47 @@ export default function Page() {
         <p>Ние сме трисайдед</p>
       </div>
 
-      {/* Yanina */}
-      <div className="hidden md:block relative w-full h-screen">
-        <Image src="/about/yanina_web.jpg" alt="" fill className="object-cover" />
-        <div className="absolute top-[10%] left-[41%]">
-          <h2 className="text-primary text-4xl">Янина Поптомова</h2>
-        </div>
-        <div className="absolute top-[20%] left-[41%] font-bold text-xl">
-          <p>Here are 4 facts about me</p>
-        </div>
-        <div className="absolute top-[40%] left-[41%]">
-          <p>Here are 4 facts about me</p>
-        </div>
-      </div>
-
-      <div className="block w-full h-screen md:hidden relative">
-        <Image src="/about/yanina_mobile.jpg" alt="Qni Example" className="object-cover" fill />
-        <div className="absolute top-0 left-24 font-bold text-xl">
-          <h2 className="text-primary text-3xl">Янина Поптомова</h2>
-        </div>
-        <div className="absolute bottom-32 left-20">
-          <p>Зодия - Козирог</p>
-          <p>Любим коктейл - Esspresso Martini</p>
-          <p>Любима песен - Donell Jones <br /> "You know whats up"</p>
-          <p>Любим Чарм - Multicolor Shell</p>
-        </div>
-        <div className="absolute bottom-0 left-3 text-[12px]">
-          <p>
-            Модната стилистика е мое голямо хоби, а любовта към детайла и естетиката ме вдъхнови да започна нещо ново и вълнуващо - бранд за бижута, създаден с моята сестра и най-добра приятелка. Вярвам, че няма нищо по-хубаво от това да градиш мечтите си с най-близките до сърцето ти хора.
-          </p>
-        </div>
-      </div>
-
       {/* Devi Web */}
       <div className="hidden md:block relative w-full h-screen">
         <Image src="/about/devi_web.jpg" alt="Devi Example" className="object-cover" fill />
         <div className="absolute top-[5%] left-[41%]">
-          <h2 className="text-primary text-4xl">Девина Славилова</h2>
+          <h2 className="text-primary text-6xl">Девина Славилова</h2>
         </div>
-        <div className="absolute top-[10%] left-[42%] font-bold text-xl">
-          {/* <p>Here are 4 facts about me</p> */}
+        <div className="absolute top-[25%] left-[46%] text-4xl max-w-96">
+          <p>Зодия - Козирог</p>
+          <p>Любим коктейл - Esspresso Martini</p>
+          <p>Любима песен - Donell Jones <br /> "You know whats up"</p>
+          <p>Любим Чарм - Multicolored Shell</p>
         </div>
-        <div className="absolute top-[40%] left-[50%]">
-          <h2>Text</h2>
-          {/* <p>Here are 4 facts about me</p> */}
+        <div className="absolute top-[36%] left-[56%]">
+          <div className="relative w-56 h-56">
+            <Image src="/about/shell_charm.png" alt="" fill className="object-cover" />
+          </div>
+        </div>
+        <div className="absolute bottom-32 left-[28%]">
+          <p className="max-w-4xl text-4xl mb-10">
+            Коя съм аз?
+            Нестандартен фармацевт, който откри, че създаването на нещо красиво лекува повече от всяко лекарство. След години учене, реших да следвам мечтите си и с две уникални момичета създадохме 3SIDED. Нашата мисия? Да създаваме бижута, които не просто изглеждат добре, а разказват истории и са част от теб!
+          </p>
         </div>
       </div>
 
+      {/* Devi Mobile */}
       <div className="block w-full h-screen md:hidden relative">
         <Image src="/about/devi_mobile.jpg" alt="Devi Example" className="object-cover" fill />
         <div className="absolute top-44 left-24 font-bold text-xl">
           <h2 className="text-primary text-3xl">Девина Славилова</h2>
         </div>
-        <div className="absolute top-[30%] left-28">
+        <div className="absolute top-[28%] left-[25%] text-sm">
           <p>Зодия - Козирог</p>
           <p>Любим коктейл - Esspresso Martini</p>
           <p>Любима песен - Donell Jones <br /> "You know whats up"</p>
-          <p>Любим Чарм - Multicolor Shell</p>
+          <p>Любим Чарм - Multicolored Shell</p>
+        </div>
+        <div className="absolute top-[38%] right-[20%]">
+          <div className="relative w-20 h-20">
+            <Image src="/about/shell_charm.png" alt="" fill className="object-cover" />
+          </div>
         </div>
         <div className="absolute top-[49%] left-[22%] text-[12px]">
           <p>
@@ -75,18 +59,73 @@ export default function Page() {
       </div>
 
 
+      {/* Yanina Web */}
+      <div className="hidden lg:block relative w-full h-screen">
+        <Image src="/about/yanina_web.jpg" alt="" fill className="object-cover" />
+
+        <div className="absolute top-[15%] left-[40%]">
+          <h2 className="text-primary text-6xl">Янина Поптомова</h2>
+        </div>
+
+        <div className="absolute top-[40%] left-[41%] text-4xl">
+          <p>Зодия - Козирог</p>
+          <p>Любим коктейл - Esspresso Martini</p>
+          <p>Любима песен - Donell Jones <br /> "You know whats up"</p>
+          <p>Любим Чарм - Multicolored Shell</p>
+        </div>
+        <div className="absolute bottom-10 left-20">
+          <p className="max-w-5xl text-4xl mb-10">
+            Златните бижута са ми слабост, а летищата са ми втори дом. „Fake it till you make it“ е моят дневен девиз. Всеки ден заслужава да блестиш — а аз съм тук, за да ти помогна да създадеш своето уникално бижу.
+          </p>
+          <p className="max-w-5xl text-4xl">
+            Заслужаваш да сияеш всеки ден — и аз съм тук, за да ти помогна да превърнеш това в реалност.
+          </p>
+        </div>
+      </div>
+
+      {/* Yanina Mobile */}
+      <div className="block w-full h-screen lg:hidden relative">
+        <Image src="/about/yanina_mobile.jpg" alt="Qni Example" className="object-cover" fill />
+        <div className="absolute top-0 left-24 font-bold text-xl">
+          <h2 className="text-primary text-3xl">Янина Поптомова</h2>
+        </div>
+        <div className="absolute bottom-32 left-20">
+          <p>Зодия - Козирог</p>
+          <p>Любим коктейл - Esspresso Martini</p>
+          <p>Любима песен - Donell Jones <br /> "You know whats up"</p>
+          <p>Любим Чарм - Multicolored Shell</p>
+        </div>
+
+        <div className="absolute bottom-0 left-3 text-[12px]">
+          <p>
+            Модната стилистика е мое голямо хоби, а любовта към детайла и естетиката ме вдъхнови да започна нещо ново и вълнуващо - бранд за бижута, създаден с моята сестра и най-добра приятелка. Вярвам, че няма нищо по-хубаво от това да градиш мечтите си с най-близките до сърцето ти хора.
+          </p>
+        </div>
+      </div>
+
       {/* Qni */}
       <div className="hidden md:block relative w-full h-screen">
         <Image src="/about/qni_web.jpg" alt="Devi Example" fill className="object-cover" />
-        <div className="absolute top-[5%] left-[41%]">
-          <h2 className="text-primary text-4xl">Янита Славилова</h2>
+        <div className="absolute top-[5%] left-[38%]">
+          <h2 className="text-primary text-6xl">Янита Славилова</h2>
         </div>
-        <div className="absolute top-[10%] left-[42%] font-bold text-xl">
-          <p>Here are 4 facts about me</p>
+        <div className="absolute top-[40%] left-[35%] text-4xl">
+          <p>Зодия - Козирог</p>
+          <p>Любим коктейл - Skinos Sour</p>
+          <p>Любима песен - Lucki "More than ever"</p>
+          <p>Любим Чарм - Silver Card</p>
         </div>
-        <div className="absolute top-[40%] left-[40%]">
-          <h2>Text</h2>
-          {/* <p>Here are 4 facts about me</p> */}
+
+        <div className="absolute top-[48%] left-[52%]">
+          <div className="relative w-48 h-48">
+            <Image src="/about/ace_charm.png" alt="" fill className="object-cover" />
+          </div>
+        </div>
+
+        <div className="absolute bottom-20 left-20">
+          <p className="max-w-5xl text-4xl">
+            Модната стилистика е мое голямо хоби, а любовта към детайла и естетиката ме вдъхнови да започна нещо ново и вълнуващо - бранд за бижута, създаден с моята сестра и най-добра приятелка. Вярвам, че няма нищо по-хубаво от това да градиш мечтите си с най-близките до сърцето ти хора.
+          </p>
         </div>
       </div>
 
@@ -107,6 +146,8 @@ export default function Page() {
           </p>
         </div>
       </div>
+
+
 
     </div>
   )
