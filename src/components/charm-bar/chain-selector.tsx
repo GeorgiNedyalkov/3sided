@@ -5,7 +5,6 @@ import { getProducts } from "@/lib/shopify";
 export default async function ChainSelector({ category }: { category: string }) {
   const chains = await getProducts({ query: `product_type:${category}` });
 
-  // TODO: optimize
   return (
     <nav className="flex gap-4">
       {chains.map((chain) => (

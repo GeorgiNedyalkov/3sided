@@ -14,7 +14,7 @@ export default function Page() {
         <div className="absolute top-[5%] left-[41%]">
           <h2 className="text-primary text-6xl">Девина Славилова</h2>
         </div>
-        <div className="absolute top-[25%] left-[46%] text-4xl max-w-96">
+        <div className="absolute text-green-500 top-[25%] left-[46%] lg:text-slate-200 xl:text-red-500 2xl:text-indigo-700 2xl:text-3xl max-w-96">
           <p>Зодия - Козирог</p>
           <p>Любим коктейл - Esspresso Martini</p>
           <p>Любима песен - Donell Jones <br /> "You know whats up"</p>
@@ -68,9 +68,9 @@ export default function Page() {
         </div>
 
         <div className="absolute top-[40%] left-[41%] text-4xl">
-          <p>Зодия - Козирог</p>
-          <p>Любим коктейл - Esspresso Martini</p>
-          <p>Любима песен - Donell Jones <br /> "You know whats up"</p>
+          <p>Зодия - Лъв</p>
+          <p>Любим коктейл - Pornstar Martini</p>
+          <p>Любима песен - Anna Margaret<br /> "Something about the sunshine"</p>
           <p>Любим Чарм - Multicolored Shell</p>
         </div>
         <div className="absolute bottom-10 left-20">
@@ -146,9 +146,6 @@ export default function Page() {
           </p>
         </div>
       </div>
-
-
-
     </div>
   )
 }
