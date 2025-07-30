@@ -1,7 +1,7 @@
 "use client";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
-import { useState, useEffect, useRef, MutableRefObject } from "react";
+import { useState, useEffect, useRef } from "react";
 
 // TODO: Improve through Grok Suggestions https://grok.com/chat/08522e38-a51e-4747-9250-f4b6c177966d
 // TODO: Make charms have absolute positions relative 
@@ -16,7 +16,7 @@ const charms = [
 ];
 
 export default function FallingCharms() {
-  const ref = useRef<MutableRefObject<HTMLDivElement> | null>(null); // this is the reference of an element that triggers a scroll animation
+  const ref = useRef(null);
   const [isVisible, setIsVisible] = useState(false);
   const [scrollY, setScrollY] = useState(0);
   const [rotation, setRotation] = useState(0);
@@ -30,7 +30,6 @@ export default function FallingCharms() {
       rootMargin: "0px",
       threshold: 0.2,
     });
-
 
     if (!ref.current) return;
 
@@ -92,13 +91,13 @@ export default function FallingCharms() {
             <div className="ml-32">
               {charms.map((charm, idx) => (
                 <div
+                  key={idx}
                   className="transition-all duration-300 ease-linear"
                   style={{
                     transform: `translateY(${translateY}px) translateX(${charm.offsetX}px)`,
                   }}
                 >
                   <Image
-                    key={idx}
                     src={charm.src}
                     width={100}
                     height={100}
