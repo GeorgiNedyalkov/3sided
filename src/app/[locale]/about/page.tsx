@@ -12,13 +12,13 @@ export default function Page() {
       <div className="hidden md:block relative w-full h-screen">
         <Image src="/about/devi_web.jpg" alt="Devi Example" className="object-cover" fill />
         <div className="absolute w-full pt-10">
-          <h2 className="text-primary text-6xl text-center">Девина Славилова</h2>
+          <h2 className="text-primary text-5xl text-center">Девина Славилова</h2>
         </div>
-        <div className="absolute top-[25%] left-[45%] xl:text-red-500 2xl:text-2xl 2xl:text-indigo-700 max-w-96">
+        <div className="absolute top-[25%] left-[45%] xl:text-red-500 2xl:text-2xl 2xl:text-black max-w-96">
           <p>Зодия - Козирог</p>
           <p>Любим коктейл - Esspresso Martini</p>
           <p>Любима песен - Donell Jones <br /> "You know whats up"</p>
-          <p>Любим Чарм - Multicolored Shell</p>
+          <p>Любим Чарм - <span className="text-red-500">Red</span> Cherry</p>
         </div>
         <div className="absolute top-[40%] left-[56%]">
           <div className="relative w-52 h-52">
@@ -26,7 +26,7 @@ export default function Page() {
           </div>
         </div>
         <div className="absolute bottom-[10%] left-[28%]">
-          <p className="max-w-2xl text-4xl mb-10 2xl:text-2xl">
+          <p className="max-w-2xl text-md mb-10 2xl:text-lg">
             Коя съм аз?
             Нестандартен фармацевт, който откри, че създаването на нещо красиво лекува повече от всяко лекарство.
             След години учене, реших да следвам мечтите си и с две уникални момичета създадохме 3SIDED.
@@ -67,22 +67,23 @@ export default function Page() {
       <div className="hidden lg:block relative w-full h-screen">
         <Image src="/about/yanina_web.jpg" alt="" fill className="object-cover" />
 
-        <div className="absolute top-[15%] left-[40%]">
-          <h2 className="text-primary text-6xl">Янина Поптомова</h2>
+        <div className="absolute top-[15%] left-[40%] 2xl:top-[12%] 2xl:left-[39%]">
+          <h2 className="text-primary text-5xl">Янина Поптомова</h2>
         </div>
 
-        <div className="absolute top-[40%] left-[41%] text-4xl">
+        <div className="absolute top-[40%] left-[41%] xl:text-red-500 2xl:text-2xl 2xl:text-black max-w-96">
           <p>Зодия - Лъв</p>
           <p>Любим коктейл - Pornstar Martini</p>
           <p>Любима песен - Anna Margaret<br /> "Something about the sunshine"</p>
           <p>Любим Чарм - Multicolored Shell</p>
         </div>
         <div className="absolute bottom-10 left-20">
-          <p className="max-w-5xl text-4xl mb-10">
+
+          <p className="max-w-2xl text-md mb-10 2xl:text-lg">
             Златните бижута са ми слабост, а летищата са ми втори дом. „Fake it till you make it“ е моят дневен девиз.
             Всеки ден заслужава да блестиш — а аз съм тук, за да ти помогна да създадеш своето уникално бижу.
           </p>
-          <p className="max-w-5xl text-4xl">
+          <p className="max-w-2xl 2xl:text-lg">
             Заслужаваш да сияеш всеки ден — и аз съм тук, за да ти помогна да превърнеш това в реалност.
           </p>
         </div>
@@ -114,23 +115,22 @@ export default function Page() {
       <div className="hidden md:block relative w-full h-screen">
         <Image src="/about/qni_web.jpg" alt="Devi Example" fill className="object-cover" />
         <div className="absolute top-[5%] left-[38%]">
-          <h2 className="text-primary text-6xl">Янита Славилова</h2>
+          <h2 className="text-primary text-5xl">Янита Славилова</h2>
         </div>
-        <div className="absolute top-[40%] left-[35%] text-4xl">
+        <div className="absolute top-[40%] left-[35%] xl:text-red-500 2xl:text-2xl 2xl:text-black max-w-96">
           <p>Зодия - Козирог</p>
           <p>Любим коктейл - Skinos Sour</p>
           <p>Любима песен - Lucki "More than ever"</p>
           <p>Любим Чарм - Silver Card</p>
         </div>
-
-        <div className="absolute top-[48%] left-[52%]">
-          <div className="relative w-48 h-48">
+        <div className="absolute top-[48%] left-[53%]">
+          <div className="relative w-48 h-48 2xl:w-32 2xl:h-32">
             <Image src="/about/ace_charm.png" alt="" fill className="object-cover" />
           </div>
         </div>
 
-        <div className="absolute bottom-20 left-20">
-          <p className="max-w-5xl text-4xl">
+        <div className="absolute bottom-[10%] left-[5%]">
+          <p className="max-w-2xl 2xl:text-lg">
             Модната стилистика е мое голямо хоби, а любовта към детайла и естетиката ме вдъхнови да започна нещо ново и вълнуващо -
             бранд за бижута, създаден с моята сестра и най-добра приятелка.
             Вярвам, че няма нищо по-хубаво от това да градиш мечтите си с най-близките до сърцето ти хора.
