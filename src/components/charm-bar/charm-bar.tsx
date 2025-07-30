@@ -5,15 +5,24 @@ import CharmSelector from "@/components/charm-bar/charms";
 import CharmCanvas from "@/components/charms/charm-canvas";
 import { Product } from "@/lib/shopify/types";
 import { AddAllToCartButton } from "../cart/add-to-cart";
+import { categoryPositionSettings } from "@/lib/placeholder-data";
 
 export default function CharmBar({ charms, chain }: { charms: Product[], chain: Product }) {
-  const numberOfCharms = 5;
+  let numberOfCharms = 5;
+
+  // if (chain.handle === "lipgloss-chain") {
+  //   numberOfCharms = 3
+  // }
+
+  console.log(chain);
 
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [selectedCharmPosition, setSelectedCharmPosition] = useState<number>(0);
 
+  const selectedChain = categoryPositionSettings.find((categoryChain) => categoryChain.handle === chain.handle);
+
   const [selectedCharms, setSelectedCharms] = useState<Product[]>(
-    new Array(numberOfCharms).fill(null)
+    new Array(selectedChain?.settings.length).fill(null)
   );
 
   function handleCharmSelect(charm: Product, position: number) {
@@ -39,10 +48,8 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
           selectedCharmPosition={selectedCharmPosition}
           onSelectPosition={setSelectedCharmPosition}
         />
-
         <div className="mb-10">Total Price: {totalPrice}</div>
         <p className="text-lg">Choose a minimum of 3 charms</p>
-
         {
           // NOTE: Testing improve null charms are also included this is why this does not work
           selectedCharms.length > 3 && (

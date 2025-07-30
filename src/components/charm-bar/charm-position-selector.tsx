@@ -21,8 +21,15 @@ export default function CharmPositionSelector({
   }[];
 }) {
 
+  const isSmall = (charm: Product) => charm.tags.includes("small");
   const isMedium = (charm: Product) => charm.tags.includes("medium");
   const isLarge = (charm: Product) => charm.tags.includes("large");
+
+  const getOffset = (charm: Product) => {
+    if (isLarge(charm)) return 12;
+    if (isMedium(charm)) return 10;
+    return 8;
+  };
 
   return (
     <div>
@@ -30,22 +37,22 @@ export default function CharmPositionSelector({
         selectedCharm ? (
           <div
             key={index}
-            className={clsx("absolute h-16 w-16",
+            className={clsx("ring-black rounded-full absolute cursor-pointer hover:ring-slate-600",
+              selectedCharmPosition === index ? "ring-1 ring-black" : "", // add ring-1 to if not selected for testing
               {
+                "h-16 w-16": isSmall(selectedCharm),
                 "h-20 w-20": isMedium(selectedCharm),
                 "h-24 w-24": isLarge(selectedCharm),
               })}
             style={{
-              top: `${positionSettings[index]?.top}`,
-              right: `${positionSettings[index]?.right}`,
-              left: `${positionSettings[index]?.left}`,
+              top: `calc(${positionSettings[index]?.top} - ${getOffset(selectedCharm)}px)`,
+              right: positionSettings[index].right ? `calc(${positionSettings[index]?.right} - ${getOffset(selectedCharm)}px)` : undefined,
+              left: positionSettings[index].left ? `calc(${positionSettings[index]?.left} - ${getOffset(selectedCharm)}px)` : undefined,
               rotate: `${positionSettings[index]?.rotation}`,
             }}
           >
             <Image
-              className={clsx("absolute rounded-full",
-                selectedCharmPosition === index ? "ring-black" : "ring-stone-200"
-              )}
+              className="rounded-full"
               onClick={() => onSelectPosition(index)}
               src={selectedCharm.featuredImage.url}
               alt={selectedCharm.handle}
@@ -57,7 +64,7 @@ export default function CharmPositionSelector({
             <button
               onClick={() => onSelectPosition(index)}
               className={clsx(
-                "absolute h-8 w-8 rounded-full ring-1 md:h-16 md:w-16",
+                "absolute h-8 w-8 rounded-full ring-1",
                 selectedCharmPosition === index ? "ring-black" : "ring-stone-200"
               )}
               style={{
@@ -66,10 +73,13 @@ export default function CharmPositionSelector({
                 left: `${positionSettings[index]?.left}`,
                 rotate: `${positionSettings[index]?.rotation}`,
               }}
-            />
+            >
+              {index}
+            </button>
           </div>
         )
-      )}
-    </div>
+      )
+      }
+    </div >
   );
 }

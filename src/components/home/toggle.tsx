@@ -6,8 +6,8 @@ import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-export function Toggle() {
-  const [isGold, setIsGold] = useState(true);
+export function Toggle({ initialState }: { initialState: boolean }) {
+  const [isGold, setIsGold] = useState<boolean>(initialState);
   const searchParams = useSearchParams();
   const pathname = usePathname();
   const { replace } = useRouter();
@@ -40,10 +40,9 @@ export function Toggle() {
         )}
       >
         <div
-          className={clsx("m-2 h-4 w-4 rounded-full bg-black transition-all duration-300", {
-            "translate-x-6 bg-slate-700": !isGold,
-            "bg-yellow-700": isGold,
-          })}
+          className={clsx("m-2 h-4 w-4 rounded-full bg-black transition-all duration-300",
+            isGold ? "bg-yellow-700" : "translate-x-6 bg-slate-700"
+          )}
         />
       </button>
       <span

@@ -1,10 +1,8 @@
 import { getTranslations } from "next-intl/server";
-import { getProducts, getCollections, getCollectionProducts } from "@/lib/shopify";
+import { getProduct, getProducts } from "@/lib/shopify";
 import CharmBar from "@/components/charm-bar/charm-bar";
-import Breadcrumbs from "@/components/breadcrumbs";
-import FilterItemDropdown from "@/components/layout/catalogue/filter/dropdown";
-import { getProduct } from "@/lib/shopify";
 import { Toggle } from "@/components/home/toggle";
+import Breadcrumbs from "@/components/breadcrumbs";
 import FilterCollections from "@/components/charm-bar/filter-collections-selector";
 
 type Props = {
@@ -15,14 +13,23 @@ type Props = {
 export default async function CharmsSelectPage({ params, searchParams }: Props) {
   const { category, chain } = await params;
   const { material, collection } = await searchParams;
-
-  console.log(collection);
-
-  const query = `product_type:charm tag:${material ? material : "gold"} ${collection ? `AND tag:${collection}` : ""} `
-
   const t = await getTranslations("Charmbar")
 
   const selectedChain = await getProduct(chain);
+
+  let selectedMaterial;
+  if (material) {
+    selectedMaterial = material;
+  } else {
+    if (selectedChain?.tags.includes("gold")) {
+      selectedMaterial = "gold";
+    } else if (selectedChain?.tags.includes("silver")) {
+      selectedMaterial = "silver";
+    }
+  }
+
+  const query = `product_type:charm tag:${selectedMaterial} ${collection ? `AND tag:${collection}` : ""} `
+
   const filteredCharms = await getProducts({ query: query });
 
   const breadcrumbs = [
@@ -30,8 +37,7 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
     { label: t("chain"), href: `/charm-bar/${category}`, active: false },
     { label: t("charmTitle"), href: "#", active: true },];
 
-  console.log(filteredCharms);
-
+  // console.log(filteredCharms);
   return (
     <>
       <div className="flex flex-col justify-between">
@@ -41,7 +47,7 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
         </div>
         <div className="flex flex-col items-center justify-end gap-10 lg:flex-row">
           <FilterCollections />
-          <Toggle />
+          <Toggle initialState={selectedMaterial === "gold"} />
         </div>
       </div>
       <CharmBar charms={filteredCharms} chain={selectedChain!} />

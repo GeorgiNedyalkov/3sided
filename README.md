@@ -199,8 +199,7 @@ We need to define the settings for each category.
 Plan:
 - Add all the products for each category
 - Define the settings for charms placements on the chain
-
-Add size and material variants.
+- Add size and material variants.
 
 2. Filter Charms by collection
 
