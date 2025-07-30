@@ -23,25 +23,25 @@ const collectionsSlide1: CollectionsProps = [
 	{
 		id: "love",
 		name: "Love",
-		link: "charm-bar/necklace/necklace-2?collection=love",
+		link: "/catalogue/love",
 		imageSrc: "/collections/love.jpg"
 	},
 	{
 		id: "summer",
 		name: "Summer",
-		link: "charm-bar/necklace/necklace-2?collection=summer",
+		link: "/catalogue/summer",
 		imageSrc: "/collections/summer.jpg"
 	},
 	{
 		id: "letters_and_numbers",
 		name: "Letters and Numbers",
-		link: "charm-bar/necklace/necklace-2?collection=letters",
+		link: "/catalogue/letters",
 		imageSrc: "/collections/letters.jpg"
 	},
 	{
 		id: "hobbies",
 		name: "Hobbies and Professions",
-		link: "charm-bar/necklace/necklace-2?collection=hobies",
+		link: "/catalogue/hobies",
 		imageSrc: "/collections/hobbies.jpg"
 	},
 ]
@@ -50,25 +50,25 @@ const collectionsSlide2: CollectionsProps = [
 	{
 		id: "food_and_drinks",
 		name: "Foods and Drinks",
-		link: "charm-bar/necklace/necklace-2?collection=food",
+		link: "/catalogue/food",
 		imageSrc: "/collections/food.jpg"
 	},
 	{
 		id: "devine",
 		name: "Divine",
-		link: "charm-bar/necklace/necklace-2?collection=girls",
+		link: "/catalogue/girls",
 		imageSrc: "/collections/girls.webp"
 	},
 	{
 		id: "flowers",
 		name: "Flowers",
-		link: "charm-bar/necklace/necklace-2?collection=plants",
+		link: "/catalogue/plants",
 		imageSrc: "/collections/diamond.jpg"
 	},
 	{
 		id: "animals",
 		name: "Animals",
-		link: "charm-bar/necklace/necklace-2?collection=Animal",
+		link: "/catalogue/Animal",
 		imageSrc: "/collections/girls.webp"
 	},
 ]

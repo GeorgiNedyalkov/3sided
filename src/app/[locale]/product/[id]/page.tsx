@@ -9,6 +9,7 @@ export default async function CharmPage(props: { params: Promise<{ id: string }>
 
   console.log(product);
 
+  console.log(product);
 
   if (!product) return notFound();
 

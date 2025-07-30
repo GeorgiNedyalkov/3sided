@@ -8,7 +8,7 @@ export default function ProductGridItems({ products }: { products: Product[] }) 
     <>
       {products.map((product) => (
         <Grid.Item key={product.handle}>
-          <Link href={`product/${product.handle}`} className="relative h-full w-full">
+          <Link href={`/product/${product.handle}`} className="relative h-full w-full">
             {/* TODO: Extract this to grid tile image */}
             <div className="relative h-full w-full border border-black">
               <Image
