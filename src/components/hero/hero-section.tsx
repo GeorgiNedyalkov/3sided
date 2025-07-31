@@ -15,7 +15,7 @@ export default function HeroSection() {
         muted
         playsInline
       >
-        <source src="/videos/hero_horizontal.mp4" type="video/mp4" />
+        <source src="/videos/hero_web.mp4" type="video/mp4" />
       </video>
       <video
         className="block md:hidden absolute left-0 top-0 h-full w-full object-cover"
@@ -24,7 +24,7 @@ export default function HeroSection() {
         muted
         playsInline
       >
-        <source src="/videos/hero_vertical.mp4" type="video/mp4" />
+        <source src="/videos/hero_mobile.mp4" type="video/mp4" />
       </video>
 
 
