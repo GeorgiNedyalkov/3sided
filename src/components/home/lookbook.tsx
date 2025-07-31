@@ -27,22 +27,22 @@ export default function LookBookSection() {
         <div className="relative h-72 w-full border lg:h-[40vh]">
           <GridImage
             isGold={isGold}
-            goldImage="/home/lookbook/gold/1.jpg"
-            silverImage="/home/lookbook/silver/1.jpg"
+            goldImage="/lookbook/gold/1.jpg"
+            silverImage="/lookbook/silver/1.jpg"
           />
         </div>
         <div className="relative h-72 w-full border lg:h-[40vh]">
           <GridImage
             isGold={isGold}
-            goldImage="/home/lookbook/gold/2.jpg"
-            silverImage="/home/lookbook/silver/2.jpg"
+            goldImage="/lookbook/gold/2.jpg"
+            silverImage="/lookbook/silver/2.jpg"
           />
         </div>
         <div className="relative h-72 w-full border lg:h-[40vh]">
           <GridImage
             isGold={isGold}
-            goldImage="/home/lookbook/gold/3.jpg"
-            silverImage="/home/lookbook/silver/3.jpg"
+            goldImage="/lookbook/gold/3.jpg"
+            silverImage="/lookbook/silver/3.jpg"
           />
         </div>
       </div>
@@ -56,15 +56,15 @@ export default function LookBookSection() {
         <div className="relative h-72 w-full md:h-[40vh]">
           <GridImage
             isGold={isGold}
-            goldImage="/home/lookbook/gold/4.jpg"
-            silverImage="/home/lookbook/silver/4.jpg"
+            goldImage="/lookbook/gold/4.jpg"
+            silverImage="/lookbook/silver/4.jpg"
           />
         </div>
         <div className="relative w-full md:hidden lg:block">
           <GridImage
             isGold={isGold}
-            goldImage="/home/lookbook/gold/5.jpg"
-            silverImage="/home/lookbook/silver/5.jpg"
+            goldImage="/lookbook/gold/5.jpg"
+            silverImage="/lookbook/silver/5.jpg"
           />
         </div>
       </div>
