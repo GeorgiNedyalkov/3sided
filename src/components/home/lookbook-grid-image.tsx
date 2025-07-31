@@ -13,5 +13,5 @@ export default function GridImage({
 }) {
   const imageSrc = isGold ? goldImage : silverImage;
 
-  return <Image src={imageSrc} alt="" className={`h-full w-full object-cover ${className}`} fill />;
+  return <Image src={imageSrc} alt={`An image of a charm`} className={`h-full w-full object-cover ${className}`} fill />;
 }
