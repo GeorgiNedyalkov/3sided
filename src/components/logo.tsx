@@ -8,10 +8,9 @@ function LogoMain({ className }: { className: string }) {
         id="Layer_1"
         data-name="Layer 1"
         viewBox="0 0 633.85 211.28"
-        className="h-[700px] w-[700px]"
+        className="w-96 h-96 md:h-[700px] md:w-[700px]"
       >
         <defs>
-          {/* <style>{".cls-1{fill:#ffffff}"}</style> */}
           <style>{".cls-1{fill:#490202}"}</style>
         </defs>
         <path
