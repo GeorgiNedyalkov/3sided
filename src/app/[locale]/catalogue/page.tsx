@@ -10,13 +10,11 @@ export default async function CataloguePage(props: {
   const { sort, q: searchValue } = searchParams as { [key: string]: string };
   const { sortKey, reverse } = sorting.find((item) => item.slug === sort) || defaultSort;
 
-  // console.log({ searchValue, searchParams });
-
   const products = await getProducts({ sortKey, reverse, query: searchValue });
 
   return (
     <>
-      <Grid className="grid-cols-1 md:grid-cols-3 lg:grid-cols-4">
+      <Grid className="grid-cols-3 md:grid-cols-3 lg:grid-cols-4">
         <ProductGridItems products={products} />
       </Grid>
     </>

@@ -23,7 +23,7 @@ export default function LookBookSection() {
           </p>
         </div>
       </div>
-      <div className="flex gap-20 mb-20">
+      <div className="flex flex-col md:flex-row gap-20 mb-20">
         <div className="relative h-72 w-full border lg:h-[40vh]">
           <GridImage
             isGold={isGold}

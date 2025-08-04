@@ -8,10 +8,10 @@ export default function Categories() {
 
 	return (
 		<div className="bg-white text-primary mt-20 mb-40">
-			<h2 className="pl-4 pt-10 text-6xl uppercase lg:pl-10 lg:pt-10 lg:pb-20">
+			<h2 className="pl-4 pt-4 font-bold text-4xl md:text-6xl uppercase lg:pl-10 lg:pt-10 lg:pb-20">
 				{t("heading")}
 			</h2>
-			<div className="flex flex-col items-center justify-between md:flex-row">
+			<div className="flex flex-col p-4 items-center justify-between md:flex-row md:p-0">
 				{categoriesComponents.slice(0, 5).map((category) => (
 					<CategoryCard
 						key={category.title}
@@ -30,7 +30,7 @@ function CategoryCard({ src, title, link }: { src: string; title: string; link: 
 
 	return (
 		<Link href={link} className="w-full">
-			<h3 className="relative text-2xl underline md:pb-10 md:pl-10">
+			<h3 className="relative text-2xl pb-4 underline md:pb-10 md:pl-10">
 				{t(title)}
 			</h3>
 			<div className="relative h-[60vh] w-full overflow-hidden">

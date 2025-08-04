@@ -68,18 +68,19 @@ export default function FallingCharms() {
 
   return (
     <section ref={ref} className="bg-primary">
-      <div className="lg:pl-20 text-white flex flex-col gap-4 lg:flex-row lg:justify-between">
-        <div className="flex flex-col gap-4">
-          <h3 className="pb-4 pt-20 text-5xl">{t("heading")}</h3>
-          <p className="text-xl max-w-2xl mb-4">
+      <div className="flex flex-col gap-4 lg:flex-row lg:justify-between lg:pl-20">
+        <div className="p-4 pt-10 text-white lg:p-10">
+          <h3 className="pb-4 text-3xl md:text-5xl">{t("heading")}</h3>
+          <p className="text-base max-w-2xl mb-4">
             {t("p1")}
           </p>
-          <div className="relative h-[50vh] w-full lg:w-[50vw] lg:h-[70vh] ">
+          <div className="relative mr-10 h-[50vh] w-full lg:w-[50vw] lg:h-[70vh] ">
             <Image
               className="object-cover"
               src="/falling/chess.jpg"
               alt="This is a cup"
               fill
+              sizes="(min-width: 1024px) 50vw, 100vw"
             />
           </div>
         </div>

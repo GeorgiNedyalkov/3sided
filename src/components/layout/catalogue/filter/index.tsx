@@ -1,4 +1,5 @@
 import FilterItem from "@/components/layout/catalogue/filter/item";
+import FilterItemDropdown from "./dropdown";
 import { SortFilterItem } from "@/lib/constants";
 
 export type ListItem = SortFilterItem | PathFilterItem;
@@ -17,10 +18,10 @@ export function FilterItemList({ list }: { list: ListItem[] }) {
 export function FilterList({ list, title }: { list: ListItem[]; title: string }) {
   return (
     <>
-      <nav>
+      <nav className="flex items-center">
         <h3 className="pb-2 font-bold">{title}</h3>
         <ul>
-          <FilterItemList list={list} />
+          <FilterItemDropdown list={list} />
         </ul>
       </nav>
     </>

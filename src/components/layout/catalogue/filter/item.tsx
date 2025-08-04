@@ -8,18 +8,30 @@ import { createUrl } from "@/lib/utils";
 import clsx from "clsx";
 
 function PathFilterItem({ item }: { item: PathFilterItem }) {
-  const pathname = usePathname(); // returns current path as string "/catalogue", "/catalogue/charms"
-  const searchParams = useSearchParams(); // provides functions to read the search params and extract their values
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
+  const active = pathname === item.path;
   const newParams = new URLSearchParams(searchParams.toString());
+  const DynamicTag = active ? 'p' : Link;
 
-  // console.log({ item, pathname })
+  newParams.delete('q');
+
+  console.log({ item });
 
   return (
-    <>
-      <li key={item.title}>
-        <Link href={createUrl(item.path, newParams)}>{item.title}</Link>
-      </li>
-    </>
+    <li className="mt-2 flex text-black" key={item.title}>
+      <DynamicTag
+        href={createUrl(item.path, newParams)}
+        className={clsx(
+          'w-full text-sm underline-offset-4 hover:underline',
+          {
+            'underline underline-offset-4': active
+          }
+        )}
+      >
+        {item.title}
+      </DynamicTag>
+    </li>
   );
 }
 
