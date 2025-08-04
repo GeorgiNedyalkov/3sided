@@ -3,16 +3,19 @@
 import clsx from "clsx";
 import Image from "next/image";
 import { Product } from "@/lib/shopify/types";
+import { XMarkIcon } from "@heroicons/react/24/solid";
 
 export default function CharmPositionSelector({
   selectedCharms,
   selectedCharmPosition,
   onSelectPosition,
+  onRemoveCharm,
   positionSettings,
 }: {
-  selectedCharms: Product[];
+  selectedCharms: (Product | null)[];
   selectedCharmPosition: number;
   onSelectPosition(index: number): void;
+  onRemoveCharm(index: number): void;
   positionSettings: {
     top: string;
     right?: string;
@@ -20,7 +23,6 @@ export default function CharmPositionSelector({
     rotation?: string;
   }[];
 }) {
-
   const isSmall = (charm: Product) => charm.tags.includes("small");
   const isMedium = (charm: Product) => charm.tags.includes("medium");
   const isLarge = (charm: Product) => charm.tags.includes("large");
@@ -31,38 +33,60 @@ export default function CharmPositionSelector({
     return 8;
   };
 
+  function handleSelectCharm(index: number) {
+    if (selectedCharmPosition === index) {
+      onSelectPosition(-1);
+    } else {
+      onSelectPosition(index);
+    }
+  }
+
+
   return (
     <div>
       {selectedCharms.map((selectedCharm, index) =>
         selectedCharm ? (
-          <div
-            key={index}
-            className={clsx("ring-black rounded-full absolute cursor-pointer hover:ring-slate-600",
-              selectedCharmPosition === index ? "ring-1 ring-black" : "", // add ring-1 to if not selected for testing
+          // NOTE: Charm is selected
+          <div>
+            <div
+              key={index}
+              className={clsx("ring-black rounded-full absolute cursor-pointer hover:ring-slate-600",
+                selectedCharmPosition === index ? "ring-1 ring-black" : "",
+                {
+                  "h-16 w-16": isSmall(selectedCharm),
+                  "h-20 w-20": isMedium(selectedCharm),
+                  "h-24 w-24": isLarge(selectedCharm),
+                })}
+              style={{
+                top: `calc(${positionSettings[index]?.top} - ${getOffset(selectedCharm)}px)`,
+                right: positionSettings[index].right ? `calc(${positionSettings[index]?.right} - ${getOffset(selectedCharm)}px)` : undefined,
+                left: positionSettings[index].left ? `calc(${positionSettings[index]?.left} - ${getOffset(selectedCharm)}px)` : undefined,
+              }}
+            >
               {
-                "h-16 w-16": isSmall(selectedCharm),
-                "h-20 w-20": isMedium(selectedCharm),
-                "h-24 w-24": isLarge(selectedCharm),
-              })}
-            style={{
-              top: `calc(${positionSettings[index]?.top} - ${getOffset(selectedCharm)}px)`,
-              right: positionSettings[index].right ? `calc(${positionSettings[index]?.right} - ${getOffset(selectedCharm)}px)` : undefined,
-              left: positionSettings[index].left ? `calc(${positionSettings[index]?.left} - ${getOffset(selectedCharm)}px)` : undefined,
-              rotate: `${positionSettings[index]?.rotation}`,
-            }}
-          >
-            <Image
-              className="rounded-full"
-              onClick={() => onSelectPosition(index)}
-              src={selectedCharm.featuredImage.url}
-              alt={selectedCharm.handle}
-              fill
-            />
+                selectedCharmPosition === index && (
+                  <XMarkIcon
+                    onClick={() => onRemoveCharm(index)}
+                    className="h-6 w-6 absolute -top-5 right-0 text-red-500" />
+                )
+              }
+              <Image
+                className="rounded-full"
+                style={{
+                  rotate: `${positionSettings[index]?.rotation}`,
+                }}
+                onClick={() => handleSelectCharm(index)}
+                src={selectedCharm.featuredImage.url}
+                alt={selectedCharm.handle}
+                fill
+              />
+            </div>
           </div>
         ) : (
+          // NOTE: No charm is selected
           <div key={index}>
             <button
-              onClick={() => onSelectPosition(index)}
+              onClick={() => handleSelectCharm(index)}
               className={clsx(
                 "absolute h-8 w-8 rounded-full ring-1",
                 selectedCharmPosition === index ? "ring-black" : "ring-stone-200"

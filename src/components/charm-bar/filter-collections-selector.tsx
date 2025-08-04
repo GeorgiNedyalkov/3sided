@@ -27,8 +27,6 @@ export default function FilterCollections() {
 
   const selectedCollection = searchParams.get("collection") || "all"
 
-  console.log(selectedCollection);
-
   function onSelectCollection(collection: string) {
     const params = new URLSearchParams(searchParams);
 

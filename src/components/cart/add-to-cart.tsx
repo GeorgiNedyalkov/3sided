@@ -38,14 +38,14 @@ export default function AddToCartButton({ charm }: { charm: Product }) {
 }
 
 
-export function AddAllToCartButton({ items }: { items: Product[] }) {
+export function AddAllToCartButton({ items }: { items: (Product | null)[] }) {
   const { addCartItem, cart } = useCart();
   const [message, formAction] = useActionState(addItem, null);
 
   // Function to handle adding multiple items
   const handleAddItems = async () => {
     for (const item of items) {
-
+      // TODO: fix this
       if (!item) {
         // remove all null items
         continue
@@ -63,7 +63,6 @@ export function AddAllToCartButton({ items }: { items: Product[] }) {
     }
   };
 
-  // console.log(cart);
   return (
     <form
       action={async () => {

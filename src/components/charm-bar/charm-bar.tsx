@@ -14,7 +14,7 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
 
   const selectedChain = categoryPositionSettings.find((categoryChain) => categoryChain.handle === chain.handle) || categoryPositionSettings[0];
 
-  const [selectedCharms, setSelectedCharms] = useState<Product[]>(
+  const [selectedCharms, setSelectedCharms] = useState<(Product | null)[]>(
     new Array(selectedChain?.settings.length).fill(null)
   );
 
@@ -23,6 +23,16 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
     const newSelectedCharms = [...selectedCharms];
     newSelectedCharms[position] = charm;
     setSelectedCharms(newSelectedCharms);
+  }
+
+  function handleCharmRemove(position: number) {
+    const newSelectedCharms = [...selectedCharms];
+    newSelectedCharms[position] = null;
+    setSelectedCharms(newSelectedCharms);
+
+    if (selectedCharmPosition === position) {
+      setSelectedCharmPosition(-1);
+    }
   }
 
   useEffect(() => {
@@ -41,6 +51,7 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
           selectedCharms={selectedCharms}
           selectedCharmPosition={selectedCharmPosition}
           onSelectPosition={setSelectedCharmPosition}
+          onRemoveCharm={handleCharmRemove}
         />
         <div className="mb-10">
           Total Price:
@@ -50,7 +61,7 @@ export default function CharmBar({ charms, chain }: { charms: Product[], chain: 
         <p className="text-lg">Choose a minimum of 3 charms</p>
         {
           selectedMoreThanThreeCharms(selectedCharms) && (
-            <AddAllToCartButton items={[...selectedCharms, chain]} />
+            <AddAllToCartButton items={[...selectedCharms.filter(Boolean), chain]} />
           )
         }
       </div>

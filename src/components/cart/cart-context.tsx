@@ -133,12 +133,9 @@ function createEmptyCart(): Cart {
 
 function cartReducer(state: Cart | undefined, action: CartAction): Cart {
   const currentCart = state || createEmptyCart();
-  // console.log({ currentCart });
 
   switch (action.type) {
     case "ADD_ITEM": {
-
-      console.log("adding item to the cart");
       const { variant, product } = action.payload;
       // TODO: see if item exists and update it
 
@@ -154,42 +151,6 @@ function cartReducer(state: Cart | undefined, action: CartAction): Cart {
   }
 }
 
-//   case "ADD_ITEM": {
-//     const { variant, product } = action.payload;
-//     const existingItem = currentCart.lines.find((item) => item.merchandise.id === variant.id);
-//     const updatedItem = createOrUpdateCartItem(existingItem, variant, product);
-//
-//     const updatedLines = existingItem
-//       ? currentCart.lines.map((item) => (item.merchandise.id === variant.id ? updatedItem : item))
-//       : [...currentCart.lines, updatedItem];
-//
-//     return { ...currentCart, ...updateCartTotals(updatedLines), lines: updatedLines };
-//   }
-//   default:
-//     return currentCart;
-// }
-// case "UPDATE_ITEM": {
-//   const { merchandiseId, updateType } = action.payload;
-//   const updatedLines = currentCart.lines
-//     .map((item) =>
-//       item.merchandise.id === merchandiseId ? updateCartItem(item, updateType) : item
-//     )
-//     .filter(Boolean) as CartItem[];
-//
-//   if (updatedLines.length === 0) {
-//     return {
-//       ...currentCart,
-//       lines: [],
-//       totalQuantity: 0,
-//       cost: {
-//         ...currentCart.cost,
-//         totalAmount: { ...currentCart.cost.totalAmount, amount: "0" },
-//       },
-//     };
-//   }
-//
-//   return { ...currentCart, ...updateCartTotals(updatedLines), lines: updatedLines };
-// }
 
 export function CartProvider({ children, cartFromCookies }: {
   children: React.ReactNode, cartFromCookies: Cart
@@ -207,37 +168,6 @@ export function CartProvider({ children, cartFromCookies }: {
 
   return <CartContext.Provider value={value}>{children}</CartContext.Provider>
 }
-
-// export function CartProvider({
-//   children,
-//   cartPromise,
-// }: {
-//   children: React.ReactNode;
-//   cartPromise: Promise<Cart | undefined>;
-// }) {
-//   const initialCart = use(cartPromise);
-//   const [optimisticCart, updateOptimisticCart] = useOptimistic(initialCart, cartReducer);
-//
-//   const updateCartItem = (merchandiseId: string, updateType: UpdateType) => {
-//     updateOptimisticCart({ type: "UPDATE_ITEM", payload: { merchandiseId, updateType } });
-//   };
-//
-//   const addCartItem = (variant: ProductVariant, product: Product) => {
-//     updateOptimisticCart({ type: "ADD_ITEM", payload: { variant, product } });
-//   };
-//
-//   const value = useMemo(
-//     () => ({
-//       cart: optimisticCart,
-//       updateCartItem,
-//       addCartItem,
-//     }),
-//     // eslint-disable-next-line react-hooks/exhaustive-deps
-//     [optimisticCart]
-//   );
-//
-//   return <CartContext.Provider value={value}>{children}</CartContext.Provider>;
-// }
 
 export function useCart() {
   const context = useContext(CartContext);

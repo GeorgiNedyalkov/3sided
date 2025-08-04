@@ -10,11 +10,13 @@ export default function CharmCanvas({
   selectedCharms,
   selectedCharmPosition,
   onSelectPosition,
+  onRemoveCharm,
   chain,
 }: {
-  selectedCharms: Product[];
+  selectedCharms: (Product | null)[];
   selectedCharmPosition: number;
   onSelectPosition(index: number): void;
+  onRemoveCharm(index: number): void;
   chain: Product;
 }) {
 
@@ -36,6 +38,7 @@ export default function CharmCanvas({
         selectedCharms={selectedCharms}
         selectedCharmPosition={selectedCharmPosition}
         onSelectPosition={onSelectPosition}
+        onRemoveCharm={onRemoveCharm}
       />
     </div>
   );

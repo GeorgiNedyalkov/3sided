@@ -12,15 +12,13 @@ export function convertToEur(priceInBgn: number) {
   return (priceInBgn / 1.95583).toFixed(2);
 }
 
-export function selectedMoreThanThreeCharms(selectedCharms: Product[]): boolean {
+export function selectedMoreThanThreeCharms(selectedCharms: (Product | null)[]): boolean {
   let count = 0;
   for (let i = 0; i < selectedCharms.length; i++) {
     if (selectedCharms[i] != null) {
       count++;
     }
   }
-
-  console.log({ count })
 
   return count >= 3;
 }
