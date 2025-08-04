@@ -20,11 +20,31 @@ export default async function CategorySelectPage({ params }: { params: Promise<{
     },
   ];
 
+  const sizes = [
+    "S-22sm", "M-40sm", "L-50sm"
+  ]
+
   return (
     <>
       <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <p className="p-2 text-sm">{t("chainSizeStep")}</p>
-      <ChainSelector category={category} />
+      <div className="flex gap-10">
+        <div>
+          <p className="p-2 text-sm">{t("chainSizeStep")}</p>
+          <ChainSelector category={category} />
+        </div>
+        <div>
+          <p className="text-sm pb-4">
+            Избери размер
+          </p>
+          <div className="flex gap-4">
+            {
+              sizes.map((size) => (
+                <button className="w-32 h-10 cursor-pointer border">{size}</button>
+              ))
+            }
+          </div>
+        </div>
+      </div>
     </>
   );
 }

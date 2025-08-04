@@ -1,5 +1,27 @@
 export const categoryPositionSettings = [
   {
+    handle: "medium-silver-chain",
+    settings: [
+      { top: "32%", right: "10%", rotation: "-105deg" },
+      { top: "52%", right: "5%", rotation: "-95deg" },
+      { top: "72%", right: "20%", rotation: "-20deg" },
+      { top: "75%", left: "48%", rotation: "" },
+      { top: "72%", left: "20%", rotation: "20deg" },
+      { top: "52%", left: "5%", rotation: "95deg" },
+      { top: "32%", left: "10%", rotation: "105deg" },
+    ]
+  },
+  {
+    handle: "medium-gold-chain",
+    settings: [
+      { top: "80%", left: "45%", rotation: "0deg" },
+      { top: "65%", right: "15%", rotation: "-45deg" },
+      { top: "65%", left: "15%", rotation: "45deg" },
+      { top: "40%", right: "0%", rotation: "-45deg" },
+      { top: "40%", left: "0%", rotation: "45deg" },
+    ]
+  },
+  {
     handle: "lipgloss-chain",
     settings: [
       { top: "39%", right: "35%", rotation: "-45deg" },
@@ -22,59 +44,98 @@ export const categoryPositionSettings = [
     ]
   },
   {
+    handle: "silver-bracelet",
+    settings: [
+      { top: "70%", right: "35%", rotation: "-45deg" },
+      { top: "43%", left: "38%", rotation: "45deg" },
+      { top: "49%", right: "35%", rotation: "-45deg" },
+      { top: "54%", left: "38%", rotation: "45deg" },
+      { top: "58%", right: "35%", rotation: "-45deg" },
+      { top: "64%", left: "38%", rotation: "45deg" },
+    ]
+  },
+  {
+    handle: "medium-silver-bracelet",
+    settings: [
+      { top: "32%", right: "12%", rotation: "-105deg" },
+      { top: "50%", right: "8%", rotation: "-95deg" },
+      { top: "68%", right: "22%", rotation: "-20deg" },
+      { top: "73%", left: "45%", rotation: "" },
+      { top: "69%", left: "22%", rotation: "20deg" },
+      { top: "52%", left: "9%", rotation: "95deg" },
+      { top: "30%", left: "15%", rotation: "105deg" },
+    ]
+  },
+  {
+    handle: "gold-bracelet",
+    settings: [
+      { top: "32%", right: "12%", rotation: "-105deg" },
+      { top: "50%", right: "8%", rotation: "-95deg" },
+      { top: "68%", right: "22%", rotation: "-20deg" },
+      { top: "73%", left: "45%", rotation: "" },
+      { top: "69%", left: "22%", rotation: "20deg" },
+      { top: "52%", left: "9%", rotation: "95deg" },
+      { top: "30%", left: "15%", rotation: "105deg" },
+    ]
+  },
+  {
+    handle: "thin-silver-necklace",
+    settings: [
+      { top: "55%", left: "45%", rotation: "0deg" },
+      { top: "50%", right: "25%", rotation: "-45deg" },
+      { top: "50%", left: "25%", rotation: "45deg" },
+      { top: "40%", right: "10%", rotation: "-45deg" },
+      { top: "40%", left: "10%", rotation: "45deg" },
+    ]
+  },
+  {
     handle: "thin-gold-necklace",
     settings: [
-      { top: "78%", left: "47%", rotation: "0deg" },
-      { top: "74%", left: "25%", rotation: "45deg" },
-      { top: "74%", right: "25%", rotation: "-45deg" },
-      { top: "64%", left: "13%", rotation: "45deg" },
-      { top: "64%", right: "8%", rotation: "-45deg" },
-      { top: "44%", right: "8%", rotation: "-45deg" },
-      { top: "34%", right: "8%", rotation: "-45deg" },
-      { top: "24%", right: "8%", rotation: "-45deg" },
-      { top: "14%", right: "8%", rotation: "-45deg" },
-      { top: "8%", right: "8%", rotation: "-45deg" },
-      { top: "4%", right: "8%", rotation: "-45deg" },
+      { top: "55%", left: "45%", rotation: "0deg" },
+      { top: "50%", right: "25%", rotation: "-45deg" },
+      { top: "50%", left: "25%", rotation: "45deg" },
+      { top: "40%", right: "10%", rotation: "-45deg" },
+      { top: "40%", left: "10%", rotation: "45deg" },
     ]
   },
   {
     handle: "gold-necklace",
     settings: [
-      { top: "78%", left: "42%", rotation: "0deg" },
-      { top: "62%", right: "18%", rotation: "-45deg" },
-      { top: "62%", left: "18%", rotation: "45deg" },
-      { top: "40%", right: "8%", rotation: "-45deg" },
-      { top: "40%", left: "10%", rotation: "45deg" },
-    ]
-  },
-  {
-    handle: "bagchain-gold",
-    settings: [
-      { top: "78%", left: "42%", rotation: "0deg" },
-      { top: "62%", right: "18%", rotation: "-45deg" },
-      { top: "62%", left: "18%", rotation: "45deg" },
-      { top: "40%", right: "8%", rotation: "-45deg" },
-      { top: "40%", left: "10%", rotation: "45deg" },
+      { top: "80%", left: "45%", rotation: "0deg" },
+      { top: "65%", right: "15%", rotation: "-45deg" },
+      { top: "65%", left: "15%", rotation: "45deg" },
+      { top: "40%", right: "0%", rotation: "-45deg" },
+      { top: "40%", left: "0%", rotation: "45deg" },
     ]
   },
   {
     handle: "silver-necklace",
     settings: [
-      { top: "78%", left: "42%", rotation: "0deg" },
-      { top: "62%", right: "18%", rotation: "-45deg" },
-      { top: "62%", left: "18%", rotation: "45deg" },
-      { top: "40%", right: "8%", rotation: "-45deg" },
-      { top: "40%", left: "10%", rotation: "45deg" },
+      { top: "70%", left: "45%", rotation: "0deg" },
+      { top: "60%", right: "20%", rotation: "-45deg" },
+      { top: "60%", left: "20%", rotation: "45deg" },
+      { top: "40%", right: "5%", rotation: "-45deg" },
+      { top: "40%", left: "5%", rotation: "45deg" },
+    ]
+  },
+  {
+    handle: "bagchain-gold",
+    settings: [
+      { top: "80%", left: "45%", rotation: "0deg" },
+      { top: "65%", right: "15%", rotation: "-45deg" },
+      { top: "65%", left: "15%", rotation: "45deg" },
+      { top: "45%", right: "5%", rotation: "-45deg" },
+      { top: "45%", left: "5%", rotation: "45deg" },
     ]
   },
   {
     handle: "bagchain-silver",
     settings: [
-      { top: "78%", left: "42%", rotation: "0deg" },
+      { top: "70%", left: "45%", rotation: "0deg" },
       { top: "62%", right: "18%", rotation: "-45deg" },
       { top: "62%", left: "18%", rotation: "45deg" },
-      { top: "40%", right: "8%", rotation: "-45deg" },
-      { top: "40%", left: "10%", rotation: "45deg" },
+      { top: "40%", right: "5%", rotation: "-45deg" },
+      { top: "40%", left: "5%", rotation: "45deg" },
     ]
   },
 ]

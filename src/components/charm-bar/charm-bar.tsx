@@ -8,18 +8,10 @@ import { AddAllToCartButton } from "../cart/add-to-cart";
 import { categoryPositionSettings } from "@/lib/placeholder-data";
 
 export default function CharmBar({ charms, chain }: { charms: Product[], chain: Product }) {
-  let numberOfCharms = 5;
-
-  // if (chain.handle === "lipgloss-chain") {
-  //   numberOfCharms = 3
-  // }
-
-  console.log(chain);
-
   const [totalPrice, setTotalPrice] = useState<number>(0);
   const [selectedCharmPosition, setSelectedCharmPosition] = useState<number>(0);
 
-  const selectedChain = categoryPositionSettings.find((categoryChain) => categoryChain.handle === chain.handle);
+  const selectedChain = categoryPositionSettings.find((categoryChain) => categoryChain.handle === chain.handle) || categoryPositionSettings[0];
 
   const [selectedCharms, setSelectedCharms] = useState<Product[]>(
     new Array(selectedChain?.settings.length).fill(null)

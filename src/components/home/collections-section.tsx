@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import React, { useState, useRef } from "react"
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation } from 'swiper/modules'
+import { Navigation, Grid } from 'swiper/modules'
 
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -12,14 +12,15 @@ import { useTranslations } from "next-intl";
 
 // TODO: Import collections from placeholder because they are shared with charm bar
 
-type CollectionsProps = {
+type Collection = {
 	id: string;
 	name: string;
 	link: string;
 	imageSrc: string;
-}[];
+};
 
-const collectionsSlide1: CollectionsProps = [
+
+const collections: Collection[] = [
 	{
 		id: "love",
 		name: "Love",
@@ -44,9 +45,6 @@ const collectionsSlide1: CollectionsProps = [
 		link: "/catalogue/hobies",
 		imageSrc: "/collections/hobbies.jpg"
 	},
-]
-
-const collectionsSlide2: CollectionsProps = [
 	{
 		id: "food_and_drinks",
 		name: "Foods and Drinks",
@@ -73,88 +71,64 @@ const collectionsSlide2: CollectionsProps = [
 	},
 ]
 
-
 export default function CollectionsSection() {
 	const t = useTranslations()
 	return (
-		<>
-			<section className="block md:hidden py-10 px-4 bg-primary text-white lg:p-20 ">
-				<SectionTitle>{t("Collections")}</SectionTitle>
-				<Swiper
-					navigation={true}
-					modules={[Navigation]}
-				>
-					{
-						collectionsSlide2.map((collection) => (
-
-							<SwiperSlide>
-								<Collection key={collection} collection={collection} />
-							</SwiperSlide>
-						))
-					}
-				</Swiper>
-			</section>
-			<section className="hidden md:block px-4 bg-primary text-white lg:p-20 ">
-				<SectionTitle>{t("Collections")}</SectionTitle>
-				<Swiper
-					navigation={true}
-					modules={[Navigation]}
-				>
-					<SwiperSlide>
-						<Collections collections={collectionsSlide1} />
-					</SwiperSlide>
-					<SwiperSlide>
-						<Collections collections={collectionsSlide2} />
-					</SwiperSlide>
-				</Swiper>
-			</section>
-		</>
+		<section className="py-10 px-4 bg-primary text-white lg:p-20 min-h-[70vh]">
+			<h2 className="pb-10 text-5xl md:text-6xl font-bold">{t("Collections")}</h2>
+			<Swiper
+				className="h-[90vh]"
+				navigation={true}
+				modules={[Navigation, Grid]}
+				spaceBetween={20}
+				breakpoints={{
+					0: {
+						slidesPerView: 1,
+						centeredSlides: true,
+						grid: undefined,
+					},
+					768: {
+						slidesPerView: 2,
+						centeredSlides: false,
+						grid: undefined,
+					},
+					1024: {
+						slidesPerView: 2,
+						centeredSlides: false,
+						grid: {
+							rows: 2,
+							fill: "row"
+						},
+					},
+				}}
+			>
+				{
+					collections.map((collection) => (
+						<SwiperSlide key={collection.id}>
+							<Collection collection={collection} />
+						</SwiperSlide>
+					))
+				}
+			</Swiper>
+		</section>
 	)
 }
 
-function Collections({ collections }: {
-	collections: {
-		id: string,
-		name: string,
-		link: string,
-		imageSrc: string
-	}[]
-}) {
-	return (
-		< ul className="grid px-20 grid-cols-1 md:grid-cols-2 md:gap-20">
-			{collections.map((collection) => (
-				<Collection key={collection.id} collection={collection} />
-			))}
-		</ul>
-	)
-}
 
-function Collection({ collection }: {
-	collection: {
-		id: string,
-		name: string,
-		link: string,
-		imageSrc: string
-	}
-}) {
+function Collection({ collection }: { collection: Collection }) {
 	return (
-		<Link href={collection.link} className="w-full">
-			<div className="relative h-[35vh] w-[35vw] w-full bg-stone-600">
+		<Link href={collection.link} className="w-full" >
+			<div className="relative h-[45vh] w-full md:w-full lg:h-[35vh] lg:w-[35vw] bg-stone-600">
 				{/* TODO: optimize images */}
 				<Image
 					src={collection.imageSrc}
-					alt={`Charms from a  ${collection.name} collection`}
+					alt={`Charms from a ${collection.name} collection`}
 					className="object-cover"
 					fill
+					sizes="(min-width: 1024px) 25vw, (min-width: 768px) 50vw, 100vw"
 				/>
 			</div>
 			<h3 className="py-4 text-center text-2xl font-semibold">{collection.name}</h3>
 		</Link>
 	)
-}
-
-
-
-function SectionTitle({ children }: { children: React.ReactNode }) {
-	return <h2 className="pb-10 text-6xl font-bold">{children}</h2>
 }
