@@ -20,17 +20,13 @@ export default function Page() {
   ]
 
   return (
-    <>
-      <div className="mx-auto">
-        <p className="text-center max-w-xl">{t("paragraph")}</p>
-      </div>
-
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-
-      <p className="text-sm p-2">
-        {t("categoryStep")}
-      </p>
-      <CategorySelector />
-    </>
+    <div>
+		<p className="w-full mx-auto text-center max-w-xl">{t("paragraph")}</p>
+		<Breadcrumbs breadcrumbs={breadcrumbs} />
+		<p className="text-sm p-2 max-w-3xl">
+			{t("categoryStep")}
+		</p>
+		<CategorySelector />
+    </div>
   );
 }

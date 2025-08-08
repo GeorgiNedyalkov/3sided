@@ -1,6 +1,3 @@
-// import { useActionState, useRef } from "react";
-// import html2canvas from "html2canvas";
-// import { uploadImage } from "@/lib/cloudinary/actions";
 import Image from "next/image";
 import { Product } from "@/lib/shopify/types";
 import CharmPositionSelector from "../charm-bar/charm-position-selector";
@@ -8,13 +5,11 @@ import { categoryPositionSettings } from "@/lib/placeholder-data";
 import { useCharmBar } from "@/components/charm-bar/charm-bar-context";
 
 export default function CharmCanvas({ chain }: { chain: Product }) {
-
   const { selectedCharms } = useCharmBar();
   let selectedCategory = categoryPositionSettings.find((category) => category.handle === chain.handle) || categoryPositionSettings[0];
 
   return (
-    <div className="relative mx-auto h-[500px] w-[90vw] lg:h-[70vh] lg:w-[500px]">
-      {/* TODO: Add sizes for optmiziation */}
+    <div className="relative h-[500px] w-[90vw] lg:h-[70vh] lg:w-[500px]">
       <Image
         src={chain.featuredImage.url}
         alt="Selected chain on the charm bar"
@@ -31,6 +26,10 @@ export default function CharmCanvas({ chain }: { chain: Product }) {
     </div>
   );
 }
+
+// / import { useActionState, useRef } from "react";
+// import html2canvas from "html2canvas";
+// import { uploadImage } from "@/lib/cloudinary/actions";
 
 // <div ref={ref} className="relative mx-auto h-[500px] w-[90vw] lg:h-[70vh] lg:w-[500px]">
 // const [state, formAction, isPending] = useActionState(takePictureAction, null);

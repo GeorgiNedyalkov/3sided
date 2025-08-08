@@ -3,22 +3,7 @@
 import { usePathname } from "@/i18n/navigation";
 import { useSearchParams } from "next/navigation";
 import { useRouter } from "next/navigation";
-
-// TODO: Figure out where is the best to place these?
-// and fix type for hobbies
-// is there a collection fruits?
-const charmCollections = [
-  { id: "all", title: "All" },
-  { id: "Animal", title: "Animal" },
-  { id: "hobies", title: "Hobbies" },
-  { id: "food", title: "Foods and Drinks" },
-  { id: "divine", title: "Divine" },
-  { id: "letters", title: "Letters" },
-  { id: "love", title: "Love" },
-  { id: "girls", title: "Just Girls" },
-  { id: "summer", title: "Summer" },
-  { id: "plants", title: "Plants and Flowers" },
-];
+import { filtersCharmCollections } from "@/lib/placeholder-data";
 
 export default function FilterCollections() {
   const searchParams = useSearchParams();
@@ -47,9 +32,9 @@ export default function FilterCollections() {
         onChange={(e) => onSelectCollection(e.target.value)}
       >
         {
-          charmCollections.map((c) => (
-            <option key={c.id} value={c.id}>
-              {c.title}
+          filtersCharmCollections.map((collection) => (
+            <option key={collection.id} value={collection.id}>
+              {collection.title}
             </option>
           ))
         }
