@@ -1,8 +1,8 @@
 import Image from "next/image";
 import { Product } from "@/lib/shopify/types";
-import CharmPositionSelector from "../charm-bar/charm-position-selector";
 import { categoryPositionSettings } from "@/lib/placeholder-data";
 import { useCharmBar } from "@/components/charm-bar/charm-bar-context";
+import CharmPositionSelector from "@/components/charm-bar/charm-position-selector";
 
 export default function CharmCanvas({ chain }: { chain: Product }) {
   const { selectedCharms } = useCharmBar();

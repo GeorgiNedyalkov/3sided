@@ -36,13 +36,11 @@ export default function CharmPositionSelector({
   };
 
   return (
-    <div>
+    <>
       {selectedCharms.map((selectedCharm, index) =>
         selectedCharm ? (
-          // NOTE: Charm is selected
-          <div>
+          <div key={index}>
             <div
-              key={index}
               className={clsx("ring-black rounded-full absolute cursor-pointer hover:ring-slate-600",
                 selectedCharmPosition === index ? "ring-1 ring-black" : "",
                 {
@@ -72,11 +70,11 @@ export default function CharmPositionSelector({
                 src={selectedCharm.featuredImage.url}
                 alt={selectedCharm.handle}
                 fill
+				sizes="(max-width: 763px) 64px, (max-width: 1024px) 80px, 96px"
               />
             </div>
           </div>
         ) : (
-          // NOTE: No charm is selected
           <div key={index}>
             <button
               onClick={() => handleSelectCharmPosition(index)}
@@ -97,6 +95,6 @@ export default function CharmPositionSelector({
         )
       )
       }
-    </div >
+	  </>
   );
 }
