@@ -9,7 +9,7 @@ export default function HeroSection() {
     <section className="relative h-screen w-full">
 
       <video
-        className="hidden md:block absolute bg-slate-700 w-full h-full left-0 top-0 object-cover"
+        className="hidden md:block absolute w-full h-full left-0 top-0 object-cover"
         autoPlay
         loop
         muted
