@@ -7,13 +7,9 @@ import { Product } from "@/lib/shopify/types";
 
 type CharmBarContextType = {
   selectedChain: Product | null;
-  setSelectedChain: (chain: Product) => void;
-
   selectedCharms: (Product | null)[];
-
   selectedCharmPosition: number;
   handleSelectCharmPosition: (index: number) => void;
-
   handleCharmSelect: (charm: Product, position: number) => void;
   handleCharmRemove: (position: number) => void;
 }
@@ -58,7 +54,6 @@ export function CharmBarContextProvider({ children }: { children: React.ReactNod
     selectedChain,
     selectedCharms,
     selectedCharmPosition,
-
     handleSelectCharmPosition,
     handleCharmSelect,
     handleCharmRemove,
