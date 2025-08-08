@@ -4,6 +4,8 @@ import { Product } from "@/lib/shopify/types";
 import { useCart } from "./cart-context";
 import { addItem } from "./actions";
 import { useActionState } from "react";
+import { useCharmBar } from "@/components/charm-bar/charm-bar-context"
+import { selectedMoreThanThreeCharms } from "@/lib/utils";
 
 export default function AddToCartButton({ charm }: { charm: Product }) {
   const { addCartItem, cart } = useCart();
@@ -38,7 +40,11 @@ export default function AddToCartButton({ charm }: { charm: Product }) {
 }
 
 
-export function AddAllToCartButton({ items }: { items: (Product | null)[] }) {
+export function AddAllToCartButton() {
+  const { selectedCharms, selectedChain } = useCharmBar();
+
+  const items = [...selectedCharms, selectedChain];
+
   const { addCartItem, cart } = useCart();
   const [message, formAction] = useActionState(addItem, null);
 
@@ -69,12 +75,17 @@ export function AddAllToCartButton({ items }: { items: (Product | null)[] }) {
         await handleAddItems();
       }}
     >
-      <button
-        type="submit"
-        className="w-52 rounded-md bg-primary p-3 uppercase text-white transition-all duration-300 hover:bg-red-900"
-      >
-        Add all to cart
-      </button>
+      <p className="text-lg">Choose a minimum of 3 charms</p>
+      {
+        selectedMoreThanThreeCharms(selectedCharms) && (
+          <button
+            type="submit"
+            className="w-52 rounded-md bg-primary p-3 uppercase text-white transition-all duration-300 hover:bg-red-900"
+          >
+            Add all to cart
+          </button>
+        )
+      }
 
       <p aria-live="polite" className="sr-only" role="status">
         {message}

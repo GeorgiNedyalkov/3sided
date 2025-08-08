@@ -5,21 +5,11 @@ import Image from "next/image";
 import { Product } from "@/lib/shopify/types";
 import CharmPositionSelector from "../charm-bar/charm-position-selector";
 import { categoryPositionSettings } from "@/lib/placeholder-data";
+import { useCharmBar } from "@/components/charm-bar/charm-bar-context";
 
-export default function CharmCanvas({
-  selectedCharms,
-  selectedCharmPosition,
-  onSelectPosition,
-  onRemoveCharm,
-  chain,
-}: {
-  selectedCharms: (Product | null)[];
-  selectedCharmPosition: number;
-  onSelectPosition(index: number): void;
-  onRemoveCharm(index: number): void;
-  chain: Product;
-}) {
+export default function CharmCanvas({ chain }: { chain: Product }) {
 
+  const { selectedCharms } = useCharmBar();
   let selectedCategory = categoryPositionSettings.find((category) => category.handle === chain.handle) || categoryPositionSettings[0];
 
   return (
@@ -31,14 +21,12 @@ export default function CharmCanvas({
         className="absolute h-full w-full object-contain"
         fill
         priority
+        sizes="(max-width: 768px) 50vw, (max-width: 1200px) 50vw"
       />
 
       <CharmPositionSelector
         positionSettings={selectedCategory!.settings}
         selectedCharms={selectedCharms}
-        selectedCharmPosition={selectedCharmPosition}
-        onSelectPosition={onSelectPosition}
-        onRemoveCharm={onRemoveCharm}
       />
     </div>
   );

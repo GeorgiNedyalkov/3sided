@@ -4,18 +4,13 @@ import clsx from "clsx";
 import Image from "next/image";
 import { Product } from "@/lib/shopify/types";
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import { useCharmBar } from "./charm-bar-context";
 
 export default function CharmPositionSelector({
   selectedCharms,
-  selectedCharmPosition,
-  onSelectPosition,
-  onRemoveCharm,
   positionSettings,
 }: {
   selectedCharms: (Product | null)[];
-  selectedCharmPosition: number;
-  onSelectPosition(index: number): void;
-  onRemoveCharm(index: number): void;
   positionSettings: {
     top: string;
     right?: string;
@@ -23,6 +18,13 @@ export default function CharmPositionSelector({
     rotation?: string;
   }[];
 }) {
+  const {
+    selectedCharmPosition,
+    handleSelectCharmPosition,
+    handleCharmRemove,
+    handleCharmSelect
+  } = useCharmBar();
+
   const isSmall = (charm: Product) => charm.tags.includes("small");
   const isMedium = (charm: Product) => charm.tags.includes("medium");
   const isLarge = (charm: Product) => charm.tags.includes("large");
@@ -32,15 +34,6 @@ export default function CharmPositionSelector({
     if (isMedium(charm)) return 10;
     return 8;
   };
-
-  function handleSelectCharm(index: number) {
-    if (selectedCharmPosition === index) {
-      onSelectPosition(-1);
-    } else {
-      onSelectPosition(index);
-    }
-  }
-
 
   return (
     <div>
@@ -66,7 +59,7 @@ export default function CharmPositionSelector({
               {
                 selectedCharmPosition === index && (
                   <XMarkIcon
-                    onClick={() => onRemoveCharm(index)}
+                    onClick={() => handleCharmRemove(index)}
                     className="h-6 w-6 absolute -top-5 right-0 text-red-500" />
                 )
               }
@@ -75,7 +68,7 @@ export default function CharmPositionSelector({
                 style={{
                   rotate: `${positionSettings[index]?.rotation}`,
                 }}
-                onClick={() => handleSelectCharm(index)}
+                onClick={() => handleCharmSelect(selectedCharm, index)}
                 src={selectedCharm.featuredImage.url}
                 alt={selectedCharm.handle}
                 fill
@@ -86,7 +79,7 @@ export default function CharmPositionSelector({
           // NOTE: No charm is selected
           <div key={index}>
             <button
-              onClick={() => handleSelectCharm(index)}
+              onClick={() => handleSelectCharmPosition(index)}
               className={clsx(
                 "absolute h-8 w-8 rounded-full ring-1",
                 selectedCharmPosition === index ? "ring-black" : "ring-stone-200"
