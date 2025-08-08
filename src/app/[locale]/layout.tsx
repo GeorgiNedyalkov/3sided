@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
+import localFont from "next/font/local"
+
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { notFound } from "next/navigation";
 import { routing } from "@/i18n/routing";
@@ -17,6 +19,7 @@ export const metadata: Metadata = {
   description: "Buy charms and bracelets from 3Sided",
 };
 
+
 export default async function LocaleLayout({
   children,
   params
@@ -24,6 +27,7 @@ export default async function LocaleLayout({
   children: React.ReactNode;
   params: Promise<{ locale: string }>
 }>) {
+
 
   const { locale } = await params;
 
@@ -46,7 +50,6 @@ export default async function LocaleLayout({
         <link rel="stylesheet" href="https://use.typekit.net/urc1gyw.css"></link>
       </head>
       <body className={`antialiased`}>
-
         <CartProvider cartFromCookies={cart!}>
           <NextIntlClientProvider>
             <Navbar />
