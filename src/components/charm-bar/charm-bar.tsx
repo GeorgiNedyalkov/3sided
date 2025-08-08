@@ -11,7 +11,7 @@ import CharmCanvas from "@/components/charm-bar/charm-canvas";
 type CharmBarProps = {
 	charms: Product[], 
 	chain: Product,
-	selectedMaterial: string;
+	selectedMaterial: string | string[] | undefined; // this is a hack to build for now
 }
 
 export default function CharmBar({ charms, chain, selectedMaterial }: CharmBarProps) {
