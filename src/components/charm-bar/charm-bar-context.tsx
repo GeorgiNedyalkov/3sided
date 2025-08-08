@@ -33,6 +33,7 @@ export function CharmBarContextProvider({ children }: { children: React.ReactNod
     const newSelectedCharms = [...selectedCharms];
     newSelectedCharms[position] = charm;
     setSelectedCharms(newSelectedCharms);
+    setSelectedCharmPosition(position);
   }
 
   function handleCharmRemove(position: number) {
@@ -55,13 +56,10 @@ export function CharmBarContextProvider({ children }: { children: React.ReactNod
 
   const values = {
     selectedChain,
-    setSelectedChain,
-
     selectedCharms,
-
     selectedCharmPosition,
-    handleSelectCharmPosition,
 
+    handleSelectCharmPosition,
     handleCharmSelect,
     handleCharmRemove,
   }
