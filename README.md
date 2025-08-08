@@ -217,3 +217,31 @@ Ideas:
 - Featured collection section
 
 
+## TODO:
+
+- Fix Falling charms and make them robust
+- Fix Collections slider
+- Mobile responsive design, tablet responsive desing
+
+- Fix Cart component errors
+- Figure out how to add sizes to chains
+- Add upload image when items are added to the cart
+- Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
+- Add and check terms and conditions, privacy policy and others
+- Improve contact us page, write tests
+- Make sure newsletter works
+
+
+- Translate everything
+- Add basic SEO to pages
+
+Additional features:
+- Search
+- Profiles for users
+
+Optmise!
+- Figure out how to track performance, record and improve it.
+- Images and Videos
+- Loading links
+
+Add Analytics
