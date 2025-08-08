@@ -75,7 +75,6 @@ export function AddAllToCartButton() {
         await handleAddItems();
       }}
     >
-      <p className="text-lg">Choose a minimum of 3 charms</p>
       {
         selectedMoreThanThreeCharms(selectedCharms) && (
           <button

@@ -19,10 +19,7 @@ export default function CharmBar({ charms, chain, selectedMaterial }: CharmBarPr
     <CharmBarContextProvider>
       <div className="relative mb-20">
 		  <div className="flex justify-between">
-				<div className="sticky self-start top-20 w-full">
-				  <CharmCanvas chain={chain} />
-				  <TotalPrice />
-				</div>
+				<CharmCanvas chain={chain} />
 				<div className="flex flex-col gap-10 lg:max-w-[40vw]">
 					<div className="flex items-center justify-between">
 					  <Toggle initialState={selectedMaterial === "gold"} />
