@@ -6,7 +6,7 @@ import TotalPrice from "./total-price";
 import { Toggle } from "@/components/home/toggle";
 import FilterCollections from "@/components/charm-bar/filter-collections-selector";
 import CharmSelector from "@/components/charm-bar/charms";
-import CharmCanvas from "@/components/charms/charm-canvas";
+import CharmCanvas from "@/components/charm-bar/charm-canvas";
 
 type CharmBarProps = {
 	charms: Product[], 
