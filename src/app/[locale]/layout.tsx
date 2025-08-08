@@ -42,6 +42,7 @@ export default async function LocaleLayout({
   return (
     <html lang={locale}>
       <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="stylesheet" href="https://use.typekit.net/urc1gyw.css"></link>
       </head>
       <body className={`antialiased`}>
