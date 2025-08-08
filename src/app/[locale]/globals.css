@@ -30,7 +30,7 @@ html[lang^="bg"] {
   --font-body: "forma-djr-cyrillic", "forma-djr-text", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
 }
 
-@media (prefers-color-scheme: light) {
+@media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
