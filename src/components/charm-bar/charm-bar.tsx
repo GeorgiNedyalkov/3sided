@@ -19,7 +19,7 @@ export default function CharmBar({ charms, chain, selectedMaterial }: CharmBarPr
     <CharmBarContextProvider>
       <div className="relative mb-20">
 		  <div className="flex justify-between">
-				<div className="sticky self-start top-20 w-[500px]">
+				<div className="sticky self-start top-20 w-full">
 				  <CharmCanvas chain={chain} />
 				  <TotalPrice />
 				</div>

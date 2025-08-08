@@ -9,7 +9,7 @@ export default function CharmCanvas({ chain }: { chain: Product }) {
   let selectedCategory = categoryPositionSettings.find((category) => category.handle === chain.handle) || categoryPositionSettings[0];
 
   return (
-    <div className="relative h-[500px] w-[90vw] lg:h-[70vh] lg:w-[500px]">
+    <div className="relative h-[500px] w-[90vw] lg:h-[70vh] lg:w-[500px] mx-auto">
       <Image
         src={chain.featuredImage.url}
         alt="Selected chain on the charm bar"
