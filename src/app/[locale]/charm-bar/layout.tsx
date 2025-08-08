@@ -1,5 +1,3 @@
-import CharmBarHeader from "@/components/charm-bar/charm-bar-header";
-
 export default function CharmBarLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
