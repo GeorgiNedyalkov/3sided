@@ -159,33 +159,9 @@ Charmbar:
 - Add Charmbar Context
 - Add Reset button
 
-Cart:
-- Remove Item
-- Update Quantity
-- Figure out Cashing Cookies etc.
 
 
 This morning do these!
-
-
-Chore:
-- Cookies 
-- Privacy policy
-- Terms and Conditions
-- [x] FAQ
-
-
-Later:
-- [x] Falling Charms Testing and Refactoring
-
-
-Translation:
-- [x] Footer
-- Navbar
-
-
-Learn:
-- [x] Figure out locale switcher
 
 Charmbar review:
 
@@ -224,16 +200,21 @@ Ideas:
 - Mobile responsive design, tablet responsive desing
 
 - Fix Cart component errors
+Cart:
+- Remove Item
+- Update Quantity
+- Figure out Cashing Cookies etc.
 - Figure out how to add sizes to chains
 - Add upload image when items are added to the cart
+
 - Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
-- Add and check terms and conditions, privacy policy and others
 - Improve contact us page, write tests
 - Make sure newsletter works
 
 
 - Translate everything
 - Add basic SEO to pages
+- Add and check terms and conditions, privacy policy and others
 
 Additional features:
 - Search
