@@ -1,5 +1,40 @@
 # 4 Sided Ecommerce site
 
+## TODO:
+
+- Fix Falling charms and make them robust
+
+- Fix Collections slider
+- Mobile responsive design, tablet responsive desing
+
+- Fix Cart component errors
+Cart:
+- Remove Item
+- Update Quantity
+- Figure out Cashing Cookies etc.
+- Figure out how to add sizes to chains
+- Add upload image when items are added to the cart
+
+- Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
+- Improve contact us page, write tests
+- Make sure newsletter works
+
+
+- Translate everything
+- Add basic SEO to pages
+- Add and check terms and conditions, privacy policy and others
+
+Additional features:
+- Search
+- Profiles for users
+
+Optmise!
+- Figure out how to track performance, record and improve it.
+- Images and Videos
+- Loading links
+
+Add Analytics
+
 ## Inspirations
 
 - [Charms and Chains](https://www.madebymary.com/collections/charms-and-chains)
@@ -191,38 +226,3 @@ Design Desitions:
 Ideas:
 
 - Featured collection section
-
-
-## TODO:
-
-- Fix Falling charms and make them robust
-- Fix Collections slider
-- Mobile responsive design, tablet responsive desing
-
-- Fix Cart component errors
-Cart:
-- Remove Item
-- Update Quantity
-- Figure out Cashing Cookies etc.
-- Figure out how to add sizes to chains
-- Add upload image when items are added to the cart
-
-- Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
-- Improve contact us page, write tests
-- Make sure newsletter works
-
-
-- Translate everything
-- Add basic SEO to pages
-- Add and check terms and conditions, privacy policy and others
-
-Additional features:
-- Search
-- Profiles for users
-
-Optmise!
-- Figure out how to track performance, record and improve it.
-- Images and Videos
-- Loading links
-
-Add Analytics

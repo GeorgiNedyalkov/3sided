@@ -14,6 +14,57 @@ export const filtersCharmCollections = [
   { id: "plants", title: "Plants and Flowers" },
 ];
 
+export const collections = [
+  {
+    id: "love",
+    name: "Love",
+    link: "/catalogue/love",
+    imageSrc: "/collections/love.jpg",
+  },
+  {
+    id: "summer",
+    name: "Summer",
+    link: "/catalogue/summer",
+    imageSrc: "/collections/summer.jpg",
+  },
+  {
+    id: "letters_and_numbers",
+    name: "Letters and Numbers",
+    link: "/catalogue/letters",
+    imageSrc: "/collections/letters.jpg",
+  },
+  {
+    id: "hobbies",
+    name: "Hobbies and Professions",
+    link: "/catalogue/hobies",
+    imageSrc: "/collections/hobbies.jpg",
+  },
+  {
+    id: "food_and_drinks",
+    name: "Foods and Drinks",
+    link: "/catalogue/food",
+    imageSrc: "/collections/food.jpg",
+  },
+  {
+    id: "devine",
+    name: "Divine",
+    link: "/catalogue/girls",
+    imageSrc: "/collections/divine.jpg",
+  },
+  {
+    id: "flowers",
+    name: "Flowers",
+    link: "/catalogue/plants",
+    imageSrc: "/collections/flowers.jpg",
+  },
+  {
+    id: "animals",
+    name: "Animals",
+    link: "/catalogue/Animal",
+    imageSrc: "/collections/animals.jpg",
+  },
+];
+
 export const categoryPositionSettings = [
   {
     handle: "medium-silver-chain",
