@@ -8,7 +8,7 @@ import FallingCharms from "@/components/falling-charms";
 
 export default function Page() {
 	return (
-		<>
+		<main>
 			<HeroSection />
 			<CharmBarIntroSection />
 			<FallingCharms />
@@ -16,6 +16,6 @@ export default function Page() {
 			<CollectionsSection />
 			<LookBook />
 			<NewsletterBanner />
-		</>
+		</main>
 	);
 }
