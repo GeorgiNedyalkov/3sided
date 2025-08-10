@@ -3,26 +3,27 @@
 ## TODO:
 
 - Fix Falling charms and make them robust
+- [x] Fix Collections slider
+- [x] Mobile responsive design, tablet responsive desing
 
-- Fix Collections slider
-- Mobile responsive design, tablet responsive desing
-
-- Fix Cart component errors
 Cart:
-- Remove Item
-- Update Quantity
+- [x] Open Cart when items are added to cart
+- Fix Cart component errors
+- Update Quantity?
 - Figure out Cashing Cookies etc.
-- Figure out how to add sizes to chains
-- Add upload image when items are added to the cart
 
-- Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
-- Improve contact us page, write tests
-- Make sure newsletter works
+Charm Bar:
+- [] Show pending status with user adds items to cart
+- [] Figure out how to add sizes to chains
+- [] Add upload image when items are added to the cart
+- [] Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
+
+- [] Improve contact us page, write tests
+- [] Make sure newsletter works
 
 
-- Translate everything
-- Add basic SEO to pages
-- Add and check terms and conditions, privacy policy and others
+- [] Translate everything
+- [] Add and check terms and conditions, privacy policy and others
 
 Additional features:
 - Search
@@ -33,7 +34,17 @@ Optmise!
 - Images and Videos
 - Loading links
 
-Add Analytics
+Additions:
+- [] Add basic SEO to pages
+- Add Analytics
+- Add Accessibility 
+
+
+Bugs:
+- Falling charms
+- Intro section styles
+- Newsletter
+
 
 ## Inspirations
 
