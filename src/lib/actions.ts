@@ -15,7 +15,7 @@ const transporter = nodemailer.createTransport({
   },
 });
 
-const schema = z.object({
+const ContactSchema = z.object({
   firstName: z.string(),
   lastName: z.string(),
   email: z.string({
@@ -24,8 +24,18 @@ const schema = z.object({
   message: z.string(),
 });
 
-export async function submitContactData(formData: FormData): Promise<void> {
-  const validatedFields = schema.safeParse({
+export type State = {
+  message?: string | null;
+  errors?: {
+    firstName?: string[];
+    lastName?: string[];
+    email?: string[];
+    message?: string[];
+  };
+};
+
+export async function submitContactData(_: State, formData: FormData) {
+  const validatedFields = ContactSchema.safeParse({
     firstName: formData.get("firstName"),
     lastName: formData.get("lastName"),
     email: formData.get("email"),
@@ -33,17 +43,11 @@ export async function submitContactData(formData: FormData): Promise<void> {
   });
 
   if (!validatedFields.success) {
-    console.log({
+    return {
       errors: validatedFields.error.flatten().fieldErrors,
-    });
-
-    return;
+    };
   }
 
-  console.log("Validated form data: ", validatedFields);
-
-
-  // Send contact form data to our email
   try {
     await transporter.sendMail({
       from: process.env.EMAIL,
@@ -51,38 +55,34 @@ export async function submitContactData(formData: FormData): Promise<void> {
       subject: `Message from: ${validatedFields.data.firstName} ${validatedFields.data.lastName}`,
       text: `${validatedFields.data.message}`,
     });
-    console.log("Email sent to your inbox");
-  } catch (error) {
-    console.error("Error sending email:", error);
-  }
 
-  // Send automatic response email
-  try {
     await transporter.sendMail({
       from: process.env.EMAIL,
       to: validatedFields.data.email,
       subject: `Thank you for your inquiry:`,
-      text: `Thank you very much for your message ${validatedFields.data.firstName} ${validatedFields.data.lastName}! \n You will hear from us in under one hour. We promise 💖`,
+      text: `Thank you very much for your message ${validatedFields.data.firstName} ${validatedFields.data.lastName}!\n 
+  			You will hear from us in under one hour. We promise`,
     });
-    console.log("Automatic reply to the sender");
+    console.log("Email sent to your inbox");
+    return {
+      message: "Thank you for your message!",
+    };
   } catch (error) {
-    console.error("Error sending automatic response:", error);
+    console.error("Error sending email:", error);
+    return {
+      message: "We are sorry something went wrong",
+    };
   }
 }
 
-// Validate and prepare the data
 const EmailSchema = z.string().email({ message: "Error: Invalid email" });
 
-// Server action subscribe to newsletter
 export async function subscribeToNewsletter(formData: FormData) {
-  // Extract data from form data
   const rawEmailData = {
     email: formData.get("email"),
   };
 
   const email = EmailSchema.parse(rawEmailData.email);
-
-  console.log(email);
 
   try {
     await addSubscriber(email);
@@ -92,12 +92,10 @@ export async function subscribeToNewsletter(formData: FormData) {
       to: email,
       subject: "Welcome to 3sided family",
       text: `Thank you very much for your message`,
-    })
+    });
     console.log(result);
   } catch (error) {
     console.log(error);
-    throw new Error("Error: could not add subscriber to newsletter list")
+    throw new Error("Error: could not add subscriber to newsletter list");
   }
 }
-
-

@@ -7,15 +7,15 @@ import Categories from "@/components/hero/categories-section";
 import FallingCharms from "@/components/falling-charms";
 
 export default function Page() {
-  return (
-    <>
-      <HeroSection />
-      <CharmBarIntroSection />
-      <FallingCharms />
-      <Categories />
-      <CollectionsSection />
-      <LookBook />
-      <NewsletterBanner />
-    </>
-  );
+	return (
+		<main>
+			<HeroSection />
+			<CharmBarIntroSection />
+			<FallingCharms />
+			<Categories />
+			<CollectionsSection />
+			<LookBook />
+			<NewsletterBanner />
+		</main>
+	);
 }

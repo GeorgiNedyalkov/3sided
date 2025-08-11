@@ -1,5 +1,51 @@
 # 4 Sided Ecommerce site
 
+## TODO:
+
+- Fix Falling charms and make them robust
+- [x] Fix Collections slider
+- [x] Mobile responsive design, tablet responsive desing
+
+Cart:
+- [x] Open Cart when items are added to cart
+- Fix Cart component errors
+- Update Quantity?
+- Figure out Cashing Cookies etc.
+
+Charm Bar:
+- [] Show pending status with user adds items to cart
+- [] Figure out how to add sizes to chains
+- [] Add upload image when items are added to the cart
+- [] Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
+
+- [] Improve contact us page, write tests
+- [] Make sure newsletter works
+
+
+- [] Translate everything
+- [] Add and check terms and conditions, privacy policy and others
+
+Additional features:
+- Search
+- Profiles for users
+
+Optmise!
+- Figure out how to track performance, record and improve it.
+- Images and Videos
+- Loading links
+
+Additions:
+- [] Add basic SEO to pages
+- Add Analytics
+- Add Accessibility 
+
+
+Bugs:
+- Falling charms
+- Intro section styles
+- Newsletter
+
+
 ## Inspirations
 
 - [Charms and Chains](https://www.madebymary.com/collections/charms-and-chains)
@@ -159,33 +205,9 @@ Charmbar:
 - Add Charmbar Context
 - Add Reset button
 
-Cart:
-- Remove Item
-- Update Quantity
-- Figure out Cashing Cookies etc.
 
 
 This morning do these!
-
-
-Chore:
-- Cookies 
-- Privacy policy
-- Terms and Conditions
-- [x] FAQ
-
-
-Later:
-- [x] Falling Charms Testing and Refactoring
-
-
-Translation:
-- [x] Footer
-- Navbar
-
-
-Learn:
-- [x] Figure out locale switcher
 
 Charmbar review:
 
@@ -215,5 +237,3 @@ Design Desitions:
 Ideas:
 
 - Featured collection section
-
-

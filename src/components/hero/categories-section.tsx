@@ -7,11 +7,11 @@ export default function Categories() {
 	const t = useTranslations("categories");
 
 	return (
-		<div className="bg-white text-primary mt-20 mb-40">
-			<h2 className="pl-4 pt-4 font-bold text-4xl md:text-6xl uppercase lg:pl-10 lg:pt-10 lg:pb-20">
+		<section className="bg-white text-primary mt-12 md:mt-32">
+			<h2 className="px-4 pb-8 font-bold text-4xl md:text-5xl md:pb-16 uppercase lg:px-10 lg:pb-16">
 				{t("heading")}
 			</h2>
-			<div className="flex flex-col p-4 items-center justify-between md:flex-row md:p-0">
+			<div className="px-4 grid grid-cols-1 gap-10 md:px-0 md:grid-cols-2 lg:grid-cols-4 lg:gap-0 lg:px-0">
 				{categoriesComponents.slice(0, 5).map((category) => (
 					<CategoryCard
 						key={category.title}
@@ -21,7 +21,7 @@ export default function Categories() {
 					/>
 				))}
 			</div>
-		</div>
+		</section>
 	);
 }
 
@@ -30,15 +30,16 @@ function CategoryCard({ src, title, link }: { src: string; title: string; link: 
 
 	return (
 		<Link href={link} className="w-full">
-			<h3 className="relative text-2xl pb-4 underline md:pb-10 md:pl-10">
+			<h3 className="relative text-2xl underline pb-2 lg:pl-10 lg:pb-4">
 				{t(title)}
 			</h3>
-			<div className="relative h-[60vh] w-full overflow-hidden">
+			<div className="relative h-[40vh] lg:h-[60vh] w-full overflow-hidden">
 				<Image
 					src={src}
 					alt={`An image of a ${title} category`}
 					className="object-cover transition-transform duration-300 hover:scale-110"
 					fill
+					sizes=""
 				/>
 			</div>
 		</Link>

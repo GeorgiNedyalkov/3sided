@@ -1,3 +1,70 @@
+// TODO: Figure out where is the best to place these?
+// and fix type for hobbies
+// is there a collection fruits?
+export const filtersCharmCollections = [
+  { id: "all", title: "All" },
+  { id: "Animal", title: "Animal" },
+  { id: "hobies", title: "Hobbies" },
+  { id: "food", title: "Foods and Drinks" },
+  { id: "divine", title: "Divine" },
+  { id: "letters", title: "Letters" },
+  { id: "love", title: "Love" },
+  { id: "girls", title: "Just Girls" },
+  { id: "summer", title: "Summer" },
+  { id: "plants", title: "Plants and Flowers" },
+];
+
+export const collections = [
+  {
+    id: "love",
+    name: "Love",
+    link: "/catalogue/love",
+    imageSrc: "/collections/love.jpg",
+  },
+  {
+    id: "summer",
+    name: "Summer",
+    link: "/catalogue/summer",
+    imageSrc: "/collections/summer.jpg",
+  },
+  {
+    id: "letters_and_numbers",
+    name: "Letters and Numbers",
+    link: "/catalogue/letters",
+    imageSrc: "/collections/letters.jpg",
+  },
+  {
+    id: "hobbies",
+    name: "Hobbies and Professions",
+    link: "/catalogue/hobies",
+    imageSrc: "/collections/hobbies.jpg",
+  },
+  {
+    id: "food_and_drinks",
+    name: "Foods and Drinks",
+    link: "/catalogue/food",
+    imageSrc: "/collections/food.jpg",
+  },
+  {
+    id: "devine",
+    name: "Divine",
+    link: "/catalogue/girls",
+    imageSrc: "/collections/divine.jpg",
+  },
+  {
+    id: "flowers",
+    name: "Flowers",
+    link: "/catalogue/plants",
+    imageSrc: "/collections/flowers.jpg",
+  },
+  {
+    id: "animals",
+    name: "Animals",
+    link: "/catalogue/Animal",
+    imageSrc: "/collections/animals.jpg",
+  },
+];
+
 export const categoryPositionSettings = [
   {
     handle: "medium-silver-chain",
@@ -9,7 +76,7 @@ export const categoryPositionSettings = [
       { top: "72%", left: "20%", rotation: "20deg" },
       { top: "52%", left: "5%", rotation: "95deg" },
       { top: "32%", left: "10%", rotation: "105deg" },
-    ]
+    ],
   },
   {
     handle: "medium-gold-chain",
@@ -19,7 +86,7 @@ export const categoryPositionSettings = [
       { top: "65%", left: "15%", rotation: "45deg" },
       { top: "40%", right: "0%", rotation: "-45deg" },
       { top: "40%", left: "0%", rotation: "45deg" },
-    ]
+    ],
   },
   {
     handle: "lipgloss-chain",
@@ -30,7 +97,7 @@ export const categoryPositionSettings = [
       { top: "54%", left: "38%", rotation: "45deg" },
       { top: "58%", right: "35%", rotation: "-45deg" },
       { top: "64%", left: "38%", rotation: "45deg" },
-    ]
+    ],
   },
   {
     handle: "silver-lipgloss-chain",
@@ -41,7 +108,7 @@ export const categoryPositionSettings = [
       { top: "55%", left: "33%", rotation: "45deg" },
       { top: "60%", right: "40%", rotation: "-45deg" },
       { top: "68%", left: "33%", rotation: "45deg" },
-    ]
+    ],
   },
   {
     handle: "silver-bracelet",
@@ -52,7 +119,7 @@ export const categoryPositionSettings = [
       { top: "54%", left: "38%", rotation: "45deg" },
       { top: "58%", right: "35%", rotation: "-45deg" },
       { top: "64%", left: "38%", rotation: "45deg" },
-    ]
+    ],
   },
   {
     handle: "medium-silver-bracelet",
@@ -64,7 +131,7 @@ export const categoryPositionSettings = [
       { top: "69%", left: "22%", rotation: "20deg" },
       { top: "52%", left: "9%", rotation: "95deg" },
       { top: "30%", left: "15%", rotation: "105deg" },
-    ]
+    ],
   },
   {
     handle: "gold-bracelet",
@@ -76,7 +143,7 @@ export const categoryPositionSettings = [
       { top: "69%", left: "22%", rotation: "20deg" },
       { top: "52%", left: "9%", rotation: "95deg" },
       { top: "30%", left: "15%", rotation: "105deg" },
-    ]
+    ],
   },
   {
     handle: "thin-silver-necklace",
@@ -86,7 +153,7 @@ export const categoryPositionSettings = [
       { top: "50%", left: "25%", rotation: "45deg" },
       { top: "40%", right: "10%", rotation: "-45deg" },
       { top: "40%", left: "10%", rotation: "45deg" },
-    ]
+    ],
   },
   {
     handle: "thin-gold-necklace",
@@ -96,7 +163,7 @@ export const categoryPositionSettings = [
       { top: "50%", left: "25%", rotation: "45deg" },
       { top: "40%", right: "10%", rotation: "-45deg" },
       { top: "40%", left: "10%", rotation: "45deg" },
-    ]
+    ],
   },
   {
     handle: "gold-necklace",
@@ -106,7 +173,7 @@ export const categoryPositionSettings = [
       { top: "65%", left: "15%", rotation: "45deg" },
       { top: "40%", right: "0%", rotation: "-45deg" },
       { top: "40%", left: "0%", rotation: "45deg" },
-    ]
+    ],
   },
   {
     handle: "silver-necklace",
@@ -116,7 +183,7 @@ export const categoryPositionSettings = [
       { top: "60%", left: "20%", rotation: "45deg" },
       { top: "40%", right: "5%", rotation: "-45deg" },
       { top: "40%", left: "5%", rotation: "45deg" },
-    ]
+    ],
   },
   {
     handle: "bagchain-gold",
@@ -126,7 +193,7 @@ export const categoryPositionSettings = [
       { top: "65%", left: "15%", rotation: "45deg" },
       { top: "45%", right: "5%", rotation: "-45deg" },
       { top: "45%", left: "5%", rotation: "45deg" },
-    ]
+    ],
   },
   {
     handle: "bagchain-silver",
@@ -136,55 +203,6 @@ export const categoryPositionSettings = [
       { top: "62%", left: "18%", rotation: "45deg" },
       { top: "40%", right: "5%", rotation: "-45deg" },
       { top: "40%", left: "5%", rotation: "45deg" },
-    ]
-  },
-]
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// These should come from our backend
-export const charmImages = [
-  "/web/star_1.PNG",
-  "/web/rapanche.png",
-  "/web/5.png",
-  "/web/5.png",
-  "/web/5.png",
-  "/web/5.png",
-];
-
-// These should come from our backend
-export const necklaces = [
-  {
-    id: "1",
-    src: "charm-bar/necklace.png",
-    settings: [
-      { top: "78%", left: "42%", rotation: "0deg" },
-      { top: "62%", right: "18%", rotation: "-45deg" },
-      { top: "62%", left: "18%", rotation: "45deg" },
-      { top: "40%", right: "8%", rotation: "-45deg" },
-      { top: "40%", left: "10%", rotation: "45deg" },
-    ],
-  },
-  {
-    id: "2",
-    src: "/charm-bar/necklace.png",
-    settings: [
-      { top: "80%", left: "42%", rotation: "0deg" },
-      { top: "65%", right: "23%", rotation: "-45deg" },
-      { top: "65%", left: "23%", rotation: "45deg" },
-      { top: "45%", right: "15%", rotation: "-45deg" },
-      { top: "45%", left: "15%", rotation: "45deg" },
     ],
   },
 ];
@@ -217,9 +235,8 @@ export const categoriesComponents = [
     title: "Waistchain",
     imageSrc: "/categories/waistchain.jpg",
     link: "/charm-bar/waistchain",
-  }
+  },
 ];
-
 
 export const desktopCollages = [
   { src: "/lookbook/horizontal_blue.jpg", alt: "Horizontal blue theme" },
@@ -251,35 +268,18 @@ export const mobileCollages = [
 export const faqs = [
   {
     category: "CharmBar",
-    questions: [
-      "WhatIsCharmBar",
-      "HowToOrder",
-      "HowToCreateJewelry",
-      "Materials",
-      "ChainLength"
-    ]
+    questions: ["WhatIsCharmBar", "HowToOrder", "HowToCreateJewelry", "Materials", "ChainLength"],
   },
   {
     category: "ReturnsAndShipping",
-    questions: [
-      "DeliveryTime",
-      "SpecialPackaging",
-      "Returns",
-      "OrderDelivery",
-      "ShippingCost"
-    ]
+    questions: ["DeliveryTime", "SpecialPackaging", "Returns", "OrderDelivery", "ShippingCost"],
   },
   {
     category: "Payment",
-    questions: [
-      "PaymentMethods",
-      "AdvancePayment"
-    ]
+    questions: ["PaymentMethods", "AdvancePayment"],
   },
   {
     category: "Care",
-    questions: [
-      "JewelryCare"
-    ]
-  }
+    questions: ["JewelryCare"],
+  },
 ];

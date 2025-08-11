@@ -18,24 +18,23 @@ const config: Config = {
         "tertiary-2": "var(--tertiary-2)",
       },
       keyframes: {
-        fadeIn: {
-          from: { opacity: "0" },
-          to: { opacity: "1" },
-        },
-        marquee: {
-          "0%": { transform: "translateX(0%)" },
-          "100%": { transform: "translateX(-100%)" },
-        },
         blink: {
           "0%": { opacity: "0.2" },
           "20%": { opacity: "1" },
           "100%": { opacity: "0.2" },
         },
+        fall: {
+          "0%": {
+            transform: "translateY(0px) rotate(180deg)",
+          },
+          "100%": {
+            transform: "translateY(100px) rotate(-180deg)",
+          },
+        },
       },
       animation: {
-        fadeIn: "fadeIn .3s ease-in-out",
-        carousel: "marquee 60s linear infinite",
         blink: "blink 1.4s both infinite",
+        fall: "fall 2s ease-in-out",
       },
     },
   },

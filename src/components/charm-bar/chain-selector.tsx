@@ -5,7 +5,6 @@ import { getProducts } from "@/lib/shopify";
 export default async function ChainSelector({ category }: { category: string }) {
   const chains = await getProducts({ query: `product_type:${category}` });
 
-
   return (
     <div className="flex">
       <div className="grid lg:grid-rows-2 lg:grid-cols-3 gap-4">

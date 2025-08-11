@@ -6,7 +6,7 @@ export function createUrl(pathname: string, params: URLSearchParams | ReadonlyUR
   const queryString = `${paramsString.length ? "?" : ""}${paramsString}`;
 
   return `${pathname}${queryString}`;
-};
+}
 
 export function convertToEur(priceInBgn: number) {
   return (priceInBgn / 1.95583).toFixed(2);
