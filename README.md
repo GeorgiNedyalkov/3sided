@@ -16,9 +16,11 @@ Charm Bar:
 - [] Show pending status with user adds items to cart
 - [] Figure out how to add sizes to chains
 - [] Add upload image when items are added to the cart
+
 - [] Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
 
-- [] Improve contact us page, write tests
+
+- [x] Improve contact us page, write tests
 - [] Make sure newsletter works
 
 

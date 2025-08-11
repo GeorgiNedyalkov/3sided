@@ -11,7 +11,10 @@ import TotalPrice from "@/components/charm-bar/total-price";
 
 export default function CharmCanvas({ chain }: { chain: Product }) {
 	const { selectedCharms } = useCharmBar();
+
 	let selectedCategory = categoryPositionSettings.find((category) => category.handle === chain.handle) || categoryPositionSettings[0];
+
+	console.log(selectedCategory);
 
 	const ref = useRef<HTMLDivElement>(null);
 
