@@ -3,6 +3,7 @@ import ChainSelector from "@/components/charm-bar/chain-selector";
 import ChainSizeSelector from "@/components/charm-bar/chain-size-selector";
 import { getTranslations } from "next-intl/server";
 import { getProducts } from "@/lib/shopify";
+import { CharmBarContextProvider } from "@/components/charm-bar/charm-bar-context"
 
 export default async function CategorySelectPage({ params }: { params: Promise<{ category: string; }> }) {
 	const { category } = await params;
@@ -10,13 +11,6 @@ export default async function CategorySelectPage({ params }: { params: Promise<{
 	const t = await getTranslations("Charmbar");
 
 	const chains = await getProducts({ query: `product_type:${category}` });
-
-	// NOTE: all chains have the same size variants
-	const chainSizes = chains[0].variants;
-	console.log(chains[0]);
-
-	console.log({ chainSizes });
-
 
 	const breadcrumbs = [
 		{
@@ -31,9 +25,8 @@ export default async function CategorySelectPage({ params }: { params: Promise<{
 		},
 	];
 
-
 	return (
-		<>
+		<CharmBarContextProvider>
 			<Breadcrumbs breadcrumbs={breadcrumbs} />
 			<p className="p-2 text-sm">{t("chainSizeStep")}</p>
 
@@ -46,6 +39,6 @@ export default async function CategorySelectPage({ params }: { params: Promise<{
 					<ChainSizeSelector chain={chains[0]} />
 				</div>
 			</div>
-		</>
+		</CharmBarContextProvider>
 	);
 }

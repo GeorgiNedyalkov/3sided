@@ -259,7 +259,6 @@ export async function createCart(): Promise<Cart> {
 
 export async function getCart(cartId: string | undefined): Promise<Cart | undefined> {
   if (!cartId) {
-    console.log();
     return undefined;
   }
 

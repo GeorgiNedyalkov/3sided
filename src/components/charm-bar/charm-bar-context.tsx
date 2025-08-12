@@ -2,6 +2,7 @@
 
 import { createContext, useContext, useState } from "react";
 import { Product } from "@/lib/shopify/types";
+import  {categoryPositionSettings} from "@/lib/placeholder-data"
 
 // Products include one chain and multiple charms
 
@@ -27,6 +28,11 @@ export function CharmBarContextProvider({ children }: { children: React.ReactNod
 
 	function handleChainSelect(chain: Product) {
 		setSelectedChain(chain);
+	}
+
+	// TODO: update options when a chain is selected
+	function updateChainOption(name: string, value: string) {
+		const newChainOption = { [name]: value }
 	}
 
 	function handleCharmSelect(charm: Product, position: number) {
