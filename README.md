@@ -1,33 +1,29 @@
-# 4 Sided Ecommerce site
+# 3 Sided Ecommerce site
 
 ## TODO:
 
-- Fix Falling charms and make them robust
-- [x] Fix Collections slider
-- [x] Mobile responsive design, tablet responsive desing
-
-Cart:
-- [x] Open Cart when items are added to cart
-- Fix Cart component errors
-- Update Quantity?
-- Figure out Cashing Cookies etc.
-
 Charm Bar:
-- [] Show pending status with user adds items to cart
-- [] Figure out how to add sizes to chains
-- [] Add upload image when items are added to the cart
-- [] Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
+
+- Select a chain size and update in context and shopify.
+- Charm positions on the chain are now hardcoded. Figure out how to integrate them in the chain and when.
+- Upload image when items are added to the cart or at checkout
+
+- Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
+- Add final category for waist chains.
+
+
+
+
+
+
+
+
+Other:
 
 - [] Improve contact us page, write tests
 - [] Make sure newsletter works
-
-
 - [] Translate everything
 - [] Add and check terms and conditions, privacy policy and others
-
-Additional features:
-- Search
-- Profiles for users
 
 Optmise!
 - Figure out how to track performance, record and improve it.
@@ -36,14 +32,15 @@ Optmise!
 
 Additions:
 - [] Add basic SEO to pages
-- Add Analytics
-- Add Accessibility 
+- [] Add Analytics
+- [] Add Accessibility
 
 
 Bugs:
 - Falling charms
 - Intro section styles
 - Newsletter
+- Charm bar section for mobile is wrong
 
 
 ## Inspirations
@@ -104,9 +101,6 @@ Charms Section
 - Setup payment
 - Sorting
 
-Learn about context
-Figure out how to use context?
-
 Backend:
 
 - Learn all about the backend
@@ -115,36 +109,18 @@ Backend:
 Bonus Idea: Save my designs
 Bonus Idea: Share on social media
 
-## Bugs
 
-- Font is looking crazy
-- The cart add item function doesn't work
 
-## TODO
 
-Qnina:
-- Text Content
 
-Devi and Qni
-- Video this weekend
 
-Cart:
-- Adding a product
-- Shopping cart items
 
-Navbar:
-- Remove components
-- Open links when hovering
 
 
 
-## Cart
 
-Adding an item to the cart.
 
-When the user enters the website we create a cart and set the cookies of the cart.
 
-When the user adds an item to the cart we do what?
 
 
 
@@ -169,71 +145,3 @@ When the user adds an item to the cart we do what?
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-TODO:
-- [] BUILD THE PROJECT!!! 
-- [X] Add internationalization
-- [X] Translate charm bar
-- [x] Add language switcher
-- Fix Navbar bug
-- Fix Newsletter subscribtion
-
-
-Charmbar:
-- [x] Add Necklace Product
-- Send a picture of the created design
-- Fix Filters pick bug
-- Make the neckalace follow the scrolldown
-- Add Charmbar Context
-- Add Reset button
-
-
-
-This morning do these!
-
-Charmbar review:
-
-1. Selected chain
-
--[x] Now the chain is hardcoded. We need to pass the image of the selected chain to the
-charmbar.
-
-We need to define the settings for each category.
-
-Plan:
-- Add all the products for each category
-- Define the settings for charms placements on the chain
-- Add size and material variants.
-
-2. Filter Charms by collection
-
-We add a tag to the charm of the collection id. 
-We have a client component collection selector that updates the url
-Then in the charm bar [category][chain] page we add it to a query for get products
-
-
-Design Desitions:
-
-- All charms in charms selector will be the same size. They will be smaller on the chain
-
-Ideas:
-
-- Featured collection section

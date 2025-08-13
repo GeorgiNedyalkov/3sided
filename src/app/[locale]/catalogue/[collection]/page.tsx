@@ -13,6 +13,7 @@ export default async function CategoryPage(props: {
   const params = await props.params;
   const products = await getCollectionProducts({ collection: params.collection, sortKey, reverse });
 
+
   return (
     <section>
       <Grid className="grid-cols-1 sm:grid-cols-2 lg:grid-cols-4">
