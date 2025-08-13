@@ -34,9 +34,9 @@ export type CartItem = {
     }[];
     product: CartProduct;
   };
-  attributes: {
-    orderImage: string;
-  };
+  // attributes?: {
+  //   orderImage: string;
+  // };
 };
 
 export type Collection = ShopifyCollection & {
