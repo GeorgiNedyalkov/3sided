@@ -1,50 +1,44 @@
 import Breadcrumbs from "@/components/breadcrumbs";
 import ChainSelector from "@/components/charm-bar/chain-selector";
+import ChainSizeSelector from "@/components/charm-bar/chain-size-selector";
 import { getTranslations } from "next-intl/server";
+import { getProducts } from "@/lib/shopify";
+import { CharmBarContextProvider } from "@/components/charm-bar/charm-bar-context"
 
 export default async function CategorySelectPage({ params }: { params: Promise<{ category: string; }> }) {
-  const { category } = await params;
+	const { category } = await params;
 
-  const t = await getTranslations("Charmbar");
+	const t = await getTranslations("Charmbar");
 
-  const breadcrumbs = [
-    {
-      label: t("category"),
-      href: "/charm-bar",
-      active: false,
-    },
-    {
-      label: t("chainSizeTitle"),
-      href: "#",
-      active: true,
-    },
-  ];
+	const chains = await getProducts({ query: `product_type:${category}` });
 
-  const sizes = [
-    "S-22sm", "M-40sm", "L-50sm"
-  ]
+	const breadcrumbs = [
+		{
+			label: t("category"),
+			href: "/charm-bar",
+			active: false,
+		},
+		{
+			label: t("chainSizeTitle"),
+			href: "#",
+			active: true,
+		},
+	];
 
-  return (
-    <>
-      <Breadcrumbs breadcrumbs={breadcrumbs} />
-      <div className="flex gap-10">
-        <div>
-          <p className="p-2 text-sm">{t("chainSizeStep")}</p>
-          <ChainSelector category={category} />
-        </div>
-        <div>
-          <p className="text-sm pb-4">
-            Избери размер
-          </p>
-          <div className="flex gap-4">
-            {
-              sizes.map((size) => (
-                <button className="w-32 h-10 cursor-pointer border">{size}</button>
-              ))
-            }
-          </div>
-        </div>
-      </div>
-    </>
-  );
+	return (
+		<CharmBarContextProvider>
+			<Breadcrumbs breadcrumbs={breadcrumbs} />
+			<p className="p-2 text-sm">{t("chainSizeStep")}</p>
+
+			<div className="flex flex-col md:flex-row gap-10">
+				<div className="order-2 md:order-1">
+					<ChainSelector category={category} />
+				</div>
+
+				<div className="order-1 md:order-2">
+					<ChainSizeSelector chain={chains[0]} />
+				</div>
+			</div>
+		</CharmBarContextProvider>
+	);
 }

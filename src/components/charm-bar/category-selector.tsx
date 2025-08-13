@@ -22,7 +22,6 @@ export default function CategorySelector() {
 		},
 	];
 
-	// TODO: make interactive and optimize
 	return (
 		<>
 			<li className="flex flex-col gap-2 pb-20 md:flex-row md:justify-between">

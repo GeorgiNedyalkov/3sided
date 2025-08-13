@@ -12,15 +12,15 @@ Charm Bar:
 - Add final category for waist chains.
 
 
-
-
-
-
-
-
 Other:
+- [] Show pending status with user adds items to cart
+- [] Figure out how to add sizes to chains
+- [] Add upload image when items are added to the cart
 
-- [] Improve contact us page, write tests
+- [] Add testing to most crucial components: (Charm-bar, Cart, Payments, Upload Image)
+
+
+- [x] Improve contact us page, write tests
 - [] Make sure newsletter works
 - [] Translate everything
 - [] Add and check terms and conditions, privacy policy and others
@@ -108,40 +108,3 @@ Backend:
 
 Bonus Idea: Save my designs
 Bonus Idea: Share on social media
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

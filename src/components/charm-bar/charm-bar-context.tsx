@@ -2,75 +2,86 @@
 
 import { createContext, useContext, useState } from "react";
 import { Product } from "@/lib/shopify/types";
+import  {categoryPositionSettings} from "@/lib/placeholder-data"
 
 // Products include one chain and multiple charms
 
 type CharmBarContextType = {
-  selectedChain: Product | null;
-  selectedCharms: (Product | null)[];
-  selectedCharmPosition: number;
-  handleSelectCharmPosition: (index: number) => void;
-  handleCharmSelect: (charm: Product, position: number) => void;
-  handleCharmRemove: (position: number) => void;
+	selectedChain: Product | null;
+	selectedCharms: (Product | null)[];
+	selectedCharmPosition: number;
+	handleChainSelect: (chain: Product) => void;
+	handleCharmSelect: (charm: Product, position: number) => void;
+	handleCharmRemove: (position: number) => void;
+	handleSelectCharmPosition: (index: number) => void;
 }
 
 const CharmBarContext = createContext<CharmBarContextType | null>(null);
 
 
 export function CharmBarContextProvider({ children }: { children: React.ReactNode }) {
-  const [selectedChain, setSelectedChain] = useState<Product | null>(null);
-  const [selectedCharms, setSelectedCharms] = useState<(Product | null)[]>(
-    new Array(5).fill(null)
-  );
+	const [selectedChain, setSelectedChain] = useState<Product | null>(null);
+	const [selectedCharmPosition, setSelectedCharmPosition] = useState<number>(0);
+	const [selectedCharms, setSelectedCharms] = useState<(Product | null)[]>(
+		new Array(5).fill(null)
+	);
 
-  const [selectedCharmPosition, setSelectedCharmPosition] = useState<number>(0);
+	function handleChainSelect(chain: Product) {
+		setSelectedChain(chain);
+	}
 
-  function handleCharmSelect(charm: Product, position: number) {
-    const newSelectedCharms = [...selectedCharms];
-    newSelectedCharms[position] = charm;
-    setSelectedCharms(newSelectedCharms);
-    setSelectedCharmPosition(position);
-  }
+	// TODO: update options when a chain is selected
+	function updateChainOption(name: string, value: string) {
+		const newChainOption = { [name]: value }
+	}
 
-  function handleCharmRemove(position: number) {
-    const newSelectedCharms = [...selectedCharms];
-    newSelectedCharms[position] = null;
-    setSelectedCharms(newSelectedCharms);
+	function handleCharmSelect(charm: Product, position: number) {
+		const newSelectedCharms = [...selectedCharms];
+		newSelectedCharms[position] = charm;
+		setSelectedCharms(newSelectedCharms);
+		setSelectedCharmPosition(position);
+	}
 
-    if (selectedCharmPosition === position) {
-      setSelectedCharmPosition(-1);
-    }
-  }
+	function handleCharmRemove(position: number) {
+		const newSelectedCharms = [...selectedCharms];
+		newSelectedCharms[position] = null;
+		setSelectedCharms(newSelectedCharms);
 
-  function handleSelectCharmPosition(index: number) {
-    if (selectedCharmPosition === index) {
-      setSelectedCharmPosition(-1);
-    } else {
-      setSelectedCharmPosition(index);
-    }
-  }
+		if (selectedCharmPosition === position) {
+			setSelectedCharmPosition(-1);
+		}
+	}
 
-  const values = {
-    selectedChain,
-    selectedCharms,
-    selectedCharmPosition,
-    handleSelectCharmPosition,
-    handleCharmSelect,
-    handleCharmRemove,
-  }
+	function handleSelectCharmPosition(index: number) {
+		if (selectedCharmPosition === index) {
+			setSelectedCharmPosition(-1);
+		} else {
+			setSelectedCharmPosition(index);
+		}
+	}
 
-  return <CharmBarContext.Provider value={values}>
-    {children}
-  </CharmBarContext.Provider>
+	const values = {
+		selectedChain,
+		selectedCharms,
+		selectedCharmPosition,
+		handleChainSelect,
+		handleCharmSelect,
+		handleCharmRemove,
+		handleSelectCharmPosition,
+	}
+
+	return <CharmBarContext.Provider value={values}>
+		{children}
+	</CharmBarContext.Provider>
 }
 
 
 export function useCharmBar() {
-  const charmBarContext = useContext(CharmBarContext);
+	const charmBarContext = useContext(CharmBarContext);
 
-  if (!charmBarContext) {
-    throw new Error("useCharmBar must be used within a CartProvider")
-  }
+	if (!charmBarContext) {
+		throw new Error("useCharmBar must be used within a CartProvider")
+	}
 
-  return charmBarContext;
+	return charmBarContext;
 }
