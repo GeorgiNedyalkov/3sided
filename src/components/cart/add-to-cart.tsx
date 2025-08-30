@@ -65,7 +65,6 @@ export function AddAllToCartButton({ charmCanvasRef }: { charmCanvasRef: React.R
 
 	};
 
-	console.log(cart);
 	return (
 		<form
 			action={async () => {

@@ -19,9 +19,6 @@ import {
 import { getCartQuery } from "./queries/cart";
 import { getCollectionProductsQuery, getCollectionsQuery } from "./queries/collections";
 import { addToCartMutation, createCartMutation } from "./mutations/cart";
-// import { getProductTypesQuery } from "./queries/product-types";
-//
-import { cookies } from "next/headers";
 
 const key = process.env.SHOPIFY_STOREFRONT_ACCESS_TOKEN!;
 const domain = process.env.SHOPIFY_STORE_DOMAIN;
@@ -30,16 +27,12 @@ const endpoint = `${domain}/${process.env.SHOPIFY_GRAPHQL_API_ENDPOINT}`;
 type ExtractVariables<T> = T extends { variables: object } ? T["variables"] : never;
 
 export async function shopifyFetch<T>({
-  cache = "force-cache",
   headers,
   query,
-  tags,
   variables,
 }: {
-  cache?: RequestCache;
   headers?: HeadersInit;
   query: string;
-  tags?: string[];
   variables?: ExtractVariables<T>;
 }): Promise<{ status: number; body: T } | never> {
   try {
@@ -54,8 +47,6 @@ export async function shopifyFetch<T>({
         ...(query && { query }),
         ...(variables && { variables }),
       }),
-      cache,
-      ...(tags && { next: { tags } }),
     });
     const body = await result.json();
     if (body.errors) {

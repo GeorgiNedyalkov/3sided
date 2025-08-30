@@ -1,6 +1,13 @@
 # 3 Sided Ecommerce site
 
-## TODO:
+## TODO
+
+- [] Figure out adding to cart
+- [] Figure out caching
+- [] Figure out context
+
+
+-----------------------------------------------
 
 Charm Bar:
 

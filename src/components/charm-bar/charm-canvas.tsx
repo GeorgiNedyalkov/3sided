@@ -14,8 +14,6 @@ export default function CharmCanvas({ chain }: { chain: Product }) {
 
 	let selectedCategory = categoryPositionSettings.find((category) => category.handle === chain.handle) || categoryPositionSettings[0];
 
-	console.log(selectedCategory);
-
 	const ref = useRef<HTMLDivElement>(null);
 
 	return (

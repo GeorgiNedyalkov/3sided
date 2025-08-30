@@ -12,7 +12,6 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
 	const { category, chain } = await params;
 	const { material, collection } = await searchParams;
 	const t = await getTranslations("Charmbar")
-
 	const selectedChain = await getProduct(chain);
 
 	let selectedMaterial;
@@ -26,9 +25,13 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
 		}
 	}
 
-	const query = `product_type:charm tag:${selectedMaterial} ${collection ? `AND tag:${collection}` : ""} `
+	const selectedCollection = collection ? `AND tag:${collection}` : ""
+
+	const query = `product_type:charm tag:${selectedMaterial} ${selectedCollection}`
 
 	const filteredCharms = await getProducts({ query: query });
+
+	console.log({ selectedChain });
 
 	const breadcrumbs = [
 		{ label: t("category"), href: "/charm-bar", active: false },
