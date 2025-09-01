@@ -26,12 +26,8 @@ export default async function CharmsSelectPage({ params, searchParams }: Props) 
 	}
 
 	const selectedCollection = collection ? `AND tag:${collection}` : ""
-
 	const query = `product_type:charm tag:${selectedMaterial} ${selectedCollection}`
-
 	const filteredCharms = await getProducts({ query: query });
-
-	console.log({ selectedChain });
 
 	const breadcrumbs = [
 		{ label: t("category"), href: "/charm-bar", active: false },

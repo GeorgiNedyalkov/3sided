@@ -12,7 +12,7 @@ type CharmBarContextType = {
 	handleCharmSelect: (charm: Product, position: number) => void;
 	handleCharmRemove: (position: number) => void;
 	handleSelectCharmPosition: (index: number) => void;
-	updateChainOption: (name: number, value: string) => void;
+	updateChainOption: (name: string, value: string) => void;
 }
 
 const CharmBarContext = createContext<CharmBarContextType | null>(null);
@@ -33,6 +33,7 @@ export function CharmBarContextProvider({ children }: { children: React.ReactNod
 	function updateChainOption(name: string, value: string) {
 		const newChainOption = { [name]: value }
 		if(!selectedChain) {
+			console.log("No selected chain");
 			return;
 		}
 		setSelectedChain({
@@ -74,7 +75,7 @@ export function CharmBarContextProvider({ children }: { children: React.ReactNod
 		handleCharmSelect,
 		handleCharmRemove,
 		handleSelectCharmPosition,
-		updateChainOption,
+		updateChainOption
 	}
 
 	return <CharmBarContext.Provider value={values}>
