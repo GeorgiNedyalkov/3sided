@@ -45,8 +45,7 @@ export function AddAllToCartButton({ charmCanvasRef }: { charmCanvasRef: React.R
 	const { selectedCharms, selectedChain } = useCharmBar();
 	const [message, formAction, isPending] = useActionState(addItem, null);
 
-	const items = [...selectedCharms, selectedChain];
-
+	const items = [selectedChain, ...selectedCharms];
 
 	const handleAddItems = async () => {
 		const linkToOrderImage = await uploadCanvasScreenshot(charmCanvasRef);
@@ -65,7 +64,6 @@ export function AddAllToCartButton({ charmCanvasRef }: { charmCanvasRef: React.R
 
 	};
 
-	console.log(cart);
 	return (
 		<form
 			action={async () => {

@@ -1,7 +1,4 @@
-"use client"
-
 import Image from "next/image";
-
 
 export default function Gallery({ images }: { images: { src: string; alt: string }[] }) {
   return (
@@ -16,9 +13,6 @@ export default function Gallery({ images }: { images: { src: string; alt: string
           priority
         />
       </div>
-
-      {/* NOTE: What are we adding here? */}
-
     </div>
   );
 }

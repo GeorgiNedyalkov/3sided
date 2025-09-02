@@ -10,19 +10,19 @@ import { AddAllToCartButton } from "@/components/cart/add-to-cart"
 import TotalPrice from "@/components/charm-bar/total-price";
 
 export default function CharmCanvas({ chain }: { chain: Product }) {
-	const { selectedCharms } = useCharmBar();
+	const { selectedChain, selectedCharms } = useCharmBar();
 
 	let selectedCategory = categoryPositionSettings.find((category) => category.handle === chain.handle) || categoryPositionSettings[0];
 
-	console.log(selectedCategory);
-
 	const ref = useRef<HTMLDivElement>(null);
+
+	const finalChain = selectedChain ? selectedChain : chain;
 
 	return (
 		<div className="sticky self-start top-20 w-full">
 			<div ref={ref} className="relative h-[500px] w-[90vw] lg:h-[70vh] lg:w-[500px] mx-auto">
 				<Image
-					src={chain.featuredImage.url}
+					src={finalChain.featuredImage.url}
 					alt="Selected chain on the charm bar"
 					className="absolute h-full w-full object-contain"
 					fill
@@ -35,9 +35,8 @@ export default function CharmCanvas({ chain }: { chain: Product }) {
 				/>
 			</div>
 			<TotalPrice />
-			<AddAllToCartButton charmCanvasRef={ref} />
-			<p className="text-lg">Choose a minimum of 3 charms</p>
 
+			<AddAllToCartButton charmCanvasRef={ref} />
 		</div>
 	);
 }

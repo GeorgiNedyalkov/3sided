@@ -28,7 +28,6 @@ export default async function LocaleLayout({
   params: Promise<{ locale: string }>
 }>) {
 
-
   const { locale } = await params;
 
   if (!hasLocale(routing.locales, locale)) {
@@ -36,7 +35,6 @@ export default async function LocaleLayout({
   }
 
   const cartId = (await cookies()).get("cartId")?.value;
-
   const cart = await getCart(cartId);
 
   if (!cart) {
