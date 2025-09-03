@@ -29,14 +29,14 @@ export default function CategorySelector() {
 					<Link
 						key={category}
 						href={`/charm-bar/${category}`}
-						className="hover: rounded p-2 text-center font-bold"
+						className="rounded p-2 text-center font-bold"
 					>
-						<div className="relative w-[400px] h-[500px]">
+						<div className="overflow-hidden relative w-[400px] h-[500px]">
 							<Image
 								src={imageSrc}
 								alt={`${category} main picture`}
 								fill
-								className="object-cover"
+								className="object-cover hover:scale-110 duration-300"
 							/>
 						</div>
 						<p className="pt-2">{category.charAt(0).toUpperCase() + category.slice(1)}</p>
