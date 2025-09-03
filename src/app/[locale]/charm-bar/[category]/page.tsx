@@ -29,17 +29,15 @@ export default async function CategorySelectPage({ params }: { params: Promise<{
 		<>
 			<Breadcrumbs breadcrumbs={breadCrumbs} />
 			<p className="p-2 text-sm">{t("chainSizeStep")}</p>
-			<CharmBarContextProvider>
-				<div className="flex flex-col md:flex-row gap-10">
-					<div className="order-2 md:order-1">
-						<ChainSelector chains={chains} category={category} />
-					</div>
-
-					<div className="order-1 md:order-2">
-						<ChainSizeSelector category={category} />
-					</div>
+			<div className="flex flex-col md:flex-row gap-10">
+				<div className="order-2 md:order-1">
+					<ChainSelector chains={chains} category={category} />
 				</div>
-			</CharmBarContextProvider>
+
+				<div className="order-1 md:order-2">
+					<ChainSizeSelector category={category} />
+				</div>
+			</div>
 		</>
 	);
 }

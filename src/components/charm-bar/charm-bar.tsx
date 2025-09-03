@@ -15,19 +15,17 @@ type CharmBarProps = {
 
 export default function CharmBar({ charms, chain, selectedMaterial }: CharmBarProps) {
 	return (
-		<CharmBarContextProvider>
-			<div className="relative mb-20">
-				<div className="flex justify-between">
-					<CharmCanvas chain={chain} />
-					<div className="flex flex-col gap-10 lg:max-w-[40vw]">
-						<div className="flex items-center justify-between">
-							<Toggle initialState={selectedMaterial === "gold"} />
-							<FilterCollections />
-						</div>
-						<CharmSelector charms={charms} />
+		<div className="relative mb-20">
+			<div className="flex justify-between">
+				<CharmCanvas chain={chain} />
+				<div className="flex flex-col gap-10 lg:max-w-[40vw]">
+					<div className="flex items-center justify-between">
+						<Toggle initialState={selectedMaterial === "gold"} />
+						<FilterCollections />
 					</div>
+					<CharmSelector charms={charms} />
 				</div>
 			</div>
-		</CharmBarContextProvider>
+		</div>
 	);
 }

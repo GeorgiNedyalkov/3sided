@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import { useCharmBar } from "@/components/charm-bar/charm-bar-context"
-import Link from "next/link";
 import clsx from "clsx";
 import { LinkButton } from "@/components/buttons";
 
